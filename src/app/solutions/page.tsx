@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { Img } from "@/components/ui/Img";
 import Link from "next/link";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { ConceptNotice } from "@/components/ui/ConceptNotice";
@@ -47,7 +47,7 @@ export default function SolutionsPage() {
 
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] border border-[var(--rule)]">
-                  <Image
+                  <Img
                     src={solution.image}
                     alt={solution.imageAlt}
                     fill

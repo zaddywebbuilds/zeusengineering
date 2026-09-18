@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { Img } from "@/components/ui/Img";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { TechLabel } from "@/components/ui/TechLabel";
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
 
           <div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[4px] border border-[var(--rule)]">
-              <Image
+              <Img
                 src="/images/concept/campus-aerial.webp"
                 alt="Concept visualisation of a ZEUS site with containerised units, a solar array and a compute hall"
                 fill

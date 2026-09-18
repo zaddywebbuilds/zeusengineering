@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { company } from "@/data/company";
-import { contactPaths, type ContactIntent } from "@/data/navigation";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -14,18 +14,15 @@ export const metadata: Metadata = pageMeta({
   path: "/contact",
 });
 
-const validIntents = contactPaths.map((p) => p.id) as readonly string[];
-
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ intent?: string }>;
-}) {
-  const params = await searchParams;
-  const intent: ContactIntent = validIntents.includes(params.intent ?? "")
-    ? (params.intent as ContactIntent)
-    : "build";
-
+/**
+ * Static page.
+ *
+ * The ?intent= parameter is read inside ContactForm via useSearchParams rather
+ * than as a server-side searchParams prop — that prop would make this route
+ * dynamic, and the site is exported as static HTML for GitHub Pages. The
+ * Suspense boundary is what useSearchParams requires in an exported build.
+ */
+export default function ContactPage() {
   return (
     <>
       <PageHeader
@@ -37,7 +34,9 @@ export default async function ContactPage({
 
       <Section>
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:gap-20">
-          <ContactForm initialIntent={intent} />
+          <Suspense fallback={<ContactFormSkeleton />}>
+            <ContactForm />
+          </Suspense>
 
           <aside className="space-y-10">
             <div>
@@ -90,5 +89,19 @@ export default async function ContactPage({
         </div>
       </Section>
     </>
+  );
+}
+
+/** Holds the layout while the client reads the intent parameter. */
+function ContactFormSkeleton() {
+  return (
+    <div aria-hidden className="animate-pulse">
+      <div className="mb-10 h-28 border border-[var(--rule)] bg-carbon" />
+      <div className="space-y-7">
+        <div className="h-20 bg-carbon" />
+        <div className="h-20 bg-carbon" />
+        <div className="h-40 bg-carbon" />
+      </div>
+    </div>
   );
 }

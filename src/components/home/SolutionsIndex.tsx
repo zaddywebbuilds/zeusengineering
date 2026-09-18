@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Img } from "@/components/ui/Img";
 import Link from "next/link";
 import { solutions } from "@/data/solutions";
 import { TechLabel } from "@/components/ui/TechLabel";
@@ -52,7 +52,7 @@ export function SolutionsIndex() {
 
               <div>
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[4px] border border-[var(--rule)] lg:aspect-[16/9]">
-                  <Image
+                  <Img
                     src={solution.image}
                     alt={solution.imageAlt}
                     fill

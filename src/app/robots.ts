@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 
+// Required by `output: "export"` — these are emitted at build time.
+export const dynamic = "force-static";
+
 /**
  * Generated, not static.
  *

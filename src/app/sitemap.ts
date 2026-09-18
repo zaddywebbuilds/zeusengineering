@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { primaryNav } from "@/data/navigation";
 
+// Required by `output: "export"` — these are emitted at build time.
+export const dynamic = "force-static";
+
 /**
  * Built from the navigation data so a new route cannot be added to the menu
  * and forgotten in the sitemap.

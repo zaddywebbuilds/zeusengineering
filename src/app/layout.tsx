@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { RevealProvider } from "@/components/motion/RevealProvider";
 import { company } from "@/data/company";
 import { SITE_URL, organizationJsonLd } from "@/lib/seo";
+import { asset } from "@/lib/asset";
 import "./globals.css";
 
 const barlow = Barlow_Condensed({
@@ -29,7 +30,8 @@ export const metadata: Metadata = {
   description:
     "Modular infrastructure for Bitcoin, AI and high-density computing — engineered in Vietnam.",
   applicationName: company.name,
-  icons: { icon: "/images/brand/zeus-mark.webp" },
+  // metadata.icons is not base-path-aware either — prefix it explicitly.
+  icons: { icon: asset("/images/brand/zeus-mark.webp") },
   robots: { index: true, follow: true },
 };
 

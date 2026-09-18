@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Img } from "@/components/ui/Img";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -72,7 +72,7 @@ export function SiteHeader() {
           className="flex shrink-0 items-center"
           aria-label={`${company.name} — home`}
         >
-          <Image
+          <Img
             src="/images/brand/zeus-wordmark.webp"
             alt={company.name}
             width={702}

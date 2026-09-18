@@ -125,14 +125,36 @@ None installed, and no tracker IDs invented. There is deliberately no cookie
 banner because nothing sets a cookie. If analytics are added, update
 `/legal/privacy` and add consent handling first.
 
-### Environment
+## Deployment
+
+Static export to **GitHub Pages**, built by `.github/workflows/deploy.yml` on
+every push to `main`. The workflow lints, type-checks (via `next build`) and
+publishes `out/` — a lint or type error fails the deploy rather than shipping a
+broken page. `out/` is gitignored; CI builds it.
+
+Live at **https://zaddywebbuilds.github.io/zeusengineering/**
+
+### Base path — read this before changing hosting
+
+A project repo is served from `/<repo>/`, so every route and asset needs that
+prefix. It is configured once in `.env.production`:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://zeus-engineering.com   # canonicals + sitemap
+NEXT_PUBLIC_BASE_PATH=/zeusengineering
+NEXT_PUBLIC_SITE_URL=https://zaddywebbuilds.github.io/zeusengineering
 ```
 
-Defaults to `https://zeus-engineering.com`. **Set this to the real deployment
-origin before launch** or canonicals will point at the wrong host.
+**Moving to a custom domain:** blank `NEXT_PUBLIC_BASE_PATH`, set
+`NEXT_PUBLIC_SITE_URL` to the domain, and add a `CNAME` file to `public/`.
+No code changes.
+
+**The trap:** `next build` sets `images.unoptimized` for static export, and with
+the optimiser off `next/image` does **not** prepend `basePath`. Links and
+stylesheets resolve; every image 404s. This is invisible locally, where the base
+path is empty. That is why all images go through `<Img>` (`src/components/ui/Img.tsx`)
+and raw video sources and the favicon go through `asset()` (`src/lib/asset.ts`).
+
+**Never import `next/image` directly — import `<Img>`.**
 
 ## Assets
 

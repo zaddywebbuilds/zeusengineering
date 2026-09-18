@@ -7,7 +7,7 @@ import { company } from "@/data/company";
  */
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
-  "https://zeus-engineering.com";
+  "https://zaddywebbuilds.github.io/zeusengineering";
 
 const DEFAULT_OG = "/images/concept/campus-aerial.webp";
 
@@ -39,13 +39,15 @@ export function pageMeta({
       siteName: company.name,
       type: "website",
       locale: "en_GB",
-      images: [{ url: image, width: 1920, height: 1080, alt: fullTitle }],
+      images: [
+        { url: `${SITE_URL}${image}`, width: 1920, height: 1080, alt: fullTitle },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [image],
+      images: [`${SITE_URL}${image}`],
     },
   };
 }

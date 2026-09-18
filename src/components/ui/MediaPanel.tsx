@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
+import { Img } from "./Img";
 import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
+import { asset } from "@/lib/asset";
 import { TechLabel } from "./TechLabel";
 import { cx } from "@/lib/utils";
 
@@ -76,7 +77,7 @@ export function MediaPanel({
           <video
             ref={videoRef}
             className="h-full w-full object-cover"
-            poster={image}
+            poster={asset(image)}
             autoPlay
             muted
             loop
@@ -87,15 +88,15 @@ export function MediaPanel({
           >
             {video.mobile && (
               <source
-                src={video.mobile}
+                src={asset(video.mobile)}
                 type="video/mp4"
                 media="(max-width: 767px)"
               />
             )}
-            <source src={video.desktop} type="video/mp4" />
+            <source src={asset(video.desktop)} type="video/mp4" />
           </video>
         ) : (
-          <Image
+          <Img
             src={image}
             alt={alt}
             fill

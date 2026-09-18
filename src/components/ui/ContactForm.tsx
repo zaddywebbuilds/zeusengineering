@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { contactPaths, type ContactIntent } from "@/data/navigation";
 import { company } from "@/data/company";
 import { cx } from "@/lib/utils";
@@ -68,7 +69,17 @@ const intentCopy: Record<ContactIntent, string> = {
     "Investor enquiries relating to the $2.69M SSMDC raise.",
 };
 
-export function ContactForm({ initialIntent }: { initialIntent: ContactIntent }) {
+const validIntents = contactPaths.map((p) => p.id) as readonly string[];
+
+export function ContactForm() {
+  // Read on the client: a server-side searchParams prop would make the route
+  // dynamic, and this site is exported as static HTML.
+  const params = useSearchParams();
+  const requested = params.get("intent");
+  const initialIntent: ContactIntent = validIntents.includes(requested ?? "")
+    ? (requested as ContactIntent)
+    : "build";
+
   const [intent, setIntent] = useState<ContactIntent>(initialIntent);
   const [sent, setSent] = useState(false);
 

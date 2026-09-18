@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Img } from "@/components/ui/Img";
 import Link from "next/link";
 import { company } from "@/data/company";
 import { contactPaths, primaryNav } from "@/data/navigation";
@@ -69,7 +69,7 @@ export function SiteFooter() {
       <div className="border-t border-[var(--rule)]">
         <div className="shell flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-6">
-            <Image
+            <Img
               src="/images/brand/zeus-wordmark.webp"
               alt={company.name}
               width={702}

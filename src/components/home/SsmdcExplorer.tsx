@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Img } from "@/components/ui/Img";
 import { useState } from "react";
 import { ssmdc } from "@/data/products";
 import { TechLabel } from "@/components/ui/TechLabel";
@@ -88,7 +88,7 @@ export function SsmdcExplorer() {
           {/* Drawing + layer highlight */}
           <div className="reveal relative overflow-hidden rounded-[4px] border border-[var(--rule)] bg-graphite">
             <div className="relative aspect-square">
-              <Image
+              <Img
                 src={ssmdc.image}
                 alt={ssmdc.imageAlt}
                 fill
