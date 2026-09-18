@@ -1,4 +1,3 @@
-import { CountUp } from "@/components/motion/CountUp";
 import { STATUS_DISCLOSURE, type Fact } from "@/data/facts";
 import { StatusBadge } from "./StatusBadge";
 import { cx } from "@/lib/utils";
@@ -39,7 +38,7 @@ export function MetricRow({
           >
             <div className="flex items-baseline gap-1.5">
               <span className="numeral text-[clamp(3rem,6vw,4.75rem)]">
-                <CountUp value={fact.value} />
+                {fact.value}
               </span>
               {fact.unit && (
                 <span className="numeral text-[clamp(1.25rem,2vw,1.75rem)] text-slate">

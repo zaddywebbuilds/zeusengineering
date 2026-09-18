@@ -111,7 +111,7 @@ export const hyperscaleComparison = [
   {
     capability: "Existing live prototype",
     hyperscale: "Not applicable",
-    ssmdc: "100 kWp operational",
+    ssmdc: "100 kW site operating",
   },
 ];
 
@@ -255,9 +255,10 @@ export const traction: Fact[] = [
   },
   {
     value: "100",
-    unit: "kWp",
-    label: "Operational ASIC prototype",
+    unit: "kW",
+    label: "Operating ASIC prototype",
     status: "zeus-reported",
+    note: "The same site as the facility capacity reported elsewhere.",
   },
   {
     value: "BTC",
@@ -297,7 +298,7 @@ export const whyZeusNow = [
   },
   {
     title: "Live prototype",
-    body: "A 100 kWp BTC ASIC site already running in Vietnam. Real data, real lessons.",
+    body: "A 100 kW BTC ASIC site already running in Vietnam. Real data, real lessons.",
   },
   {
     title: "Vertical integration",

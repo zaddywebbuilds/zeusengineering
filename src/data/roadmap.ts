@@ -30,10 +30,10 @@ export const roadmap: Milestone[] = [
     title: "Vietnam prototype",
     status: "zeus-reported",
     figure: "100",
-    figureUnit: "kWp",
+    figureUnit: "kW",
     body: "An operational ASIC site in Vietnam running a live Bitcoin workload, the foundation the SSMDC design is drawn from.",
     points: [
-      "100 kWp ASIC site operational",
+      "100 kW ASIC site operating",
       "DC-DC and solar-plus-battery lessons captured",
       "Team and process in place",
     ],

@@ -35,7 +35,7 @@ const sections = [
   },
   {
     t: "Solar",
-    b: "20 kWp as reported by ZEUS. The SSMDC node design that follows this prototype targets 80–120 kWp with 300–500 kWh of usable battery storage.",
+    b: "20 kW peak solar as reported by ZEUS. The SSMDC node design that follows this prototype targets 80–120 kWp with 300–500 kWh of usable battery storage.",
   },
   {
     t: "Compute",

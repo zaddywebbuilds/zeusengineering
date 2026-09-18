@@ -35,9 +35,9 @@ export function Expansion() {
         </h2>
 
         <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
-          The case ZEUS makes for building many small nodes instead of one large
-          campus. It is the company&rsquo;s own comparison, not an independent
-          benchmark.
+          How ZEUS sees the deployment model: many small nodes rather than one
+          large campus. This is the company&rsquo;s own design thesis, not an
+          independent industry benchmark.
         </p>
 
         <Figure

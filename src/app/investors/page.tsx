@@ -50,7 +50,7 @@ export default function InvestorsPage() {
       <PageHeader
         label="Investor relations"
         title={"Build the nodes.\nScale the network."}
-        lede="Hyperscale cannot keep up with the hunger for compute. ZEUS is raising $2.69M to build decentralised, solar-powered AI compute nodes in southern Vietnam, on the back of a mining site that already runs."
+        lede="ZEUS is raising $2.69M to build decentralised, solar-powered AI compute nodes in southern Vietnam, on the back of a mining site that already runs. The figure and its allocation come from ZEUS’s own SSMDC deck; see the claim audit in the repository."
         crumbs={[{ label: "Home", href: "/" }]}
         status={{ value: "target", label: "Raising" }}
         media={{
@@ -99,9 +99,9 @@ export default function InvestorsPage() {
       <Section
         index="02"
         label="The problem"
-        title={"Hyperscale cannot\nkeep up."}
+        title={"Hyperscale alone cannot\nmeet every deployment."}
         tone="linen"
-        lede="The constraint on AI compute is no longer silicon. It is the years, the capital and the single-site risk involved in putting that silicon somewhere it can run."
+        lede="Large campuses will keep being built. ZEUS is aimed at the deployments they serve badly: where land, a grid connection, capital or construction time rules a campus out, or where the compute needs to sit somewhere a campus will not go."
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-3">
           {hyperscaleProblems.map((problem) => (
@@ -126,7 +126,7 @@ export default function InvestorsPage() {
         index="03"
         label="Traction"
         title={"Already operating.\nAlready learning."}
-        lede="ZEUS has spent a decade building dense power, cooling and modular compute systems, first for mining, now redirected to AI. The Vietnam prototype is the foundation the SSMDC design is drawn from."
+        lede="ZEUS describes a decade spent building dense power, cooling and modular compute systems, first for mining and now redirected to AI. The operating site is the foundation the SSMDC design is drawn from."
       >
         <MetricRow facts={traction} />
       </Section>

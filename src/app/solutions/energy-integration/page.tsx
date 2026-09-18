@@ -63,7 +63,7 @@ export default function EnergyIntegrationPage() {
                 Solar supplement
               </h3>
               <p className="mt-4 leading-relaxed text-slate">
-                ZEUS reports 20 kWp of solar at the operating prototype. The
+                ZEUS reports 20 kW of peak solar at the operating site. The
                 SSMDC node design targets 80–120 kWp with 300–500 kWh of usable
                 battery, enough to carry a 50–75 kW continuous IT load through
                 the night in a strong solar region.

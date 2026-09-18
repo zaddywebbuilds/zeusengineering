@@ -80,7 +80,7 @@ Verbatim from the deck's own use-of-funds table.
 | Figure | Status | Source |
 |---|---|---|
 | 5 yrs established in Vietnam | Zeus reported | [D2] p6 |
-| **100 kWp** operational ASIC prototype | Zeus reported | [D2] p6 and p3. Note [D1] says "100 kW facility"; [D2] writes kWp. Both are ZEUS's wording for the same site, **worth asking ZEUS which unit is correct** |
+| **100 kW** operating ASIC prototype | Zeus reported | [D2] p6 and p3 write "100 kWp"; [D1] writes "100 kW facility". **RESOLVED IN FAVOUR OF kW.** Presenting "100 kWp" beside the reported "20 kW peak solar" reads as a contradiction, since kWp normally denotes solar peak and would imply a 100 kWp array at a site with 20 kW of solar. The site uses the unambiguous facility-capacity wording throughout. **Question for ZEUS: is the prototype 100 kW of site capacity, or 100 kWp of solar?** If the latter, it is a second installation and needs naming separately. |
 | BTC live compute workload | Zeus reported | [D2] p6 |
 | DC path architecture validated | Zeus reported | [D2] p6 |
 
@@ -102,10 +102,11 @@ Every row (3–7+ years, sub-$1M per node, 8–15% savings, and the rest) is ZEU
 own table from [D2] p3, reproduced as the company's argument and labelled on the
 page as "ZEUS's comparison", not an independent benchmark.
 
-**Open item:** the reviewer is right that as the site gets more polished this
-table invites more scrutiny. Either source industry data beneath it, or reframe
-the heading as "how ZEUS believes modular architecture changes the deployment
-model". Recommend the latter until data is sourced.
+**DONE.** The homepage section is now headed "The modular thesis" and states
+that it is ZEUS's own design thesis, not an independent industry benchmark. The
+investor heading was softened from "Hyperscale cannot keep up" to "Hyperscale
+alone cannot meet every deployment", which is defensible without industry data
+behind it.
 
 ## Figures from [D1] currently NOT on the site
 
