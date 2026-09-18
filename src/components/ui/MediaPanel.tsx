@@ -30,6 +30,15 @@ interface Props {
   priority?: boolean;
   className?: string;
   sizes?: string;
+  /**
+   * Hard cap on the panel's rendered width.
+   *
+   * REQUIRED FOR VIDEO. The supplied footage is 736px wide; stretching it past
+   * that upscales and visibly softens it, and no amount of re-encoding fixes
+   * scaling that happens in the browser. Cap a video panel at or below its
+   * source width. Images are high enough resolution not to need this.
+   */
+  maxWidth?: string;
 }
 
 const aspects = {
@@ -50,6 +59,7 @@ export function MediaPanel({
   priority = false,
   className,
   sizes = "(max-width: 1024px) 100vw, 50vw",
+  maxWidth,
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [failed, setFailed] = useState(false);
@@ -68,6 +78,7 @@ export function MediaPanel({
 
   return (
     <figure
+      style={maxWidth ? { maxWidth } : undefined}
       className={cx(
         "overflow-hidden rounded-[4px] border border-[var(--rule)] bg-linen",
         className,

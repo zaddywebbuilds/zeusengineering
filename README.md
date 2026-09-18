@@ -86,6 +86,23 @@ background — alpha included — and clears WCAG AA. The `.on-sage` utility fli
 a whole section to the deep sage block and remaps text, rules and accents for
 it, so inverting a section is one class rather than hand-edited children.
 
+### Never upscale a video panel
+
+The supplied footage is **736px wide**. Stretching a panel past that upscales it
+in the browser and visibly softens it — and no amount of re-encoding fixes
+scaling that happens after decode. The full-bleed aerial strip was rendering at
+1278px from a 736px source (1.74x) and looked blurry for exactly this reason.
+
+`<MediaPanel maxWidth="...">` caps the rendered width. **Set it on every video
+panel**, at or below the source width, and verify:
+
+```js
+[...document.querySelectorAll('video')]
+  .map(v => v.getBoundingClientRect().width / v.videoWidth)  // must be <= 1
+```
+
+Images are 1080px+ and do not need the cap.
+
 ### Media is never a background
 
 Every image and clip sits inside `<MediaPanel>` — a bordered panel with its own

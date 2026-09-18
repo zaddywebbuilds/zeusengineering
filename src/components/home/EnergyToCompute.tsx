@@ -51,8 +51,12 @@ export function EnergyToCompute() {
             Cropped from the supplied brand film, whose full frame carries
             "LONG HAI | VIETNAM" burned into the titles — a place name neither
             deck supports (see AUDIT.md §2). The crop keeps the ZEUS wordmark
-            on the building and drops every burned-in caption. */}
-        <div className="reveal mt-11">
+            on the building and drops every burned-in caption.
+
+            Capped at 720px: the source is 736px wide, so running it full-bleed
+            upscaled it 1.7x and visibly softened it. Sat beside a caption
+            column so the row still reads as a full band. */}
+        <div className="reveal mt-11 grid grid-cols-1 items-end gap-8 lg:grid-cols-[minmax(0,720px)_minmax(0,1fr)] lg:gap-12">
           <MediaPanel
             image="/images/zeus-plant-aerial-poster.webp"
             alt="Aerial view of a compute site: a solar array, containerised units, external cooling plant and a hall carrying the ZEUS Engineering wordmark"
@@ -60,8 +64,15 @@ export function EnergyToCompute() {
             label="Solar, containers, compute"
             note="Concept visualisation"
             aspect="ultrawide"
-            sizes="100vw"
+            maxWidth="720px"
+            sizes="(max-width: 1024px) 100vw, 720px"
           />
+
+          <p className="max-w-[34ch] text-sm leading-relaxed text-slate">
+            Generation, storage and compute on one pad — the shape every SSMDC
+            node takes, sited next to the energy rather than the other way
+            round.
+          </p>
         </div>
 
         {/* The spine */}
