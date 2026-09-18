@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ZEUS ENGINEERING — DESIGN TOKENS
+   Industrial futurism. Graphite dominant, photography second,
+   accent colour used as signal rather than decoration.
+   AMBER = energy / power.  CYAN = compute / data / monitoring.
+   ============================================================ */
+
+@theme {
+  /* Surfaces */
+  --color-graphite: #090b0d;
+  --color-carbon: #111418;
+  --color-gunmetal: #1a1f24;
+  --color-gunmetal-hi: #232930;
+
+  /* Text */
+  --color-engineering: #f2f3f2;
+  --color-steel: #9da5ac;
+  --color-steel-dim: #6b747c;
+
+  /* Accents */
+  --color-amber: #f4a623;
+  --color-amber-dim: #8a5e14;
+  --color-cyan: #55c7d9;
+  --color-cyan-dim: #2b6f7a;
+
+  /* Typography */
+  --font-display: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Motion — mechanical precision, not float */
+  --ease-zeus: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-zeus-in: cubic-bezier(0.64, 0, 0.78, 0);
+}
+
+:root {
+  --rule: rgba(255, 255, 255, 0.1);
+  --rule-strong: rgba(255, 255, 255, 0.18);
+  --grid-line: rgba(255, 255, 255, 0.025);
+  --shell: 1360px;
+  --gutter: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: 2.5rem;
+  }
+}
+
+* {
+  border-color: var(--rule);
+}
+
+html {
+  background: var(--color-graphite);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-graphite);
+  color: var(--color-engineering);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.0625rem;
+  }
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-graphite);
+}
+
+/* ---------- Focus: always visible, never removed ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Layout shell ---------- */
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.shell-wide {
+  width: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Typography primitives ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* Sized for the hero's text COLUMN, not the full viewport — the split
+   layout gives the headline roughly 45% of the width, so the old full-bleed
+   scale wrapped every line. */
+.h-hero {
+  font-size: clamp(2.6rem, 5.4vw, 5.5rem);
+}
+
+.h-section {
+  font-size: clamp(2.5rem, 6vw, 6.5rem);
+}
+
+.h-sub {
+  font-size: clamp(1.75rem, 3.2vw, 3.5rem);
+}
+
+/* Small uppercase technical annotation — the site's connective tissue */
+.tech-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-steel);
+}
+
+@media (min-width: 768px) {
+  .tech-label {
+    font-size: 0.75rem;
+  }
+}
+
+.numeral {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Engineering grid background ---------- */
+.tech-grid {
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+/* ---------- Reveal primitive (JS adds .is-in) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-zeus), transform 0.8s var(--ease-zeus);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Masked headline reveal */
+/* The mask window must be taller than the line box, or a 0.88 line-height
+   clips the glyphs it is meant to reveal. Padding opens the window; the
+   negative margin gives the space back so line spacing is unchanged. */
+.mask-line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.12em;
+  margin-block: -0.12em;
+}
+
+.mask-line > span {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 0.9s var(--ease-zeus);
+}
+
+.is-in .mask-line > span,
+.mask-line.is-in > span {
+  transform: none;
+}
+
+/* Line-draw primitive for diagrams */
+.draw-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.9s var(--ease-zeus);
+}
+
+.draw-line.is-in {
+  transform: scaleX(1);
+}
+
+/* ---------- Reduced motion: strip choreography, keep content ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal,
+  .mask-line > span,
+  .draw-line {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
