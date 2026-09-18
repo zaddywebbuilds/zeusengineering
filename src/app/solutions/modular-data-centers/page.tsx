@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { ssmdc } from "@/data/products";
 import { Figure } from "@/components/diagrams/Figure";
 import { NodeSitePlan } from "@/components/diagrams/NodeSitePlan";
+import { DeploymentSequence } from "@/components/diagrams/DeploymentSequence";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -152,6 +153,15 @@ export default function ModularDataCentersPage() {
         title={"Design once.\nDeploy repeatedly."}
         lede="The sequence a standardised unit follows, from specification through to operation."
       >
+        <Figure
+          label="Two streams, one convergence"
+          caption="The unit is built off site while the site is prepared, so the two streams do not queue behind one another. No duration is shown for an individual step; ZEUS publishes only the overall comparison."
+          tone="linen"
+          className="mb-10"
+        >
+          <DeploymentSequence />
+        </Figure>
+
         <StepList steps={deployment} />
 
         <div className="reveal mt-10 flex flex-wrap items-center gap-4">
