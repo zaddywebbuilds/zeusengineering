@@ -1,4 +1,4 @@
-import { hyperscaleComparison } from "@/data/ssmdc";
+import { hyperscaleComparison, prototypeUnitNote } from "@/data/ssmdc";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
@@ -105,6 +105,10 @@ export function Expansion() {
             prototype. The rest compares an operating model against a design.
           </p>
         </div>
+
+        <p className="reveal mt-4 max-w-[72ch] text-xs leading-relaxed text-slate-dim">
+          {prototypeUnitNote}
+        </p>
 
         <div className="reveal mt-12 flex flex-wrap items-center gap-4">
           <Button href="/solutions/modular-data-centers">

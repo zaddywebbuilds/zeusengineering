@@ -7,6 +7,7 @@ import { TechLabel } from "@/components/ui/TechLabel";
 import { Button } from "@/components/ui/Button";
 import { site } from "@/data/company";
 import { currentOperations, thermalApproach } from "@/data/metrics";
+import { prototypeUnitNote } from "@/data/ssmdc";
 import { pageMeta, breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -82,6 +83,10 @@ export default function ProjectPage() {
 
       <Section index="01" label="Reported figures" title={"The record."}>
         <MetricRow facts={currentOperations} />
+
+        <p className="reveal mt-8 max-w-[74ch] text-xs leading-relaxed text-slate-dim">
+          {prototypeUnitNote}
+        </p>
       </Section>
 
       <Section

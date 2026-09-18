@@ -80,9 +80,28 @@ Verbatim from the deck's own use-of-funds table.
 | Figure | Status | Source |
 |---|---|---|
 | 5 yrs established in Vietnam | Zeus reported | [D2] p6 |
-| **100 kW** operating ASIC prototype | Zeus reported | [D2] p6 and p3 write "100 kWp"; [D1] writes "100 kW facility". **RESOLVED IN FAVOUR OF kW.** Presenting "100 kWp" beside the reported "20 kW peak solar" reads as a contradiction, since kWp normally denotes solar peak and would imply a 100 kWp array at a site with 20 kW of solar. The site uses the unambiguous facility-capacity wording throughout. **Question for ZEUS: is the prototype 100 kW of site capacity, or 100 kWp of solar?** If the latter, it is a second installation and needs naming separately. |
+| **100 kWp** operational ASIC prototype | Zeus reported | [D2] states this in **three** places: **p3** comparison table, "Existing live prototype: 100 kWp operational"; **p6**, "100 kWp / Operational ASIC prototype"; **p10**, "100 kWp BTC ASIC site already running in Vietnam". Reproduced as published. |
 | BTC live compute workload | Zeus reported | [D2] p6 |
 | DC path architecture validated | Zeus reported | [D2] p6 |
+
+### kW and kWp: an open question for ZEUS
+
+[D2] describes the prototype as **100 kWp**. [D1] separately describes the Vung
+Tau operation as a **100 kW facility with 20 kW peak solar**. kW and kWp are
+different units.
+
+Both are reproduced exactly as ZEUS published them, and a short note appears
+wherever a reader meets them (investor traction, homepage comparison, Vung Tau
+figures) stating both and saying ZEUS has not clarified how they relate.
+
+**The site does not claim they are the same site, and does not claim they are
+different sites.** An earlier revision rewrote the deck's "kWp" to "kW" to
+remove the apparent clash; that was wrong, because it silently altered ZEUS's
+own wording, and has been reverted.
+
+**Ask ZEUS:** is the prototype 100 kW of site capacity, or 100 kWp of solar? If
+the latter, it is a separate installation from Vung Tau's 20 kW of solar and
+deserves naming in its own right.
 
 ## Hosted mining
 

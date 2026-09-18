@@ -17,6 +17,23 @@ import type { Fact } from "./facts";
  * two conflict, this file wins.
  */
 
+/**
+ * The prototype unit note.
+ *
+ * ZEUS's September 2026 SSMDC deck states "100 kWp" for the operational ASIC
+ * prototype, in three places: page 3 (comparison table, "Existing live
+ * prototype: 100 kWp operational"), page 6 ("100 kWp / Operational ASIC
+ * prototype") and page 10 ("100 kWp BTC ASIC site already running in
+ * Vietnam"). Earlier ZEUS material separately describes the Vung Tau operation
+ * as a 100 kW facility with 20 kW peak solar.
+ *
+ * kW and kWp are different units. ZEUS has not clarified how the two
+ * descriptions relate, so this site reproduces each as published and says so,
+ * rather than reconciling them on ZEUS's behalf.
+ */
+export const prototypeUnitNote =
+  "ZEUS's September 2026 SSMDC deck describes a 100 kWp operational ASIC prototype. Earlier ZEUS material separately describes the Vung Tau operation as a 100 kW facility with 20 kW peak solar. ZEUS has not clarified how the two relate.";
+
 /** The problem the SSMDC is positioned against. */
 export const hyperscaleProblems = [
   {
@@ -111,7 +128,7 @@ export const hyperscaleComparison = [
   {
     capability: "Existing live prototype",
     hyperscale: "Not applicable",
-    ssmdc: "100 kW site operating",
+    ssmdc: "100 kWp operational",
   },
 ];
 
@@ -255,10 +272,10 @@ export const traction: Fact[] = [
   },
   {
     value: "100",
-    unit: "kW",
-    label: "Operating ASIC prototype",
+    unit: "kWp",
+    label: "Operational ASIC prototype",
     status: "zeus-reported",
-    note: "The same site as the facility capacity reported elsewhere.",
+    note: prototypeUnitNote,
   },
   {
     value: "BTC",
@@ -298,7 +315,7 @@ export const whyZeusNow = [
   },
   {
     title: "Live prototype",
-    body: "A 100 kW BTC ASIC site already running in Vietnam. Real data, real lessons.",
+    body: "A 100 kWp BTC ASIC site already running in Vietnam. Real data, real lessons.",
   },
   {
     title: "Vertical integration",
