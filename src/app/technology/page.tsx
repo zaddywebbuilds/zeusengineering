@@ -35,7 +35,7 @@ export default function TechnologyPage() {
         title={"One schematic."}
         lede="Grid and solar enter, power is managed and distributed, heat is rejected, compute runs, and a control layer watches all of it — feeding telemetry back into how power is allocated."
       >
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-12">
           <div className="border border-[var(--rule)] bg-bark p-6 lg:p-8">
             <TechLabel className="mb-6">Infrastructure schematic</TechLabel>
             <SystemDiagramStatic />

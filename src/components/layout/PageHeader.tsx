@@ -54,7 +54,7 @@ export function PageHeader({
       <div
         className={
           split
-            ? "shell-wide grid grid-cols-1 items-center gap-12 pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-16 lg:pb-24"
+            ? "shell-wide grid grid-cols-1 items-center gap-12 pb-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-12 lg:pb-16"
             : "shell pb-12 lg:pb-16"
         }
       >

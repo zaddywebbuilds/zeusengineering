@@ -13,7 +13,7 @@ export function EnergyToCompute() {
       className="tech-grid relative border-t border-[var(--rule)] bg-soil"
       aria-labelledby="narrative-heading"
     >
-      <div className="shell py-14 lg:py-20">
+      <div className="shell py-12 lg:py-16">
         <TechLabel index="01" className="reveal mb-7">
           Positioning
         </TechLabel>
@@ -26,7 +26,7 @@ export function EnergyToCompute() {
           From energy to compute
         </h2>
 
-        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <p className="reveal text-xl leading-relaxed text-bone lg:text-2xl">
             Founded in {company.founded}, ZEUS Engineering is {company.descriptor}.
           </p>

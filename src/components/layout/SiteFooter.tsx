@@ -8,7 +8,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--rule)] bg-soil">
       {/* Closing statement + the three conversion paths */}
-      <section className="shell py-14 lg:py-20">
+      <section className="shell py-12 lg:py-16">
         <MaskedHeading
           text={"Let's build\nwhat computes next."}
           className="h-section max-w-[16ch]"

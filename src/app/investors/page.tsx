@@ -133,7 +133,7 @@ export default function InvestorsPage() {
 
       {/* The ask */}
       <Section index="04" label="The ask" title={"$2.69M."} tone="bark">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-12">
           <div className="reveal border border-[var(--rule)] bg-soil p-8">
             <div className="flex items-center justify-between gap-4">
               <TechLabel>Current raise</TechLabel>

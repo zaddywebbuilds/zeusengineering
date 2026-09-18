@@ -16,7 +16,7 @@ export function SolutionsIndex() {
       className="border-t border-[var(--rule)] bg-soil"
       aria-labelledby="solutions-heading"
     >
-      <div className="shell py-14 lg:py-18">
+      <div className="shell py-12 lg:py-16">
         <TechLabel index="06" className="reveal mb-7">
           Solutions
         </TechLabel>

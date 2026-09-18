@@ -40,7 +40,7 @@ export default function AiInfrastructurePage() {
         label="Where ZEUS actually is"
         title={"An engineering\nposition, not a\nfleet."}
       >
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-12">
           <div className="space-y-6">
             <p className="text-lg leading-relaxed text-bone">
               ZEUS does not operate a hyperscale AI cluster, and this site will
@@ -109,7 +109,7 @@ export default function AiInfrastructurePage() {
 
       {/* Ai-1 — the strongest genuine AI asset ZEUS has published */}
       <Section>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="flex flex-wrap items-center gap-4">
               <TechLabel index="05" className="reveal">
@@ -182,7 +182,7 @@ export default function AiInfrastructurePage() {
 
       {/* S3XY Ai — deliberately small, and kept off the investor path */}
       <Section tone="bark">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] lg:gap-14">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] lg:gap-12">
         <div className="max-w-[64ch]">
           <div className="flex flex-wrap items-center gap-4">
             <TechLabel index="06" className="reveal">

@@ -28,7 +28,7 @@ export function Hero() {
         className="absolute left-0 top-[72px] h-px w-full bg-[linear-gradient(to_right,var(--color-amber),transparent_38%)] opacity-40"
       />
 
-      <div className="shell-wide grid grid-cols-1 items-center gap-12 pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-16 lg:pb-28">
+      <div className="shell-wide grid grid-cols-1 items-center gap-12 pb-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-12 lg:pb-16">
         <div>
           <TechLabel className="reveal mb-7">
             ZEUS Engineering / Vietnam

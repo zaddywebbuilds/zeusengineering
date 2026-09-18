@@ -30,7 +30,7 @@ export default function ProjectsPage() {
       <Section>
         <Link
           href={`/projects/${site.slug}`}
-          className="group grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16"
+          className="group grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12"
         >
           <div>
             <div className="flex flex-wrap items-center gap-4">

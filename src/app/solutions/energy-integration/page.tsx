@@ -39,7 +39,7 @@ export default function EnergyIntegrationPage() {
         title={"Grid and solar,\nmanaged as one."}
         lede="Two supplies, combined and managed before anything reaches compute — and a control layer that feeds back into how power is allocated."
       >
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:gap-12">
           <div className="border border-[var(--rule)] bg-bark p-6 lg:p-8">
             <TechLabel className="mb-6">Energy flow</TechLabel>
             <SystemDiagramStatic />

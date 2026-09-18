@@ -46,7 +46,7 @@ export function SystemScroller() {
       className="relative border-t border-[var(--rule)] bg-soil"
       aria-labelledby="system-heading"
     >
-      <div className="shell py-14 lg:py-18">
+      <div className="shell py-12 lg:py-16">
         <TechLabel index="02" className="reveal mb-7">
           The system
         </TechLabel>
@@ -65,14 +65,14 @@ export function SystemScroller() {
         </p>
       </div>
 
-      <div className="shell grid grid-cols-1 gap-16 pb-24 lg:grid-cols-[1fr_minmax(0,460px)] lg:gap-24 lg:pb-32">
+      <div className="shell grid grid-cols-1 gap-10 pb-12 lg:grid-cols-[1fr_minmax(0,460px)] lg:gap-12 lg:pb-16">
         {/* Stage copy */}
         <div>
           {pillars.map((pillar, i) => (
             <div
               key={pillar.id}
               data-stage={i}
-              className="border-t border-[var(--rule)] py-12 first:border-t-0 first:pt-0 lg:min-h-[48vh] lg:py-20"
+              className="border-t border-[var(--rule)] py-12 first:border-t-0 first:pt-0 lg:min-h-[48vh] lg:py-16"
             >
               <div className="flex items-baseline gap-4">
                 <span className="tech-label text-stone-dim">{pillar.index}</span>

@@ -111,7 +111,7 @@ export default function ProjectPage() {
       </Section>
 
       <Section index="03" label="Thermal" title={"Managing\nthe heat."}>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <div>
             <RuleList items={[...thermalApproach]} />
             <p className="mt-8 max-w-[54ch] text-sm leading-relaxed text-stone-dim">

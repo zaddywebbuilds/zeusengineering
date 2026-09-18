@@ -74,7 +74,7 @@ export default function ModularDataCentersPage() {
 
       {/* SSMDC */}
       <Section tone="bark">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="flex flex-wrap items-center gap-4">
               <TechLabel index="03" className="reveal">

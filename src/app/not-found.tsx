@@ -6,7 +6,7 @@ import { primaryNav } from "@/data/navigation";
 export default function NotFound() {
   return (
     <section className="tech-grid flex min-h-[70svh] items-center pt-[112px]">
-      <div className="shell py-20">
+      <div className="shell py-12">
         <TechLabel className="mb-7">Error / 404</TechLabel>
 
         <h1 className="display text-[clamp(3rem,10vw,7rem)] leading-none">

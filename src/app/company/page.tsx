@@ -36,7 +36,7 @@ export default function CompanyPage() {
         label="Approach"
         title={"A deliberate\ndifference."}
       >
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <p className="reveal text-xl leading-relaxed text-bone">
             While much of the industry focuses on building ever-larger
             hyperscale facilities, we have deliberately taken a different

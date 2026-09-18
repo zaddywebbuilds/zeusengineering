@@ -50,7 +50,7 @@ export default function BitcoinInfrastructurePage() {
         title={"The work\nbehind the hash."}
         tone="bark"
       >
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <RuleList
             items={[
               "ASIC deployment, racking and commissioning.",

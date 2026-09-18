@@ -33,7 +33,7 @@ export default function ContactPage() {
       />
 
       <Section>
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:gap-20">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:gap-12">
           <Suspense fallback={<ContactFormSkeleton />}>
             <ContactForm />
           </Suspense>

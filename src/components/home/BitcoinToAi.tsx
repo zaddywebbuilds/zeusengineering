@@ -84,7 +84,7 @@ export function BitcoinToAi() {
       className="border-t border-[var(--rule)] bg-soil"
       aria-labelledby="journey-heading"
     >
-      <div className="shell pt-14 lg:pt-18">
+      <div className="shell pt-12 lg:pt-16">
         <TechLabel index="05" className="reveal mb-7">
           Where this goes
         </TechLabel>
@@ -99,7 +99,7 @@ export function BitcoinToAi() {
           data-chapter
           className="relative border-t border-[var(--rule)] first:border-t-0"
         >
-          <div className="shell grid grid-cols-1 items-center gap-12 py-20 lg:grid-cols-2 lg:gap-20 lg:py-32">
+          <div className="shell grid grid-cols-1 items-center gap-12 py-12 lg:grid-cols-2 lg:gap-12 lg:py-16">
             <div className={i % 2 === 1 ? "lg:order-2" : undefined}>
               <div className="flex items-center gap-4">
                 <span className="tech-label text-stone-dim">

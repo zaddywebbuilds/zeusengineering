@@ -19,7 +19,7 @@ export function ProjectPanel() {
       className="border-t border-[var(--rule)] bg-soil"
       aria-labelledby="project-heading"
     >
-      <div className="shell grid grid-cols-1 items-center gap-12 py-24 lg:grid-cols-2 lg:gap-20 lg:py-32">
+      <div className="shell grid grid-cols-1 items-center gap-12 py-12 lg:grid-cols-2 lg:gap-12 lg:py-16">
         <div>
           <div className="flex flex-wrap items-center gap-4">
             <TechLabel className="reveal">{site.projectId}</TechLabel>

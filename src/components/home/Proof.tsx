@@ -20,7 +20,7 @@ export function Proof() {
       className="border-t border-[var(--rule)] bg-soil"
       aria-labelledby="proof-heading"
     >
-      <div className="shell py-14 lg:py-18">
+      <div className="shell py-12 lg:py-16">
         <div className="flex flex-wrap items-center gap-4">
           <TechLabel index="03" className="reveal">
             Operations
@@ -47,7 +47,7 @@ export function Proof() {
 
       {/* Thermal management */}
       <div className="border-t border-[var(--rule)]">
-        <div className="shell grid grid-cols-1 gap-14 py-24 lg:grid-cols-2 lg:gap-20 lg:py-32">
+        <div className="shell grid grid-cols-1 gap-10 py-12 lg:grid-cols-2 lg:gap-12 lg:py-16">
           <div>
             <TechLabel index="04" className="reveal mb-7">
               Thermal management

@@ -47,7 +47,7 @@ export default function HostedMiningPage() {
         title={"Infrastructure\nfirst."}
         lede="What ZEUS provides, and what it charges for providing it."
       >
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-12">
           <div>
             <TechLabel className="mb-6">Included</TechLabel>
             <ul className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">

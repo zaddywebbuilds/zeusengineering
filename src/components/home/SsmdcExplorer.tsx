@@ -63,7 +63,7 @@ export function SsmdcExplorer() {
       className="border-t border-[var(--rule)] bg-bark"
       aria-labelledby="ssmdc-heading"
     >
-      <div className="shell py-14 lg:py-18">
+      <div className="shell py-12 lg:py-16">
         <div className="flex flex-wrap items-center gap-4">
           <TechLabel index="07" className="reveal">
             {ssmdc.fullName}
@@ -84,7 +84,7 @@ export function SsmdcExplorer() {
           deployed close to the energy rather than the other way round.
         </p>
 
-        <div className="mt-11 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
+        <div className="mt-11 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-12">
           {/* Drawing + layer highlight */}
           <div className="reveal relative overflow-hidden rounded-[4px] border border-[var(--rule)] bg-soil">
             <div className="relative aspect-square">
