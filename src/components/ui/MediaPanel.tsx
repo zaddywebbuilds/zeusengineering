@@ -80,11 +80,11 @@ export function MediaPanel({
     <figure
       style={maxWidth ? { maxWidth } : undefined}
       className={cx(
-        "overflow-hidden rounded-[4px] border border-[var(--rule)] bg-linen",
+        "w-full max-w-full min-w-0 overflow-hidden rounded-[4px] border border-[var(--rule)] bg-linen",
         className,
       )}
     >
-      <div className={cx("relative overflow-hidden", aspects[aspect])}>
+      <div className={cx("relative w-full overflow-hidden", aspects[aspect])}>
         {showVideo ? (
           <video
             ref={videoRef}

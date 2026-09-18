@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MediaPanel } from "@/components/ui/MediaPanel";
+import { cx } from "@/lib/utils";
 import { useGsapContext, gsap } from "@/components/motion/useGsap";
 
 /**
@@ -130,7 +131,7 @@ export function BitcoinToAi() {
 
             <div
               data-chapter-media
-              className={i % 2 === 1 ? "lg:order-1" : undefined}
+              className={cx("min-w-0", i % 2 === 1 && "lg:order-1")}
             >
               <MediaPanel
                 className="reveal"

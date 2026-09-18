@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { Button } from "@/components/ui/Button";
 import { vietnamPoints } from "@/data/vietnam";
+import { Figure } from "@/components/diagrams/Figure";
+import { RegionMap } from "@/components/diagrams/RegionMap";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -31,6 +33,15 @@ export default function WhyVietnamPage() {
           label: "Solar generation",
         }}
       />
+
+      <Section tone="linen">
+        <Figure
+          label="Where this is"
+          caption="Schematic locator, not surveyed geography. No facility coordinates are plotted: ZEUS has not published a location beyond the region."
+        >
+          <RegionMap />
+        </Figure>
+      </Section>
 
       <Section>
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-2">

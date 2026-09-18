@@ -86,6 +86,20 @@ background, alpha included, and clears WCAG AA. The `.on-sage` utility flips
 a whole section to the deep sage block and remaps text, rules and accents for
 it, so inverting a section is one class rather than hand-edited children.
 
+### Technical illustrations
+
+`src/components/diagrams/` holds explanatory SVG, not decoration. Each one
+wraps in `<Figure>`, which supplies a label, a caption stating what the diagram
+does and does not show, and an `aria-label` carrying the same content in prose.
+
+The rule is the same as for numbers: an illustration must be traceable. Where
+a diagram uses a ZEUS figure it comes from `src/data`; where it uses a generic
+engineering shape (a clear-day solar curve, standard aisle airflow, a
+simplified coastline) the caption says so on the page. None of them implies a
+measurement ZEUS has not published.
+
+Vector, so there is no resolution ceiling, unlike the supplied footage.
+
 ### Never upscale a video panel
 
 The supplied footage is **736px wide**. Stretching a panel past that upscales it

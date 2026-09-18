@@ -6,6 +6,8 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { Button } from "@/components/ui/Button";
 import { ssmdc } from "@/data/products";
+import { Figure } from "@/components/diagrams/Figure";
+import { NodeSitePlan } from "@/components/diagrams/NodeSitePlan";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -133,6 +135,15 @@ export default function ModularDataCentersPage() {
             />
           </div>
         </div>
+      </Section>
+
+      <Section tone="linen">
+        <Figure
+          label="400 m² node, plan view"
+          caption="Pad, containers and human figure drawn to scale. ZEUS has not published a site layout, so the arrangement is illustrative; the dimensions are not."
+        >
+          <NodeSitePlan />
+        </Figure>
       </Section>
 
       <Section

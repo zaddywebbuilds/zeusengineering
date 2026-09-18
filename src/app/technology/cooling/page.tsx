@@ -3,6 +3,8 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { getPillar } from "@/data/technology";
+import { Figure } from "@/components/diagrams/Figure";
+import { AirflowDiagram } from "@/components/diagrams/AirflowDiagram";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -40,6 +42,15 @@ export default function Page() {
           note: "Concept visualisation",
         }}
       />
+
+      <Section tone="linen">
+        <Figure
+          label="Keeping the paths separate"
+          caption="Standard contained-aisle airflow, drawn to explain the three methods ZEUS names: airflow control, fans, and water radiators. No temperatures are shown, because ZEUS has published none."
+        >
+          <AirflowDiagram />
+        </Figure>
+      </Section>
 
       <Section>
         <div className="grid grid-cols-1 gap-x-12 gap-y-9 lg:grid-cols-2">

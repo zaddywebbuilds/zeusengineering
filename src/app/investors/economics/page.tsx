@@ -12,6 +12,8 @@ import {
   nodeComputeDetail,
   dcPowerPath,
 } from "@/data/ssmdc";
+import { Figure } from "@/components/diagrams/Figure";
+import { EnergyDayProfile } from "@/components/diagrams/EnergyDayProfile";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -38,6 +40,15 @@ export default function EconomicsPage() {
 
       <Section index="03" label="Site economics" title={"Sun to silicon."}>
         <MetricRow facts={nodeEconomics} />
+      </Section>
+
+      <Section tone="linen">
+        <Figure
+          label="A day at one node"
+          caption="Illustrative of how the published figures relate, not a measured output profile. The curve is a generic clear-day solar shape; the capacity, storage and load figures are ZEUS's."
+        >
+          <EnergyDayProfile />
+        </Figure>
       </Section>
 
       {/* DC-DC, the actual technical differentiator */}

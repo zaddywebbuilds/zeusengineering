@@ -3,6 +3,8 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { Figure } from "@/components/diagrams/Figure";
+import { DistributedVsCampus } from "@/components/diagrams/DistributedVsCampus";
 
 /**
  * Hyperscale vs SSMDC.
@@ -37,6 +39,15 @@ export function Expansion() {
           campus. It is the company&rsquo;s own comparison, not an independent
           benchmark.
         </p>
+
+        <Figure
+          label="Two topologies"
+          caption="Schematic. No node count is implied; ZEUS has published none for a network."
+          tone="linen"
+          className="reveal mt-10"
+        >
+          <DistributedVsCampus />
+        </Figure>
 
         <div className="mt-10 overflow-hidden border-y border-[var(--rule)]">
           <table className="w-full border-collapse text-left">
