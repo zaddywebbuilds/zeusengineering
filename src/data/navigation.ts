@@ -66,9 +66,9 @@ export const primaryNav: NavItem[] = [
     href: "/investors",
     children: [
       { label: "Overview", href: "/investors" },
-      { label: "Series A", href: "/investors/series-a", blurb: "$1–2M target." },
-      { label: "Expansion Roadmap", href: "/investors/roadmap" },
-      { label: "Projections", href: "/investors/projections" },
+      { label: "The ask", href: "/investors/the-ask", blurb: "$2.69M target." },
+      { label: "Roadmap", href: "/investors/roadmap" },
+      { label: "Node economics", href: "/investors/economics" },
       { label: "Why Vietnam", href: "/investors/why-vietnam" },
     ],
   },

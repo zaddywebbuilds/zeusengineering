@@ -52,9 +52,9 @@ export default function EnergyIntegrationPage() {
               </h3>
               <p className="mt-4 leading-relaxed text-steel">
                 Systems are designed to work with the power infrastructure that
-                already exists rather than replace it. The expansion plan pushes
-                capacity toward 1 MW and then 2 MW specifically to access
-                wholesale power rates in Vietnam and reduce operating expense.
+                already exists rather than replace it — and, in the SSMDC node
+                design, to lean on it as little as possible. On-site generation
+                and storage reduce both energy cost and grid dependency.
               </p>
             </div>
 
@@ -63,14 +63,26 @@ export default function EnergyIntegrationPage() {
                 Solar supplement
               </h3>
               <p className="mt-4 leading-relaxed text-steel">
-                Solar is layered on top of grid supply rather than replacing it.
-                ZEUS reports 20 kW peak solar at the current site, and its
-                expansion plan targets up to 500 kW — estimating potential
-                savings of up to 10% in overall power expenses.
+                ZEUS reports 20 kWp of solar at the operating prototype. The
+                SSMDC node design targets 80–120 kWp with 300–500 kWh of usable
+                battery — enough to carry a 50–75 kW continuous IT load through
+                the night in a strong solar region.
               </p>
               <div className="mt-5">
-                <StatusBadge status="target" label="500 kW is a target" />
+                <StatusBadge status="target" label="Node figures are design targets" />
               </div>
+            </div>
+
+            <div>
+              <h3 className="display text-[1.75rem] leading-none">
+                DC end to end
+              </h3>
+              <p className="mt-4 leading-relaxed text-steel">
+                Solar generates DC. Batteries store DC. Compute consumes DC. The
+                SSMDC keeps it that way, removing the inverter and the AC-DC
+                stage inside every server — a stated 8–15% ongoing facility
+                saving, with a practical 10–12% central case.
+              </p>
             </div>
 
             <div>

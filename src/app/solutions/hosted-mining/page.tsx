@@ -86,7 +86,7 @@ export default function HostedMiningPage() {
 
         <MetricRow
           facts={hostingFacts}
-          columns={3}
+          columns={2}
           className="mt-16"
           showDisclosure={false}
         />

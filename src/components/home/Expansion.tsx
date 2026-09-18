@@ -1,122 +1,107 @@
-import Link from "next/link";
-import { currentOperations, expansionTargets, seriesA } from "@/data/metrics";
-import { STATUS_DISCLOSURE } from "@/data/facts";
+import { hyperscaleComparison } from "@/data/ssmdc";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 
 /**
- * Today vs target, set side by side deliberately.
+ * Hyperscale vs SSMDC.
  *
- * The comparison is the honest way to present the raise: it shows the gap
- * rather than hiding it. The left column is what exists; the right column is
- * explicitly labelled as contingent on funding, with every figure carrying the
- * word "target" in text, not just in colour.
+ * ZEUS's own comparison, presented as an argument the company makes rather
+ * than an independent benchmark — which is why the header says so and the
+ * badge is on the ZEUS column, not the table.
+ *
+ * Built as a real <table> so it reads correctly to a screen reader, and
+ * restructured into stacked rows on mobile rather than side-scrolled.
  */
 export function Expansion() {
-  const today = currentOperations[0];
-
   return (
     <section
       className="border-t border-[var(--rule)] bg-graphite"
-      aria-labelledby="expansion-heading"
+      aria-labelledby="comparison-heading"
     >
       <div className="shell py-24 lg:py-32">
         <TechLabel index="08" className="reveal mb-7">
-          Expansion
+          The argument
         </TechLabel>
         <MaskedHeading
-          text={"Scaling the\ninfrastructure."}
+          text={"Where modular\nwins."}
           className="h-section max-w-[14ch]"
         />
-        <h2 id="expansion-heading" className="sr-only">
-          Expansion
+        <h2 id="comparison-heading" className="sr-only">
+          Hyperscale compared with SSMDC
         </h2>
 
-        <div className="mt-16 grid grid-cols-1 gap-px bg-[var(--rule)] lg:grid-cols-2">
-          {/* Today */}
-          <div className="bg-graphite p-8 lg:p-12">
-            <div className="flex items-center justify-between gap-4">
-              <TechLabel>Today</TechLabel>
-              <StatusBadge status="zeus-reported" label="Operating" />
-            </div>
-
-            <div className="mt-10 flex items-baseline gap-2">
-              <span className="numeral text-[clamp(4rem,9vw,7rem)]">
-                {today.value}
-              </span>
-              <span className="numeral text-3xl text-steel">{today.unit}</span>
-            </div>
-            <p className="tech-label mt-4">Operating facility</p>
-
-            <p className="mt-8 max-w-[38ch] text-sm leading-relaxed text-steel">
-              A 300 m² site in the Vung Tau / Ba Ria region with 20 kW peak
-              solar and 1+ PH peak hash power, as reported by ZEUS.
-            </p>
-          </div>
-
-          {/* Target */}
-          <div className="relative bg-graphite p-8 lg:p-12">
-            {/* Dashed frame — the visual grammar for "not yet built" */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-4 border border-dashed border-amber/25"
-            />
-
-            <div className="relative flex items-center justify-between gap-4">
-              <TechLabel>After Series A</TechLabel>
-              <StatusBadge status="target" />
-            </div>
-
-            <div className="relative mt-10 flex items-baseline gap-2">
-              <span className="numeral text-[clamp(4rem,9vw,7rem)] text-amber">
-                1–2
-              </span>
-              <span className="numeral text-3xl text-amber/60">MW</span>
-            </div>
-            <p className="tech-label mt-4 text-amber/80">
-              Planned power expansion — target
-            </p>
-
-            <ul className="relative mt-8 grid grid-cols-2 gap-x-6 gap-y-4">
-              {expansionTargets.slice(0, 5).map((fact) => (
-                <li key={fact.label}>
-                  <p className="numeral text-xl text-amber">
-                    {fact.value}
-                    {fact.unit && (
-                      <span className="text-amber/60"> {fact.unit}</span>
-                    )}
-                  </p>
-                  <p className="mt-1 text-xs leading-snug text-steel">
-                    {fact.label} <span className="text-steel-dim">(target)</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <p className="reveal mt-6 max-w-[74ch] text-sm text-steel-dim">
-          {STATUS_DISCLOSURE.target} {seriesA.note}
+        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-steel">
+          The case ZEUS makes for building many small nodes instead of one large
+          campus. It is the company&rsquo;s own comparison, not an independent
+          benchmark.
         </p>
 
+        <div className="mt-14 overflow-hidden border-y border-[var(--rule)]">
+          <table className="w-full border-collapse text-left">
+            <caption className="sr-only">
+              Hyperscale compared with the ZEUS SSMDC across ten capabilities
+            </caption>
+            <thead>
+              <tr className="border-b border-[var(--rule)]">
+                <th scope="col" className="tech-label py-5 pr-6 font-medium">
+                  Capability
+                </th>
+                <th
+                  scope="col"
+                  className="tech-label hidden py-5 pr-6 font-medium sm:table-cell"
+                >
+                  Hyperscale
+                </th>
+                <th scope="col" className="tech-label py-5 font-medium text-cyan">
+                  SSMDC
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {hyperscaleComparison.map((row) => (
+                <tr
+                  key={row.capability}
+                  className="border-b border-[var(--rule)] last:border-b-0"
+                >
+                  <th
+                    scope="row"
+                    className="py-5 pr-6 align-top text-sm font-normal text-engineering"
+                  >
+                    {row.capability}
+                    {/* Hyperscale value folds under the label on small screens */}
+                    <span className="mt-2 block text-sm text-steel-dim sm:hidden">
+                      Hyperscale: {row.hyperscale}
+                    </span>
+                  </th>
+                  <td className="hidden py-5 pr-6 align-top text-sm text-steel-dim sm:table-cell">
+                    {row.hyperscale}
+                  </td>
+                  <td className="py-5 align-top text-sm text-cyan">
+                    {row.ssmdc}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="reveal mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
+          <StatusBadge status="target" label="ZEUS's comparison" />
+          <p className="max-w-[64ch] text-sm text-steel-dim">
+            Only the final row describes something that exists — the 100 kWp
+            prototype. The rest compares an operating model against a design.
+          </p>
+        </div>
+
         <div className="reveal mt-12 flex flex-wrap items-center gap-4">
-          <Button href="/investors/roadmap" variant="secondary">
-            View expansion roadmap
+          <Button href="/solutions/modular-data-centers">
+            How the SSMDC works
           </Button>
-          <Link
-            href="/investors/series-a"
-            className="group inline-flex items-center gap-2 text-sm text-steel transition-colors duration-200 hover:text-engineering"
-          >
-            Series A detail
-            <span
-              aria-hidden
-              className="transition-transform duration-200 group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </Link>
+          <Button href="/investors/economics" variant="secondary">
+            Node economics
+          </Button>
         </div>
       </div>
     </section>

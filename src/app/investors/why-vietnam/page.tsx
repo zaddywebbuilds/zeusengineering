@@ -70,7 +70,7 @@ export default function WhyVietnamPage() {
         </div>
 
         <div className="reveal mt-14 flex flex-wrap items-center gap-4">
-          <Button href="/investors/series-a">Series A</Button>
+          <Button href="/investors/the-ask">The ask</Button>
           <Button href="/contact?intent=invest" variant="secondary">
             Investor enquiry
           </Button>

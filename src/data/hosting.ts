@@ -37,12 +37,6 @@ export const hostingFacts: Fact[] = [
     status: "zeus-reported",
     note: "The share of earnings paid to ZEUS for running and maintaining the equipment.",
   },
-  {
-    value: "300",
-    label: "Hosted machines — target",
-    status: "target",
-    note: "Across a target of 100 hosting clients, contingent on the Series A expansion.",
-  },
 ];
 
 /** What ZEUS states it provides. Nothing added. */

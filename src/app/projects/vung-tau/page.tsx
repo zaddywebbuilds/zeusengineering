@@ -23,7 +23,7 @@ const sections = [
   },
   {
     t: "Location",
-    b: "Southern Vietnam, in the Vung Tau / Ba Ria region. The area is central to the expansion plan: the larger industrial site ZEUS intends to acquire is targeted in the same region.",
+    b: "Southern Vietnam, in the Bà Rịa region. The area is central to the plan: the first SSMDC nodes are targeted for the same region, chosen for its solar resource.",
   },
   {
     t: "The challenge",
@@ -35,7 +35,7 @@ const sections = [
   },
   {
     t: "Solar",
-    b: "20 kW peak solar as reported by ZEUS. The expansion plan targets up to 500 kW at the larger site, with an estimated saving of up to 10% on overall power expenses.",
+    b: "20 kWp as reported by ZEUS. The SSMDC node design that follows this prototype targets 80–120 kWp with 300–500 kWh of usable battery storage.",
   },
   {
     t: "Compute",

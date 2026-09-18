@@ -38,7 +38,7 @@ export function StatusBadge({
 }: {
   status: FactStatus;
   className?: string;
-  /** Override the default word, e.g. "Series A target". */
+  /** Override the default word, e.g. "Fundraising target". */
   label?: string;
 }) {
   const s = styles[status];

@@ -32,7 +32,7 @@ export const ssmdc: Product = {
   status: "concept",
   statusNote:
     "A ZEUS product direction. ZEUS has not published a count of deployed units.",
-  tagline: "Small footprint. Serious compute.",
+  tagline: "Decentralised AI compute. Deployed in months, not years.",
   description: [
     "The Small Solar Modular Data Centre is designed for rapid deployment and operation using available grid power between 100–200 kW, with up to 100 kW solar supplement.",
     "Suitable for the harshest of environments, with full automation and remote monitoring for Bitcoin mining and/or AI compute.",
@@ -40,7 +40,19 @@ export const ssmdc: Product = {
   ],
   specs: [
     {
-      group: "Power",
+      // Current node specification — SSMDC deck, 17 September 2026.
+      group: "Node design (current)",
+      items: [
+        "400 m² class site",
+        "80–120 kWp solar",
+        "300–500 kWh usable battery (3–5 h class)",
+        "50–75 kW continuous IT load",
+        "End-to-end DC-DC — 8–15% ongoing saving",
+      ],
+    },
+    {
+      // Earlier grid-led description, still published on zeus-engineering.com.
+      group: "Grid-connected variant",
       items: [
         "100–200 kW available grid power",
         "Up to 100 kW solar supplement",
@@ -49,7 +61,7 @@ export const ssmdc: Product = {
     },
     {
       group: "Workload",
-      items: ["Bitcoin mining", "AI compute", "Mixed operation"],
+      items: ["AI training and inference", "Bitcoin mining", "Mixed operation"],
     },
     {
       group: "Operation",

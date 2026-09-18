@@ -52,7 +52,7 @@ const intentFields: Record<
       name: "enquiry",
       type: "select",
       options: [
-        "Series A participation",
+        "Participating in the raise",
         "Request further information",
         "Introductory conversation",
       ],
@@ -65,7 +65,7 @@ const intentCopy: Record<ContactIntent, string> = {
     "Infrastructure and engineering enquiries — modular data centres, AI infrastructure, energy integration and consulting.",
   host: "Hosted mining enquiries. ZEUS runs and maintains client-owned equipment for a 10% service fee on earnings.",
   invest:
-    "Investor enquiries relating to the US$1–2M Series A fundraising target.",
+    "Investor enquiries relating to the $2.69M SSMDC raise.",
 };
 
 export function ContactForm({ initialIntent }: { initialIntent: ContactIntent }) {

@@ -3,10 +3,14 @@
 A complete website for ZEUS Engineering JSC — a Vietnamese engineering company
 building infrastructure for high-density compute.
 
-The narrative is `ENERGY → INFRASTRUCTURE → COMPUTE`: Bitcoin mining is the
-operational proving ground, AI expands the addressable workload, and modular
-containerised data centres are the stated destination. It is deliberately **not**
-a cryptocurrency site.
+The narrative is `ENERGY → INFRASTRUCTURE → COMPUTE`: an operating Bitcoin
+mining prototype is the proving ground, AI is the workload it was redirected
+toward, and the SSMDC — a 400 m² solar-powered modular compute node — is the
+product. It is deliberately **not** a cryptocurrency site.
+
+Investor content follows ZEUS's SSMDC deck of 17 September 2026: a **$2.69M**
+raise for an 18–24 month runway to multiple live nodes. That deck is marked
+Confidential and is **never linked or published** from this site.
 
 > **Read [`AUDIT.md`](./AUDIT.md) before editing any number.** It records which
 > claims are sourced, which were removed as unsourced, and what still needs
@@ -41,15 +45,16 @@ That status drives `<StatusBadge>`, which renders the status **as a word** —
 colour and glyph are reinforcement only. The distinction therefore survives
 greyscale, colour blindness and a screen reader.
 
-This is the mechanism that stops a $1–2M *fundraising target* from ever
-rendering as capital raised, or a *projected* 20 BTC/yr from rendering as
-production. Change a figure in one place and every page that shows it updates,
+This is the mechanism that stops the $2.69M *fundraising target* from ever
+rendering as capital raised, or a *design target* for an unbuilt node from
+rendering as measured capacity. Change a figure in one place and every page that shows it updates,
 still correctly labelled.
 
 ```
 src/data/
   facts.ts       FactStatus type + disclosure strings
-  metrics.ts     every operating figure, target and projection
+  metrics.ts     operating figures (Zeus-reported)
+  ssmdc.ts       the current deck: the ask, node economics, DC-DC, compute
   company.ts     verified company details
   team.ts        leadership (deck-sourced, nothing embellished)
   products.ts    SSMDC, Ai-1, S3XY Ai — Zeus's own published specs
@@ -93,8 +98,8 @@ un-animated state is the correct, readable state.
 ## Routes
 
 28 routes: home · solutions (+5) · technology (+4) · projects (+1) ·
-investors (+4) · company (+2) · insights · contact · legal/privacy · 404 ·
-sitemap.xml · robots.txt
+investors (the-ask, economics, roadmap, why-vietnam) · company (+2) · insights ·
+contact · legal/privacy · 404 · sitemap.xml · robots.txt
 
 `sitemap.ts` is generated from `navigation.ts`, so a route added to the menu
 cannot be forgotten in the sitemap. `robots.ts` is generated rather than static —

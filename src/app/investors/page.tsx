@@ -6,41 +6,41 @@ import { MetricRow } from "@/components/ui/MetricRow";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { Button } from "@/components/ui/Button";
-import { currentOperations, seriesA, assetValue } from "@/data/metrics";
-import { whyZeus } from "@/data/team";
+import { theAsk, traction, hyperscaleProblems, businessModel, whyZeusNow } from "@/data/ssmdc";
 import { pageMeta } from "@/lib/seo";
+import { cx } from "@/lib/utils";
 
 export const metadata: Metadata = pageMeta({
   title: "Investor Relations",
   description:
-    "ZEUS Engineering is seeking a US$1–2M Series A to scale its Bitcoin mining operations in Vietnam. Operations, plan, projections and vision.",
+    "ZEUS Engineering is raising $2.69M to build decentralised AI compute nodes in Vietnam — SSMDC. Traction, economics, roadmap and the case.",
   path: "/investors",
 });
 
 const chapters = [
   {
-    href: "/investors/series-a",
+    href: "/investors/the-ask",
     index: "01",
-    label: "Series A",
-    body: "What ZEUS is asking for, and the seven-point plan the raise funds.",
+    label: "The ask",
+    body: "$2.69M, itemised — what it buys and over what runway.",
+  },
+  {
+    href: "/investors/economics",
+    index: "02",
+    label: "Node economics",
+    body: "What a 400 m² node produces, costs and computes.",
   },
   {
     href: "/investors/roadmap",
-    index: "02",
-    label: "Expansion roadmap",
-    body: "From the operating site through to the long-term modular data centre vision.",
-  },
-  {
-    href: "/investors/projections",
     index: "03",
-    label: "Management projections",
-    body: "The BTC production and profit figures, with the assumptions they depend on.",
+    label: "Roadmap",
+    body: "Prototype, first nodes, network — and which of those exists.",
   },
   {
     href: "/investors/why-vietnam",
     index: "04",
     label: "Why Vietnam",
-    body: "The capex, power, sunlight, logistics and tax arguments — with ZEUS's own caveats.",
+    body: "Capex, power, sunlight, logistics and tax — with ZEUS's own caveats.",
   },
 ];
 
@@ -49,13 +49,13 @@ export default function InvestorsPage() {
     <>
       <PageHeader
         label="Investor relations"
-        title={"Proof first.\nThen scale."}
-        lede="ZEUS Engineering is seeking US$1–2 million in Series A funding to scale its Bitcoin mining operations in Vietnam while reducing operating expense. What follows separates what exists from what is planned from what is projected — deliberately, and throughout."
+        title={"Build the nodes.\nOwn the uptime."}
+        lede="Hyperscale cannot keep up with the hunger for compute. ZEUS is raising $2.69M to build decentralised, solar-powered AI compute nodes in southern Vietnam — on the back of a mining site that already runs."
         crumbs={[{ label: "Home", href: "/" }]}
+        status={{ value: "target", label: "Raising" }}
       />
 
-      {/* The four classes, stated up front. This is the reading key for the
-          entire section and it belongs before any number. */}
+      {/* The reading key, before any figure. */}
       <Section
         index="01"
         label="How to read this section"
@@ -66,110 +66,139 @@ export default function InvestorsPage() {
           {[
             {
               s: "zeus-reported" as const,
-              t: "Zeus reported",
               b: "A figure ZEUS publishes about its own operations. Not independently audited.",
             },
             {
               s: "target" as const,
-              t: "Target",
               b: "An objective contingent on funding. Not a current capability and not a commitment.",
             },
             {
               s: "projection" as const,
-              t: "Projection",
               b: "A management forecast resting on stated assumptions. Not a record of performance.",
             },
             {
               s: "concept" as const,
-              t: "Concept",
               b: "A product direction or engineering concept. Not a count of deployed units.",
             },
           ].map((item) => (
-            <div key={item.t} className="reveal bg-graphite p-7">
+            <div key={item.s} className="reveal bg-graphite p-7">
               <StatusBadge status={item.s} />
-              <p className="mt-5 text-sm leading-relaxed text-steel">
-                {item.b}
+              <p className="mt-5 text-sm leading-relaxed text-steel">{item.b}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* The problem */}
+      <Section
+        index="02"
+        label="The problem"
+        title={"Hyperscale cannot\nkeep up."}
+        tone="carbon"
+        lede="The constraint on AI compute is no longer silicon. It is the years, the capital and the single-site risk involved in putting that silicon somewhere it can run."
+      >
+        <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-3">
+          {hyperscaleProblems.map((problem) => (
+            <div key={problem.index} className="reveal bg-carbon p-8">
+              <div className="flex items-center gap-4">
+                <span className="tech-label text-steel-dim">{problem.index}</span>
+                <span aria-hidden className="h-px w-10 bg-amber/60" />
+              </div>
+              <h3 className="display mt-6 text-[1.5rem] leading-none">
+                {problem.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-steel">
+                {problem.body}
               </p>
             </div>
           ))}
         </div>
       </Section>
 
+      {/* Traction */}
       <Section
-        index="02"
-        label="Where we are"
-        title={"What exists\ntoday."}
-        tone="carbon"
-        lede="ZEUS reports the following operations. These are the only operating figures presented anywhere on this site."
+        index="03"
+        label="Traction"
+        title={"Already operating.\nAlready learning."}
+        lede="ZEUS has spent a decade building dense power, cooling and modular compute systems — first for mining, now redirected to AI. The Vietnam prototype is the foundation the SSMDC design is drawn from."
       >
-        <MetricRow facts={currentOperations} />
-
-        <div className="reveal mt-14 grid grid-cols-1 gap-10 border-t border-[var(--rule)] pt-14 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <div className="flex items-baseline gap-1.5">
-              <span className="numeral text-[clamp(2.5rem,5vw,3.5rem)]">
-                {assetValue.value}
-              </span>
-              <span className="numeral text-2xl text-steel">
-                {assetValue.unit}
-              </span>
-            </div>
-            <p className="tech-label mt-3">{assetValue.label}</p>
-            <p className="mt-4 max-w-[46ch] text-sm leading-relaxed text-steel-dim">
-              {assetValue.note} Described by ZEUS; not independently audited.
-            </p>
-          </div>
-
-          <div>
-            <TechLabel className="mb-4">Funded to here</TechLabel>
-            <p className="max-w-[48ch] leading-relaxed text-steel">
-              ZEUS states that it is financially self-sustaining, and that
-              pre-seed and seed funding were completed using internally
-              generated funds reinvested from its Bitcoin mining operations.
-            </p>
-          </div>
-        </div>
+        <MetricRow facts={traction} />
       </Section>
 
-      <Section index="03" label="The ask" title={"Series A."}>
+      {/* The ask */}
+      <Section index="04" label="The ask" title={"$2.69M."} tone="carbon">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-16">
-          <div className="reveal border border-[var(--rule)] bg-carbon p-8">
+          <div className="reveal border border-[var(--rule)] bg-graphite p-8">
             <div className="flex items-center justify-between gap-4">
-              <TechLabel>Series A</TechLabel>
+              <TechLabel>Current raise</TechLabel>
               <StatusBadge status="target" label="Fundraising target" />
             </div>
             <div className="mt-8 flex items-baseline gap-2">
               <span className="numeral text-[clamp(3rem,7vw,5rem)] text-amber">
-                {seriesA.value}
+                {theAsk.value}
               </span>
               <span className="numeral text-3xl text-amber/60">
-                {seriesA.unit}
+                {theAsk.unit}
               </span>
             </div>
-            <p className="tech-label mt-4">Venture capital or private equity</p>
+            <p className="tech-label mt-4">18–24 month runway to live nodes</p>
             <p className="mt-6 border-t border-[var(--rule)] pt-6 text-sm leading-relaxed text-steel">
-              {seriesA.note}
+              {theAsk.note}
             </p>
+            <Button href="/investors/the-ask" variant="secondary" className="mt-7 w-full justify-center">
+              See the breakdown
+            </Button>
           </div>
 
           <div>
             <TechLabel className="mb-6">Why ZEUS</TechLabel>
-            <ul className="grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
-              {whyZeus.map((item) => (
-                <li key={item.slice(0, 30)} className="flex gap-3 text-sm text-steel">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-px w-4 shrink-0 bg-amber/60"
-                  />
-                  {item}
-                </li>
+            <div className="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
+              {whyZeusNow.map((item) => (
+                <div key={item.title} className="reveal">
+                  <h3 className="display text-[1.25rem] leading-none">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-steel">
+                    {item.body}
+                  </p>
+                </div>
               ))}
-            </ul>
+            </div>
+            <p className="mt-8 text-sm text-steel-dim">
+              Full-stack operators, not pure software or pure real estate.
+            </p>
           </div>
         </div>
       </Section>
 
-      <Section index="04" label="Continue" title={"The detail."} tone="carbon">
+      {/* Business model */}
+      <Section
+        index="05"
+        label="Business model"
+        title={"Two asset classes.\nOne operating system."}
+      >
+        <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-2">
+          {businessModel.map((item) => (
+            <div key={item.title} className="reveal bg-graphite p-8 lg:p-10">
+              <span
+                aria-hidden
+                className={cx(
+                  "block h-px w-12",
+                  item.accent === "energy" ? "bg-amber" : "bg-cyan",
+                )}
+              />
+              <h3 className="display mt-6 text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
+                {item.title}
+              </h3>
+              <p className="mt-5 max-w-[44ch] leading-relaxed text-steel">
+                {item.body}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section index="06" label="Continue" title={"The detail."} tone="carbon">
         <div className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
           {chapters.map((chapter) => (
             <Link

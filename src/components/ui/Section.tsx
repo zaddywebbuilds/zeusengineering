@@ -56,7 +56,7 @@ export function Section({
   );
 }
 
-/** Numbered process steps — used by hosting, deployment and the Series A plan. */
+/** Numbered process steps — used by hosting and deployment sequences. */
 export function StepList({
   steps,
   columns = 3,

@@ -11,7 +11,7 @@ import { cx } from "@/lib/utils";
 export const metadata: Metadata = pageMeta({
   title: "Expansion Roadmap",
   description:
-    "From ZEUS Engineering's operating site through the Series A expansion to the long-term modular data centre vision.",
+    "From ZEUS Engineering's operating prototype through the first SSMDC nodes to a distributed network.",
   path: "/investors/roadmap",
 });
 
@@ -51,7 +51,7 @@ export default function RoadmapPage() {
         index="02"
         label="Investor relations"
         title={"From here\nto there."}
-        lede="One stage is running. One is contingent on the Series A round closing. The rest are ambitions ZEUS has described. The page is built so you can tell which is which at a glance."
+        lede="One stage is running. The next is contingent on the raise closing. The third is a stated ambition. The page is built so you can tell which is which at a glance."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Investors", href: "/investors" },
@@ -63,7 +63,7 @@ export default function RoadmapPage() {
         <div className="mb-14 flex flex-wrap gap-x-8 gap-y-4">
           {[
             { w: "realised", t: "Operating now" },
-            { w: "funded-target", t: "Target — contingent on Series A" },
+            { w: "funded-target", t: "Target — contingent on the raise" },
             { w: "ambition", t: "Stated long-term ambition" },
           ].map((item) => (
             <span key={item.w} className="flex items-center gap-3">
@@ -149,6 +149,22 @@ export default function RoadmapPage() {
                   <p className="mt-4 max-w-[58ch] leading-relaxed text-steel">
                     {milestone.body}
                   </p>
+                  {milestone.points && (
+                    <ul className="mt-5 space-y-2">
+                      {milestone.points.map((point) => (
+                        <li
+                          key={point}
+                          className="flex gap-3 text-sm text-steel-dim"
+                        >
+                          <span
+                            aria-hidden
+                            className="mt-2 h-px w-4 shrink-0 bg-[var(--rule-strong)]"
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </li>
             );
@@ -163,7 +179,7 @@ export default function RoadmapPage() {
         </div>
 
         <div className="reveal mt-14 flex flex-wrap items-center gap-4">
-          <Button href="/investors/projections">Management projections</Button>
+          <Button href="/investors/economics">Node economics</Button>
           <Button href="/contact?intent=invest" variant="secondary">
             Investor enquiry
           </Button>

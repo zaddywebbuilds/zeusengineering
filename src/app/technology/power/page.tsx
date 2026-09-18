@@ -13,9 +13,9 @@ export const metadata: Metadata = pageMeta({
 });
 
 const blocks = [
-  { t: "Grid integration", b: "Systems are designed to integrate with existing power infrastructure rather than replace it. Scaling capacity toward 1 MW and then 2 MW is a deliberate objective: it is the threshold at which ZEUS expects to access wholesale power rates in Vietnam and reduce operating expense." },
-  { t: "Solar generation", b: "Solar supplements grid supply rather than replacing it. ZEUS reports 20 kW peak solar today; the expansion plan targets up to 500 kW, with an estimate of up to 10% saving on overall power expenses." },
-  { t: "Distribution", b: "Power management and distribution sit between the supplies and the racks. This is where a mixed grid-and-solar input becomes a single predictable supply." },
+  { t: "Grid integration", b: "Systems are designed to integrate with existing power infrastructure rather than replace it. In the SSMDC node design the grid becomes a supplement rather than the primary supply, with on-site generation and storage carrying the continuous load." },
+  { t: "Solar generation", b: "ZEUS reports 20 kWp at the operating prototype. The SSMDC node design targets 80–120 kWp with 300–500 kWh of usable battery, yielding an estimated 130–190 MWh a year in southern Vietnam." },
+  { t: "DC-DC distribution", b: "Solar generates DC, batteries store DC and compute consumes DC. Keeping the path DC end to end removes the inverter and the server-side AC-DC stage — a stated 8–15% ongoing facility saving, with a practical 10–12% central case." },
   { t: "Flexible load", b: "In the SSMDC concept the site behaves as a grid-friendly load: drawing excess power when available, idling when the grid is under peak demand." },
 ];
 

@@ -5,110 +5,73 @@ export interface Milestone {
   phase: string;
   title: string;
   status: FactStatus;
-  /** Rendered as the milestone's headline figure where one exists. */
   figure?: string;
   figureUnit?: string;
   body: string;
+  points?: string[];
   /** Visual weight: realised milestones are solid, ambitions are dimmed. */
   weight: "realised" | "funded-target" | "ambition";
 }
 
 /**
- * The expansion roadmap.
+ * The roadmap.
  *
- * Exactly one milestone is `current`. Everything below it is a target or an
- * ambition, and the `weight` field drives a visual treatment that makes that
- * distinction impossible to miss — solid, outlined, then dashed and dimmed.
- * Status is also stated in text, never by colour alone.
+ * SOURCE: the SSMDC deck of 17 September 2026, which replaced the earlier
+ * eight-stage Bitcoin-expansion roadmap with a three-phase one.
+ *
+ * Exactly one milestone is operating. The `weight` field drives a visual
+ * treatment — solid, outlined, then dashed and dimmed — but status is also
+ * stated in words, so the distinction never depends on colour alone.
  */
 export const roadmap: Milestone[] = [
   {
     id: "now",
     phase: "Now",
-    title: "Vung Tau / Ba Ria infrastructure",
+    title: "Vietnam prototype",
     status: "zeus-reported",
     figure: "100",
-    figureUnit: "kW",
-    body: "A 300 m² site with 100 kW capacity, 20 kW peak solar and 1+ PH peak hash power, as reported by ZEUS.",
+    figureUnit: "kWp",
+    body: "An operational ASIC site in Vietnam running a live Bitcoin workload — the foundation the SSMDC design is drawn from.",
+    points: [
+      "100 kWp ASIC site operational",
+      "DC-DC and solar-plus-battery lessons captured",
+      "Team and process in place",
+    ],
     weight: "realised",
   },
   {
-    id: "series-a",
-    phase: "Series A",
-    title: "Facility expansion",
+    id: "next",
+    phase: "Next",
+    title: "SSMDC v1 nodes",
     status: "target",
-    figure: "1–2",
-    figureUnit: "MW",
-    body: "A $1–2M raise funding an industrial site of up to 2,000 m² and a planned scaling toward 1 MW, then 2 MW.",
+    figure: "400",
+    figureUnit: "m² class",
+    body: "Standardised modules deployed in the Bà Rịa region and additional southern sites, running first AI workloads alongside mining.",
+    points: [
+      "Standardised 400 m² class modules",
+      "Bà Rịa and additional southern sites",
+      "First AI workloads alongside mining",
+    ],
     weight: "funded-target",
   },
   {
     id: "scale",
     phase: "Scale",
-    title: "Machine and solar build-out",
+    title: "Network expansion",
     status: "target",
-    figure: "500",
-    figureUnit: "machines",
-    body: "200 company-owned and 300 hosted machines, with up to 500 kW peak solar.",
-    weight: "funded-target",
-  },
-  {
-    id: "productize",
-    phase: "Productise",
-    title: "Containerised prototypes",
-    status: "target",
-    body: "Once the expansion is operational, ZEUS intends to begin prototyping and testing its own containerised models, designed for compatibility with Bitcoin mining, AI and quantum-computing applications.",
-    weight: "funded-target",
-  },
-  {
-    id: "series-b",
-    phase: "Series B ambition",
-    title: "Expansion capital",
-    status: "target",
-    figure: "$10–20",
-    figureUnit: "M",
-    body: "A stated later-stage ambition. No commitment or term sheet is implied.",
-    weight: "ambition",
-  },
-  {
-    id: "advanced-compute",
-    phase: "Advanced compute",
-    title: "Bitcoin, AI and quantum",
-    status: "target",
-    body: "A stated ambition to participate in broader research and development across Bitcoin, AI and quantum computing.",
-    weight: "ambition",
-  },
-  {
-    id: "series-c",
-    phase: "Series C ambition",
-    title: "Scale capital",
-    status: "target",
-    figure: "$100",
-    figureUnit: "M",
-    body: "A stated long-range ambition described in Zeus investor material.",
-    weight: "ambition",
-  },
-  {
-    id: "international",
-    phase: "International",
-    title: "Deployment beyond Vietnam",
-    status: "target",
-    body: "The stated long-term vision: to become a world-leading provider of modular, transportable, containerised data centres built in Vietnam and deployed worldwide, including as a trusted government and international provider.",
-    weight: "ambition",
-  },
-  {
-    id: "public",
-    phase: "Long term",
-    title: "Public company ambition",
-    status: "target",
-    body: "Beyond those stages, ZEUS discusses a longer-term ambition to take the company public and pursue deeper research and development in emerging compute technologies.",
+    body: "A multi-node portfolio held against a combined real-estate and compute balance sheet, with an Australian company vehicle.",
+    points: [
+      "Australia company vehicle",
+      "Multi-node portfolio",
+      "Real-estate plus compute balance sheet",
+    ],
     weight: "ambition",
   },
 ];
 
 /**
- * The deck's own status note on everything below Series A, reproduced on the
- * roadmap page so the distinction is stated rather than implied.
+ * Status note carried onto the roadmap page, so the distinction between the
+ * operating prototype and everything after it is stated rather than implied.
  */
 export const roadmapDisclosure =
-  "Series B, Series C, public-company and advanced-compute statements are long-term ambitions described by ZEUS. They are not completed financing, committed capital or existing deployments.";
+  "One stage is operating. Everything after it is contingent on the raise completing, and is described by ZEUS as a plan rather than a commitment. No node beyond the Vietnam prototype has been built, and no timeline is guaranteed.";

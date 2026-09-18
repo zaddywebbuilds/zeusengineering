@@ -24,9 +24,9 @@ const layers = [
     id: "power",
     label: "Power",
     accent: "amber",
-    body: "100–200 kW of available grid power, supplemented by up to 100 kW of solar.",
+    body: "80–120 kWp of on-site solar with 300–500 kWh of usable battery, carrying a 50–75 kW continuous IT load.",
     detail:
-      "The unit can assist in load balancing of the grid — drawing excess power when it is available, and idling when the grid is under peak load.",
+      "Kept DC end to end — solar to battery to distribution to compute — removing the inverter and the server-side AC-DC stage for a stated 8–15% ongoing saving.",
   },
   {
     id: "cooling",
@@ -80,7 +80,8 @@ export function SsmdcExplorer() {
         </h2>
 
         <p className="reveal mt-8 max-w-[58ch] text-lg leading-relaxed text-steel">
-          {ssmdc.description[0]}
+          A 400 m² class node: solar, storage and compute in one package,
+          deployed close to the energy rather than the other way round.
         </p>
 
         <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
