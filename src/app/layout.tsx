@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: `${company.name}, Infrastructure for high-density compute`,
-    template: `%s, ${company.name}`,
+    template: `%s | ${company.name}`,
   },
   description:
     "Modular infrastructure for Bitcoin, AI and high-density computing, engineered in Vietnam.",

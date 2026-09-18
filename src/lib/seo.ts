@@ -26,7 +26,7 @@ export function pageMeta({
   image = DEFAULT_OG,
 }: PageMetaArgs): Metadata {
   const url = `${SITE_URL}${path}`;
-  const fullTitle = `${title}, ${company.name}`;
+  const fullTitle = `${title} | ${company.name}`;
 
   return {
     title,
