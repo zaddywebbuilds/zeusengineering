@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { company } from "@/data/company";
@@ -73,6 +74,21 @@ export function EnergyToCompute() {
             node takes, sited next to the energy rather than the other way
             round.
           </p>
+        </div>
+
+        <div className="reveal mt-10">
+          <Link
+            href="/vision"
+            className="group inline-flex items-center gap-3 text-sm text-ink transition-colors duration-200 hover:text-ochre"
+          >
+            Read the full vision
+            <span
+              aria-hidden
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </Link>
         </div>
 
         {/* The spine */}

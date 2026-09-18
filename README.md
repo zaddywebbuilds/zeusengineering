@@ -137,14 +137,23 @@ blocked every crawler.
 
 ### Form endpoint
 
-`src/components/ui/ContactForm.tsx` has **no backend**. Rather than render a
-submit button that silently does nothing, or shows a fake success state, it
-composes a pre-filled email and hands it to the visitor's mail client. The
-enquiry genuinely reaches ZEUS.
+Build, Host and Invest are three separate funnels with their own qualifying
+fields, defined in `src/data/enquiry.ts`. Only name, email and message are ever
+required; an investor who will not state a ticket size before a call can still
+send the enquiry.
 
-To switch to a real endpoint: set `NEXT_PUBLIC_FORM_ENDPOINT` and replace
-`composeMailto` with a POST. Field names are already namespaced, validation and
-a honeypot are in place, and the status region is already `aria-live`.
+**Transport is environment-driven.** Set `NEXT_PUBLIC_FORM_ENDPOINT` and the
+form POSTs to it with a real submitting / sent / error cycle. Leave it unset
+and the form composes a pre-filled email and hands it to the mail client,
+saying so under the button.
+
+What it never does is fake a success state. A submit that reports "thank you"
+into a void is worse than no form, because the enquiry is lost and nobody
+knows.
+
+Validation, a honeypot, `aria-invalid`, per-field error ids wired through
+`aria-describedby`, and focus movement to the first invalid field are all in
+place.
 
 ### Analytics
 

@@ -1,73 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { contactPaths, type ContactIntent } from "@/data/navigation";
+import { enquiryForms, type Field } from "@/data/enquiry";
 import { company } from "@/data/company";
 import { cx } from "@/lib/utils";
 
 /**
- * Intent-aware enquiry form.
+ * The Build / Host / Invest funnels.
  *
- * NO BACKEND IS CONFIGURED. Rather than render a submit button that silently
- * does nothing — or worse, shows a fake success state — this form composes a
- * pre-filled email and hands it to the visitor's mail client. The enquiry
- * genuinely reaches ZEUS, and nothing pretends to be something it isn't.
+ * TRANSPORT. If NEXT_PUBLIC_FORM_ENDPOINT is set the form POSTs to it and runs
+ * a real submitting / sent / error cycle. If it is not set, the form composes
+ * a pre-filled email and hands it to the visitor's mail client.
  *
- * To switch to a real endpoint: set NEXT_PUBLIC_FORM_ENDPOINT and replace
- * `composeMailto` with a POST. Field names are already namespaced for it.
- * See README "Form integration".
+ * What it never does is fake a success state. A submit button that reports
+ * "thank you" into a void is worse than no form, because the enquiry is lost
+ * and nobody knows. With no endpoint configured the button says so.
  */
-const intentFields: Record<
-  ContactIntent,
-  { label: string; name: string; type: "text" | "select"; options?: string[] }[]
-> = {
-  build: [
-    { label: "Organisation", name: "organisation", type: "text" },
-    {
-      label: "What you need",
-      name: "scope",
-      type: "select",
-      options: [
-        "Modular data centre",
-        "AI infrastructure",
-        "Energy integration",
-        "Engineering consulting",
-        "Not sure yet",
-      ],
-    },
-  ],
-  host: [
-    { label: "Organisation (optional)", name: "organisation", type: "text" },
-    {
-      label: "Approximate machine count",
-      name: "machines",
-      type: "select",
-      options: ["1–10", "11–50", "51–200", "200+", "Not sure yet"],
-    },
-  ],
-  invest: [
-    { label: "Organisation / fund", name: "organisation", type: "text" },
-    {
-      label: "Enquiry type",
-      name: "enquiry",
-      type: "select",
-      options: [
-        "Participating in the raise",
-        "Request further information",
-        "Introductory conversation",
-      ],
-    },
-  ],
-};
+const ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? "";
 
-const intentCopy: Record<ContactIntent, string> = {
-  build:
-    "Infrastructure and engineering enquiries, modular data centres, AI infrastructure, energy integration and consulting.",
-  host: "Hosted mining enquiries. ZEUS runs and maintains client-owned equipment for a 10% service fee on earnings.",
-  invest:
-    "Investor enquiries relating to the $2.69M SSMDC raise.",
-};
+type Status = "idle" | "submitting" | "sent" | "error";
 
 const validIntents = contactPaths.map((p) => p.id) as readonly string[];
 
@@ -81,38 +34,87 @@ export function ContactForm() {
     : "build";
 
   const [intent, setIntent] = useState<ContactIntent>(initialIntent);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const uid = useId();
 
-  const fields = intentFields[intent];
-  const activePath = contactPaths.find((p) => p.id === intent);
+  const form = enquiryForms[intent];
 
-  function composeMailto(form: HTMLFormElement) {
-    const data = new FormData(form);
-    const lines: string[] = [];
-
-    for (const [key, value] of data.entries()) {
-      if (key === "intent" || !value) continue;
-      const label = key.charAt(0).toUpperCase() + key.slice(1);
-      lines.push(`${label}: ${String(value)}`);
+  function validate(data: FormData) {
+    const found: Record<string, string> = {};
+    for (const field of form.fields) {
+      if (!field.required) continue;
+      const value = String(data.get(field.name) ?? "").trim();
+      if (!value) {
+        found[field.name] = `${field.label} is required.`;
+      } else if (
+        field.type === "email" &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)
+      ) {
+        found[field.name] = "Enter a valid email address.";
+      }
     }
+    return found;
+  }
 
-    const subject = `${activePath?.label ?? "Enquiry"}, website enquiry`;
+  function composeMailto(data: FormData) {
+    const lines: string[] = [];
+    for (const field of form.fields) {
+      const raw = data.get(field.name);
+      const value =
+        field.type === "checkbox" ? (raw ? "Yes" : "") : String(raw ?? "");
+      if (value.trim()) lines.push(`${field.label}: ${value.trim()}`);
+    }
     return `mailto:${company.email}?subject=${encodeURIComponent(
-      subject,
+      `${form.heading} enquiry`,
     )}&body=${encodeURIComponent(lines.join("\n"))}`;
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    window.location.href = composeMailto(event.currentTarget);
-    setSent(true);
+    const el = event.currentTarget;
+    const data = new FormData(el);
+
+    // Honeypot: a real person never fills a field they cannot see.
+    if (String(data.get("company-website") ?? "").trim()) return;
+
+    const found = validate(data);
+    setErrors(found);
+    if (Object.keys(found).length > 0) {
+      const first = el.querySelector<HTMLElement>(
+        `[name="${Object.keys(found)[0]}"]`,
+      );
+      first?.focus();
+      return;
+    }
+
+    if (!ENDPOINT) {
+      window.location.href = composeMailto(data);
+      setStatus("sent");
+      return;
+    }
+
+    setStatus("submitting");
+    try {
+      data.set("intent", intent);
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus("sent");
+      el.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
     <div>
       {/* Intent selector */}
       <fieldset className="mb-10">
-        <legend className="tech-label mb-5">What is this about?</legend>
+        <legend className="tech-label mb-5">What are you building?</legend>
         <div
           role="radiogroup"
           aria-label="Enquiry type"
@@ -126,7 +128,8 @@ export function ContactForm() {
               aria-checked={intent === path.id}
               onClick={() => {
                 setIntent(path.id);
-                setSent(false);
+                setStatus("idle");
+                setErrors({});
               }}
               className={cx(
                 "p-6 text-left transition-colors duration-200",
@@ -151,18 +154,16 @@ export function ContactForm() {
           ))}
         </div>
         <p className="mt-5 max-w-[56ch] text-sm leading-relaxed text-slate">
-          {intentCopy[intent]}
+          {form.blurb}
         </p>
       </fieldset>
 
-      <form onSubmit={handleSubmit} className="space-y-7">
-        <input type="hidden" name="intent" value={intent} />
-
-        {/* Honeypot, hidden from people, tempting to bots */}
+      <form onSubmit={handleSubmit} noValidate className="space-y-7">
+        {/* Honeypot, off-screen rather than display:none so bots still see it */}
         <div className="absolute left-[-9999px]" aria-hidden>
-          <label htmlFor="company-website">Leave this empty</label>
+          <label htmlFor={`${uid}-hp`}>Leave this empty</label>
           <input
-            id="company-website"
+            id={`${uid}-hp`}
             name="company-website"
             type="text"
             tabIndex={-1}
@@ -171,62 +172,23 @@ export function ContactForm() {
         </div>
 
         <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">
-          <Field label="Name" name="name" required />
-          <Field label="Email" name="email" type="email" required />
-        </div>
-
-        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">
-          {fields.map((field) =>
-            field.type === "select" ? (
-              <div key={field.name}>
-                <label
-                  htmlFor={field.name}
-                  className="tech-label mb-3 block"
-                >
-                  {field.label}
-                </label>
-                <select
-                  id={field.name}
-                  name={field.name}
-                  className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-linen px-4 py-3.5 text-ink transition-colors duration-200 focus:border-ochre"
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    Select…
-                  </option>
-                  {field.options?.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            ) : (
-              <Field key={field.name} label={field.label} name={field.name} />
-            ),
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="message" className="tech-label mb-3 block">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={5}
-            required
-            className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-linen px-4 py-3.5 text-ink transition-colors duration-200 placeholder:text-slate-dim focus:border-ochre"
-            placeholder="What are you trying to do?"
-          />
+          {form.fields.map((field) => (
+            <FormField
+              key={field.name}
+              field={field}
+              uid={uid}
+              error={errors[field.name]}
+            />
+          ))}
         </div>
 
         <div className="flex flex-wrap items-center gap-6">
           <button
             type="submit"
-            className="group inline-flex items-center gap-3 rounded-[3px] bg-ink px-7 py-4 text-sm font-medium text-canvas transition-colors duration-200 hover:bg-ink/90"
+            disabled={status === "submitting"}
+            className="group inline-flex items-center gap-3 rounded-[3px] bg-ink px-7 py-4 text-sm font-medium text-canvas transition-colors duration-200 hover:bg-ink/90 disabled:opacity-60"
           >
-            Send enquiry
+            {status === "submitting" ? "Sending" : form.submit}
             <span
               aria-hidden
               className="transition-transform duration-200 group-hover:translate-x-1"
@@ -235,56 +197,133 @@ export function ContactForm() {
             </span>
           </button>
 
-          <p className="text-xs leading-relaxed text-slate-dim">
-            Opens your email client with the enquiry prepared.
-          </p>
+          {!ENDPOINT && (
+            <p className="text-xs leading-relaxed text-slate-dim">
+              Opens your email client with the enquiry prepared.
+            </p>
+          )}
         </div>
 
-        <p
-          role="status"
-          aria-live="polite"
-          className={cx(
-            "text-sm transition-opacity duration-300",
-            sent ? "text-ochre opacity-100" : "opacity-0",
+        <div role="status" aria-live="polite" className="min-h-[1.5rem]">
+          {status === "sent" && (
+            <p className="text-sm text-sage">
+              {ENDPOINT
+                ? "Thank you. We will come back to you."
+                : `Your email client should have opened. If it did not, write to ${company.email}.`}
+            </p>
           )}
-        >
-          {sent
-            ? `Your email client should have opened. If it didn't, write to ${company.email} directly.`
-            : " "}
-        </p>
+          {status === "error" && (
+            <p className="text-sm text-ochre">
+              Something went wrong sending that. Please email {company.email}{" "}
+              directly.
+            </p>
+          )}
+        </div>
       </form>
     </div>
   );
 }
 
-function Field({
-  label,
-  name,
-  type = "text",
-  required = false,
+function FormField({
+  field,
+  uid,
+  error,
 }: {
-  label: string;
-  name: string;
-  type?: string;
-  required?: boolean;
+  field: Field;
+  uid: string;
+  error?: string;
 }) {
+  const id = `${uid}-${field.name}`;
+  const describedBy =
+    [error ? `${id}-error` : null, field.help ? `${id}-help` : null]
+      .filter(Boolean)
+      .join(" ") || undefined;
+
+  const base =
+    "w-full rounded-[3px] border bg-linen px-4 py-3.5 text-ink transition-colors duration-200 placeholder:text-slate-dim focus:border-ochre";
+  const border = error ? "border-ochre" : "border-[var(--rule-strong)]";
+
+  if (field.type === "checkbox") {
+    return (
+      <div className={field.wide ? "sm:col-span-2" : undefined}>
+        <label className="flex cursor-pointer items-start gap-3">
+          <input
+            id={id}
+            name={field.name}
+            type="checkbox"
+            className="mt-1 h-5 w-5 shrink-0 accent-[var(--color-ochre)]"
+            aria-describedby={describedBy}
+          />
+          <span className="text-sm text-ink">{field.label}</span>
+        </label>
+        {field.help && (
+          <p id={`${id}-help`} className="mt-2 pl-8 text-xs text-slate-dim">
+            {field.help}
+          </p>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div>
-      <label htmlFor={name} className="tech-label mb-3 block">
-        {label}
-        {required && (
+    <div className={field.wide ? "sm:col-span-2" : undefined}>
+      <label htmlFor={id} className="tech-label mb-3 block">
+        {field.label}
+        {field.required && (
           <span aria-hidden className="ml-1 text-ochre">
             *
           </span>
         )}
       </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-linen px-4 py-3.5 text-ink transition-colors duration-200 placeholder:text-slate-dim focus:border-ochre"
-      />
+
+      {field.type === "select" ? (
+        <select
+          id={id}
+          name={field.name}
+          defaultValue=""
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
+          className={cx(base, border)}
+        >
+          <option value="">Select</option>
+          {field.options?.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
+        </select>
+      ) : field.type === "textarea" ? (
+        <textarea
+          id={id}
+          name={field.name}
+          rows={5}
+          placeholder={field.placeholder}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
+          className={cx(base, border)}
+        />
+      ) : (
+        <input
+          id={id}
+          name={field.name}
+          type={field.type}
+          placeholder={field.placeholder}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={describedBy}
+          className={cx(base, border)}
+        />
+      )}
+
+      {field.help && !error && (
+        <p id={`${id}-help`} className="mt-2 text-xs text-slate-dim">
+          {field.help}
+        </p>
+      )}
+      {error && (
+        <p id={`${id}-error`} className="mt-2 text-xs text-ochre">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
