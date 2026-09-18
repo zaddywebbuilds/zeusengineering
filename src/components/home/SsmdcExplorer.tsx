@@ -26,7 +26,7 @@ const layers = [
     accent: "ochre",
     body: "80–120 kWp of on-site solar with 300–500 kWh of usable battery, carrying a 50–75 kW continuous IT load.",
     detail:
-      "Kept DC end to end — solar to battery to distribution to compute — removing the inverter and the server-side AC-DC stage for a stated 8–15% ongoing saving.",
+      "Kept DC end to end, solar to battery to distribution to compute, removing the inverter and the server-side AC-DC stage for a stated 8–15% ongoing saving.",
   },
   {
     id: "cooling",
@@ -50,7 +50,7 @@ const layers = [
     accent: "sage",
     body: "Full automation and remote monitoring.",
     detail:
-      "Remote operation is what makes small distributed sites viable — a unit placed near available energy cannot depend on a permanent on-site crew.",
+      "Remote operation is what makes small distributed sites viable, a unit placed near available energy cannot depend on a permanent on-site crew.",
   },
 ] as const;
 
@@ -95,7 +95,7 @@ export function SsmdcExplorer() {
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-contain p-4"
               />
-              {/* Layer wash — signals which subsystem is selected */}
+              {/* Layer wash, signals which subsystem is selected */}
               <div
                 aria-hidden
                 className={cx(

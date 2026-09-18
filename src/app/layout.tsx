@@ -24,11 +24,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${company.name} — Infrastructure for high-density compute`,
-    template: `%s — ${company.name}`,
+    default: `${company.name}, Infrastructure for high-density compute`,
+    template: `%s, ${company.name}`,
   },
   description:
-    "Modular infrastructure for Bitcoin, AI and high-density computing — engineered in Vietnam.",
+    "Modular infrastructure for Bitcoin, AI and high-density computing, engineered in Vietnam.",
   applicationName: company.name,
   // metadata.icons is not base-path-aware either — prefix it explicitly.
   icons: { icon: asset("/images/brand/zeus-mark-ink.webp") },

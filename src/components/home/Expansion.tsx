@@ -90,7 +90,7 @@ export function Expansion() {
         <div className="reveal mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
           <StatusBadge status="target" label="ZEUS's comparison" />
           <p className="max-w-[64ch] text-sm text-slate-dim">
-            Only the final row describes something that exists — the 100 kWp
+            Only the final row describes something that exists, the 100 kWp
             prototype. The rest compares an operating model against a design.
           </p>
         </div>

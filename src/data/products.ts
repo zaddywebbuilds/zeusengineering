@@ -36,7 +36,7 @@ export const ssmdc: Product = {
   description: [
     "The Small Solar Modular Data Centre is designed for rapid deployment and operation using available grid power between 100–200 kW, with up to 100 kW solar supplement.",
     "Suitable for the harshest of environments, with full automation and remote monitoring for Bitcoin mining and/or AI compute.",
-    "The SSMDC can assist in load balancing of the grid — using excess power when available, and idling when the grid is under peak loads.",
+    "The SSMDC can assist in load balancing of the grid, using excess power when available, and idling when the grid is under peak loads.",
   ],
   specs: [
     {
@@ -47,7 +47,7 @@ export const ssmdc: Product = {
         "80–120 kWp solar",
         "300–500 kWh usable battery (3–5 h class)",
         "50–75 kW continuous IT load",
-        "End-to-end DC-DC — 8–15% ongoing saving",
+        "End-to-end DC-DC, 8–15% ongoing saving",
       ],
     },
     {
@@ -56,7 +56,7 @@ export const ssmdc: Product = {
       items: [
         "100–200 kW available grid power",
         "Up to 100 kW solar supplement",
-        "Grid load balancing — draws excess, idles at peak",
+        "Grid load balancing, draws excess, idles at peak",
       ],
     },
     {
@@ -91,7 +91,7 @@ export const ai1: Product = {
     "A long-running ZEUS development project. Not presented by ZEUS as a deployed commercial fleet.",
   tagline: "One panel. Off-grid compute.",
   description: [
-    "The All-in-One has been a project of ours for years — long before the required hardware existed.",
+    "The All-in-One has been a project of ours for years, long before the required hardware existed.",
     "A single unit the size of a standard 2×1 m solar panel (plus auxiliary panel) that can provide both Bitcoin mining and AI compute, day and night, using only solar power. No grid connection required.",
     "The unit is intended to be deployed in the thousands and interconnected as one large decentralised computing network.",
   ],
@@ -180,7 +180,7 @@ export const ai1: Product = {
 export const s3xyAi: Product = {
   id: "s3xy-ai",
   name: "S3XY Ai",
-  fullName: "S3XY Ai — in-house business and engineering AI",
+  fullName: "S3XY Ai, in-house business and engineering AI",
   status: "concept",
   statusNote: "An internal ZEUS tool.",
   tagline: "Built in house.",

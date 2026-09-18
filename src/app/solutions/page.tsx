@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Solutions",
   description:
-    "Modular data centers, AI infrastructure, Bitcoin infrastructure, hosted mining and energy integration — the five areas ZEUS Engineering builds in.",
+    "Modular data centers, AI infrastructure, Bitcoin infrastructure, hosted mining and energy integration, the five areas ZEUS Engineering builds in.",
   path: "/solutions",
 });
 

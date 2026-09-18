@@ -10,10 +10,10 @@
  */
 
 export type FactStatus =
-  | "current" // Exists and operates now — state directly
-  | "zeus-reported" // Zeus reports it; not independently verified — attribute
-  | "target" // Intended future development — always say planned/target
-  | "projection" // Financial/operational forecast — identify as projection
+  | "current" // Exists and operates now, state directly
+  | "zeus-reported" // Zeus reports it; not independently verified, attribute
+  | "target" // Intended future development, always say planned/target
+  | "projection" // Financial/operational forecast, identify as projection
   | "concept"; // Product/engineering concept, not a deployed fleet
 
 export const STATUS_LABEL: Record<FactStatus, string> = {

@@ -21,7 +21,7 @@ export function InvestorGateway() {
             Investor relations
           </TechLabel>
           <MaskedHeading
-            text={"Build the nodes.\nOwn the uptime."}
+            text={"Build the nodes.\nScale the network."}
             className="h-section max-w-[14ch]"
           />
           <h2 id="investor-heading" className="sr-only">
@@ -30,7 +30,7 @@ export function InvestorGateway() {
 
           <p className="reveal mt-8 max-w-[48ch] text-lg leading-relaxed text-slate">
             A prototype that already runs, a node design costed to the line, and
-            a raise sized to build two of them — presented so that what exists,
+            a raise sized to build two of them, presented so that what exists,
             what is planned and what is projected are never the same thing.
           </p>
 

@@ -28,7 +28,7 @@ export default function EconomicsPage() {
         index="02"
         label="Investor relations"
         title={"What one node\nlooks like."}
-        lede="A 400 m² class site in the Bà Rịa region. These are design figures for a node not yet built — a specification, not a measured result."
+        lede="A 400 m² class site in the Bà Rịa region. These are design figures for a node not yet built, a specification, not a measured result."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Investors", href: "/investors" },
@@ -40,7 +40,7 @@ export default function EconomicsPage() {
         <MetricRow facts={nodeEconomics} />
       </Section>
 
-      {/* DC-DC — the actual technical differentiator */}
+      {/* DC-DC, the actual technical differentiator */}
       <Section
         index="04"
         label="Technical edge"

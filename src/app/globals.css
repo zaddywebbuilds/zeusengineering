@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================================
-   ZEUS ENGINEERING — DESIGN TOKENS
+   ZEUS ENGINEERING, DESIGN TOKENS
    Warm and light: cream walls, sage joinery, oak and tan leather.
    Surfaces carry the warmth; accent colour is signal, not decoration.
    OCHRE = energy / power.  SAGE = compute / data / monitoring.
@@ -138,7 +138,7 @@ body {
 /* Small uppercase technical annotation — the site's connective tissue */
 .tech-label {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -147,7 +147,7 @@ body {
 
 @media (min-width: 768px) {
   .tech-label {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
   }
 }
 
@@ -270,5 +270,20 @@ body {
   .draw-line {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+
+/* ---------- Touch targets ----------
+   Navigation and footer links are ~17px tall from their text alone, well under
+   the 44px minimum for a finger. Padding them out on coarse pointers only
+   keeps the desktop rhythm unchanged. */
+@media (pointer: coarse) {
+  header nav li > a,
+  footer a,
+  #mobile-nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 }

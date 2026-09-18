@@ -47,7 +47,7 @@ export const solutions: Solution[] = [
     headline: "Built through\ncontinuous compute.",
     tagline: "The proving ground.",
     summary:
-      "ASIC deployment, power infrastructure, cooling, monitoring and maintenance — run continuously, in heat and humidity, where efficiency is the margin.",
+      "ASIC deployment, power infrastructure, cooling, monitoring and maintenance, run continuously, in heat and humidity, where efficiency is the margin.",
     image: "/images/site/bitcoin-mining.webp",
     imageAlt: "ASIC mining hardware",
   },
@@ -73,7 +73,7 @@ export const solutions: Solution[] = [
     headline: "Compute starts\nwith power.",
     tagline: "Grid and solar, managed as one system.",
     summary:
-      "Systems designed to integrate with existing power infrastructure while leveraging renewable energy — particularly solar — to reduce operating costs and improve energy efficiency.",
+      "Systems designed to integrate with existing power infrastructure while leveraging renewable energy, particularly solar, to reduce operating costs and improve energy efficiency.",
     image: "/images/site/solar.webp",
     imageAlt: "Solar array at sunrise",
   },

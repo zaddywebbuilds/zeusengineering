@@ -47,7 +47,7 @@ export function Hero() {
           </h1>
 
           <p className="reveal mt-9 max-w-[46ch] text-lg leading-relaxed text-slate">
-            Modular infrastructure for Bitcoin, AI and high-density computing —
+            Modular infrastructure for Bitcoin, AI and high-density computing ,
             engineered in Vietnam.
           </p>
 

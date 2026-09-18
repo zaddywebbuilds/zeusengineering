@@ -21,7 +21,7 @@ export default function TheAskPage() {
         index="01"
         label="Investor relations"
         title={"What we're\nasking for."}
-        lede="$2.69M for an 18–24 month runway to multiple live nodes — GPUs, the power plant that runs them, the land they sit on, and the team that builds them."
+        lede="$2.69M for an 18–24 month runway to multiple live nodes, GPUs, the power plant that runs them, the land they sit on, and the team that builds them."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Investors", href: "/investors" },
@@ -57,7 +57,7 @@ export default function TheAskPage() {
           </p>
         </div>
 
-        {/* Table on desktop, stacked cards on mobile — same data, no scroll */}
+        {/* Table on desktop, stacked cards on mobile, same data, no scroll */}
         <div className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
           {useOfFunds.map((row, i) => (
             <div

@@ -48,7 +48,7 @@ export default function AiInfrastructurePage() {
             </p>
             <p className="leading-relaxed text-slate">
               What ZEUS has is operating experience with hardware that runs at
-              full load, continuously, in a hot and humid climate — the
+              full load, continuously, in a hot and humid climate, the
               conditions under which power delivery, thermal management and
               remote monitoring stop being theoretical. Those are the same
               constraints that determine whether a rack of accelerators
@@ -107,7 +107,7 @@ export default function AiInfrastructurePage() {
         </div>
       </Section>
 
-      {/* Ai-1 — the strongest genuine AI asset ZEUS has published */}
+      {/* Ai-1, the strongest genuine AI asset ZEUS has published */}
       <Section>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <div>
@@ -180,7 +180,7 @@ export default function AiInfrastructurePage() {
         </div>
       </Section>
 
-      {/* S3XY Ai — deliberately small, and kept off the investor path */}
+      {/* S3XY Ai, deliberately small, and kept off the investor path */}
       <Section tone="linen">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] lg:gap-12">
         <div className="max-w-[64ch]">

@@ -11,7 +11,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Bitcoin Infrastructure",
   description:
-    "ZEUS Engineering's Bitcoin mining infrastructure in Vietnam — ASIC deployment, power, cooling, monitoring and maintenance, run continuously.",
+    "ZEUS Engineering's Bitcoin mining infrastructure in Vietnam: ASIC deployment, power, cooling, monitoring and maintenance, run continuously.",
   path: "/solutions/bitcoin-infrastructure",
 });
 
@@ -22,7 +22,7 @@ export default function BitcoinInfrastructurePage() {
         index="03"
         label="Solutions"
         title={"Built through\ncontinuous compute."}
-        lede="Bitcoin is the workload that pays for the infrastructure and proves it at the same time. Machines at full load, continuously, with no idle period to recover thermally — the hardest version of the problem ZEUS is in business to solve."
+        lede="Bitcoin is the workload that pays for the infrastructure and proves it at the same time. Machines at full load, continuously, with no idle period to recover thermally, the hardest version of the problem ZEUS is in business to solve."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Solutions", href: "/solutions" },
@@ -68,7 +68,7 @@ export default function BitcoinInfrastructurePage() {
             </h3>
             <p className="mt-5 leading-relaxed text-slate">
               Asked directly how it manages heat, ZEUS describes conventional
-              airflow engineering rather than exotic hardware — which is the
+              airflow engineering rather than exotic hardware, which is the
               more credible answer, and the one that scales.
             </p>
             <ul className="mt-8 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">

@@ -13,7 +13,7 @@ import { cx } from "@/lib/utils";
 export const metadata: Metadata = pageMeta({
   title: "Investor Relations",
   description:
-    "ZEUS Engineering is raising $2.69M to build decentralised AI compute nodes in Vietnam — SSMDC. Traction, economics, roadmap and the case.",
+    "ZEUS Engineering is raising $2.69M to build decentralised AI compute nodes in Vietnam, SSMDC. Traction, economics, roadmap and the case.",
   path: "/investors",
 });
 
@@ -22,7 +22,7 @@ const chapters = [
     href: "/investors/the-ask",
     index: "01",
     label: "The ask",
-    body: "$2.69M, itemised — what it buys and over what runway.",
+    body: "$2.69M, itemised, what it buys and over what runway.",
   },
   {
     href: "/investors/economics",
@@ -34,13 +34,13 @@ const chapters = [
     href: "/investors/roadmap",
     index: "03",
     label: "Roadmap",
-    body: "Prototype, first nodes, network — and which of those exists.",
+    body: "Prototype, first nodes, network, and which of those exists.",
   },
   {
     href: "/investors/why-vietnam",
     index: "04",
     label: "Why Vietnam",
-    body: "Capex, power, sunlight, logistics and tax — with ZEUS's own caveats.",
+    body: "Capex, power, sunlight, logistics and tax. With ZEUS's own caveats.",
   },
 ];
 
@@ -49,8 +49,8 @@ export default function InvestorsPage() {
     <>
       <PageHeader
         label="Investor relations"
-        title={"Build the nodes.\nOwn the uptime."}
-        lede="Hyperscale cannot keep up with the hunger for compute. ZEUS is raising $2.69M to build decentralised, solar-powered AI compute nodes in southern Vietnam — on the back of a mining site that already runs."
+        title={"Build the nodes.\nScale the network."}
+        lede="Hyperscale cannot keep up with the hunger for compute. ZEUS is raising $2.69M to build decentralised, solar-powered AI compute nodes in southern Vietnam, on the back of a mining site that already runs."
         crumbs={[{ label: "Home", href: "/" }]}
         status={{ value: "target", label: "Raising" }}
         media={{
@@ -66,7 +66,7 @@ export default function InvestorsPage() {
         index="01"
         label="How to read this section"
         title={"Four kinds\nof statement."}
-        lede="Every figure on this site carries one of these labels. They are never mixed, and the label is always a word — not just a colour."
+        lede="Every figure on this site carries one of these labels. They are never mixed, and the label is always a word, not just a colour."
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -126,7 +126,7 @@ export default function InvestorsPage() {
         index="03"
         label="Traction"
         title={"Already operating.\nAlready learning."}
-        lede="ZEUS has spent a decade building dense power, cooling and modular compute systems — first for mining, now redirected to AI. The Vietnam prototype is the foundation the SSMDC design is drawn from."
+        lede="ZEUS has spent a decade building dense power, cooling and modular compute systems, first for mining, now redirected to AI. The Vietnam prototype is the foundation the SSMDC design is drawn from."
       >
         <MetricRow facts={traction} />
       </Section>

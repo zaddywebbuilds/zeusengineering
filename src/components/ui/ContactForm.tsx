@@ -63,7 +63,7 @@ const intentFields: Record<
 
 const intentCopy: Record<ContactIntent, string> = {
   build:
-    "Infrastructure and engineering enquiries — modular data centres, AI infrastructure, energy integration and consulting.",
+    "Infrastructure and engineering enquiries, modular data centres, AI infrastructure, energy integration and consulting.",
   host: "Hosted mining enquiries. ZEUS runs and maintains client-owned equipment for a 10% service fee on earnings.",
   invest:
     "Investor enquiries relating to the $2.69M SSMDC raise.",
@@ -96,7 +96,7 @@ export function ContactForm() {
       lines.push(`${label}: ${String(value)}`);
     }
 
-    const subject = `${activePath?.label ?? "Enquiry"} — website enquiry`;
+    const subject = `${activePath?.label ?? "Enquiry"}, website enquiry`;
     return `mailto:${company.email}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(lines.join("\n"))}`;
@@ -158,7 +158,7 @@ export function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-7">
         <input type="hidden" name="intent" value={intent} />
 
-        {/* Honeypot — hidden from people, tempting to bots */}
+        {/* Honeypot, hidden from people, tempting to bots */}
         <div className="absolute left-[-9999px]" aria-hidden>
           <label htmlFor="company-website">Leave this empty</label>
           <input

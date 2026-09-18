@@ -49,7 +49,7 @@ export const leadership: Person[] = [
 export const companyHistory = [
   {
     label: "Before the company",
-    body: "The team states it began working with Bitcoin mining around eight years before the pitch — through more than one market cycle, including bear markets.",
+    body: "The team states it began working with Bitcoin mining around eight years before the pitch, through more than one market cycle, including bear markets.",
   },
   {
     label: "Registration",

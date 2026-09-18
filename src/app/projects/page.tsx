@@ -23,7 +23,7 @@ export default function ProjectsPage() {
       <PageHeader
         label="Projects"
         title={"Where the\nengineering\nis proven."}
-        lede="One operating site today. The architecture of this section is built to carry more as they come online — but it will not show projects that do not exist."
+        lede="One operating site today. The architecture of this section is built to carry more as they come online, but it will not show projects that do not exist."
         crumbs={[{ label: "Home", href: "/" }]}
       />
 
@@ -91,7 +91,7 @@ export default function ProjectsPage() {
           <TechLabel className="mb-5">On this page</TechLabel>
           <p className="leading-relaxed text-slate">
             ZEUS has published one operating site. There is no Project 002 on
-            this page because there is no Project 002 to show — the absence is
+            this page because there is no Project 002 to show, the absence is
             the honest answer, and it is a more useful signal to an investor
             than a filled grid would be.
           </p>

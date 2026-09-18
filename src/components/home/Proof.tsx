@@ -38,7 +38,7 @@ export function Proof() {
 
         <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
           Engineering experience developed running high-density compute
-          infrastructure in southern Vietnam — where power is finite, the air
+          infrastructure in southern Vietnam, where power is finite, the air
           is hot and wet, and the hardware does not get to rest.
         </p>
 
@@ -90,7 +90,7 @@ export function Proof() {
               </p>
             </div>
 
-            {/* Asset value — attributed, and kept away from the projections */}
+            {/* Asset value, attributed, and kept away from the projections */}
             <div className="reveal mt-12 border-t border-[var(--rule)] pt-10">
               <div className="flex items-baseline gap-1.5">
                 <span className="numeral text-[clamp(2.75rem,5.5vw,4rem)]">

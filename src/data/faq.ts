@@ -20,7 +20,7 @@ export const faq: FaqItem[] = [
     topic: "economics",
     question: "Does it cost more in power than you make in Bitcoin?",
     answer:
-      "ZEUS's answer emphasises managing power use and cost through efficient equipment, wholesale power rates and renewable energy — which is the reasoning behind the 1 MW and 2 MW capacity targets and the 500 kW solar fit-out in the expansion plan.",
+      "ZEUS's answer emphasises managing power use and cost through efficient equipment, wholesale power rates and renewable energy, which is the reasoning behind the 1 MW and 2 MW capacity targets and the 500 kW solar fit-out in the expansion plan.",
   },
   {
     topic: "hardware",
@@ -53,7 +53,7 @@ export const faq: FaqItem[] = [
     topic: "engineering",
     question: "How do you manage heat?",
     answer:
-      "ZEUS says it manages airflow using conventional approaches — airflow control systems, fans, and water radiators for hydro systems.",
+      "ZEUS says it manages airflow using conventional approaches: airflow control systems, fans, and water radiators for hydro systems.",
   },
   {
     topic: "economics",

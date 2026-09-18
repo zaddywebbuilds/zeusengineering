@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Why Vietnam",
   description:
-    "ZEUS Engineering's argument for building compute infrastructure in Vietnam — capex, power rates, sunlight, policy, logistics and tax, with the company's own caveats.",
+    "Why ZEUS builds in Vietnam: capex, power rates, sunlight, policy, logistics and tax, with the company's own caveats.",
   path: "/investors/why-vietnam",
 });
 
@@ -20,7 +20,7 @@ export default function WhyVietnamPage() {
         index="04"
         label="Investor relations"
         title={"Why Vietnam."}
-        lede="ZEUS's case for where it builds. These are the company's arguments, presented as such — and where ZEUS's own material flags that a claim needs re-verification, that flag is carried through rather than dropped."
+        lede="ZEUS's case for where it builds. These are the company's arguments, presented as such, and where ZEUS's own material flags that a claim needs re-verification, that flag is carried through rather than dropped."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Investors", href: "/investors" },

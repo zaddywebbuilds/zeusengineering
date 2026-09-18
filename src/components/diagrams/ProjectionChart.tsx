@@ -120,7 +120,7 @@ export function ProjectionChart() {
           fontSize="9"
           letterSpacing="1.6"
         >
-          BTC PER YEAR — PROJECTED
+          BTC PER YEAR, PROJECTED
         </text>
       </svg>
 

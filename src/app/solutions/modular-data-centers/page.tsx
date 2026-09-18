@@ -11,7 +11,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Modular Data Centers",
   description:
-    "Standardised, containerised compute infrastructure deployed in months rather than years — including the SSMDC, ZEUS's Small Solar Modular Data Centre concept.",
+    "Containerised compute infrastructure deployed in months, not years. The SSMDC: ZEUS's Small Solar Modular Data Centre for Vietnam.",
   path: "/solutions/modular-data-centers",
 });
 
@@ -31,7 +31,7 @@ export default function ModularDataCentersPage() {
         index="01"
         label="Solutions"
         title={"Compute.\nContainerised."}
-        lede="Rather than concentrating resources into massive single-site deployments, ZEUS develops standardised systems that can be manufactured, moved and commissioned close to available energy — and then repeated."
+        lede="Rather than concentrating resources into massive single-site deployments, ZEUS develops standardised systems that can be manufactured, moved and commissioned close to available energy, and then repeated."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Solutions", href: "/solutions" },
@@ -47,7 +47,7 @@ export default function ModularDataCentersPage() {
       <Section
         index="02"
         label="Why modular"
-        title={"Contain the\nblast radius."}
+        title={"Contain\nsystem risk."}
         lede="A modular approach reduces deployment risk, minimises the impact of an individual system failure, improves maintainability, and allows infrastructure to be placed closer to available energy sources."
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-4">

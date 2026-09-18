@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Contact",
   description:
-    "Contact ZEUS Engineering — infrastructure and engineering enquiries, hosted mining enquiries, and investor enquiries.",
+    "Contact ZEUS Engineering, infrastructure and engineering enquiries, hosted mining enquiries, and investor enquiries.",
   path: "/contact",
 });
 

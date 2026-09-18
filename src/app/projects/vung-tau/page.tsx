@@ -10,9 +10,9 @@ import { currentOperations, thermalApproach } from "@/data/metrics";
 import { pageMeta, breadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: `${site.name} — Project 001`,
+  title: `${site.name}, Project 001`,
   description:
-    "ZEUS Engineering's operating site in the Vung Tau / Ba Ria region, Vietnam: a reported 100 kW facility on 300 m² with 20 kW peak solar and 1+ PH peak hash power.",
+    "ZEUS Engineering's operating site in Ba Ria, Vietnam: a reported 100 kW facility on 300 m² with 20 kW peak solar.",
   path: `/projects/${site.slug}`,
 });
 
@@ -27,7 +27,7 @@ const sections = [
   },
   {
     t: "The challenge",
-    b: "High-density compute at full load, continuously, in a tropical climate — where ambient conditions remove thermal headroom and power cost is the operating margin rather than an overhead line.",
+    b: "High-density compute at full load, continuously, in a tropical climate, where ambient conditions remove thermal headroom and power cost is the operating margin rather than an overhead line.",
   },
   {
     t: "Power",
@@ -66,7 +66,7 @@ export default function ProjectPage() {
       <PageHeader
         label={site.projectId}
         title={site.name}
-        lede={`${site.province}, ${site.country}. The site where the engineering is proven — finite power, continuous load, and a climate that punishes anything under-specified.`}
+        lede={`${site.province}, ${site.country}. The site where the engineering is proven, finite power, continuous load, and a climate that punishes anything under-specified.`}
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Projects", href: "/projects" },
@@ -132,7 +132,7 @@ export default function ProjectPage() {
         </div>
       </Section>
 
-      {/* Provenance — stated plainly rather than hidden in a footer */}
+      {/* Provenance, stated plainly rather than hidden in a footer */}
       <Section tone="linen">
         <div className="max-w-[64ch] border-l-2 border-ochre/50 pl-6">
           <TechLabel className="mb-4">On the imagery</TechLabel>

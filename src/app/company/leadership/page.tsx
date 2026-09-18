@@ -42,7 +42,7 @@ export default function LeadershipPage() {
         index="01"
         label="Company"
         title={"Who runs it."}
-        lede="A small team. ZEUS describes itself as small, highly skilled and experienced in allocating limited capital efficiently — and the profiles below are kept to what the company has actually published."
+        lede="A small team. ZEUS describes itself as small, highly skilled and experienced in allocating limited capital efficiently, and the profiles below are kept to what the company has actually published."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Company", href: "/company" },

@@ -14,7 +14,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Infrastructure for high-density compute",
   description:
-    "Modular infrastructure for Bitcoin, AI and high-density computing, engineered in Vietnam — power, cooling, compute and remote control.",
+    "Modular infrastructure for Bitcoin, AI and high-density computing, engineered in Vietnam. Power, cooling, compute and remote control.",
   path: "/",
 });
 

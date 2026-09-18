@@ -46,7 +46,7 @@ export const pillars: Pillar[] = [
     href: "/technology/compute",
     headline: "Density\nunder load.",
     summary:
-      "Racked hardware running continuously — today ASICs, and the same power and thermal envelope that AI accelerators demand.",
+      "Racked hardware running continuously, today ASICs, and the same power and thermal envelope that AI accelerators demand.",
     accent: "compute",
     detail: [
       "Zeus's operating experience is in Bitcoin infrastructure: hardware that runs at full load, continuously, with no idle periods to recover thermally.",
@@ -60,7 +60,7 @@ export const pillars: Pillar[] = [
     href: "/technology/monitoring",
     headline: "Operated\nremotely.",
     summary:
-      "Automation, telemetry and remote monitoring — so a site does not require a permanent crew to stay efficient.",
+      "Automation, telemetry and remote monitoring, so a site does not require a permanent crew to stay efficient.",
     accent: "compute",
     detail: [
       "Full automation and remote monitoring are core to the SSMDC concept, and remote monitoring, telemetry and control are specified components of the Ai-1 unit.",

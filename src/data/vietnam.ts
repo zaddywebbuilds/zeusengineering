@@ -23,7 +23,7 @@ export const vietnamPoints: VietnamPoint[] = [
   {
     index: "02",
     title: "Competitive power rates",
-    body: "The deck describes Vietnam's power rates as competitive, and says further benefits may be available at wholesale consumption levels above 1 MW — which is part of why the expansion plan targets that threshold.",
+    body: "The deck describes Vietnam's power rates as competitive, and says further benefits may be available at wholesale consumption levels above 1 MW, which is part of why the expansion plan targets that threshold.",
   },
   {
     index: "03",

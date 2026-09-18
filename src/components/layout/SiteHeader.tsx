@@ -70,7 +70,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex shrink-0 items-center"
-          aria-label={`${company.name} — home`}
+          aria-label={`${company.name}, home`}
         >
           <Img
             src="/images/brand/zeus-wordmark-ink.webp"

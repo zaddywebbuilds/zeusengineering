@@ -49,7 +49,7 @@ export function EnergyToCompute() {
 
         {/* Aerial pass over the site.
             Cropped from the supplied brand film, whose full frame carries
-            "LONG HAI | VIETNAM" burned into the titles — a place name neither
+            "LONG HAI | VIETNAM" burned into the titles, a place name neither
             deck supports (see AUDIT.md §2). The crop keeps the ZEUS wordmark
             on the building and drops every burned-in caption.
 
@@ -69,7 +69,7 @@ export function EnergyToCompute() {
           />
 
           <p className="max-w-[34ch] text-sm leading-relaxed text-slate">
-            Generation, storage and compute on one pad — the shape every SSMDC
+            Generation, storage and compute on one pad, the shape every SSMDC
             node takes, sited next to the energy rather than the other way
             round.
           </p>

@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Energy Integration",
   description:
-    "Grid supply and solar generation managed as one system — ZEUS Engineering's approach to reducing the operating cost of high-density compute in Vietnam.",
+    "Grid supply and solar generation managed as one system, ZEUS Engineering's approach to reducing the operating cost of high-density compute in Vietnam.",
   path: "/solutions/energy-integration",
 });
 
@@ -21,7 +21,7 @@ export default function EnergyIntegrationPage() {
         index="05"
         label="Solutions"
         title={"Compute starts\nwith power."}
-        lede="ZEUS's systems are designed to integrate with existing power infrastructure while leveraging renewable energy — particularly solar — to reduce operating costs and improve energy efficiency."
+        lede="ZEUS's systems are designed to integrate with existing power infrastructure while leveraging renewable energy, particularly solar, to reduce operating costs and improve energy efficiency."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Solutions", href: "/solutions" },
@@ -37,7 +37,7 @@ export default function EnergyIntegrationPage() {
         index="06"
         label="The flow"
         title={"Grid and solar,\nmanaged as one."}
-        lede="Two supplies, combined and managed before anything reaches compute — and a control layer that feeds back into how power is allocated."
+        lede="Two supplies, combined and managed before anything reaches compute, and a control layer that feeds back into how power is allocated."
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:gap-12">
           <div className="border border-[var(--rule)] bg-linen p-6 lg:p-8">
@@ -52,7 +52,7 @@ export default function EnergyIntegrationPage() {
               </h3>
               <p className="mt-4 leading-relaxed text-slate">
                 Systems are designed to work with the power infrastructure that
-                already exists rather than replace it — and, in the SSMDC node
+                already exists rather than replace it, and, in the SSMDC node
                 design, to lean on it as little as possible. On-site generation
                 and storage reduce both energy cost and grid dependency.
               </p>
@@ -65,7 +65,7 @@ export default function EnergyIntegrationPage() {
               <p className="mt-4 leading-relaxed text-slate">
                 ZEUS reports 20 kWp of solar at the operating prototype. The
                 SSMDC node design targets 80–120 kWp with 300–500 kWh of usable
-                battery — enough to carry a 50–75 kW continuous IT load through
+                battery, enough to carry a 50–75 kW continuous IT load through
                 the night in a strong solar region.
               </p>
               <div className="mt-5">
@@ -80,7 +80,7 @@ export default function EnergyIntegrationPage() {
               <p className="mt-4 leading-relaxed text-slate">
                 Solar generates DC. Batteries store DC. Compute consumes DC. The
                 SSMDC keeps it that way, removing the inverter and the AC-DC
-                stage inside every server — a stated 8–15% ongoing facility
+                stage inside every server, a stated 8–15% ongoing facility
                 saving, with a practical 10–12% central case.
               </p>
             </div>
@@ -105,7 +105,7 @@ export default function EnergyIntegrationPage() {
         label="Why it matters"
         title={"Power is\nthe margin."}
         tone="linen"
-        lede="In mining, energy cost is not an overhead line — it is the business. The same is increasingly true of AI compute."
+        lede="In mining, energy cost is not an overhead line, it is the business. The same is increasingly true of AI compute."
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-3">
           {[

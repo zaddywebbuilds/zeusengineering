@@ -44,6 +44,16 @@ export function RevealProvider({ children }: { children: React.ReactNode }) {
 
     observeAll();
 
+    // Safety net. Reveal state gates OPACITY, so an IntersectionObserver that
+    // never fires would leave whole sections invisible, which is far worse
+    // than losing an animation. If anything is still hidden after a few
+    // seconds, show it regardless.
+    const failsafe = window.setTimeout(() => {
+      document
+        .querySelectorAll(selector)
+        .forEach((el) => el.classList.add("is-in"));
+    }, 4000);
+
     // Catch nodes added by client navigation.
     const mutation = new MutationObserver(observeAll);
     mutation.observe(document.body, { childList: true, subtree: true });
@@ -51,6 +61,7 @@ export function RevealProvider({ children }: { children: React.ReactNode }) {
     return () => {
       observer.disconnect();
       mutation.disconnect();
+      window.clearTimeout(failsafe);
     };
   }, []);
 

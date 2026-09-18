@@ -201,7 +201,7 @@ export function SystemDiagram({
         THERMAL MANAGEMENT
       </text>
 
-      {/* Heat rejection — the loop that leaves the system */}
+      {/* Heat rejection, the loop that leaves the system */}
       <path
         d="M370 303 L440 303 L440 240"
         fill="none"
@@ -313,7 +313,7 @@ export function SystemDiagram({
         AUTOMATION / REMOTE MONITORING
       </text>
 
-      {/* Telemetry returns to power management — closing the loop */}
+      {/* Telemetry returns to power management, closing the loop */}
       <path
         d="M110 563 L64 563 L64 185 L150 185"
         fill="none"

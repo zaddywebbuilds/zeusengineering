@@ -27,7 +27,7 @@ export function PowerPathDiagram() {
       viewBox="0 0 480 300"
       className="h-auto w-full"
       role="img"
-      aria-label="Two power paths compared. The conventional path runs solar, inverter, AC distribution, server power supply, compute — with two conversion stages. The ZEUS path runs solar, battery, DC distribution, DC-input compute, with no conversion stages."
+      aria-label="Two power paths compared. The conventional path runs solar, inverter, AC distribution, server power supply, compute, with two conversion stages. The ZEUS path runs solar, battery, DC distribution, DC-input compute, with no conversion stages."
     >
       {/* ---- Conventional ---- */}
       <text
@@ -100,7 +100,7 @@ export function PowerPathDiagram() {
         fontSize="10"
         letterSpacing="1.8"
       >
-        SSMDC — DC END TO END
+        SSMDC, DC END TO END
       </text>
 
       {zeus.map((node, i) => {

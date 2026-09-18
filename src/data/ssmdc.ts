@@ -27,7 +27,7 @@ export const hyperscaleProblems = [
   {
     index: "02",
     title: "Concentrated risk",
-    body: "Single-site failure — power, cooling, network or regulation — takes down massive capacity. Uptime is tied to one location.",
+    body: "A single-site failure in power, cooling, network or regulation takes down massive capacity. Uptime is tied to one location.",
   },
   {
     index: "03",
@@ -80,7 +80,7 @@ export const hyperscaleComparison = [
   {
     capability: "Site / single-point risk",
     hyperscale: "High",
-    ssmdc: "Low — distributed nodes",
+    ssmdc: "Low. Distributed nodes",
   },
   {
     capability: "Uptime model",
@@ -110,7 +110,7 @@ export const hyperscaleComparison = [
   },
   {
     capability: "Existing live prototype",
-    hyperscale: "—",
+    hyperscale: "Not applicable",
     ssmdc: "100 kWp operational",
   },
 ];
@@ -155,7 +155,7 @@ export const dcPowerPath = {
   chain: ["Solar", "Battery", "DC distribution", "DC-input compute"],
   saving: "8–15%",
   central: "10–12%",
-  body: "Removes two major conversion stages — the inverter, and the AC-DC power supplies in each server. Real-world facility-level savings of 8–15%, with a practical 10–12% central case. Less heat, less copper, and simpler protection at modular scale.",
+  body: "Removes two major conversion stages: the inverter, and the AC-DC power supplies in each server. Real-world facility-level savings of 8–15%, with a practical 10–12% central case. Less heat, less copper, and simpler protection at modular scale.",
 };
 
 /**
@@ -209,7 +209,7 @@ export const theAsk: Fact = {
   unit: "M",
   label: "Current raise",
   status: "target",
-  note: "An 18–24 month runway to multiple live nodes. This is a fundraising target — ZEUS has not stated that it is committed or closed.",
+  note: "An 18–24 month runway to multiple live nodes. This is a fundraising target, ZEUS has not stated that it is committed or closed.",
 };
 
 export const useOfFunds = [
@@ -280,7 +280,7 @@ export const businessModel = [
   },
   {
     title: "Real estate",
-    body: "Land and buildings acquired as a core asset. Appreciating or cash-flowing property offsets engineering and operations cost — the McDonald's model applied to modular compute.",
+    body: "Land and buildings acquired as a core asset. Appreciating or cash-flowing property offsets engineering and operations cost, the McDonald's model applied to modular compute.",
     accent: "energy" as const,
   },
 ];
@@ -293,7 +293,7 @@ export const whyZeusNow = [
   },
   {
     title: "Military systems discipline",
-    body: "Electrical engineering at UNSW Canberra and 20+ years of experience, with a Blackhawk and MRH-90 systems background — weight, power, thermal and reliability under constraint.",
+    body: "Electrical engineering at UNSW Canberra and 20+ years of experience, with a Blackhawk and MRH-90 systems background: weight, power, thermal and reliability under constraint.",
   },
   {
     title: "Live prototype",

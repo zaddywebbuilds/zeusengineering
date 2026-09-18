@@ -60,7 +60,7 @@ export function SystemScroller() {
         </h2>
         <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
           Not four services. One system, in which every stage constrains the
-          next — and where the thing that fails first is almost never the
+          next, and where the thing that fails first is almost never the
           silicon.
         </p>
       </div>

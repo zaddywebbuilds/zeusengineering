@@ -52,7 +52,7 @@ export default function CompanyPage() {
             </p>
             <p className="leading-relaxed">
               By using standardised modular designs, infrastructure can be
-              deployed in months rather than years — letting customers and
+              deployed in months rather than years, letting customers and
               investors respond to opportunities in Bitcoin mining, AI computing
               and digital infrastructure as they appear.
             </p>
@@ -60,7 +60,7 @@ export default function CompanyPage() {
         </div>
       </Section>
 
-      {/* Mission — the company's own words, given room */}
+      {/* Mission, the company's own words, given room */}
       <Section tone="linen">
         <div className="mx-auto max-w-[44ch] text-center">
           <TechLabel className="reveal mb-8">Our mission</TechLabel>

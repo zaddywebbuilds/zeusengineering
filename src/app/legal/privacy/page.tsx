@@ -17,7 +17,7 @@ export default function PrivacyPage() {
     <>
       <PageHeader
         label="Legal"
-        title={"Privacy."}
+        title={"Privacy and\ndata handling."}
         lede="What this website does and does not collect."
         crumbs={[{ label: "Home", href: "/" }]}
       />
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
       <Section>
         {/* Stated first, not buried. This text has not been reviewed by a lawyer. */}
         <div className="mb-10 max-w-[72ch] border-l-2 border-ochre/50 bg-linen p-7">
-          <TechLabel className="mb-4">Draft — requires legal review</TechLabel>
+          <TechLabel className="mb-4">Draft, requires legal review</TechLabel>
           <p className="text-sm leading-relaxed text-slate">
             This page is a working draft describing how the website currently
             behaves. It has not been reviewed by a qualified lawyer and is not

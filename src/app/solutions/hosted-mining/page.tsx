@@ -17,7 +17,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Hosted Mining",
   description:
-    "ZEUS Engineering runs and maintains client-owned mining equipment in Vietnam — power infrastructure, cooling, monitoring and maintenance, for a 10% service fee on earnings.",
+    "ZEUS Engineering runs and maintains client-owned Bitcoin mining hardware in Vietnam: power, cooling, monitoring and maintenance for a 10% service fee.",
   path: "/solutions/hosted-mining",
 });
 
@@ -28,7 +28,7 @@ export default function HostedMiningPage() {
         index="04"
         label="Solutions"
         title={"Your hardware.\nOur infrastructure."}
-        lede="You own the machines. ZEUS provides the site, the power, the cooling and the people — and runs them."
+        lede="You own the machines. ZEUS provides the site, the power, the cooling and the people, and runs them."
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Solutions", href: "/solutions" },
@@ -70,7 +70,7 @@ export default function HostedMiningPage() {
               as a service fee for running and maintaining the equipment.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate-dim">
-              Exact scope — machine count, hardware and term — is confirmed on
+              Exact scope, machine count, hardware and term, is confirmed on
               enquiry. No return figure is published here: see the risk note
               below.
             </p>
@@ -108,7 +108,7 @@ export default function HostedMiningPage() {
           )}
         />
 
-        {/* Risk disclosure — required wherever hosting economics are discussed */}
+        {/* Risk disclosure, required wherever hosting economics are discussed */}
         <div className="reveal mt-10 border-l-2 border-ochre/50 bg-linen p-7 lg:p-8">
           <TechLabel className="mb-4">Risk disclosure</TechLabel>
           <p className="max-w-[72ch] text-sm leading-relaxed text-slate">

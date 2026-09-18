@@ -69,7 +69,7 @@ export default function RoadmapPage() {
         <div className="mb-10 flex flex-wrap gap-x-8 gap-y-4">
           {[
             { w: "realised", t: "Operating now" },
-            { w: "funded-target", t: "Target — contingent on the raise" },
+            { w: "funded-target", t: "Target, contingent on the raise" },
             { w: "ambition", t: "Stated long-term ambition" },
           ].map((item) => (
             <span key={item.w} className="flex items-center gap-3">

@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { Button } from "@/components/ui/Button";
 import { primaryNav } from "@/data/navigation";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description:
+    "That address does not resolve. Browse ZEUS Engineering's solutions, technology, projects and investor relations.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (

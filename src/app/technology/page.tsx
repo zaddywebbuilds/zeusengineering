@@ -10,7 +10,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Technology",
   description:
-    "Power, cooling, compute and control — the four pillars of ZEUS Engineering's infrastructure, and how they constrain one another.",
+    "Power, cooling, compute and control, the four pillars of ZEUS Engineering's infrastructure, and how they constrain one another.",
   path: "/technology",
 });
 
@@ -33,7 +33,7 @@ export default function TechnologyPage() {
         index="01"
         label="The system"
         title={"One schematic."}
-        lede="Grid and solar enter, power is managed and distributed, heat is rejected, compute runs, and a control layer watches all of it — feeding telemetry back into how power is allocated."
+        lede="Grid and solar enter, power is managed and distributed, heat is rejected, compute runs, and a control layer watches all of it, feeding telemetry back into how power is allocated."
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-12">
           <div className="border border-[var(--rule)] bg-linen p-6 lg:p-8">
