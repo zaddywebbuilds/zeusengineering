@@ -70,10 +70,10 @@ export function SiteFooter() {
         <div className="shell flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-6">
             <Image
-              src="/images/brand/zeus-logo.webp"
+              src="/images/brand/zeus-wordmark.webp"
               alt={company.name}
-              width={108}
-              height={73}
+              width={702}
+              height={285}
               className="h-7 w-auto"
             />
             <p className="text-xs leading-relaxed text-steel-dim">

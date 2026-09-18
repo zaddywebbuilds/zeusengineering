@@ -73,10 +73,10 @@ export function SiteHeader() {
           aria-label={`${company.name} — home`}
         >
           <Image
-            src="/images/brand/zeus-logo.webp"
+            src="/images/brand/zeus-wordmark.webp"
             alt={company.name}
-            width={108}
-            height={73}
+            width={702}
+            height={285}
             priority
             className="h-8 w-auto"
           />

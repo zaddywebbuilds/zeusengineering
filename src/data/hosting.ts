@@ -3,21 +3,33 @@ import type { Fact } from "./facts";
 /**
  * Hosted mining.
  *
- * WHAT THE DECK ACTUALLY SUPPORTS:
- *   - ZEUS has opened hosted-mining services.
- *   - Clients pay setup and service fees for ZEUS to run and maintain mining
- *     equipment on their behalf.
- *   - Service fee: 10% of earnings.
- *   - The expansion plan targets 100 hosting clients / 300 machines.
+ * VERIFIED: the $10,000 package is real. ZEUS published an official offer
+ * graphic (wp-content/uploads/2025/09/10K-Hosted-Mining-Post.webp, Sept 2025)
+ * headed "$10,000 USD Hosted Mining Package". It was restored here after being
+ * removed as unsourced — the pitch deck alone did not mention it.
  *
- * WHAT IT DOES NOT SUPPORT:
- *   The "$10,000 for three Bitmain ASICs on a two-year arrangement" package
- *   from the earlier project brief appears nowhere in the deck or on the live
- *   site. It is not reproduced here. The page is built to sell the operation
- *   rather than a price, and a price block drops in the moment ZEUS confirms
- *   one. See AUDIT.md.
+ * NOT REPRODUCED: that same graphic advertises "EXTRA $10,000 USD per year"
+ * and "ONLY 8 SLOTS LEFT". The first is a ~100%-per-annum return claim
+ * published with no stated assumptions; the second is a scarcity device. A
+ * return figure we cannot show the workings for does not belong on an
+ * investor-facing site, so the page sells the operation and quotes the fee.
+ * If ZEUS supplies the assumptions behind the figure, it can be added as a
+ * clearly-labelled projection. See AUDIT.md.
  */
+export const hostingPackagePrice: Fact = {
+  value: "$10,000",
+  label: "Hosted mining package",
+  status: "zeus-reported",
+  note: "The package price ZEUS advertises for getting started with hosted Bitcoin mining.",
+};
+
 export const hostingFacts: Fact[] = [
+  {
+    value: "$10,000",
+    label: "Package price",
+    status: "zeus-reported",
+    note: "As advertised by ZEUS. Scope confirmed on enquiry.",
+  },
   {
     value: "10",
     unit: "%",

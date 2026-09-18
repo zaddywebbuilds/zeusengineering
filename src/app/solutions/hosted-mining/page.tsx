@@ -66,12 +66,13 @@ export default function HostedMiningPage() {
           <aside className="border border-[var(--rule)] bg-carbon p-7">
             <TechLabel className="mb-5">On pricing</TechLabel>
             <p className="text-sm leading-relaxed text-steel">
-              ZEUS publishes its service fee — 10% of earnings — but has not
-              published a fixed package price in the material available for this
-              site. Rather than invent one, hosting is quoted per deployment.
+              ZEUS advertises a $10,000 entry package and takes 10% of earnings
+              as a service fee for running and maintaining the equipment.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-steel-dim">
-              Scope depends on machine count, hardware type and term.
+              Exact scope — machine count, hardware and term — is confirmed on
+              enquiry. No return figure is published here: see the risk note
+              below.
             </p>
             <Button
               href="/contact?intent=host"
@@ -85,7 +86,7 @@ export default function HostedMiningPage() {
 
         <MetricRow
           facts={hostingFacts}
-          columns={2}
+          columns={3}
           className="mt-16"
           showDisclosure={false}
         />

@@ -28,14 +28,10 @@ export default function BitcoinInfrastructurePage() {
           { label: "Solutions", href: "/solutions" },
         ]}
         media={{
-          image: "/images/zeus-hero-poster.webp",
-          alt: "Concept visualisation of a compute hall aisle lined with racked mining hardware",
-          video: {
-            desktop: "/video/zeus-hero-desktop.mp4",
-            mobile: "/video/zeus-hero-mobile.mp4",
-          },
-          label: "Compute hall",
-          note: "Cinematic brand visualisation",
+          image: "/images/real/hardware-intake-portrait.webp",
+          alt: "Pallets of Antminer ASIC units, shrink-wrapped and awaiting commissioning in a ZEUS warehouse",
+          label: "Hardware intake",
+          note: "ZEUS photograph",
         }}
       />
 

@@ -123,11 +123,10 @@ export default function ProjectPage() {
 
           <MediaPanel
             className="reveal"
-            image="/images/concept/cooling-plant.webp"
-            alt="Concept visualisation of external cooling plant and containerised units"
-            video={{ desktop: "/video/zeus-plant.mp4" }}
-            label="Cooling plant"
-            note="Concept visualisation"
+            image="/images/real/hardware-intake.webp"
+            alt="Pallets of Antminer ASIC units, shrink-wrapped and awaiting commissioning in a ZEUS warehouse"
+            label="Hardware intake, 2023"
+            note="ZEUS photograph"
             aspect="video"
           />
         </div>
@@ -138,10 +137,11 @@ export default function ProjectPage() {
         <div className="max-w-[64ch] border-l-2 border-amber/50 pl-6">
           <TechLabel className="mb-4">On the imagery</TechLabel>
           <p className="text-sm leading-relaxed text-steel">
-            The visualisations on this page are cinematic concept renders
+            The wide visualisations on this page are cinematic concept renders
             commissioned for the brand. They are not photographs of the
             operating site, and they depict a facility considerably larger than
-            the 300 m² ZEUS reports. Site photography will replace them.
+            the 300 m² ZEUS reports. The hardware intake image above is a real
+            ZEUS photograph. More site photography will replace the renders.
           </p>
         </div>
 

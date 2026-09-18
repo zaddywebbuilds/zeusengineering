@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   description:
     "Modular infrastructure for Bitcoin, AI and high-density computing — engineered in Vietnam.",
   applicationName: company.name,
-  icons: { icon: "/images/brand/zeus-mark.png" },
+  icons: { icon: "/images/brand/zeus-mark.webp" },
   robots: { index: true, follow: true },
 };
 
