@@ -164,6 +164,11 @@ Every one is labelled **Concept visualisation** on its caption rail, and
 `/projects/vung-tau` states the position explicitly. They are never captioned as
 documentary footage.
 
+**The supplied brand film carries "LONG HAI | VIETNAM" burned into its titles**
+— the place name §2 establishes as unsupported. The clip is therefore cropped
+to its lower band before use, which drops every burned-in caption while keeping
+the ZEUS wordmark on the building. The uncropped file is not shipped.
+
 **The hero video is 736×400** (WhatsApp-compressed). Encoded derivatives sit at
 1104×600 and the browser upscales. This is the main reason media is presented in
 framed panels rather than full-bleed — a panel upscales far less than a viewport.

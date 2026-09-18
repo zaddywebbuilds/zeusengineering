@@ -131,8 +131,8 @@ export function ContactForm() {
               className={cx(
                 "p-6 text-left transition-colors duration-200",
                 intent === path.id
-                  ? "bg-carbon text-engineering"
-                  : "bg-graphite text-steel hover:bg-carbon hover:text-engineering",
+                  ? "bg-bark text-bone"
+                  : "bg-soil text-stone hover:bg-bark hover:text-bone",
               )}
             >
               <span className="flex items-center gap-3">
@@ -150,7 +150,7 @@ export function ContactForm() {
             </button>
           ))}
         </div>
-        <p className="mt-5 max-w-[56ch] text-sm leading-relaxed text-steel">
+        <p className="mt-5 max-w-[56ch] text-sm leading-relaxed text-stone">
           {intentCopy[intent]}
         </p>
       </fieldset>
@@ -188,7 +188,7 @@ export function ContactForm() {
                 <select
                   id={field.name}
                   name={field.name}
-                  className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-carbon px-4 py-3.5 text-engineering transition-colors duration-200 focus:border-amber"
+                  className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-bark px-4 py-3.5 text-bone transition-colors duration-200 focus:border-amber"
                   defaultValue=""
                 >
                   <option value="" disabled>
@@ -216,7 +216,7 @@ export function ContactForm() {
             name="message"
             rows={5}
             required
-            className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-carbon px-4 py-3.5 text-engineering transition-colors duration-200 placeholder:text-steel-dim focus:border-amber"
+            className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-bark px-4 py-3.5 text-bone transition-colors duration-200 placeholder:text-stone-dim focus:border-amber"
             placeholder="What are you trying to do?"
           />
         </div>
@@ -224,7 +224,7 @@ export function ContactForm() {
         <div className="flex flex-wrap items-center gap-6">
           <button
             type="submit"
-            className="group inline-flex items-center gap-3 rounded-[3px] bg-engineering px-7 py-4 text-sm font-medium text-graphite transition-colors duration-200 hover:bg-white"
+            className="group inline-flex items-center gap-3 rounded-[3px] bg-bone px-7 py-4 text-sm font-medium text-soil transition-colors duration-200 hover:bg-white"
           >
             Send enquiry
             <span
@@ -235,7 +235,7 @@ export function ContactForm() {
             </span>
           </button>
 
-          <p className="text-xs leading-relaxed text-steel-dim">
+          <p className="text-xs leading-relaxed text-stone-dim">
             Opens your email client with the enquiry prepared.
           </p>
         </div>
@@ -283,7 +283,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-carbon px-4 py-3.5 text-engineering transition-colors duration-200 placeholder:text-steel-dim focus:border-amber"
+        className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-bark px-4 py-3.5 text-bone transition-colors duration-200 placeholder:text-stone-dim focus:border-amber"
       />
     </div>
   );

@@ -21,17 +21,22 @@ export default function SolutionsPage() {
         title={"What ZEUS\nbuilds."}
         lede="Five areas, one underlying capability: getting power, cooling and control right so that dense compute can run continuously in a demanding climate."
         crumbs={[{ label: "Home", href: "/" }]}
+        media={{
+          image: "/images/clean/asic.webp",
+          alt: "An ASIC mining unit against a circuit-board backdrop",
+          label: "Compute hardware",
+        }}
       />
 
-      <div className="bg-graphite">
+      <div className="bg-soil">
         {solutions.map((solution) => (
           <Link
             key={solution.id}
             href={solution.href}
-            className="group block border-b border-[var(--rule)] transition-colors duration-300 hover:bg-carbon"
+            className="group block border-b border-[var(--rule)] transition-colors duration-300 hover:bg-bark"
           >
-            <div className="shell grid grid-cols-1 items-center gap-8 py-12 lg:grid-cols-[6rem_1fr_minmax(0,24rem)_3rem] lg:gap-10 lg:py-16">
-              <span className="tech-label text-steel-dim">{solution.index}</span>
+            <div className="shell grid grid-cols-1 items-center gap-8 py-12 lg:grid-cols-[6rem_1fr_minmax(0,24rem)_3rem] lg:gap-10 lg:py-11">
+              <span className="tech-label text-stone-dim">{solution.index}</span>
 
               <div>
                 <h2 className="display text-[clamp(2rem,4vw,3.25rem)] leading-[0.95]">
@@ -40,7 +45,7 @@ export default function SolutionsPage() {
                 <p className="tech-label mt-4 text-amber/70">
                   {solution.tagline}
                 </p>
-                <p className="mt-5 max-w-[48ch] leading-relaxed text-steel">
+                <p className="mt-5 max-w-[48ch] leading-relaxed text-stone">
                   {solution.summary}
                 </p>
               </div>

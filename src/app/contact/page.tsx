@@ -43,7 +43,7 @@ export default function ContactPage() {
               <TechLabel className="mb-4">Direct</TechLabel>
               <a
                 href={`mailto:${company.email}`}
-                className="text-lg text-engineering transition-colors duration-200 hover:text-amber"
+                className="text-lg text-bone transition-colors duration-200 hover:text-amber"
               >
                 {company.email}
               </a>
@@ -51,7 +51,7 @@ export default function ContactPage() {
 
             <div>
               <TechLabel className="mb-4">Company</TechLabel>
-              <p className="text-sm leading-relaxed text-steel">
+              <p className="text-sm leading-relaxed text-stone">
                 {company.legalName}
                 <br />
                 {company.region}, {company.country}
@@ -66,7 +66,7 @@ export default function ContactPage() {
                 href={company.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 text-sm text-steel transition-colors duration-200 hover:text-engineering"
+                className="group inline-flex items-center gap-2 text-sm text-stone transition-colors duration-200 hover:text-bone"
               >
                 LinkedIn
                 <span
@@ -79,7 +79,7 @@ export default function ContactPage() {
             </div>
 
             <div className="border-t border-[var(--rule)] pt-8">
-              <p className="text-xs leading-relaxed text-steel-dim">
+              <p className="text-xs leading-relaxed text-stone-dim">
                 No phone number or street address is listed because ZEUS has not
                 published one. The email address and registration number above
                 are taken from the company&rsquo;s own site.
@@ -96,11 +96,11 @@ export default function ContactPage() {
 function ContactFormSkeleton() {
   return (
     <div aria-hidden className="animate-pulse">
-      <div className="mb-10 h-28 border border-[var(--rule)] bg-carbon" />
+      <div className="mb-10 h-28 border border-[var(--rule)] bg-bark" />
       <div className="space-y-7">
-        <div className="h-20 bg-carbon" />
-        <div className="h-20 bg-carbon" />
-        <div className="h-40 bg-carbon" />
+        <div className="h-20 bg-bark" />
+        <div className="h-20 bg-bark" />
+        <div className="h-40 bg-bark" />
       </div>
     </div>
   );

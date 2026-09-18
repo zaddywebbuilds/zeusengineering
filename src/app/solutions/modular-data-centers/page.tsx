@@ -57,14 +57,14 @@ export default function ModularDataCentersPage() {
             { t: "Maintainable", b: "Standard units mean standard parts and procedures." },
             { t: "Sited by energy", b: "Infrastructure moves to the power, not the reverse." },
           ].map((item) => (
-            <div key={item.t} className="reveal bg-graphite p-7">
+            <div key={item.t} className="reveal bg-soil p-7">
               <h3 className="display text-[1.375rem] leading-none">{item.t}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-steel">{item.b}</p>
+              <p className="mt-4 text-sm leading-relaxed text-stone">{item.b}</p>
             </div>
           ))}
         </div>
 
-        <p className="reveal mt-10 max-w-[64ch] leading-relaxed text-steel">
+        <p className="reveal mt-10 max-w-[64ch] leading-relaxed text-stone">
           It also lowers the barrier to entry. Standardised units create
           opportunities for both small and large investors to participate in
           digital infrastructure without the commitments that come with
@@ -73,7 +73,7 @@ export default function ModularDataCentersPage() {
       </Section>
 
       {/* SSMDC */}
-      <Section tone="carbon">
+      <Section tone="bark">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <div className="flex flex-wrap items-center gap-4">
@@ -94,7 +94,7 @@ export default function ModularDataCentersPage() {
 
             <div className="reveal mt-8 space-y-5">
               {ssmdc.description.map((para) => (
-                <p key={para.slice(0, 24)} className="leading-relaxed text-steel">
+                <p key={para.slice(0, 24)} className="leading-relaxed text-stone">
                   {para}
                 </p>
               ))}
@@ -107,7 +107,7 @@ export default function ModularDataCentersPage() {
                   <dd className="mt-3">
                     <ul className="space-y-2">
                       {group.items.map((item) => (
-                        <li key={item} className="flex gap-3 text-sm text-steel">
+                        <li key={item} className="flex gap-3 text-sm text-stone">
                           <span aria-hidden className="mt-2 h-px w-4 shrink-0 bg-amber/60" />
                           {item}
                         </li>
@@ -118,7 +118,7 @@ export default function ModularDataCentersPage() {
               ))}
             </dl>
 
-            <p className="reveal mt-6 text-sm text-steel-dim">
+            <p className="reveal mt-6 text-sm text-stone-dim">
               {ssmdc.statusNote}
             </p>
           </div>
@@ -143,7 +143,7 @@ export default function ModularDataCentersPage() {
       >
         <StepList steps={deployment} />
 
-        <div className="reveal mt-14 flex flex-wrap items-center gap-4">
+        <div className="reveal mt-10 flex flex-wrap items-center gap-4">
           <Button href="/contact?intent=build">Build with Zeus</Button>
           <Button href="/technology" variant="secondary">
             See the technology

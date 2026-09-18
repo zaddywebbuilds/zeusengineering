@@ -17,10 +17,10 @@ import { Button } from "@/components/ui/Button";
 export function Expansion() {
   return (
     <section
-      className="border-t border-[var(--rule)] bg-graphite"
+      className="border-t border-[var(--rule)] bg-soil"
       aria-labelledby="comparison-heading"
     >
-      <div className="shell py-24 lg:py-32">
+      <div className="shell py-14 lg:py-18">
         <TechLabel index="08" className="reveal mb-7">
           The argument
         </TechLabel>
@@ -32,13 +32,13 @@ export function Expansion() {
           Hyperscale compared with SSMDC
         </h2>
 
-        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-steel">
+        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-stone">
           The case ZEUS makes for building many small nodes instead of one large
           campus. It is the company&rsquo;s own comparison, not an independent
           benchmark.
         </p>
 
-        <div className="mt-14 overflow-hidden border-y border-[var(--rule)]">
+        <div className="mt-10 overflow-hidden border-y border-[var(--rule)]">
           <table className="w-full border-collapse text-left">
             <caption className="sr-only">
               Hyperscale compared with the ZEUS SSMDC across ten capabilities
@@ -54,7 +54,7 @@ export function Expansion() {
                 >
                   Hyperscale
                 </th>
-                <th scope="col" className="tech-label py-5 font-medium text-cyan">
+                <th scope="col" className="tech-label py-5 font-medium text-sage">
                   SSMDC
                 </th>
               </tr>
@@ -67,18 +67,18 @@ export function Expansion() {
                 >
                   <th
                     scope="row"
-                    className="py-5 pr-6 align-top text-sm font-normal text-engineering"
+                    className="py-5 pr-6 align-top text-sm font-normal text-bone"
                   >
                     {row.capability}
                     {/* Hyperscale value folds under the label on small screens */}
-                    <span className="mt-2 block text-sm text-steel-dim sm:hidden">
+                    <span className="mt-2 block text-sm text-stone-dim sm:hidden">
                       Hyperscale: {row.hyperscale}
                     </span>
                   </th>
-                  <td className="hidden py-5 pr-6 align-top text-sm text-steel-dim sm:table-cell">
+                  <td className="hidden py-5 pr-6 align-top text-sm text-stone-dim sm:table-cell">
                     {row.hyperscale}
                   </td>
-                  <td className="py-5 align-top text-sm text-cyan">
+                  <td className="py-5 align-top text-sm text-sage">
                     {row.ssmdc}
                   </td>
                 </tr>
@@ -89,7 +89,7 @@ export function Expansion() {
 
         <div className="reveal mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
           <StatusBadge status="target" label="ZEUS's comparison" />
-          <p className="max-w-[64ch] text-sm text-steel-dim">
+          <p className="max-w-[64ch] text-sm text-stone-dim">
             Only the final row describes something that exists — the 100 kWp
             prototype. The rest compares an operating model against a design.
           </p>

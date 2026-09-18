@@ -13,10 +13,10 @@ import { ConceptNotice } from "@/components/ui/ConceptNotice";
 export function SolutionsIndex() {
   return (
     <section
-      className="border-t border-[var(--rule)] bg-graphite"
+      className="border-t border-[var(--rule)] bg-soil"
       aria-labelledby="solutions-heading"
     >
-      <div className="shell py-24 lg:py-32">
+      <div className="shell py-14 lg:py-18">
         <TechLabel index="06" className="reveal mb-7">
           Solutions
         </TechLabel>
@@ -34,10 +34,10 @@ export function SolutionsIndex() {
           <Link
             key={solution.id}
             href={solution.href}
-            className="group block border-b border-[var(--rule)] transition-colors duration-300 hover:bg-carbon"
+            className="group block border-b border-[var(--rule)] transition-colors duration-300 hover:bg-bark"
           >
             <div className="shell grid grid-cols-1 items-center gap-8 py-10 lg:grid-cols-[6rem_1fr_minmax(0,22rem)_3rem] lg:gap-10 lg:py-12">
-              <span className="tech-label text-steel-dim">
+              <span className="tech-label text-stone-dim">
                 {solution.index}
               </span>
 
@@ -45,7 +45,7 @@ export function SolutionsIndex() {
                 <h3 className="display text-[clamp(1.75rem,3.6vw,3rem)] leading-[0.95]">
                   {solution.label}
                 </h3>
-                <p className="mt-3 max-w-[44ch] text-sm leading-relaxed text-steel">
+                <p className="mt-3 max-w-[44ch] text-sm leading-relaxed text-stone">
                   {solution.summary}
                 </p>
               </div>

@@ -1,6 +1,7 @@
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { company } from "@/data/company";
+import { MediaPanel } from "@/components/ui/MediaPanel";
 
 /**
  * The turn from cinema into interface. Deliberately spare: one statement, one
@@ -9,10 +10,10 @@ import { company } from "@/data/company";
 export function EnergyToCompute() {
   return (
     <section
-      className="tech-grid relative border-t border-[var(--rule)] bg-graphite"
+      className="tech-grid relative border-t border-[var(--rule)] bg-soil"
       aria-labelledby="narrative-heading"
     >
-      <div className="shell py-24 lg:py-36">
+      <div className="shell py-14 lg:py-20">
         <TechLabel index="01" className="reveal mb-7">
           Positioning
         </TechLabel>
@@ -25,12 +26,12 @@ export function EnergyToCompute() {
           From energy to compute
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-          <p className="reveal text-xl leading-relaxed text-engineering lg:text-2xl">
+        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
+          <p className="reveal text-xl leading-relaxed text-bone lg:text-2xl">
             Founded in {company.founded}, ZEUS Engineering is {company.descriptor}.
           </p>
 
-          <div className="reveal space-y-6 text-steel">
+          <div className="reveal space-y-6 text-stone">
             <p className="leading-relaxed">
               While much of the industry concentrates resources into ever-larger
               hyperscale facilities, ZEUS has deliberately taken a different
@@ -46,21 +47,38 @@ export function EnergyToCompute() {
           </div>
         </div>
 
+        {/* Aerial pass over the site.
+            Cropped from the supplied brand film, whose full frame carries
+            "LONG HAI | VIETNAM" burned into the titles — a place name neither
+            deck supports (see AUDIT.md §2). The crop keeps the ZEUS wordmark
+            on the building and drops every burned-in caption. */}
+        <div className="reveal mt-11">
+          <MediaPanel
+            image="/images/zeus-plant-aerial-poster.webp"
+            alt="Aerial view of a compute site: a solar array, containerised units, external cooling plant and a hall carrying the ZEUS Engineering wordmark"
+            video={{ desktop: "/video/zeus-plant-aerial.mp4" }}
+            label="Solar, containers, compute"
+            note="Concept visualisation"
+            aspect="ultrawide"
+            sizes="100vw"
+          />
+        </div>
+
         {/* The spine */}
-        <div className="reveal mt-20 grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-3">
+        <div className="reveal mt-12 grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-3">
           {[
             { word: "Energy", note: "Grid and solar, managed as one supply." },
             { word: "Infrastructure", note: "Power, cooling, enclosure, control." },
             { word: "Compute", note: "Bitcoin today. AI and modular next." },
           ].map((item, i) => (
-            <div key={item.word} className="bg-graphite px-0 py-8 sm:px-8">
-              <span className="tech-label text-steel-dim">
+            <div key={item.word} className="bg-soil px-0 py-8 sm:px-8">
+              <span className="tech-label text-stone-dim">
                 0{i + 1}
               </span>
               <p className="display mt-4 text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
                 {item.word}
               </p>
-              <p className="mt-4 max-w-[26ch] text-sm leading-relaxed text-steel">
+              <p className="mt-4 max-w-[26ch] text-sm leading-relaxed text-stone">
                 {item.note}
               </p>
             </div>

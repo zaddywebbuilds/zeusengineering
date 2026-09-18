@@ -43,10 +43,10 @@ export function SystemScroller() {
   return (
     <section
       ref={root}
-      className="relative border-t border-[var(--rule)] bg-graphite"
+      className="relative border-t border-[var(--rule)] bg-soil"
       aria-labelledby="system-heading"
     >
-      <div className="shell py-24 lg:py-32">
+      <div className="shell py-14 lg:py-18">
         <TechLabel index="02" className="reveal mb-7">
           The system
         </TechLabel>
@@ -58,7 +58,7 @@ export function SystemScroller() {
             <span style={{ transitionDelay: "90ms" }}>Compute. Control.</span>
           </span>
         </h2>
-        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-steel">
+        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-stone">
           Not four services. One system, in which every stage constrains the
           next — and where the thing that fails first is almost never the
           silicon.
@@ -72,17 +72,17 @@ export function SystemScroller() {
             <div
               key={pillar.id}
               data-stage={i}
-              className="border-t border-[var(--rule)] py-12 first:border-t-0 first:pt-0 lg:min-h-[62vh] lg:py-20"
+              className="border-t border-[var(--rule)] py-12 first:border-t-0 first:pt-0 lg:min-h-[48vh] lg:py-20"
             >
               <div className="flex items-baseline gap-4">
-                <span className="tech-label text-steel-dim">{pillar.index}</span>
+                <span className="tech-label text-stone-dim">{pillar.index}</span>
                 <span
                   className={cx(
                     "h-px w-12 transition-colors duration-500",
                     stage >= i
                       ? pillar.accent === "energy"
                         ? "bg-amber"
-                        : "bg-cyan"
+                        : "bg-sage"
                       : "bg-[var(--rule)]",
                   )}
                   aria-hidden
@@ -92,13 +92,13 @@ export function SystemScroller() {
               <h3
                 className={cx(
                   "display mt-6 text-[clamp(2.75rem,7vw,5.5rem)] transition-colors duration-500",
-                  stage >= i ? "text-engineering" : "text-steel-dim lg:text-steel-dim",
+                  stage >= i ? "text-bone" : "text-stone-dim lg:text-stone-dim",
                 )}
               >
                 {pillar.label}
               </h3>
 
-              <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-steel">
+              <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-stone">
                 {pillar.summary}
               </p>
 
@@ -106,7 +106,7 @@ export function SystemScroller() {
                 {pillar.detail.map((para) => (
                   <p
                     key={para.slice(0, 32)}
-                    className="max-w-[54ch] text-sm leading-relaxed text-steel-dim"
+                    className="max-w-[54ch] text-sm leading-relaxed text-stone-dim"
                   >
                     {para}
                   </p>
@@ -118,10 +118,10 @@ export function SystemScroller() {
 
         {/* Pinned diagram */}
         <div className="lg:sticky lg:top-[112px] lg:self-start">
-          <div className="border border-[var(--rule)] bg-carbon p-6 lg:p-8">
+          <div className="border border-[var(--rule)] bg-bark p-6 lg:p-8">
             <div className="mb-6 flex items-center justify-between">
               <TechLabel>Infrastructure schematic</TechLabel>
-              <span className="tech-label text-steel-dim">
+              <span className="tech-label text-stone-dim">
                 {String(Math.min(stage + 1, pillars.length)).padStart(2, "0")} /
                 0{pillars.length}
               </span>
@@ -135,7 +135,7 @@ export function SystemScroller() {
               Energy
             </span>
             <span className="tech-label flex items-center gap-2">
-              <span className="h-2 w-2 bg-cyan" aria-hidden />
+              <span className="h-2 w-2 bg-sage" aria-hidden />
               Compute
             </span>
           </div>

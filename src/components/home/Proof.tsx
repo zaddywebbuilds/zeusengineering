@@ -17,10 +17,10 @@ import { MediaPanel } from "@/components/ui/MediaPanel";
 export function Proof() {
   return (
     <section
-      className="border-t border-[var(--rule)] bg-graphite"
+      className="border-t border-[var(--rule)] bg-soil"
       aria-labelledby="proof-heading"
     >
-      <div className="shell py-24 lg:py-32">
+      <div className="shell py-14 lg:py-18">
         <div className="flex flex-wrap items-center gap-4">
           <TechLabel index="03" className="reveal">
             Operations
@@ -36,13 +36,13 @@ export function Proof() {
           Operations
         </h2>
 
-        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-steel">
+        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-stone">
           Engineering experience developed running high-density compute
           infrastructure in southern Vietnam — where power is finite, the air
           is hot and wet, and the hardware does not get to rest.
         </p>
 
-        <MetricRow facts={currentOperations} className="mt-16" />
+        <MetricRow facts={currentOperations} className="mt-11" />
       </div>
 
       {/* Thermal management */}
@@ -56,7 +56,7 @@ export function Proof() {
               text={"Heat is the\nreal constraint."}
               className="h-sub max-w-[14ch]"
             />
-            <p className="reveal mt-8 max-w-[48ch] text-lg leading-relaxed text-steel">
+            <p className="reveal mt-8 max-w-[48ch] text-lg leading-relaxed text-stone">
               In a tropical climate, cooling stops being a line item and becomes
               the constraint everything else is arranged around. Asked how it
               manages heat, ZEUS describes conventional airflow engineering
@@ -69,21 +69,21 @@ export function Proof() {
                   key={method}
                   className="flex items-center gap-5 py-5"
                 >
-                  <span className="tech-label text-steel-dim">
+                  <span className="tech-label text-stone-dim">
                     0{i + 1}
                   </span>
                   <span
                     aria-hidden
                     className="h-px w-8 bg-amber/50"
                   />
-                  <span className="text-lg text-engineering">{method}</span>
+                  <span className="text-lg text-bone">{method}</span>
                 </li>
               ))}
             </ul>
 
             <div className="reveal mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
               <StatusBadge status="zeus-reported" />
-              <p className="max-w-[54ch] text-sm text-steel-dim">
+              <p className="max-w-[54ch] text-sm text-stone-dim">
                 ZEUS&rsquo;s published description of its approach to heat. No
                 rated operating temperature, humidity limit or uptime guarantee
                 is claimed.
@@ -96,12 +96,12 @@ export function Proof() {
                 <span className="numeral text-[clamp(2.75rem,5.5vw,4rem)]">
                   {assetValue.value}
                 </span>
-                <span className="numeral text-2xl text-steel">
+                <span className="numeral text-2xl text-stone">
                   {assetValue.unit}
                 </span>
               </div>
               <p className="tech-label mt-3">{assetValue.label}</p>
-              <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-steel-dim">
+              <p className="mt-4 max-w-[52ch] text-sm leading-relaxed text-stone-dim">
                 {assetValue.note} Described by ZEUS; not independently audited.
               </p>
             </div>

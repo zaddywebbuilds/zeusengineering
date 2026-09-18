@@ -48,7 +48,7 @@ export default function BitcoinInfrastructurePage() {
         index="05"
         label="Capability"
         title={"The work\nbehind the hash."}
-        tone="carbon"
+        tone="bark"
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           <RuleList
@@ -66,7 +66,7 @@ export default function BitcoinInfrastructurePage() {
             <h3 className="display text-[1.75rem] leading-none">
               Managing heat
             </h3>
-            <p className="mt-5 leading-relaxed text-steel">
+            <p className="mt-5 leading-relaxed text-stone">
               Asked directly how it manages heat, ZEUS describes conventional
               airflow engineering rather than exotic hardware — which is the
               more credible answer, and the one that scales.
@@ -74,14 +74,14 @@ export default function BitcoinInfrastructurePage() {
             <ul className="mt-8 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
               {thermalApproach.map((method, i) => (
                 <li key={method} className="flex items-center gap-5 py-4">
-                  <span className="tech-label text-steel-dim">0{i + 1}</span>
+                  <span className="tech-label text-stone-dim">0{i + 1}</span>
                   <span aria-hidden className="h-px w-8 bg-amber/50" />
-                  <span className="text-engineering">{method}</span>
+                  <span className="text-bone">{method}</span>
                 </li>
               ))}
             </ul>
 
-            <p className="mt-8 text-sm leading-relaxed text-steel-dim">
+            <p className="mt-8 text-sm leading-relaxed text-stone-dim">
               No rated operating temperature, humidity limit or uptime
               guarantee is claimed anywhere on this site.
             </p>
@@ -97,7 +97,7 @@ export default function BitcoinInfrastructurePage() {
       >
         <FaqList items={faq.filter((f) => f.topic === "economics" || f.topic === "hardware")} />
 
-        <div className="reveal mt-14 flex flex-wrap items-center gap-4">
+        <div className="reveal mt-10 flex flex-wrap items-center gap-4">
           <Button href="/solutions/hosted-mining">Hosted mining</Button>
           <Button href="/solutions/ai-infrastructure" variant="secondary">
             Where this leads

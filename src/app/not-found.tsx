@@ -15,7 +15,7 @@ export default function NotFound() {
           to that page.
         </h1>
 
-        <p className="mt-8 max-w-[46ch] text-lg leading-relaxed text-steel">
+        <p className="mt-8 max-w-[46ch] text-lg leading-relaxed text-stone">
           The address doesn&rsquo;t resolve. It may have moved, or it may never
           have existed.
         </p>
@@ -27,14 +27,14 @@ export default function NotFound() {
           </Button>
         </div>
 
-        <nav aria-label="Site sections" className="mt-16 border-t border-[var(--rule)] pt-10">
+        <nav aria-label="Site sections" className="mt-11 border-t border-[var(--rule)] pt-10">
           <TechLabel className="mb-6">Or try</TechLabel>
           <ul className="flex flex-wrap gap-x-8 gap-y-3">
             {primaryNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-steel transition-colors duration-200 hover:text-engineering"
+                  className="text-stone transition-colors duration-200 hover:text-bone"
                 >
                   {item.label}
                 </Link>

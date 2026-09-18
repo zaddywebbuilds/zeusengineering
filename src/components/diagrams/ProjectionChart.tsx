@@ -9,9 +9,9 @@
  * in src/data/metrics.ts.
  */
 const bands = [
-  { label: "Company-owned", sub: "200 machines", lo: 10, hi: 15, accent: "cyan" },
-  { label: "Hosted", sub: "300 machines", lo: 4, hi: 5, accent: "cyan-dim" },
-  { label: "Total", sub: "Projected", lo: 14, hi: 20, accent: "cyan" },
+  { label: "Company-owned", sub: "200 machines", lo: 10, hi: 15, accent: "sage" },
+  { label: "Hosted", sub: "300 machines", lo: 4, hi: 5, accent: "sage-dim" },
+  { label: "Total", sub: "Projected", lo: 14, hi: 20, accent: "sage" },
 ] as const;
 
 const MAX = 22;
@@ -35,14 +35,14 @@ export function ProjectionChart() {
                 y1={18}
                 x2={x}
                 y2={186}
-                stroke="rgba(255,255,255,0.07)"
+                stroke="rgba(240,234,226,0.08)"
                 strokeWidth="1"
               />
               <text
                 x={x}
                 y={206}
                 textAnchor="middle"
-                fill="rgba(255,255,255,0.32)"
+                fill="rgba(240,234,226,0.36)"
                 fontSize="10"
                 letterSpacing="1"
               >
@@ -57,10 +57,10 @@ export function ProjectionChart() {
           const x1 = 96 + (band.lo / MAX) * 300;
           const x2 = 96 + (band.hi / MAX) * 300;
           const fill =
-            band.accent === "cyan"
-              ? "rgba(85,199,217,0.30)"
-              : "rgba(85,199,217,0.16)";
-          const stroke = "var(--color-cyan)";
+            band.accent === "sage"
+              ? "rgba(123,160,143,0.30)"
+              : "rgba(123,160,143,0.16)";
+          const stroke = "var(--color-sage)";
 
           return (
             <g key={band.label}>
@@ -68,7 +68,7 @@ export function ProjectionChart() {
                 x={88}
                 y={y + 15}
                 textAnchor="end"
-                fill="#f2f3f2"
+                fill="#f0eae2"
                 fontSize="11"
                 letterSpacing="0.5"
               >
@@ -78,7 +78,7 @@ export function ProjectionChart() {
                 x={88}
                 y={y + 29}
                 textAnchor="end"
-                fill="rgba(255,255,255,0.32)"
+                fill="rgba(240,234,226,0.36)"
                 fontSize="9"
                 letterSpacing="0.8"
               >
@@ -102,7 +102,7 @@ export function ProjectionChart() {
               <text
                 x={x2 + 10}
                 y={y + 17}
-                fill="var(--color-cyan)"
+                fill="var(--color-sage)"
                 fontSize="11"
                 letterSpacing="0.5"
               >
@@ -116,7 +116,7 @@ export function ProjectionChart() {
           x={246}
           y={228}
           textAnchor="middle"
-          fill="rgba(255,255,255,0.32)"
+          fill="rgba(240,234,226,0.36)"
           fontSize="9"
           letterSpacing="1.6"
         >
@@ -124,7 +124,7 @@ export function ProjectionChart() {
         </text>
       </svg>
 
-      <figcaption className="mt-5 border-t border-[var(--rule)] pt-4 text-xs leading-relaxed text-steel-dim">
+      <figcaption className="mt-5 border-t border-[var(--rule)] pt-4 text-xs leading-relaxed text-stone-dim">
         Ranges as published by ZEUS. Bands show the stated range rather than a
         point estimate. Projection, not realised production.
       </figcaption>

@@ -35,9 +35,9 @@ export default function WhyVietnamPage() {
       <Section>
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-2">
           {vietnamPoints.map((point) => (
-            <article key={point.index} className="reveal bg-graphite p-8 lg:p-10">
+            <article key={point.index} className="reveal bg-soil p-8 lg:p-10">
               <div className="flex items-center gap-4">
-                <span className="tech-label text-steel-dim">{point.index}</span>
+                <span className="tech-label text-stone-dim">{point.index}</span>
                 <span aria-hidden className="h-px w-10 bg-amber/60" />
               </div>
 
@@ -45,12 +45,12 @@ export default function WhyVietnamPage() {
                 {point.title}
               </h2>
 
-              <p className="mt-5 max-w-[46ch] leading-relaxed text-steel">
+              <p className="mt-5 max-w-[46ch] leading-relaxed text-stone">
                 {point.body}
               </p>
 
               {point.caveat && (
-                <p className="mt-6 border-l border-amber/40 pl-4 text-sm leading-relaxed text-steel-dim">
+                <p className="mt-6 border-l border-amber/40 pl-4 text-sm leading-relaxed text-stone-dim">
                   {point.caveat}
                 </p>
               )}
@@ -58,9 +58,9 @@ export default function WhyVietnamPage() {
           ))}
         </div>
 
-        <div className="reveal mt-12 max-w-[72ch] border-l-2 border-amber/50 bg-carbon p-7">
+        <div className="reveal mt-12 max-w-[72ch] border-l-2 border-amber/50 bg-bark p-7">
           <TechLabel className="mb-4">On this page</TechLabel>
-          <p className="text-sm leading-relaxed text-steel">
+          <p className="text-sm leading-relaxed text-stone">
             No market-size statistics, growth rates or third-party forecasts
             appear here. ZEUS has not supplied verified external figures, so
             this page makes its case qualitatively rather than borrowing numbers
@@ -69,7 +69,7 @@ export default function WhyVietnamPage() {
           </p>
         </div>
 
-        <div className="reveal mt-14 flex flex-wrap items-center gap-4">
+        <div className="reveal mt-10 flex flex-wrap items-center gap-4">
           <Button href="/investors/the-ask">The ask</Button>
           <Button href="/contact?intent=invest" variant="secondary">
             Investor enquiry

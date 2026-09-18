@@ -15,7 +15,7 @@ export function ConceptNotice({
 }) {
   return (
     <p
-      className={`tech-label flex items-center gap-2 text-[0.625rem] text-steel-dim ${className}`}
+      className={`tech-label flex items-center gap-2 text-[0.625rem] text-stone-dim ${className}`}
     >
       <span aria-hidden className="text-[0.5rem]">
         ◇

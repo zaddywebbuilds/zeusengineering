@@ -49,7 +49,7 @@ export default function ProjectsPage() {
                 <div key={fact.label}>
                   <dd className="numeral text-2xl">
                     {fact.value}
-                    {fact.unit && <span className="text-steel"> {fact.unit}</span>}
+                    {fact.unit && <span className="text-stone"> {fact.unit}</span>}
                   </dd>
                   <dt className="tech-label mt-1 text-[0.625rem]">
                     {fact.label}
@@ -86,10 +86,10 @@ export default function ProjectsPage() {
         </Link>
       </Section>
 
-      <Section tone="carbon">
+      <Section tone="bark">
         <div className="max-w-[60ch]">
           <TechLabel className="mb-5">On this page</TechLabel>
-          <p className="leading-relaxed text-steel">
+          <p className="leading-relaxed text-stone">
             ZEUS has published one operating site. There is no Project 002 on
             this page because there is no Project 002 to show — the absence is
             the honest answer, and it is a more useful signal to an investor

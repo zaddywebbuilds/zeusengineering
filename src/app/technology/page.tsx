@@ -22,6 +22,11 @@ export default function TechnologyPage() {
         title={"Engineered from\nfirst principles."}
         lede="Four pillars that only make sense together. Power determines what compute is possible; cooling determines whether it keeps running; control determines whether any of it can be operated remotely."
         crumbs={[{ label: "Home", href: "/" }]}
+        media={{
+          image: "/images/clean/substation.webp",
+          alt: "High-voltage substation switchgear",
+          label: "Power infrastructure",
+        }}
       />
 
       <Section
@@ -31,7 +36,7 @@ export default function TechnologyPage() {
         lede="Grid and solar enter, power is managed and distributed, heat is rejected, compute runs, and a control layer watches all of it — feeding telemetry back into how power is allocated."
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-16">
-          <div className="border border-[var(--rule)] bg-carbon p-6 lg:p-8">
+          <div className="border border-[var(--rule)] bg-bark p-6 lg:p-8">
             <TechLabel className="mb-6">Infrastructure schematic</TechLabel>
             <SystemDiagramStatic />
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
@@ -40,7 +45,7 @@ export default function TechnologyPage() {
                 Energy
               </span>
               <span className="tech-label flex items-center gap-2">
-                <span className="h-2 w-2 bg-cyan" aria-hidden />
+                <span className="h-2 w-2 bg-sage" aria-hidden />
                 Compute
               </span>
             </div>
@@ -53,7 +58,7 @@ export default function TechnologyPage() {
                 href={pillar.href}
                 className="group flex items-start gap-6 py-8 transition-colors duration-200"
               >
-                <span className="tech-label shrink-0 pt-2 text-steel-dim">
+                <span className="tech-label shrink-0 pt-2 text-stone-dim">
                   {pillar.index}
                 </span>
                 <span className="flex-1">
@@ -64,11 +69,11 @@ export default function TechnologyPage() {
                     <span
                       aria-hidden
                       className={`h-px w-8 transition-all duration-300 group-hover:w-14 ${
-                        pillar.accent === "energy" ? "bg-amber" : "bg-cyan"
+                        pillar.accent === "energy" ? "bg-amber" : "bg-sage"
                       }`}
                     />
                   </span>
-                  <span className="mt-3 block max-w-[52ch] text-sm leading-relaxed text-steel">
+                  <span className="mt-3 block max-w-[52ch] text-sm leading-relaxed text-stone">
                     {pillar.summary}
                   </span>
                 </span>

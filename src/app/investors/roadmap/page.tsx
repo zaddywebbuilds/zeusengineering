@@ -25,10 +25,10 @@ export const metadata: Metadata = pageMeta({
  */
 const weightStyles = {
   realised: {
-    marker: "bg-engineering",
-    rail: "bg-engineering/40",
+    marker: "bg-bone",
+    rail: "bg-bone/40",
     frame: "border-[var(--rule-strong)]",
-    figure: "text-engineering",
+    figure: "text-bone",
   },
   "funded-target": {
     marker: "bg-amber",
@@ -37,10 +37,10 @@ const weightStyles = {
     figure: "text-amber",
   },
   ambition: {
-    marker: "bg-steel-dim",
+    marker: "bg-stone-dim",
     rail: "bg-[var(--rule)]",
     frame: "border-dashed border-[var(--rule)]",
-    figure: "text-steel",
+    figure: "text-stone",
   },
 } as const;
 
@@ -56,11 +56,17 @@ export default function RoadmapPage() {
           { label: "Home", href: "/" },
           { label: "Investors", href: "/investors" },
         ]}
+        media={{
+          image: "/images/concept/campus-aerial.webp",
+          alt: "Concept visualisation of a distributed compute site with solar array",
+          label: "Where this goes",
+          note: "Concept visualisation",
+        }}
       />
 
       <Section>
         {/* Legend */}
-        <div className="mb-14 flex flex-wrap gap-x-8 gap-y-4">
+        <div className="mb-10 flex flex-wrap gap-x-8 gap-y-4">
           {[
             { w: "realised", t: "Operating now" },
             { w: "funded-target", t: "Target — contingent on the raise" },
@@ -146,7 +152,7 @@ export default function RoadmapPage() {
                   <h2 className="display mt-4 text-[1.625rem] leading-none">
                     {milestone.title}
                   </h2>
-                  <p className="mt-4 max-w-[58ch] leading-relaxed text-steel">
+                  <p className="mt-4 max-w-[58ch] leading-relaxed text-stone">
                     {milestone.body}
                   </p>
                   {milestone.points && (
@@ -154,7 +160,7 @@ export default function RoadmapPage() {
                       {milestone.points.map((point) => (
                         <li
                           key={point}
-                          className="flex gap-3 text-sm text-steel-dim"
+                          className="flex gap-3 text-sm text-stone-dim"
                         >
                           <span
                             aria-hidden
@@ -171,14 +177,14 @@ export default function RoadmapPage() {
           })}
         </ol>
 
-        <div className="reveal mt-6 border-l-2 border-amber/50 bg-carbon p-7">
+        <div className="reveal mt-6 border-l-2 border-amber/50 bg-bark p-7">
           <TechLabel className="mb-4">Status</TechLabel>
-          <p className="max-w-[72ch] text-sm leading-relaxed text-steel">
+          <p className="max-w-[72ch] text-sm leading-relaxed text-stone">
             {roadmapDisclosure}
           </p>
         </div>
 
-        <div className="reveal mt-14 flex flex-wrap items-center gap-4">
+        <div className="reveal mt-10 flex flex-wrap items-center gap-4">
           <Button href="/investors/economics">Node economics</Button>
           <Button href="/contact?intent=invest" variant="secondary">
             Investor enquiry

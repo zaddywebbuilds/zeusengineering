@@ -51,6 +51,12 @@ export default function InsightsPage() {
         title={"Straight\nanswers."}
         lede="ZEUS's own answers to the questions that get asked about this business — including the uncomfortable ones. Published as given, with the company's caveats intact."
         crumbs={[{ label: "Home", href: "/" }]}
+        media={{
+          image: "/images/real/hardware-intake-portrait.webp",
+          alt: "Pallets of Antminer ASIC units awaiting commissioning in a ZEUS warehouse",
+          label: "Hardware intake, 2023",
+          note: "ZEUS photograph",
+        }}
       />
 
       {topics.map((topic, i) => {
@@ -62,17 +68,17 @@ export default function InsightsPage() {
             key={topic.id}
             index={String(i + 1).padStart(2, "0")}
             label={topic.label}
-            tone={i % 2 === 1 ? "carbon" : "graphite"}
+            tone={i % 2 === 1 ? "bark" : "soil"}
           >
             <FaqList items={items} />
           </Section>
         );
       })}
 
-      <Section tone="carbon">
+      <Section tone="bark">
         <div className="max-w-[64ch] border-l-2 border-[var(--rule-strong)] pl-6">
           <TechLabel className="mb-4">On this section</TechLabel>
-          <p className="text-sm leading-relaxed text-steel-dim">
+          <p className="text-sm leading-relaxed text-stone-dim">
             This section is built to carry long-form articles — the routing,
             metadata and structured-data templates are in place. It is not
             pre-filled with generated articles: an archive of synthetic posts

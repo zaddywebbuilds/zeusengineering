@@ -8,22 +8,28 @@
    ============================================================ */
 
 @theme {
-  /* Surfaces */
-  --color-graphite: #090b0d;
-  --color-carbon: #111418;
-  --color-gunmetal: #1a1f24;
-  --color-gunmetal-hi: #232930;
+  /* Surfaces — warm earth neutrals. Brown-black rather than blue-black, so
+     the page reads as soil and stone instead of screen and steel. */
+  --color-soil: #151210;
+  --color-bark: #1E1916;
+  --color-clay: #2A231E;
+  --color-clay-hi: #362D26;
 
-  /* Text */
-  --color-engineering: #f2f3f2;
-  --color-steel: #9da5ac;
-  --color-steel-dim: #6b747c;
+  /* Text — bone white and weathered stone, both warm to match the ground. */
+  --color-bone: #F0EAE2;
+  --color-stone: #A79B8D;
+  /* 4.97:1 on bark, 5.32:1 on soil — clears AA on both surfaces. */
+  --color-stone-dim: #93877A;
 
-  /* Accents */
-  --color-amber: #f4a623;
-  --color-amber-dim: #8a5e14;
-  --color-cyan: #55c7d9;
-  --color-cyan-dim: #2b6f7a;
+  /* Accents.
+     AMBER = energy / power. Softened from the original #F4A623 so it glows
+     against brown instead of shouting against black.
+     SAGE = compute / data / monitoring. Replaces the cold cyan, which read as
+     a screen colour and fought the earth tones. */
+  --color-amber: #E09A42;
+  --color-amber-dim: #8A6229;
+  --color-sage: #7BA08F;
+  --color-sage-dim: #4A6459;
 
   /* Typography */
   --font-display: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
@@ -34,10 +40,11 @@
   --ease-zeus-in: cubic-bezier(0.64, 0, 0.78, 0);
 }
 
+
 :root {
-  --rule: rgba(255, 255, 255, 0.1);
-  --rule-strong: rgba(255, 255, 255, 0.18);
-  --grid-line: rgba(255, 255, 255, 0.025);
+  --rule: rgba(240, 234, 226, 0.11);
+  --rule-strong: rgba(240, 234, 226, 0.2);
+  --grid-line: rgba(240, 234, 226, 0.03);
   --shell: 1360px;
   --gutter: 1.5rem;
 }
@@ -53,13 +60,13 @@
 }
 
 html {
-  background: var(--color-graphite);
+  background: var(--color-soil);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--color-graphite);
-  color: var(--color-engineering);
+  background: var(--color-soil);
+  color: var(--color-bone);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
@@ -76,7 +83,7 @@ body {
 
 ::selection {
   background: var(--color-amber);
-  color: var(--color-graphite);
+  color: var(--color-soil);
 }
 
 /* ---------- Focus: always visible, never removed ---------- */
@@ -133,7 +140,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-steel);
+  color: var(--color-stone);
 }
 
 @media (min-width: 768px) {

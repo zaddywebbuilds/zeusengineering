@@ -39,7 +39,7 @@ const layers = [
   {
     id: "compute",
     label: "Compute",
-    accent: "cyan",
+    accent: "sage",
     body: "Bitcoin mining, AI compute, or a mix of both.",
     detail:
       "The enclosure is workload-agnostic: what changes between a mining deployment and an AI deployment is the hardware inside, not the infrastructure around it.",
@@ -47,7 +47,7 @@ const layers = [
   {
     id: "control",
     label: "Control",
-    accent: "cyan",
+    accent: "sage",
     body: "Full automation and remote monitoring.",
     detail:
       "Remote operation is what makes small distributed sites viable — a unit placed near available energy cannot depend on a permanent on-site crew.",
@@ -60,10 +60,10 @@ export function SsmdcExplorer() {
 
   return (
     <section
-      className="border-t border-[var(--rule)] bg-carbon"
+      className="border-t border-[var(--rule)] bg-bark"
       aria-labelledby="ssmdc-heading"
     >
-      <div className="shell py-24 lg:py-32">
+      <div className="shell py-14 lg:py-18">
         <div className="flex flex-wrap items-center gap-4">
           <TechLabel index="07" className="reveal">
             {ssmdc.fullName}
@@ -79,14 +79,14 @@ export function SsmdcExplorer() {
           {ssmdc.fullName}
         </h2>
 
-        <p className="reveal mt-8 max-w-[58ch] text-lg leading-relaxed text-steel">
+        <p className="reveal mt-8 max-w-[58ch] text-lg leading-relaxed text-stone">
           A 400 m² class node: solar, storage and compute in one package,
           deployed close to the energy rather than the other way round.
         </p>
 
-        <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
+        <div className="mt-11 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16">
           {/* Drawing + layer highlight */}
-          <div className="reveal relative overflow-hidden rounded-[4px] border border-[var(--rule)] bg-graphite">
+          <div className="reveal relative overflow-hidden rounded-[4px] border border-[var(--rule)] bg-soil">
             <div className="relative aspect-square">
               <Img
                 src={ssmdc.image}
@@ -101,15 +101,15 @@ export function SsmdcExplorer() {
                 className={cx(
                   "pointer-events-none absolute inset-0 transition-colors duration-500",
                   layer.accent === "amber"
-                    ? "bg-[radial-gradient(circle_at_50%_60%,rgba(244,166,35,0.16),transparent_62%)]"
-                    : "bg-[radial-gradient(circle_at_50%_60%,rgba(85,199,217,0.16),transparent_62%)]",
+                    ? "bg-[radial-gradient(circle_at_50%_60%,rgba(224,154,66,0.16),transparent_62%)]"
+                    : "bg-[radial-gradient(circle_at_50%_60%,rgba(123,160,143,0.16),transparent_62%)]",
                 )}
               />
             </div>
 
             <div className="flex items-center justify-between gap-4 border-t border-[var(--rule)] px-5 py-3">
               <TechLabel>ZEUS engineering drawing</TechLabel>
-              <span className="tech-label text-steel-dim">
+              <span className="tech-label text-stone-dim">
                 0{active + 1} / 0{layers.length}
               </span>
             </div>
@@ -133,7 +133,7 @@ export function SsmdcExplorer() {
                   onClick={() => setActive(i)}
                   className={cx(
                     "group flex items-center gap-4 border-t border-[var(--rule)] py-5 text-left transition-colors duration-200 last:border-b",
-                    active === i ? "text-engineering" : "text-steel hover:text-engineering",
+                    active === i ? "text-bone" : "text-stone hover:text-bone",
                   )}
                 >
                   <span
@@ -143,7 +143,7 @@ export function SsmdcExplorer() {
                       active === i
                         ? l.accent === "amber"
                           ? "w-10 bg-amber"
-                          : "w-10 bg-cyan"
+                          : "w-10 bg-sage"
                         : "w-5 bg-[var(--rule-strong)]",
                     )}
                   />
@@ -160,17 +160,17 @@ export function SsmdcExplorer() {
               aria-labelledby={`ssmdc-tab-${layer.id}`}
               className="mt-8"
             >
-              <p className="text-lg leading-relaxed text-engineering">
+              <p className="text-lg leading-relaxed text-bone">
                 {layer.body}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-steel">
+              <p className="mt-4 text-sm leading-relaxed text-stone">
                 {layer.detail}
               </p>
             </div>
           </div>
         </div>
 
-        <p className="reveal mt-12 max-w-[64ch] text-sm text-steel-dim">
+        <p className="reveal mt-12 max-w-[64ch] text-sm text-stone-dim">
           {ssmdc.statusNote}
         </p>
       </div>

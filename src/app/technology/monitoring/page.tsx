@@ -42,11 +42,11 @@ export default function Page() {
       />
 
       <Section>
-        <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-9 lg:grid-cols-2">
           {blocks.map((block, i) => (
             <div key={block.t} className="reveal">
               <div className="flex items-center gap-4">
-                <span className="tech-label text-steel-dim">
+                <span className="tech-label text-stone-dim">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span aria-hidden className="h-px w-10 bg-amber/60" />
@@ -54,14 +54,14 @@ export default function Page() {
               <h2 className="display mt-5 text-[1.75rem] leading-none">
                 {block.t}
               </h2>
-              <p className="mt-4 max-w-[52ch] leading-relaxed text-steel">
+              <p className="mt-4 max-w-[52ch] leading-relaxed text-stone">
                 {block.b}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="reveal mt-16 flex flex-wrap items-center gap-4">
+        <div className="reveal mt-11 flex flex-wrap items-center gap-4">
           <Button href="/technology" variant="secondary">
             All four pillars
           </Button>

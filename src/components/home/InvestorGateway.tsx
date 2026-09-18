@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/Button";
 export function InvestorGateway() {
   return (
     <section
-      className="tech-grid border-t border-[var(--rule)] bg-carbon"
+      className="tech-grid border-t border-[var(--rule)] bg-bark"
       aria-labelledby="investor-heading"
     >
       <div className="shell grid grid-cols-1 gap-14 py-24 lg:grid-cols-2 lg:gap-20 lg:py-32">
@@ -28,7 +28,7 @@ export function InvestorGateway() {
             Investor relations
           </h2>
 
-          <p className="reveal mt-8 max-w-[48ch] text-lg leading-relaxed text-steel">
+          <p className="reveal mt-8 max-w-[48ch] text-lg leading-relaxed text-stone">
             A prototype that already runs, a node design costed to the line, and
             a raise sized to build two of them — presented so that what exists,
             what is planned and what is projected are never the same thing.
@@ -42,7 +42,7 @@ export function InvestorGateway() {
           </div>
         </div>
 
-        <div className="reveal border border-[var(--rule)] bg-graphite p-8 lg:p-10">
+        <div className="reveal border border-[var(--rule)] bg-soil p-8 lg:p-10">
           <div className="flex items-center justify-between gap-4">
             <TechLabel>Current raise</TechLabel>
             <StatusBadge status="target" label="Fundraising target" />
@@ -58,18 +58,18 @@ export function InvestorGateway() {
           </div>
           <p className="tech-label mt-4">18–24 month runway to live nodes</p>
 
-          <p className="mt-8 border-t border-[var(--rule)] pt-8 text-sm leading-relaxed text-steel">
+          <p className="mt-8 border-t border-[var(--rule)] pt-8 text-sm leading-relaxed text-stone">
             {theAsk.note}
           </p>
 
           <dl className="mt-8 space-y-3 border-t border-[var(--rule)] pt-8">
             {useOfFunds.slice(0, 3).map((row) => (
               <div key={row.item} className="flex justify-between gap-6 text-sm">
-                <dt className="text-steel-dim">{row.item}</dt>
-                <dd className="shrink-0 text-right text-steel">{row.amount}</dd>
+                <dt className="text-stone-dim">{row.item}</dt>
+                <dd className="shrink-0 text-right text-stone">{row.amount}</dd>
               </div>
             ))}
-            <div className="flex justify-between gap-6 text-sm text-steel-dim">
+            <div className="flex justify-between gap-6 text-sm text-stone-dim">
               <dt>+ 2 further lines</dt>
               <dd className="shrink-0 text-right">$540k</dd>
             </div>

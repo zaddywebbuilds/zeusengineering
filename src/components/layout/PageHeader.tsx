@@ -55,7 +55,7 @@ export function PageHeader({
         className={
           split
             ? "shell-wide grid grid-cols-1 items-center gap-12 pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-16 lg:pb-24"
-            : "shell pb-20 lg:pb-24"
+            : "shell pb-12 lg:pb-16"
         }
       >
         <div>
@@ -65,13 +65,13 @@ export function PageHeader({
                 {crumbs.map((crumb, i) => (
                   <li key={crumb.href} className="flex items-center gap-2">
                     {i > 0 && (
-                      <span aria-hidden className="tech-label text-steel-dim">
+                      <span aria-hidden className="tech-label text-stone-dim">
                         /
                       </span>
                     )}
                     <Link
                       href={crumb.href}
-                      className="tech-label transition-colors duration-200 hover:text-engineering"
+                      className="tech-label transition-colors duration-200 hover:text-bone"
                     >
                       {crumb.label}
                     </Link>
@@ -101,7 +101,7 @@ export function PageHeader({
           />
 
           {lede && (
-            <p className="reveal mt-8 max-w-[54ch] text-lg leading-relaxed text-steel">
+            <p className="reveal mt-8 max-w-[54ch] text-lg leading-relaxed text-stone">
               {lede}
             </p>
           )}

@@ -46,7 +46,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="reveal mt-9 max-w-[46ch] text-lg leading-relaxed text-steel">
+          <p className="reveal mt-9 max-w-[46ch] text-lg leading-relaxed text-stone">
             Modular infrastructure for Bitcoin, AI and high-density computing —
             engineered in Vietnam.
           </p>
@@ -60,7 +60,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="reveal mt-16 flex items-center gap-4">
+          <div className="reveal mt-11 flex items-center gap-4">
             <span
               aria-hidden
               className="block h-10 w-px bg-[linear-gradient(to_bottom,var(--color-amber),transparent)]"

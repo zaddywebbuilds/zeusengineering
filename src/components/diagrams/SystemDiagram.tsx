@@ -24,9 +24,9 @@ export function SystemDiagram({
   const on = (s: number) => stage >= s;
 
   const AMBER = "var(--color-amber)";
-  const CYAN = "var(--color-cyan)";
-  const DIM = "rgba(255,255,255,0.14)";
-  const DIM_TEXT = "rgba(255,255,255,0.32)";
+  const CYAN = "var(--color-sage)";
+  const DIM = "rgba(240,234,226,0.16)";
+  const DIM_TEXT = "rgba(240,234,226,0.36)";
 
   return (
     <svg
@@ -130,7 +130,7 @@ export function SystemDiagram({
         y="150"
         width="220"
         height="70"
-        fill={on(0) ? "rgba(244,166,35,0.07)" : "transparent"}
+        fill={on(0) ? "rgba(224,154,66,0.07)" : "transparent"}
         stroke={on(0) ? AMBER : DIM}
         strokeWidth="1"
         style={{ transition: "all 500ms var(--ease-zeus)" }}
@@ -150,7 +150,7 @@ export function SystemDiagram({
         x="260"
         y="203"
         textAnchor="middle"
-        fill={on(0) ? "rgba(244,166,35,0.6)" : DIM_TEXT}
+        fill={on(0) ? "rgba(224,154,66,0.6)" : DIM_TEXT}
         fontSize="10"
         letterSpacing="1.4"
         style={{ transition: "fill 500ms var(--ease-zeus)" }}
@@ -173,7 +173,7 @@ export function SystemDiagram({
         y="268"
         width="220"
         height="70"
-        fill={on(1) ? "rgba(244,166,35,0.07)" : "transparent"}
+        fill={on(1) ? "rgba(224,154,66,0.07)" : "transparent"}
         stroke={on(1) ? AMBER : DIM}
         strokeWidth="1"
         style={{ transition: "all 500ms var(--ease-zeus)" }}
@@ -193,7 +193,7 @@ export function SystemDiagram({
         x="260"
         y="321"
         textAnchor="middle"
-        fill={on(1) ? "rgba(244,166,35,0.6)" : DIM_TEXT}
+        fill={on(1) ? "rgba(224,154,66,0.6)" : DIM_TEXT}
         fontSize="10"
         letterSpacing="1.4"
         style={{ transition: "fill 500ms var(--ease-zeus)" }}
@@ -205,7 +205,7 @@ export function SystemDiagram({
       <path
         d="M370 303 L440 303 L440 240"
         fill="none"
-        stroke={on(1) ? "rgba(244,166,35,0.45)" : DIM}
+        stroke={on(1) ? "rgba(224,154,66,0.45)" : DIM}
         strokeWidth="1"
         strokeDasharray="4 4"
         style={{ transition: "stroke 500ms var(--ease-zeus)" }}
@@ -213,7 +213,7 @@ export function SystemDiagram({
       <text
         x="446"
         y="232"
-        fill={on(1) ? "rgba(244,166,35,0.6)" : DIM_TEXT}
+        fill={on(1) ? "rgba(224,154,66,0.6)" : DIM_TEXT}
         fontSize="9"
         letterSpacing="1.2"
         style={{ transition: "fill 500ms var(--ease-zeus)" }}
@@ -236,7 +236,7 @@ export function SystemDiagram({
         y="386"
         width="300"
         height="104"
-        fill={on(2) ? "rgba(85,199,217,0.06)" : "transparent"}
+        fill={on(2) ? "rgba(123,160,143,0.06)" : "transparent"}
         stroke={on(2) ? CYAN : DIM}
         strokeWidth="1"
         style={{ transition: "all 500ms var(--ease-zeus)" }}
@@ -284,7 +284,7 @@ export function SystemDiagram({
         y="532"
         width="300"
         height="62"
-        fill={on(3) ? "rgba(85,199,217,0.06)" : "transparent"}
+        fill={on(3) ? "rgba(123,160,143,0.06)" : "transparent"}
         stroke={on(3) ? CYAN : DIM}
         strokeWidth="1"
         strokeDasharray={on(3) ? "0" : "4 4"}
@@ -305,7 +305,7 @@ export function SystemDiagram({
         x="260"
         y="580"
         textAnchor="middle"
-        fill={on(3) ? "rgba(85,199,217,0.6)" : DIM_TEXT}
+        fill={on(3) ? "rgba(123,160,143,0.6)" : DIM_TEXT}
         fontSize="10"
         letterSpacing="1.4"
         style={{ transition: "fill 500ms var(--ease-zeus)" }}
@@ -317,7 +317,7 @@ export function SystemDiagram({
       <path
         d="M110 563 L64 563 L64 185 L150 185"
         fill="none"
-        stroke={on(3) ? "rgba(85,199,217,0.4)" : DIM}
+        stroke={on(3) ? "rgba(123,160,143,0.4)" : DIM}
         strokeWidth="1"
         strokeDasharray="3 5"
         style={{ transition: "stroke 500ms var(--ease-zeus)" }}

@@ -67,11 +67,18 @@ src/data/
 
 ## Design system
 
-Dark, graphite-dominant, photography and typography doing the work.
+Dark and earthy, with photography and typography doing the work.
 
-- **Surfaces** graphite `#090B0D` · carbon `#111418` · gunmetal `#1A1F24`
-- **Text** engineering white `#F2F3F2` · steel `#9DA5AC`
-- **Accents** solar amber `#F4A623` = energy · compute cyan `#55C7D9` = compute
+Warm earth neutrals — brown-black rather than blue-black, so the page reads as
+soil and stone instead of screen and steel. It also lets the client's own amber
+sit naturally instead of fighting a cold ground.
+
+- **Surfaces** soil `#151210` · bark `#1E1916` · clay `#2A231E`
+- **Text** bone `#F0EAE2` · stone `#A79B8D` · stone-dim `#93877A`
+- **Accents** amber `#E09A42` = energy · sage `#7BA08F` = compute
+
+Every foreground clears WCAG AA on both surfaces (lowest is stone-dim at
+4.97:1 on bark).
 - **Type** Barlow Condensed (display) · Inter (body)
 
 Tokens are defined once in `src/app/globals.css` under `@theme`.

@@ -6,26 +6,26 @@ import { MaskedHeading } from "@/components/ui/SectionHeading";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--rule)] bg-graphite">
+    <footer className="border-t border-[var(--rule)] bg-soil">
       {/* Closing statement + the three conversion paths */}
-      <section className="shell py-24 lg:py-36">
+      <section className="shell py-14 lg:py-20">
         <MaskedHeading
           text={"Let's build\nwhat computes next."}
           className="h-section max-w-[16ch]"
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-3">
+        <div className="mt-11 grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-3">
           {contactPaths.map((path) => (
             <Link
               key={path.id}
               href={path.href}
-              className="group flex flex-col justify-between gap-10 bg-graphite p-8 transition-colors duration-200 hover:bg-carbon lg:p-10"
+              className="group flex flex-col justify-between gap-10 bg-soil p-8 transition-colors duration-200 hover:bg-bark lg:p-10"
             >
               <div>
                 <h3 className="display text-[1.75rem] leading-none">
                   {path.label}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-steel">
+                <p className="mt-4 text-sm leading-relaxed text-stone">
                   {path.blurb}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export function SiteFooter() {
 
       {/* Directory */}
       <div className="border-t border-[var(--rule)]">
-        <div className="shell grid grid-cols-2 gap-x-8 gap-y-12 py-16 md:grid-cols-3 lg:grid-cols-6">
+        <div className="shell grid grid-cols-2 gap-x-8 gap-y-12 py-11 md:grid-cols-3 lg:grid-cols-6">
           {primaryNav.map((item) => (
             <nav key={item.label} aria-label={item.label}>
               <p className="tech-label mb-5">{item.label}</p>
@@ -52,7 +52,7 @@ export function SiteFooter() {
                     <li key={child.href}>
                       <Link
                         href={child.href}
-                        className="text-sm text-steel transition-colors duration-200 hover:text-engineering"
+                        className="text-sm text-stone transition-colors duration-200 hover:text-bone"
                       >
                         {child.label}
                       </Link>
@@ -76,17 +76,17 @@ export function SiteFooter() {
               height={285}
               className="h-7 w-auto"
             />
-            <p className="text-xs leading-relaxed text-steel-dim">
+            <p className="text-xs leading-relaxed text-stone-dim">
               {company.legalName}, {company.country}
               <br />
               MST: {company.taxId}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-steel-dim">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-stone-dim">
             <a
               href={`mailto:${company.email}`}
-              className="transition-colors duration-200 hover:text-engineering"
+              className="transition-colors duration-200 hover:text-bone"
             >
               {company.email}
             </a>
@@ -94,13 +94,13 @@ export function SiteFooter() {
               href={company.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-200 hover:text-engineering"
+              className="transition-colors duration-200 hover:text-bone"
             >
               LinkedIn
             </a>
             <Link
               href="/legal/privacy"
-              className="transition-colors duration-200 hover:text-engineering"
+              className="transition-colors duration-200 hover:text-bone"
             >
               Privacy
             </Link>

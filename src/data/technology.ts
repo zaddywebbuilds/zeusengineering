@@ -5,7 +5,7 @@ export interface Pillar {
   href: string;
   headline: string;
   summary: string;
-  /** Which accent this pillar uses: energy (amber) or compute (cyan). */
+  /** Which accent this pillar uses: energy (amber) or compute (sage). */
   accent: "energy" | "compute";
   detail: string[];
 }
