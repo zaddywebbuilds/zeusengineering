@@ -25,22 +25,22 @@ export const metadata: Metadata = pageMeta({
  */
 const weightStyles = {
   realised: {
-    marker: "bg-bone",
-    rail: "bg-bone/40",
+    marker: "bg-ink",
+    rail: "bg-ink/40",
     frame: "border-[var(--rule-strong)]",
-    figure: "text-bone",
+    figure: "text-ink",
   },
   "funded-target": {
-    marker: "bg-amber",
-    rail: "bg-amber/30",
-    frame: "border-amber/30",
-    figure: "text-amber",
+    marker: "bg-ochre",
+    rail: "bg-ochre/30",
+    frame: "border-ochre/30",
+    figure: "text-ochre",
   },
   ambition: {
-    marker: "bg-stone-dim",
+    marker: "bg-slate-dim",
     rail: "bg-[var(--rule)]",
     frame: "border-dashed border-[var(--rule)]",
-    figure: "text-stone",
+    figure: "text-slate",
   },
 } as const;
 
@@ -152,7 +152,7 @@ export default function RoadmapPage() {
                   <h2 className="display mt-4 text-[1.625rem] leading-none">
                     {milestone.title}
                   </h2>
-                  <p className="mt-4 max-w-[58ch] leading-relaxed text-stone">
+                  <p className="mt-4 max-w-[58ch] leading-relaxed text-slate">
                     {milestone.body}
                   </p>
                   {milestone.points && (
@@ -160,7 +160,7 @@ export default function RoadmapPage() {
                       {milestone.points.map((point) => (
                         <li
                           key={point}
-                          className="flex gap-3 text-sm text-stone-dim"
+                          className="flex gap-3 text-sm text-slate-dim"
                         >
                           <span
                             aria-hidden
@@ -177,9 +177,9 @@ export default function RoadmapPage() {
           })}
         </ol>
 
-        <div className="reveal mt-6 border-l-2 border-amber/50 bg-bark p-7">
+        <div className="reveal mt-6 border-l-2 border-ochre/50 bg-linen p-7">
           <TechLabel className="mb-4">Status</TechLabel>
-          <p className="max-w-[72ch] text-sm leading-relaxed text-stone">
+          <p className="max-w-[72ch] text-sm leading-relaxed text-slate">
             {roadmapDisclosure}
           </p>
         </div>

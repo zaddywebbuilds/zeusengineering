@@ -2,34 +2,36 @@
 
 /* ============================================================
    ZEUS ENGINEERING — DESIGN TOKENS
-   Industrial futurism. Graphite dominant, photography second,
-   accent colour used as signal rather than decoration.
-   AMBER = energy / power.  CYAN = compute / data / monitoring.
+   Warm and light: cream walls, sage joinery, oak and tan leather.
+   Surfaces carry the warmth; accent colour is signal, not decoration.
+   OCHRE = energy / power.  SAGE = compute / data / monitoring.
    ============================================================ */
 
 @theme {
-  /* Surfaces — warm earth neutrals. Brown-black rather than blue-black, so
-     the page reads as soil and stone instead of screen and steel. */
-  --color-soil: #151210;
-  --color-bark: #1E1916;
-  --color-clay: #2A231E;
-  --color-clay-hi: #362D26;
+  /* Surfaces — warm cream and linen, the walls in the reference interior. */
+  --color-canvas: #F3EFE8;
+  --color-linen: #E9E3D9;
+  --color-clay: #DCD4C6;
+  --color-clay-hi: #CFC5B4;
 
-  /* Text — bone white and weathered stone, both warm to match the ground. */
-  --color-bone: #F0EAE2;
-  --color-stone: #A79B8D;
-  /* 4.97:1 on bark, 5.32:1 on soil — clears AA on both surfaces. */
-  --color-stone-dim: #93877A;
+  /* A deep sage block, standing in for the painted joinery wall. Used for
+     whole inverted sections; canvas text on it reads at 6.4:1. */
+  --color-sage-block: #4B5441;
+
+  /* Text — warm near-black and a soft grey-brown, never pure black on cream. */
+  --color-ink: #2B2722;
+  --color-slate: #5E5851;
+  --color-slate-dim: #686158;
 
   /* Accents.
-     AMBER = energy / power. Softened from the original #F4A623 so it glows
-     against brown instead of shouting against black.
-     SAGE = compute / data / monitoring. Replaces the cold cyan, which read as
-     a screen colour and fought the earth tones. */
-  --color-amber: #E09A42;
-  --color-amber-dim: #8A6229;
-  --color-sage: #7BA08F;
-  --color-sage-dim: #4A6459;
+     SAGE = compute / data / monitoring. The olive green of the joinery.
+     OCHRE = energy / power. The tan leather, deepened enough to read as text.
+     Each has a light partner for fills and rules, where contrast is not a
+     legibility requirement. */
+  --color-sage: #4F5A45;
+  --color-sage-light: #7F8A70;
+  --color-ochre: #8A5A28;
+  --color-tan: #C08B5A;
 
   /* Typography */
   --font-display: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
@@ -42,9 +44,9 @@
 
 
 :root {
-  --rule: rgba(240, 234, 226, 0.11);
-  --rule-strong: rgba(240, 234, 226, 0.2);
-  --grid-line: rgba(240, 234, 226, 0.03);
+  --rule: rgba(43, 39, 34, 0.14);
+  --rule-strong: rgba(43, 39, 34, 0.26);
+  --grid-line: rgba(43, 39, 34, 0.05);
   --shell: 1360px;
   --gutter: 1.5rem;
 }
@@ -60,13 +62,13 @@
 }
 
 html {
-  background: var(--color-soil);
+  background: var(--color-canvas);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--color-soil);
-  color: var(--color-bone);
+  background: var(--color-canvas);
+  color: var(--color-ink);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
@@ -82,13 +84,13 @@ body {
 }
 
 ::selection {
-  background: var(--color-amber);
-  color: var(--color-soil);
+  background: var(--color-ochre);
+  color: var(--color-canvas);
 }
 
 /* ---------- Focus: always visible, never removed ---------- */
 :focus-visible {
-  outline: 2px solid var(--color-amber);
+  outline: 2px solid var(--color-ochre);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -140,7 +142,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-stone);
+  color: var(--color-slate);
 }
 
 @media (min-width: 768px) {
@@ -155,6 +157,49 @@ body {
   line-height: 0.82;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Sage block ----------
+   The painted-joinery moment from the reference interior: one section in deep
+   sage instead of cream. Descendant overrides are scoped here rather than
+   hand-edited per element, so a section can be flipped by adding one class.
+   Canvas on sage-block reads 5.28:1. */
+.on-sage {
+  background: var(--color-sage-block);
+  color: var(--color-canvas);
+  --rule: rgba(243, 239, 232, 0.2);
+  --rule-strong: rgba(243, 239, 232, 0.34);
+  --grid-line: rgba(243, 239, 232, 0.05);
+}
+
+.on-sage .text-ink,
+.on-sage .display,
+.on-sage .numeral {
+  color: var(--color-canvas);
+}
+
+.on-sage .text-slate,
+.on-sage .tech-label {
+  color: rgba(243, 239, 232, 0.94);
+}
+
+.on-sage .text-slate-dim {
+  color: rgba(243, 239, 232, 0.82);
+}
+
+/* Ochre cannot carry contrast on sage, so on this block the energy accent
+   becomes light sand. Substring selectors catch the Tailwind opacity
+   variants (text-ochre/60) as well as the bare class. */
+.on-sage [class*="text-ochre"] {
+  color: #F2D3A8;
+}
+
+.on-sage [class*="border-ochre"] {
+  border-color: rgba(242, 211, 168, 0.65);
+}
+
+.on-sage [class*="bg-ochre"] {
+  background-color: #F2D3A8;
 }
 
 /* ---------- Engineering grid background ---------- */

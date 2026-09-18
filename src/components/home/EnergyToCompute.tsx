@@ -10,7 +10,7 @@ import { MediaPanel } from "@/components/ui/MediaPanel";
 export function EnergyToCompute() {
   return (
     <section
-      className="tech-grid relative border-t border-[var(--rule)] bg-soil"
+      className="tech-grid relative border-t border-[var(--rule)] bg-canvas"
       aria-labelledby="narrative-heading"
     >
       <div className="shell py-12 lg:py-16">
@@ -27,11 +27,11 @@ export function EnergyToCompute() {
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
-          <p className="reveal text-xl leading-relaxed text-bone lg:text-2xl">
+          <p className="reveal text-xl leading-relaxed text-ink lg:text-2xl">
             Founded in {company.founded}, ZEUS Engineering is {company.descriptor}.
           </p>
 
-          <div className="reveal space-y-6 text-stone">
+          <div className="reveal space-y-6 text-slate">
             <p className="leading-relaxed">
               While much of the industry concentrates resources into ever-larger
               hyperscale facilities, ZEUS has deliberately taken a different
@@ -71,14 +71,14 @@ export function EnergyToCompute() {
             { word: "Infrastructure", note: "Power, cooling, enclosure, control." },
             { word: "Compute", note: "Bitcoin today. AI and modular next." },
           ].map((item, i) => (
-            <div key={item.word} className="bg-soil px-0 py-8 sm:px-8">
-              <span className="tech-label text-stone-dim">
+            <div key={item.word} className="bg-canvas px-0 py-8 sm:px-8">
+              <span className="tech-label text-slate-dim">
                 0{i + 1}
               </span>
               <p className="display mt-4 text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
                 {item.word}
               </p>
-              <p className="mt-4 max-w-[26ch] text-sm leading-relaxed text-stone">
+              <p className="mt-4 max-w-[26ch] text-sm leading-relaxed text-slate">
                 {item.note}
               </p>
             </div>

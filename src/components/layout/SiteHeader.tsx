@@ -62,7 +62,7 @@ export function SiteHeader() {
       className={cx(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         scrolled || mobileOpen
-          ? "border-b border-[var(--rule)] bg-[rgba(21,18,16,0.86)] backdrop-blur-md"
+          ? "border-b border-[var(--rule)] bg-[rgba(243,239,232,0.88)] backdrop-blur-md"
           : "border-b border-transparent",
       )}
     >
@@ -73,7 +73,7 @@ export function SiteHeader() {
           aria-label={`${company.name} — home`}
         >
           <Img
-            src="/images/brand/zeus-wordmark.webp"
+            src="/images/brand/zeus-wordmark-ink.webp"
             alt={company.name}
             width={702}
             height={285}
@@ -111,15 +111,15 @@ export function SiteHeader() {
                     className={cx(
                       "relative block px-4 py-2 text-sm transition-colors duration-200",
                       active
-                        ? "text-bone"
-                        : "text-stone hover:text-bone",
+                        ? "text-ink"
+                        : "text-slate hover:text-ink",
                     )}
                   >
                     {item.label}
                     <span
                       aria-hidden
                       className={cx(
-                        "absolute inset-x-4 bottom-0 h-px origin-left bg-amber transition-transform duration-300",
+                        "absolute inset-x-4 bottom-0 h-px origin-left bg-ochre transition-transform duration-300",
                         active || openMenu === item.label
                           ? "scale-x-100"
                           : "scale-x-0",
@@ -129,7 +129,7 @@ export function SiteHeader() {
 
                   {item.children && openMenu === item.label && (
                     <div
-                      className="absolute inset-x-0 top-full border-y border-[var(--rule)] bg-[rgba(21,18,16,0.96)] backdrop-blur-md"
+                      className="absolute inset-x-0 top-full border-y border-[var(--rule)] bg-[rgba(243,239,232,0.97)] backdrop-blur-md"
                       onMouseEnter={cancelClose}
                       onMouseLeave={scheduleClose}
                     >
@@ -138,19 +138,19 @@ export function SiteHeader() {
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="group bg-soil px-6 py-7 transition-colors duration-200 hover:bg-bark"
+                            className="group bg-canvas px-6 py-7 transition-colors duration-200 hover:bg-linen"
                           >
-                            <span className="block text-sm text-bone">
+                            <span className="block text-sm text-ink">
                               {child.label}
                             </span>
                             {child.blurb && (
-                              <span className="mt-2 block text-xs leading-relaxed text-stone-dim">
+                              <span className="mt-2 block text-xs leading-relaxed text-slate-dim">
                                 {child.blurb}
                               </span>
                             )}
                             <span
                               aria-hidden
-                              className="mt-4 block h-px w-6 origin-left bg-amber transition-transform duration-300 group-hover:scale-x-[2.5]"
+                              className="mt-4 block h-px w-6 origin-left bg-ochre transition-transform duration-300 group-hover:scale-x-[2.5]"
                             />
                           </Link>
                         ))}
@@ -166,7 +166,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden rounded-[3px] border border-[var(--rule-strong)] px-5 py-2.5 text-sm transition-colors duration-200 hover:border-bone hover:bg-white/[0.04] sm:block"
+            className="hidden rounded-[3px] border border-[var(--rule-strong)] px-5 py-2.5 text-sm transition-colors duration-200 hover:border-ink hover:bg-ink/[0.04] sm:block"
           >
             Contact
           </Link>
@@ -184,13 +184,13 @@ export function SiteHeader() {
             <span aria-hidden className="relative block h-3 w-6">
               <span
                 className={cx(
-                  "absolute left-0 block h-px w-full bg-bone transition-all duration-300",
+                  "absolute left-0 block h-px w-full bg-ink transition-all duration-300",
                   mobileOpen ? "top-1.5 rotate-45" : "top-0",
                 )}
               />
               <span
                 className={cx(
-                  "absolute left-0 block h-px w-full bg-bone transition-all duration-300",
+                  "absolute left-0 block h-px w-full bg-ink transition-all duration-300",
                   mobileOpen ? "top-1.5 -rotate-45" : "top-3",
                 )}
               />
@@ -203,7 +203,7 @@ export function SiteHeader() {
       <div
         id="mobile-nav"
         hidden={!mobileOpen}
-        className="h-[calc(100dvh-72px)] overflow-y-auto border-t border-[var(--rule)] bg-soil lg:hidden"
+        className="h-[calc(100dvh-72px)] overflow-y-auto border-t border-[var(--rule)] bg-canvas lg:hidden"
       >
         <nav aria-label="Primary mobile" className="shell py-6">
           <ul className="divide-y divide-[var(--rule)]">
@@ -221,7 +221,7 @@ export function SiteHeader() {
                       <li key={child.href}>
                         <Link
                           href={child.href}
-                          className="block py-1 text-sm text-stone"
+                          className="block py-1 text-sm text-slate"
                         >
                           {child.label}
                         </Link>
@@ -234,7 +234,7 @@ export function SiteHeader() {
           </ul>
           <Link
             href="/contact"
-            className="mt-8 block rounded-[3px] bg-bone px-6 py-4 text-center text-sm font-medium text-soil"
+            className="mt-8 block rounded-[3px] bg-ink px-6 py-4 text-center text-sm font-medium text-canvas"
           >
             Contact
           </Link>

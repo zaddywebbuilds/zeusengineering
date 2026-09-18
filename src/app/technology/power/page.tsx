@@ -46,15 +46,15 @@ export default function Page() {
           {blocks.map((block, i) => (
             <div key={block.t} className="reveal">
               <div className="flex items-center gap-4">
-                <span className="tech-label text-stone-dim">
+                <span className="tech-label text-slate-dim">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span aria-hidden className="h-px w-10 bg-amber/60" />
+                <span aria-hidden className="h-px w-10 bg-ochre/60" />
               </div>
               <h2 className="display mt-5 text-[1.75rem] leading-none">
                 {block.t}
               </h2>
-              <p className="mt-4 max-w-[52ch] leading-relaxed text-stone">
+              <p className="mt-4 max-w-[52ch] leading-relaxed text-slate">
                 {block.b}
               </p>
             </div>

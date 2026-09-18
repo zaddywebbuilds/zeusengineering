@@ -42,11 +42,11 @@ export default function AiInfrastructurePage() {
       >
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-12">
           <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-bone">
+            <p className="text-lg leading-relaxed text-ink">
               ZEUS does not operate a hyperscale AI cluster, and this site will
               not imply otherwise.
             </p>
-            <p className="leading-relaxed text-stone">
+            <p className="leading-relaxed text-slate">
               What ZEUS has is operating experience with hardware that runs at
               full load, continuously, in a hot and humid climate — the
               conditions under which power delivery, thermal management and
@@ -54,7 +54,7 @@ export default function AiInfrastructurePage() {
               constraints that determine whether a rack of accelerators
               performs or throttles.
             </p>
-            <p className="leading-relaxed text-stone">
+            <p className="leading-relaxed text-slate">
               The company frames Bitcoin mining, AI and future advanced
               computing as one class of problem: infrastructure-intensive
               workloads requiring facilities, engineering, power and thermal
@@ -63,9 +63,9 @@ export default function AiInfrastructurePage() {
             </p>
           </div>
 
-          <aside className="border border-[var(--rule)] bg-bark p-7">
+          <aside className="border border-[var(--rule)] bg-linen p-7">
             <TechLabel className="mb-5">What is not claimed</TechLabel>
-            <ul className="space-y-3 text-sm text-stone">
+            <ul className="space-y-3 text-sm text-slate">
               {[
                 "No GPU counts or cluster sizes.",
                 "No AI customers or contracts.",
@@ -73,12 +73,12 @@ export default function AiInfrastructurePage() {
                 "No deployed AI capacity.",
               ].map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span aria-hidden className="mt-2 h-px w-4 shrink-0 bg-stone-dim" />
+                  <span aria-hidden className="mt-2 h-px w-4 shrink-0 bg-slate-dim" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-xs leading-relaxed text-stone-dim">
+            <p className="mt-6 text-xs leading-relaxed text-slate-dim">
               Where ZEUS has not published a figure, this site designs around
               the absence rather than filling it.
             </p>
@@ -90,7 +90,7 @@ export default function AiInfrastructurePage() {
         index="04"
         label="The physical demands"
         title={"What an AI rack\nactually needs."}
-        tone="bark"
+        tone="linen"
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -99,9 +99,9 @@ export default function AiInfrastructurePage() {
             { t: "Connectivity", b: "Links that do not become the bottleneck." },
             { t: "Control", b: "Telemetry and remote operation as standard." },
           ].map((item) => (
-            <div key={item.t} className="reveal bg-bark p-7">
+            <div key={item.t} className="reveal bg-linen p-7">
               <h3 className="display text-[1.375rem] leading-none">{item.t}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-stone">{item.b}</p>
+              <p className="mt-4 text-sm leading-relaxed text-slate">{item.b}</p>
             </div>
           ))}
         </div>
@@ -129,13 +129,13 @@ export default function AiInfrastructurePage() {
 
             <div className="reveal mt-8 space-y-5">
               {ai1.description.map((para) => (
-                <p key={para.slice(0, 24)} className="leading-relaxed text-stone">
+                <p key={para.slice(0, 24)} className="leading-relaxed text-slate">
                   {para}
                 </p>
               ))}
             </div>
 
-            <p className="reveal mt-6 text-sm text-stone-dim">
+            <p className="reveal mt-6 text-sm text-slate-dim">
               {ai1.statusNote}
             </p>
           </div>
@@ -152,11 +152,11 @@ export default function AiInfrastructurePage() {
         {/* Published component specification, transcribed from Zeus's own sheet */}
         <div className="mt-11 grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-3">
           {ai1.specs?.map((group) => (
-            <div key={group.group} className="reveal bg-soil p-7">
-              <h3 className="tech-label text-bone">{group.group}</h3>
+            <div key={group.group} className="reveal bg-canvas p-7">
+              <h3 className="tech-label text-ink">{group.group}</h3>
               <ul className="mt-5 space-y-2.5">
                 {group.items.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm text-stone">
+                  <li key={item} className="flex gap-3 text-sm text-slate">
                     <span aria-hidden className="mt-2 h-px w-4 shrink-0 bg-sage/60" />
                     {item}
                   </li>
@@ -168,11 +168,11 @@ export default function AiInfrastructurePage() {
 
         <div className="mt-px grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-3">
           {ai1.features?.map((feature) => (
-            <div key={feature.title} className="reveal bg-bark p-7">
+            <div key={feature.title} className="reveal bg-linen p-7">
               <h3 className="display text-[1.25rem] leading-none">
                 {feature.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-stone">
+              <p className="mt-3 text-sm leading-relaxed text-slate">
                 {feature.body}
               </p>
             </div>
@@ -181,7 +181,7 @@ export default function AiInfrastructurePage() {
       </Section>
 
       {/* S3XY Ai — deliberately small, and kept off the investor path */}
-      <Section tone="bark">
+      <Section tone="linen">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,18rem)] lg:gap-12">
         <div className="max-w-[64ch]">
           <div className="flex flex-wrap items-center gap-4">
@@ -195,12 +195,12 @@ export default function AiInfrastructurePage() {
           </h2>
           <div className="reveal mt-6 space-y-4">
             {s3xyAi.description.map((para) => (
-              <p key={para.slice(0, 24)} className="leading-relaxed text-stone">
+              <p key={para.slice(0, 24)} className="leading-relaxed text-slate">
                 {para}
               </p>
             ))}
           </div>
-          <p className="reveal mt-6 text-sm text-stone-dim">
+          <p className="reveal mt-6 text-sm text-slate-dim">
             An internal operations tool rather than infrastructure ZEUS sells.
             Listed here for completeness.
           </p>

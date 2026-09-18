@@ -22,10 +22,10 @@ export function Hero() {
       className="tech-grid relative overflow-hidden pt-[112px] lg:pt-[128px]"
       aria-label="ZEUS Engineering introduction"
     >
-      {/* A single amber hairline: energy entering the page. */}
+      {/* A single ochre hairline: energy entering the page. */}
       <span
         aria-hidden
-        className="absolute left-0 top-[72px] h-px w-full bg-[linear-gradient(to_right,var(--color-amber),transparent_38%)] opacity-40"
+        className="absolute left-0 top-[72px] h-px w-full bg-[linear-gradient(to_right,var(--color-ochre),transparent_38%)] opacity-40"
       />
 
       <div className="shell-wide grid grid-cols-1 items-center gap-12 pb-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-12 lg:pb-16">
@@ -46,7 +46,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="reveal mt-9 max-w-[46ch] text-lg leading-relaxed text-stone">
+          <p className="reveal mt-9 max-w-[46ch] text-lg leading-relaxed text-slate">
             Modular infrastructure for Bitcoin, AI and high-density computing —
             engineered in Vietnam.
           </p>
@@ -63,7 +63,7 @@ export function Hero() {
           <div className="reveal mt-11 flex items-center gap-4">
             <span
               aria-hidden
-              className="block h-10 w-px bg-[linear-gradient(to_bottom,var(--color-amber),transparent)]"
+              className="block h-10 w-px bg-[linear-gradient(to_bottom,var(--color-ochre),transparent)]"
             />
             <TechLabel>Scroll to explore</TechLabel>
           </div>

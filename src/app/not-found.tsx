@@ -15,7 +15,7 @@ export default function NotFound() {
           to that page.
         </h1>
 
-        <p className="mt-8 max-w-[46ch] text-lg leading-relaxed text-stone">
+        <p className="mt-8 max-w-[46ch] text-lg leading-relaxed text-slate">
           The address doesn&rsquo;t resolve. It may have moved, or it may never
           have existed.
         </p>
@@ -34,7 +34,7 @@ export default function NotFound() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-stone transition-colors duration-200 hover:text-bone"
+                  className="text-slate transition-colors duration-200 hover:text-ink"
                 >
                   {item.label}
                 </Link>

@@ -43,7 +43,7 @@ export function SystemScroller() {
   return (
     <section
       ref={root}
-      className="relative border-t border-[var(--rule)] bg-soil"
+      className="relative border-t border-[var(--rule)] bg-canvas"
       aria-labelledby="system-heading"
     >
       <div className="shell py-12 lg:py-16">
@@ -58,7 +58,7 @@ export function SystemScroller() {
             <span style={{ transitionDelay: "90ms" }}>Compute. Control.</span>
           </span>
         </h2>
-        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-stone">
+        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
           Not four services. One system, in which every stage constrains the
           next — and where the thing that fails first is almost never the
           silicon.
@@ -75,13 +75,13 @@ export function SystemScroller() {
               className="border-t border-[var(--rule)] py-12 first:border-t-0 first:pt-0 lg:min-h-[48vh] lg:py-16"
             >
               <div className="flex items-baseline gap-4">
-                <span className="tech-label text-stone-dim">{pillar.index}</span>
+                <span className="tech-label text-slate-dim">{pillar.index}</span>
                 <span
                   className={cx(
                     "h-px w-12 transition-colors duration-500",
                     stage >= i
                       ? pillar.accent === "energy"
-                        ? "bg-amber"
+                        ? "bg-ochre"
                         : "bg-sage"
                       : "bg-[var(--rule)]",
                   )}
@@ -92,13 +92,13 @@ export function SystemScroller() {
               <h3
                 className={cx(
                   "display mt-6 text-[clamp(2.75rem,7vw,5.5rem)] transition-colors duration-500",
-                  stage >= i ? "text-bone" : "text-stone-dim lg:text-stone-dim",
+                  stage >= i ? "text-ink" : "text-slate-dim lg:text-slate-dim",
                 )}
               >
                 {pillar.label}
               </h3>
 
-              <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-stone">
+              <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-slate">
                 {pillar.summary}
               </p>
 
@@ -106,7 +106,7 @@ export function SystemScroller() {
                 {pillar.detail.map((para) => (
                   <p
                     key={para.slice(0, 32)}
-                    className="max-w-[54ch] text-sm leading-relaxed text-stone-dim"
+                    className="max-w-[54ch] text-sm leading-relaxed text-slate-dim"
                   >
                     {para}
                   </p>
@@ -118,10 +118,10 @@ export function SystemScroller() {
 
         {/* Pinned diagram */}
         <div className="lg:sticky lg:top-[112px] lg:self-start">
-          <div className="border border-[var(--rule)] bg-bark p-6 lg:p-8">
+          <div className="border border-[var(--rule)] bg-linen p-6 lg:p-8">
             <div className="mb-6 flex items-center justify-between">
               <TechLabel>Infrastructure schematic</TechLabel>
-              <span className="tech-label text-stone-dim">
+              <span className="tech-label text-slate-dim">
                 {String(Math.min(stage + 1, pillars.length)).padStart(2, "0")} /
                 0{pillars.length}
               </span>
@@ -131,7 +131,7 @@ export function SystemScroller() {
 
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
             <span className="tech-label flex items-center gap-2">
-              <span className="h-2 w-2 bg-amber" aria-hidden />
+              <span className="h-2 w-2 bg-ochre" aria-hidden />
               Energy
             </span>
             <span className="tech-label flex items-center gap-2">

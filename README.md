@@ -69,19 +69,22 @@ src/data/
 
 Dark and earthy, with photography and typography doing the work.
 
-Warm earth neutrals — brown-black rather than blue-black, so the page reads as
-soil and stone instead of screen and steel. It also lets the client's own amber
-sit naturally instead of fighting a cold ground.
+Warm and light — cream walls, sage joinery, oak and tan leather, taken from a
+reference interior the client supplied. The client's own accent sits in it
+naturally rather than fighting a cold ground.
 
-- **Surfaces** soil `#151210` · bark `#1E1916` · clay `#2A231E`
-- **Text** bone `#F0EAE2` · stone `#A79B8D` · stone-dim `#93877A`
-- **Accents** amber `#E09A42` = energy · sage `#7BA08F` = compute
+- **Surfaces** canvas `#F3EFE8` · linen `#E9E3D9` · clay `#DCD4C6`
+- **Feature block** sage `#4B5441` — one section painted, like the joinery wall
+- **Text** ink `#2B2722` · slate `#5E5851` · slate-dim `#686158`
+- **Accents** ochre `#8A5A28` = energy · sage `#4F5A45` = compute
 
-Every foreground clears WCAG AA on both surfaces (lowest is stone-dim at
-4.97:1 on bark).
-- **Type** Barlow Condensed (display) · Inter (body)
+Each accent has a light partner (`tan`, `sage-light`) for fills and rules,
+where contrast is not a legibility requirement.
 
-Tokens are defined once in `src/app/globals.css` under `@theme`.
+Every text element on the page was measured against its **composited**
+background — alpha included — and clears WCAG AA. The `.on-sage` utility flips
+a whole section to the deep sage block and remaps text, rules and accents for
+it, so inverting a section is one class rather than hand-edited children.
 
 ### Media is never a background
 

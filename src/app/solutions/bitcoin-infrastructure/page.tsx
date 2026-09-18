@@ -48,7 +48,7 @@ export default function BitcoinInfrastructurePage() {
         index="05"
         label="Capability"
         title={"The work\nbehind the hash."}
-        tone="bark"
+        tone="linen"
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <RuleList
@@ -66,7 +66,7 @@ export default function BitcoinInfrastructurePage() {
             <h3 className="display text-[1.75rem] leading-none">
               Managing heat
             </h3>
-            <p className="mt-5 leading-relaxed text-stone">
+            <p className="mt-5 leading-relaxed text-slate">
               Asked directly how it manages heat, ZEUS describes conventional
               airflow engineering rather than exotic hardware — which is the
               more credible answer, and the one that scales.
@@ -74,14 +74,14 @@ export default function BitcoinInfrastructurePage() {
             <ul className="mt-8 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
               {thermalApproach.map((method, i) => (
                 <li key={method} className="flex items-center gap-5 py-4">
-                  <span className="tech-label text-stone-dim">0{i + 1}</span>
-                  <span aria-hidden className="h-px w-8 bg-amber/50" />
-                  <span className="text-bone">{method}</span>
+                  <span className="tech-label text-slate-dim">0{i + 1}</span>
+                  <span aria-hidden className="h-px w-8 bg-ochre/50" />
+                  <span className="text-ink">{method}</span>
                 </li>
               ))}
             </ul>
 
-            <p className="mt-8 text-sm leading-relaxed text-stone-dim">
+            <p className="mt-8 text-sm leading-relaxed text-slate-dim">
               No rated operating temperature, humidity limit or uptime
               guarantee is claimed anywhere on this site.
             </p>

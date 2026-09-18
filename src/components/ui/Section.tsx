@@ -12,7 +12,7 @@ export function Section({
   label,
   title,
   lede,
-  tone = "soil",
+  tone = "canvas",
   wide = false,
   className,
   children,
@@ -21,7 +21,7 @@ export function Section({
   label?: string;
   title?: string;
   lede?: string;
-  tone?: "soil" | "bark";
+  tone?: "canvas" | "linen";
   wide?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -30,7 +30,7 @@ export function Section({
     <section
       className={cx(
         "border-t border-[var(--rule)]",
-        tone === "bark" ? "bg-bark" : "bg-soil",
+        tone === "linen" ? "bg-linen" : "bg-canvas",
         className,
       )}
     >
@@ -44,7 +44,7 @@ export function Section({
             )}
             {title && <MaskedHeading text={title} className="h-sub" />}
             {lede && (
-              <p className="reveal mt-7 text-lg leading-relaxed text-stone">
+              <p className="reveal mt-7 text-lg leading-relaxed text-slate">
                 {lede}
               </p>
             )}
@@ -72,13 +72,13 @@ export function StepList({
       )}
     >
       {steps.map((s) => (
-        <li key={s.step} className="reveal bg-soil p-7 lg:p-8">
+        <li key={s.step} className="reveal bg-canvas p-7 lg:p-8">
           <div className="flex items-center gap-4">
-            <span className="tech-label text-stone-dim">{s.step}</span>
-            <span aria-hidden className="h-px w-8 bg-amber/60" />
+            <span className="tech-label text-slate-dim">{s.step}</span>
+            <span aria-hidden className="h-px w-8 bg-ochre/60" />
           </div>
           <h3 className="display mt-5 text-[1.5rem] leading-none">{s.title}</h3>
-          <p className="mt-4 text-sm leading-relaxed text-stone">{s.body}</p>
+          <p className="mt-4 text-sm leading-relaxed text-slate">{s.body}</p>
         </li>
       ))}
     </ol>
@@ -91,10 +91,10 @@ export function RuleList({ items }: { items: string[] }) {
     <ul className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
       {items.map((item, i) => (
         <li key={item} className="reveal flex gap-6 py-5">
-          <span className="tech-label shrink-0 text-stone-dim">
+          <span className="tech-label shrink-0 text-slate-dim">
             {String(i + 1).padStart(2, "0")}
           </span>
-          <span className="text-stone">{item}</span>
+          <span className="text-slate">{item}</span>
         </li>
       ))}
     </ul>

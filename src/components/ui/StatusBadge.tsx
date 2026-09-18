@@ -10,15 +10,15 @@ import { cx } from "@/lib/utils";
  */
 const styles: Record<FactStatus, { cls: string; glyph: string }> = {
   current: {
-    cls: "border-bone/35 text-bone",
+    cls: "border-ink/35 text-ink",
     glyph: "●",
   },
   "zeus-reported": {
-    cls: "border-stone/30 text-stone",
+    cls: "border-slate/30 text-slate",
     glyph: "◐",
   },
   target: {
-    cls: "border-amber/45 text-amber",
+    cls: "border-ochre/45 text-ochre",
     glyph: "○",
   },
   projection: {

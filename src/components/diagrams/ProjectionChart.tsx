@@ -10,7 +10,7 @@
  */
 const bands = [
   { label: "Company-owned", sub: "200 machines", lo: 10, hi: 15, accent: "sage" },
-  { label: "Hosted", sub: "300 machines", lo: 4, hi: 5, accent: "sage-dim" },
+  { label: "Hosted", sub: "300 machines", lo: 4, hi: 5, accent: "sage-light" },
   { label: "Total", sub: "Projected", lo: 14, hi: 20, accent: "sage" },
 ] as const;
 
@@ -35,14 +35,14 @@ export function ProjectionChart() {
                 y1={18}
                 x2={x}
                 y2={186}
-                stroke="rgba(240,234,226,0.08)"
+                stroke="rgba(43,39,34,0.09)"
                 strokeWidth="1"
               />
               <text
                 x={x}
                 y={206}
                 textAnchor="middle"
-                fill="rgba(240,234,226,0.36)"
+                fill="rgba(43,39,34,0.42)"
                 fontSize="10"
                 letterSpacing="1"
               >
@@ -58,8 +58,8 @@ export function ProjectionChart() {
           const x2 = 96 + (band.hi / MAX) * 300;
           const fill =
             band.accent === "sage"
-              ? "rgba(123,160,143,0.30)"
-              : "rgba(123,160,143,0.16)";
+              ? "rgba(79,90,69,0.30)"
+              : "rgba(79,90,69,0.16)";
           const stroke = "var(--color-sage)";
 
           return (
@@ -78,7 +78,7 @@ export function ProjectionChart() {
                 x={88}
                 y={y + 29}
                 textAnchor="end"
-                fill="rgba(240,234,226,0.36)"
+                fill="rgba(43,39,34,0.42)"
                 fontSize="9"
                 letterSpacing="0.8"
               >
@@ -116,7 +116,7 @@ export function ProjectionChart() {
           x={246}
           y={228}
           textAnchor="middle"
-          fill="rgba(240,234,226,0.36)"
+          fill="rgba(43,39,34,0.42)"
           fontSize="9"
           letterSpacing="1.6"
         >
@@ -124,7 +124,7 @@ export function ProjectionChart() {
         </text>
       </svg>
 
-      <figcaption className="mt-5 border-t border-[var(--rule)] pt-4 text-xs leading-relaxed text-stone-dim">
+      <figcaption className="mt-5 border-t border-[var(--rule)] pt-4 text-xs leading-relaxed text-slate-dim">
         Ranges as published by ZEUS. Bands show the stated range rather than a
         point estimate. Projection, not realised production.
       </figcaption>

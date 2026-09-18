@@ -37,7 +37,7 @@ export default function ProjectsPage() {
               <TechLabel>{site.projectId}</TechLabel>
               <StatusBadge status="zeus-reported" label="Operating" />
             </div>
-            <h2 className="display mt-6 text-[clamp(2.25rem,5vw,4rem)] leading-none transition-colors duration-200 group-hover:text-amber">
+            <h2 className="display mt-6 text-[clamp(2.25rem,5vw,4rem)] leading-none transition-colors duration-200 group-hover:text-ochre">
               {site.name}
             </h2>
             <p className="tech-label mt-4">
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
                 <div key={fact.label}>
                   <dd className="numeral text-2xl">
                     {fact.value}
-                    {fact.unit && <span className="text-stone"> {fact.unit}</span>}
+                    {fact.unit && <span className="text-slate"> {fact.unit}</span>}
                   </dd>
                   <dt className="tech-label mt-1 text-[0.625rem]">
                     {fact.label}
@@ -86,10 +86,10 @@ export default function ProjectsPage() {
         </Link>
       </Section>
 
-      <Section tone="bark">
+      <Section tone="linen">
         <div className="max-w-[60ch]">
           <TechLabel className="mb-5">On this page</TechLabel>
-          <p className="leading-relaxed text-stone">
+          <p className="leading-relaxed text-slate">
             ZEUS has published one operating site. There is no Project 002 on
             this page because there is no Project 002 to show — the absence is
             the honest answer, and it is a more useful signal to an investor

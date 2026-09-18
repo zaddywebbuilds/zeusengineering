@@ -48,7 +48,7 @@ export function PageHeader({
     <section className="tech-grid relative overflow-hidden border-b border-[var(--rule)] pt-[112px] lg:pt-[128px]">
       <span
         aria-hidden
-        className="absolute left-0 top-[72px] h-px w-full bg-[linear-gradient(to_right,var(--color-amber),transparent_38%)] opacity-40"
+        className="absolute left-0 top-[72px] h-px w-full bg-[linear-gradient(to_right,var(--color-ochre),transparent_38%)] opacity-40"
       />
 
       <div
@@ -65,13 +65,13 @@ export function PageHeader({
                 {crumbs.map((crumb, i) => (
                   <li key={crumb.href} className="flex items-center gap-2">
                     {i > 0 && (
-                      <span aria-hidden className="tech-label text-stone-dim">
+                      <span aria-hidden className="tech-label text-slate-dim">
                         /
                       </span>
                     )}
                     <Link
                       href={crumb.href}
-                      className="tech-label transition-colors duration-200 hover:text-bone"
+                      className="tech-label transition-colors duration-200 hover:text-ink"
                     >
                       {crumb.label}
                     </Link>
@@ -101,7 +101,7 @@ export function PageHeader({
           />
 
           {lede && (
-            <p className="reveal mt-8 max-w-[54ch] text-lg leading-relaxed text-stone">
+            <p className="reveal mt-8 max-w-[54ch] text-lg leading-relaxed text-slate">
               {lede}
             </p>
           )}

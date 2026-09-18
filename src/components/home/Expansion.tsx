@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/Button";
 export function Expansion() {
   return (
     <section
-      className="border-t border-[var(--rule)] bg-soil"
+      className="border-t border-[var(--rule)] bg-canvas"
       aria-labelledby="comparison-heading"
     >
       <div className="shell py-12 lg:py-16">
@@ -32,7 +32,7 @@ export function Expansion() {
           Hyperscale compared with SSMDC
         </h2>
 
-        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-stone">
+        <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
           The case ZEUS makes for building many small nodes instead of one large
           campus. It is the company&rsquo;s own comparison, not an independent
           benchmark.
@@ -67,15 +67,15 @@ export function Expansion() {
                 >
                   <th
                     scope="row"
-                    className="py-5 pr-6 align-top text-sm font-normal text-bone"
+                    className="py-5 pr-6 align-top text-sm font-normal text-ink"
                   >
                     {row.capability}
                     {/* Hyperscale value folds under the label on small screens */}
-                    <span className="mt-2 block text-sm text-stone-dim sm:hidden">
+                    <span className="mt-2 block text-sm text-slate-dim sm:hidden">
                       Hyperscale: {row.hyperscale}
                     </span>
                   </th>
-                  <td className="hidden py-5 pr-6 align-top text-sm text-stone-dim sm:table-cell">
+                  <td className="hidden py-5 pr-6 align-top text-sm text-slate-dim sm:table-cell">
                     {row.hyperscale}
                   </td>
                   <td className="py-5 align-top text-sm text-sage">
@@ -89,7 +89,7 @@ export function Expansion() {
 
         <div className="reveal mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
           <StatusBadge status="target" label="ZEUS's comparison" />
-          <p className="max-w-[64ch] text-sm text-stone-dim">
+          <p className="max-w-[64ch] text-sm text-slate-dim">
             Only the final row describes something that exists — the 100 kWp
             prototype. The rest compares an operating model against a design.
           </p>

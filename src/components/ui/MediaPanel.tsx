@@ -69,7 +69,7 @@ export function MediaPanel({
   return (
     <figure
       className={cx(
-        "overflow-hidden rounded-[4px] border border-[var(--rule)] bg-bark",
+        "overflow-hidden rounded-[4px] border border-[var(--rule)] bg-linen",
         className,
       )}
     >
@@ -112,7 +112,7 @@ export function MediaPanel({
         <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--rule)] px-4 py-3">
           {label && <TechLabel as="span">{label}</TechLabel>}
           {note && (
-            <span className="tech-label flex items-center gap-2 text-[0.625rem] text-stone-dim">
+            <span className="tech-label flex items-center gap-2 text-[0.625rem] text-slate-dim">
               <span aria-hidden className="text-[0.5rem]">
                 ◇
               </span>

@@ -87,9 +87,9 @@ export default function InvestorsPage() {
               b: "A product direction or engineering concept. Not a count of deployed units.",
             },
           ].map((item) => (
-            <div key={item.s} className="reveal bg-soil p-7">
+            <div key={item.s} className="reveal bg-canvas p-7">
               <StatusBadge status={item.s} />
-              <p className="mt-5 text-sm leading-relaxed text-stone">{item.b}</p>
+              <p className="mt-5 text-sm leading-relaxed text-slate">{item.b}</p>
             </div>
           ))}
         </div>
@@ -100,20 +100,20 @@ export default function InvestorsPage() {
         index="02"
         label="The problem"
         title={"Hyperscale cannot\nkeep up."}
-        tone="bark"
+        tone="linen"
         lede="The constraint on AI compute is no longer silicon. It is the years, the capital and the single-site risk involved in putting that silicon somewhere it can run."
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-3">
           {hyperscaleProblems.map((problem) => (
-            <div key={problem.index} className="reveal bg-bark p-8">
+            <div key={problem.index} className="reveal bg-linen p-8">
               <div className="flex items-center gap-4">
-                <span className="tech-label text-stone-dim">{problem.index}</span>
-                <span aria-hidden className="h-px w-10 bg-amber/60" />
+                <span className="tech-label text-slate-dim">{problem.index}</span>
+                <span aria-hidden className="h-px w-10 bg-ochre/60" />
               </div>
               <h3 className="display mt-6 text-[1.5rem] leading-none">
                 {problem.title}
               </h3>
-              <p className="mt-4 text-sm leading-relaxed text-stone">
+              <p className="mt-4 text-sm leading-relaxed text-slate">
                 {problem.body}
               </p>
             </div>
@@ -132,23 +132,23 @@ export default function InvestorsPage() {
       </Section>
 
       {/* The ask */}
-      <Section index="04" label="The ask" title={"$2.69M."} tone="bark">
+      <Section index="04" label="The ask" title={"$2.69M."} tone="linen">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-12">
-          <div className="reveal border border-[var(--rule)] bg-soil p-8">
+          <div className="reveal border border-[var(--rule)] bg-canvas p-8">
             <div className="flex items-center justify-between gap-4">
               <TechLabel>Current raise</TechLabel>
               <StatusBadge status="target" label="Fundraising target" />
             </div>
             <div className="mt-8 flex items-baseline gap-2">
-              <span className="numeral text-[clamp(3rem,7vw,5rem)] text-amber">
+              <span className="numeral text-[clamp(3rem,7vw,5rem)] text-ochre">
                 {theAsk.value}
               </span>
-              <span className="numeral text-3xl text-amber/60">
+              <span className="numeral text-3xl text-ochre/60">
                 {theAsk.unit}
               </span>
             </div>
             <p className="tech-label mt-4">18–24 month runway to live nodes</p>
-            <p className="mt-6 border-t border-[var(--rule)] pt-6 text-sm leading-relaxed text-stone">
+            <p className="mt-6 border-t border-[var(--rule)] pt-6 text-sm leading-relaxed text-slate">
               {theAsk.note}
             </p>
             <Button href="/investors/the-ask" variant="secondary" className="mt-7 w-full justify-center">
@@ -164,13 +164,13 @@ export default function InvestorsPage() {
                   <h3 className="display text-[1.25rem] leading-none">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-stone">
+                  <p className="mt-3 text-sm leading-relaxed text-slate">
                     {item.body}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-sm text-stone-dim">
+            <p className="mt-8 text-sm text-slate-dim">
               Full-stack operators, not pure software or pure real estate.
             </p>
           </div>
@@ -185,18 +185,18 @@ export default function InvestorsPage() {
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-2">
           {businessModel.map((item) => (
-            <div key={item.title} className="reveal bg-soil p-8 lg:p-10">
+            <div key={item.title} className="reveal bg-canvas p-8 lg:p-10">
               <span
                 aria-hidden
                 className={cx(
                   "block h-px w-12",
-                  item.accent === "energy" ? "bg-amber" : "bg-sage",
+                  item.accent === "energy" ? "bg-ochre" : "bg-sage",
                 )}
               />
               <h3 className="display mt-6 text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
                 {item.title}
               </h3>
-              <p className="mt-5 max-w-[44ch] leading-relaxed text-stone">
+              <p className="mt-5 max-w-[44ch] leading-relaxed text-slate">
                 {item.body}
               </p>
             </div>
@@ -204,7 +204,7 @@ export default function InvestorsPage() {
         </div>
       </Section>
 
-      <Section index="06" label="Continue" title={"The detail."} tone="bark">
+      <Section index="06" label="Continue" title={"The detail."} tone="linen">
         <div className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
           {chapters.map((chapter) => (
             <Link
@@ -212,14 +212,14 @@ export default function InvestorsPage() {
               href={chapter.href}
               className="group flex items-center gap-6 py-7 transition-colors duration-200"
             >
-              <span className="tech-label shrink-0 text-stone-dim">
+              <span className="tech-label shrink-0 text-slate-dim">
                 {chapter.index}
               </span>
               <span className="flex-1">
-                <span className="display block text-[clamp(1.5rem,2.6vw,2.25rem)] leading-none transition-colors duration-200 group-hover:text-amber">
+                <span className="display block text-[clamp(1.5rem,2.6vw,2.25rem)] leading-none transition-colors duration-200 group-hover:text-ochre">
                   {chapter.label}
                 </span>
-                <span className="mt-2 block max-w-[54ch] text-sm text-stone">
+                <span className="mt-2 block max-w-[54ch] text-sm text-slate">
                   {chapter.body}
                 </span>
               </span>

@@ -68,17 +68,17 @@ export default function InsightsPage() {
             key={topic.id}
             index={String(i + 1).padStart(2, "0")}
             label={topic.label}
-            tone={i % 2 === 1 ? "bark" : "soil"}
+            tone={i % 2 === 1 ? "linen" : "canvas"}
           >
             <FaqList items={items} />
           </Section>
         );
       })}
 
-      <Section tone="bark">
+      <Section tone="linen">
         <div className="max-w-[64ch] border-l-2 border-[var(--rule-strong)] pl-6">
           <TechLabel className="mb-4">On this section</TechLabel>
-          <p className="text-sm leading-relaxed text-stone-dim">
+          <p className="text-sm leading-relaxed text-slate-dim">
             This section is built to carry long-form articles — the routing,
             metadata and structured-data templates are in place. It is not
             pre-filled with generated articles: an archive of synthetic posts

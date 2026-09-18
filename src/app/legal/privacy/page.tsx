@@ -24,9 +24,9 @@ export default function PrivacyPage() {
 
       <Section>
         {/* Stated first, not buried. This text has not been reviewed by a lawyer. */}
-        <div className="mb-10 max-w-[72ch] border-l-2 border-amber/50 bg-bark p-7">
+        <div className="mb-10 max-w-[72ch] border-l-2 border-ochre/50 bg-linen p-7">
           <TechLabel className="mb-4">Draft — requires legal review</TechLabel>
-          <p className="text-sm leading-relaxed text-stone">
+          <p className="text-sm leading-relaxed text-slate">
             This page is a working draft describing how the website currently
             behaves. It has not been reviewed by a qualified lawyer and is not
             legal advice. It must be reviewed against Vietnamese law, and
@@ -63,15 +63,15 @@ export default function PrivacyPage() {
           ].map((section, i) => (
             <div key={section.t} className="reveal">
               <div className="flex items-center gap-4">
-                <span className="tech-label text-stone-dim">
+                <span className="tech-label text-slate-dim">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span aria-hidden className="h-px w-10 bg-amber/60" />
+                <span aria-hidden className="h-px w-10 bg-ochre/60" />
               </div>
               <h2 className="display mt-5 text-[1.5rem] leading-none">
                 {section.t}
               </h2>
-              <p className="mt-4 leading-relaxed text-stone">{section.b}</p>
+              <p className="mt-4 leading-relaxed text-slate">{section.b}</p>
             </div>
           ))}
         </div>

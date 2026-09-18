@@ -39,12 +39,12 @@ export default function CareersPage() {
           <h2 className="display text-[clamp(1.75rem,4vw,3rem)] leading-none">
             No current openings.
           </h2>
-          <p className="mt-6 max-w-[52ch] leading-relaxed text-stone">
+          <p className="mt-6 max-w-[52ch] leading-relaxed text-slate">
             ZEUS has not published any vacancies. Rather than list roles that do
             not exist, this page stays empty until there is something real to
             put on it.
           </p>
-          <p className="mt-6 max-w-[52ch] leading-relaxed text-stone">
+          <p className="mt-6 max-w-[52ch] leading-relaxed text-slate">
             If you work in power systems, thermal engineering, industrial
             automation or data centre operations and want to be considered when
             something opens, write to us.
@@ -70,14 +70,14 @@ export default function CareersPage() {
               b: "Leanly. ZEUS describes itself as experienced in allocating limited capital efficiently.",
             },
           ].map((item) => (
-            <div key={item.t} className="reveal bg-soil p-7">
+            <div key={item.t} className="reveal bg-canvas p-7">
               <h3 className="display text-[1.375rem] leading-none">{item.t}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-stone">{item.b}</p>
+              <p className="mt-4 text-sm leading-relaxed text-slate">{item.b}</p>
             </div>
           ))}
         </div>
 
-        <p className="reveal mt-10 max-w-[64ch] text-sm text-stone-dim">
+        <p className="reveal mt-10 max-w-[64ch] text-sm text-slate-dim">
           No salary ranges, benefits or role descriptions are listed, because
           ZEUS has not published any.
         </p>

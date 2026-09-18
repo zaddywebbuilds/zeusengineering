@@ -35,21 +35,21 @@ export function MetricRow({
         {facts.map((fact) => (
           <div
             key={`${fact.label}-${fact.value}`}
-            className="reveal bg-soil px-0 py-8 sm:px-7 sm:py-9"
+            className="reveal bg-canvas px-0 py-8 sm:px-7 sm:py-9"
           >
             <div className="flex items-baseline gap-1.5">
               <span className="numeral text-[clamp(3rem,6vw,4.75rem)]">
                 <CountUp value={fact.value} />
               </span>
               {fact.unit && (
-                <span className="numeral text-[clamp(1.25rem,2vw,1.75rem)] text-stone">
+                <span className="numeral text-[clamp(1.25rem,2vw,1.75rem)] text-slate">
                   {fact.unit}
                 </span>
               )}
             </div>
             <p className="tech-label mt-4">{fact.label}</p>
             {fact.note && (
-              <p className="mt-3 max-w-[32ch] text-sm leading-relaxed text-stone-dim">
+              <p className="mt-3 max-w-[32ch] text-sm leading-relaxed text-slate-dim">
                 {fact.note}
               </p>
             )}
@@ -60,7 +60,7 @@ export function MetricRow({
       {showDisclosure && status && (
         <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3">
           <StatusBadge status={status} />
-          <p className="max-w-[62ch] text-sm text-stone-dim">
+          <p className="max-w-[62ch] text-sm text-slate-dim">
             {STATUS_DISCLOSURE[status]}
           </p>
         </div>

@@ -33,7 +33,7 @@ export function PowerPathDiagram() {
       <text
         x="0"
         y="16"
-        fill="rgba(240,234,226,0.45)"
+        fill="rgba(43,39,34,0.5)"
         fontSize="10"
         letterSpacing="1.8"
       >
@@ -51,8 +51,8 @@ export function PowerPathDiagram() {
               y={y}
               width={w}
               height="44"
-              fill={node.convert ? "rgba(224,154,66,0.10)" : "transparent"}
-              stroke={node.convert ? "var(--color-amber)" : "rgba(240,234,226,0.18)"}
+              fill={node.convert ? "rgba(138,90,40,0.10)" : "transparent"}
+              stroke={node.convert ? "var(--color-ochre)" : "rgba(43,39,34,0.22)"}
               strokeWidth="1"
               strokeDasharray={node.convert ? "3 3" : "0"}
             />
@@ -60,7 +60,7 @@ export function PowerPathDiagram() {
               x={x + w / 2}
               y={y + 26}
               textAnchor="middle"
-              fill={node.convert ? "var(--color-amber)" : "rgba(240,234,226,0.6)"}
+              fill={node.convert ? "var(--color-ochre)" : "rgba(43,39,34,0.62)"}
               fontSize="9"
               letterSpacing="0.6"
             >
@@ -71,7 +71,7 @@ export function PowerPathDiagram() {
                 x={x + w / 2}
                 y={y + 60}
                 textAnchor="middle"
-                fill="var(--color-amber)"
+                fill="var(--color-ochre)"
                 fontSize="8"
                 letterSpacing="1"
               >
@@ -84,7 +84,7 @@ export function PowerPathDiagram() {
                 y1={y + 22}
                 x2={x + 96}
                 y2={y + 22}
-                stroke="rgba(240,234,226,0.18)"
+                stroke="rgba(43,39,34,0.22)"
                 strokeWidth="1"
               />
             )}
@@ -114,7 +114,7 @@ export function PowerPathDiagram() {
               y={y}
               width={w}
               height="44"
-              fill="rgba(123,160,143,0.08)"
+              fill="rgba(79,90,69,0.08)"
               stroke="var(--color-sage)"
               strokeWidth="1"
             />
@@ -145,7 +145,7 @@ export function PowerPathDiagram() {
       <text
         x="0"
         y="262"
-        fill="rgba(240,234,226,0.45)"
+        fill="rgba(43,39,34,0.5)"
         fontSize="9"
         letterSpacing="1"
       >

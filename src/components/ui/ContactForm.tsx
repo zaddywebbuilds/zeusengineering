@@ -131,8 +131,8 @@ export function ContactForm() {
               className={cx(
                 "p-6 text-left transition-colors duration-200",
                 intent === path.id
-                  ? "bg-bark text-bone"
-                  : "bg-soil text-stone hover:bg-bark hover:text-bone",
+                  ? "bg-linen text-ink"
+                  : "bg-canvas text-slate hover:bg-linen hover:text-ink",
               )}
             >
               <span className="flex items-center gap-3">
@@ -140,7 +140,7 @@ export function ContactForm() {
                   aria-hidden
                   className={cx(
                     "h-2 w-2 shrink-0",
-                    intent === path.id ? "bg-amber" : "bg-[var(--rule-strong)]",
+                    intent === path.id ? "bg-ochre" : "bg-[var(--rule-strong)]",
                   )}
                 />
                 <span className="display text-[1.25rem] leading-none">
@@ -150,7 +150,7 @@ export function ContactForm() {
             </button>
           ))}
         </div>
-        <p className="mt-5 max-w-[56ch] text-sm leading-relaxed text-stone">
+        <p className="mt-5 max-w-[56ch] text-sm leading-relaxed text-slate">
           {intentCopy[intent]}
         </p>
       </fieldset>
@@ -188,7 +188,7 @@ export function ContactForm() {
                 <select
                   id={field.name}
                   name={field.name}
-                  className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-bark px-4 py-3.5 text-bone transition-colors duration-200 focus:border-amber"
+                  className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-linen px-4 py-3.5 text-ink transition-colors duration-200 focus:border-ochre"
                   defaultValue=""
                 >
                   <option value="" disabled>
@@ -216,7 +216,7 @@ export function ContactForm() {
             name="message"
             rows={5}
             required
-            className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-bark px-4 py-3.5 text-bone transition-colors duration-200 placeholder:text-stone-dim focus:border-amber"
+            className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-linen px-4 py-3.5 text-ink transition-colors duration-200 placeholder:text-slate-dim focus:border-ochre"
             placeholder="What are you trying to do?"
           />
         </div>
@@ -224,7 +224,7 @@ export function ContactForm() {
         <div className="flex flex-wrap items-center gap-6">
           <button
             type="submit"
-            className="group inline-flex items-center gap-3 rounded-[3px] bg-bone px-7 py-4 text-sm font-medium text-soil transition-colors duration-200 hover:bg-white"
+            className="group inline-flex items-center gap-3 rounded-[3px] bg-ink px-7 py-4 text-sm font-medium text-canvas transition-colors duration-200 hover:bg-ink/90"
           >
             Send enquiry
             <span
@@ -235,7 +235,7 @@ export function ContactForm() {
             </span>
           </button>
 
-          <p className="text-xs leading-relaxed text-stone-dim">
+          <p className="text-xs leading-relaxed text-slate-dim">
             Opens your email client with the enquiry prepared.
           </p>
         </div>
@@ -245,7 +245,7 @@ export function ContactForm() {
           aria-live="polite"
           className={cx(
             "text-sm transition-opacity duration-300",
-            sent ? "text-amber opacity-100" : "opacity-0",
+            sent ? "text-ochre opacity-100" : "opacity-0",
           )}
         >
           {sent
@@ -273,7 +273,7 @@ function Field({
       <label htmlFor={name} className="tech-label mb-3 block">
         {label}
         {required && (
-          <span aria-hidden className="ml-1 text-amber">
+          <span aria-hidden className="ml-1 text-ochre">
             *
           </span>
         )}
@@ -283,7 +283,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-bark px-4 py-3.5 text-bone transition-colors duration-200 placeholder:text-stone-dim focus:border-amber"
+        className="w-full rounded-[3px] border border-[var(--rule-strong)] bg-linen px-4 py-3.5 text-ink transition-colors duration-200 placeholder:text-slate-dim focus:border-ochre"
       />
     </div>
   );

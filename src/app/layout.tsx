@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     "Modular infrastructure for Bitcoin, AI and high-density computing — engineered in Vietnam.",
   applicationName: company.name,
   // metadata.icons is not base-path-aware either — prefix it explicitly.
-  icons: { icon: asset("/images/brand/zeus-mark.webp") },
+  icons: { icon: asset("/images/brand/zeus-mark-ink.webp") },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#151210",
-  colorScheme: "dark",
+  themeColor: "#F3EFE8",
+  colorScheme: "light",
 };
 
 export default function RootLayout({
@@ -55,7 +55,7 @@ export default function RootLayout({
         />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-amber focus:px-4 focus:py-2 focus:text-soil focus:font-medium"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ochre focus:px-4 focus:py-2 focus:text-canvas focus:font-medium"
         >
           Skip to content
         </a>

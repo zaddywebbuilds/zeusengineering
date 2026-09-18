@@ -52,7 +52,7 @@ export function SectionHeading({
         className={size === "section" ? "h-section" : "h-sub"}
       />
       {lede && (
-        <p className="reveal mt-8 text-lg leading-relaxed text-stone">{lede}</p>
+        <p className="reveal mt-8 text-lg leading-relaxed text-slate">{lede}</p>
       )}
     </div>
   );

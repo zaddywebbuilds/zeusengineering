@@ -6,7 +6,7 @@ import { MaskedHeading } from "@/components/ui/SectionHeading";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--rule)] bg-soil">
+    <footer className="border-t border-[var(--rule)] bg-canvas">
       {/* Closing statement + the three conversion paths */}
       <section className="shell py-12 lg:py-16">
         <MaskedHeading
@@ -19,13 +19,13 @@ export function SiteFooter() {
             <Link
               key={path.id}
               href={path.href}
-              className="group flex flex-col justify-between gap-10 bg-soil p-8 transition-colors duration-200 hover:bg-bark lg:p-10"
+              className="group flex flex-col justify-between gap-10 bg-canvas p-8 transition-colors duration-200 hover:bg-linen lg:p-10"
             >
               <div>
                 <h3 className="display text-[1.75rem] leading-none">
                   {path.label}
                 </h3>
-                <p className="mt-4 text-sm leading-relaxed text-stone">
+                <p className="mt-4 text-sm leading-relaxed text-slate">
                   {path.blurb}
                 </p>
               </div>
@@ -52,7 +52,7 @@ export function SiteFooter() {
                     <li key={child.href}>
                       <Link
                         href={child.href}
-                        className="text-sm text-stone transition-colors duration-200 hover:text-bone"
+                        className="text-sm text-slate transition-colors duration-200 hover:text-ink"
                       >
                         {child.label}
                       </Link>
@@ -70,23 +70,23 @@ export function SiteFooter() {
         <div className="shell flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-6">
             <Img
-              src="/images/brand/zeus-wordmark.webp"
+              src="/images/brand/zeus-wordmark-ink.webp"
               alt={company.name}
               width={702}
               height={285}
               className="h-7 w-auto"
             />
-            <p className="text-xs leading-relaxed text-stone-dim">
+            <p className="text-xs leading-relaxed text-slate-dim">
               {company.legalName}, {company.country}
               <br />
               MST: {company.taxId}
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-stone-dim">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-slate-dim">
             <a
               href={`mailto:${company.email}`}
-              className="transition-colors duration-200 hover:text-bone"
+              className="transition-colors duration-200 hover:text-ink"
             >
               {company.email}
             </a>
@@ -94,13 +94,13 @@ export function SiteFooter() {
               href={company.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-200 hover:text-bone"
+              className="transition-colors duration-200 hover:text-ink"
             >
               LinkedIn
             </a>
             <Link
               href="/legal/privacy"
-              className="transition-colors duration-200 hover:text-bone"
+              className="transition-colors duration-200 hover:text-ink"
             >
               Privacy
             </Link>

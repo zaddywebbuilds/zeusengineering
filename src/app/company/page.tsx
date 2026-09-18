@@ -37,12 +37,12 @@ export default function CompanyPage() {
         title={"A deliberate\ndifference."}
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
-          <p className="reveal text-xl leading-relaxed text-bone">
+          <p className="reveal text-xl leading-relaxed text-ink">
             While much of the industry focuses on building ever-larger
             hyperscale facilities, we have deliberately taken a different
             approach.
           </p>
-          <div className="reveal space-y-6 text-stone">
+          <div className="reveal space-y-6 text-slate">
             <p className="leading-relaxed">
               We believe the future lies in highly efficient, modular and
               decentralised infrastructure. Rather than concentrating resources
@@ -61,7 +61,7 @@ export default function CompanyPage() {
       </Section>
 
       {/* Mission — the company's own words, given room */}
-      <Section tone="bark">
+      <Section tone="linen">
         <div className="mx-auto max-w-[44ch] text-center">
           <TechLabel className="reveal mb-8">Our mission</TechLabel>
           <blockquote className="display text-[clamp(1.75rem,4vw,3rem)] leading-[1.05]">
@@ -84,12 +84,12 @@ export default function CompanyPage() {
               </span>
             </span>
           </blockquote>
-          <p className="reveal mt-10 leading-relaxed text-stone">
+          <p className="reveal mt-10 leading-relaxed text-slate">
             We don&rsquo;t aim to become a permanent fixture in your operation.
             We help when needed, transfer knowledge to your team, solve the
             problem, and move to the next challenge.
           </p>
-          <p className="reveal mt-6 text-lg text-amber">
+          <p className="reveal mt-6 text-lg text-ochre">
             {company.missionCoda}
           </p>
         </div>
@@ -102,20 +102,20 @@ export default function CompanyPage() {
               key={item.label}
               className="reveal grid grid-cols-1 gap-4 py-8 lg:grid-cols-[3rem_14rem_1fr] lg:gap-10"
             >
-              <span className="tech-label text-stone-dim">
+              <span className="tech-label text-slate-dim">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h2 className="display text-[1.375rem] leading-none">
                 {item.label}
               </h2>
-              <p className="max-w-[58ch] leading-relaxed text-stone">
+              <p className="max-w-[58ch] leading-relaxed text-slate">
                 {item.body}
               </p>
             </li>
           ))}
         </ol>
 
-        <p className="reveal mt-8 max-w-[64ch] text-sm text-stone-dim">
+        <p className="reveal mt-8 max-w-[64ch] text-sm text-slate-dim">
           ZEUS states these timings relative to its pitch rather than as
           calendar dates. They are reproduced that way here rather than
           converted into years we cannot verify.
@@ -126,12 +126,12 @@ export default function CompanyPage() {
         index="03"
         label="Why ZEUS"
         title={"What the team\nbrings."}
-        tone="bark"
+        tone="linen"
       >
         <ul className="grid grid-cols-1 gap-x-12 gap-y-4 md:grid-cols-2">
           {whyZeus.map((item) => (
-            <li key={item.slice(0, 24)} className="reveal flex gap-3 text-stone">
-              <span aria-hidden className="mt-2.5 h-px w-4 shrink-0 bg-amber/60" />
+            <li key={item.slice(0, 24)} className="reveal flex gap-3 text-slate">
+              <span aria-hidden className="mt-2.5 h-px w-4 shrink-0 bg-ochre/60" />
               {item}
             </li>
           ))}
@@ -141,7 +141,7 @@ export default function CompanyPage() {
           <Button href="/company/leadership">Leadership</Button>
           <Link
             href="/company/careers"
-            className="group inline-flex items-center gap-2 text-sm text-stone transition-colors duration-200 hover:text-bone"
+            className="group inline-flex items-center gap-2 text-sm text-slate transition-colors duration-200 hover:text-ink"
           >
             Careers
             <span

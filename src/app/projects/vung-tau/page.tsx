@@ -88,21 +88,21 @@ export default function ProjectPage() {
         index="02"
         label="Technical summary"
         title={"How it\nis built."}
-        tone="bark"
+        tone="linen"
       >
         <div className="grid grid-cols-1 gap-x-12 gap-y-8 lg:grid-cols-2">
           {sections.map((s, i) => (
             <div key={s.t} className="reveal">
               <div className="flex items-center gap-4">
-                <span className="tech-label text-stone-dim">
+                <span className="tech-label text-slate-dim">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span aria-hidden className="h-px w-10 bg-amber/60" />
+                <span aria-hidden className="h-px w-10 bg-ochre/60" />
               </div>
               <h2 className="display mt-5 text-[1.625rem] leading-none">
                 {s.t}
               </h2>
-              <p className="mt-4 max-w-[52ch] leading-relaxed text-stone">
+              <p className="mt-4 max-w-[52ch] leading-relaxed text-slate">
                 {s.b}
               </p>
             </div>
@@ -114,7 +114,7 @@ export default function ProjectPage() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <div>
             <RuleList items={[...thermalApproach]} />
-            <p className="mt-8 max-w-[54ch] text-sm leading-relaxed text-stone-dim">
+            <p className="mt-8 max-w-[54ch] text-sm leading-relaxed text-slate-dim">
               ZEUS&rsquo;s published description of its approach. No rated
               operating temperature, humidity limit, PUE figure or uptime
               guarantee is claimed for this site.
@@ -133,10 +133,10 @@ export default function ProjectPage() {
       </Section>
 
       {/* Provenance — stated plainly rather than hidden in a footer */}
-      <Section tone="bark">
-        <div className="max-w-[64ch] border-l-2 border-amber/50 pl-6">
+      <Section tone="linen">
+        <div className="max-w-[64ch] border-l-2 border-ochre/50 pl-6">
           <TechLabel className="mb-4">On the imagery</TechLabel>
-          <p className="text-sm leading-relaxed text-stone">
+          <p className="text-sm leading-relaxed text-slate">
             The wide visualisations on this page are cinematic concept renders
             commissioned for the brand. They are not photographs of the
             operating site, and they depict a facility considerably larger than

@@ -8,11 +8,11 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-bone text-soil hover:bg-white",
+    "bg-ink text-canvas hover:bg-ink/90",
   secondary:
-    "border border-[var(--rule-strong)] text-bone hover:border-bone hover:bg-white/[0.04]",
+    "border border-[var(--rule-strong)] text-ink hover:border-ink hover:bg-ink/[0.04]",
   ghost:
-    "px-0 py-0 text-bone hover:text-amber",
+    "px-0 py-0 text-ink hover:text-ochre",
 };
 
 interface Props {

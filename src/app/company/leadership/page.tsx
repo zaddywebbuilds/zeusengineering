@@ -52,8 +52,8 @@ export default function LeadershipPage() {
       <Section>
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-2">
           {leadership.map((person, i) => (
-            <article key={person.name} className="reveal bg-soil p-8 lg:p-10">
-              <span className="tech-label text-stone-dim">
+            <article key={person.name} className="reveal bg-canvas p-8 lg:p-10">
+              <span className="tech-label text-slate-dim">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
@@ -62,7 +62,7 @@ export default function LeadershipPage() {
                 aria-hidden
                 className="mt-6 flex h-16 w-16 items-center justify-center border border-[var(--rule-strong)]"
               >
-                <span className="display text-2xl leading-none text-stone">
+                <span className="display text-2xl leading-none text-slate">
                   {person.name
                     .split(" ")
                     .map((part) => part[0])
@@ -73,9 +73,9 @@ export default function LeadershipPage() {
               <h2 className="display mt-7 text-[clamp(1.75rem,3vw,2.25rem)] leading-none">
                 {person.name}
               </h2>
-              <p className="tech-label mt-3 text-amber/80">{person.role}</p>
+              <p className="tech-label mt-3 text-ochre/80">{person.role}</p>
 
-              <p className="mt-6 max-w-[44ch] leading-relaxed text-stone">
+              <p className="mt-6 max-w-[44ch] leading-relaxed text-slate">
                 {person.bio}
               </p>
 
@@ -84,7 +84,7 @@ export default function LeadershipPage() {
                   href={person.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group mt-7 inline-flex items-center gap-2 text-sm text-stone transition-colors duration-200 hover:text-bone"
+                  className="group mt-7 inline-flex items-center gap-2 text-sm text-slate transition-colors duration-200 hover:text-ink"
                 >
                   LinkedIn
                   <span
@@ -101,7 +101,7 @@ export default function LeadershipPage() {
 
         <div className="reveal mt-12 max-w-[68ch] border-l-2 border-[var(--rule-strong)] pl-6">
           <TechLabel className="mb-4">On these profiles</TechLabel>
-          <p className="text-sm leading-relaxed text-stone-dim">
+          <p className="text-sm leading-relaxed text-slate-dim">
             Biographies are limited to what ZEUS has published. No
             qualifications, previous employers, dates or photographs have been
             added, and profiles are not linked to social accounts that have not

@@ -12,21 +12,21 @@ export function FaqList({ items }: { items: FaqItem[] }) {
     <div className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
       {items.map((item) => (
         <details key={item.question} className="group py-2">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg text-bone marker:hidden [&::-webkit-details-marker]:hidden">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg text-ink marker:hidden [&::-webkit-details-marker]:hidden">
             <span>{item.question}</span>
             <span
               aria-hidden
-              className="shrink-0 text-stone transition-transform duration-300 group-open:rotate-45"
+              className="shrink-0 text-slate transition-transform duration-300 group-open:rotate-45"
             >
               +
             </span>
           </summary>
           <div className="pb-6 pr-10">
-            <p className="max-w-[68ch] leading-relaxed text-stone">
+            <p className="max-w-[68ch] leading-relaxed text-slate">
               {item.answer}
             </p>
             {item.caveat && (
-              <p className="mt-4 flex gap-3 border-l border-amber/40 pl-4 text-sm text-stone-dim">
+              <p className="mt-4 flex gap-3 border-l border-ochre/40 pl-4 text-sm text-slate-dim">
                 {item.caveat}
               </p>
             )}

@@ -19,8 +19,8 @@ export function TechLabel({
     <Tag className={cx("tech-label", className)}>
       {index && (
         <>
-          <span className="text-stone-dim">{index}</span>
-          <span className="mx-2 text-stone-dim" aria-hidden>
+          <span className="text-slate-dim">{index}</span>
+          <span className="mx-2 text-slate-dim" aria-hidden>
             /
           </span>
         </>
