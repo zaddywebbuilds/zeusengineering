@@ -20,16 +20,18 @@ export function CountUp({ value, className }: { value: string; className?: strin
     const node = ref.current;
     if (node === null || numeric === null) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplay(numeric.toLocaleString("en-GB"));
-      return;
-    }
-
     let frame = 0;
     const observer = new IntersectionObserver(
       (entries) => {
         if (!entries[0].isIntersecting) return;
         observer.disconnect();
+
+        // Honour the motion preference here rather than in the effect body:
+        // setState inside a subscription callback is the supported shape.
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          setDisplay(numeric.toLocaleString("en-GB"));
+          return;
+        }
 
         const duration = 1100;
         const start = performance.now();

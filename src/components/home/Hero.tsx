@@ -5,8 +5,10 @@ import { TechLabel } from "@/components/ui/TechLabel";
 /**
  * The hero.
  *
- * Split rather than full-bleed: type on the left, the film as a framed object
- * on the right. Nothing sits on top of moving footage, so the headline keeps
+ * Split rather than full-bleed: type on the left, the media as a framed object
+ * on the right. The still is chosen over the clip because it carries the ZEUS
+ * wordmark and strapline in frame; the clip pans away from the branding within
+ * a second, so it earns its place further down the page instead. Nothing sits on top of moving footage, so the headline keeps
  * full contrast and the clip is presented as a piece of work rather than
  * wallpaper.
  *
@@ -69,17 +71,13 @@ export function Hero() {
 
         <MediaPanel
           className="reveal"
-          image="/images/zeus-hero-poster.webp"
-          alt="ZEUS Engineering brand film: a walk through a high-density compute hall lined with racked hardware"
-          video={{
-            desktop: "/video/zeus-hero-desktop.mp4",
-            mobile: "/video/zeus-hero-mobile.mp4",
-          }}
-          label="Compute hall"
-          note="Cinematic brand visualisation"
+          image="/images/concept/zeus-plant-portrait.webp"
+          alt="ZEUS Engineering switchgear cabinets on a compute site at dusk, carrying the ZEUS Engineering wordmark and the line Powering the next generation of compute"
+          label="Power plant"
+          note="Concept visualisation"
           aspect="portrait"
           priority
-          sizes="(max-width: 1024px) 100vw, 46vw"
+          sizes="(max-width: 1024px) 100vw, 42vw"
         />
       </div>
     </section>

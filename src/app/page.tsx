@@ -14,7 +14,7 @@ import { pageMeta } from "@/lib/seo";
 export const metadata: Metadata = pageMeta({
   title: "Infrastructure for high-density compute",
   description:
-    "ZEUS Engineering builds modular infrastructure for Bitcoin, AI and high-density computing in Vietnam — power, cooling, compute and remote control, engineered for tropical conditions.",
+    "Modular infrastructure for Bitcoin, AI and high-density computing, engineered in Vietnam — power, cooling, compute and remote control.",
   path: "/",
 });
 

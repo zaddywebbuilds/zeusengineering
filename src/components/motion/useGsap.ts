@@ -25,8 +25,11 @@ export function useGsapContext(
   setup: (ctx: gsap.Context) => void,
   deps: unknown[] = [],
 ) {
+  // Keep the latest callback without writing to a ref during render.
   const setupRef = useRef(setup);
-  setupRef.current = setup;
+  useEffect(() => {
+    setupRef.current = setup;
+  });
 
   useIsomorphicLayoutEffect(() => {
     if (!scope.current) return;
@@ -34,7 +37,6 @@ export function useGsapContext(
 
     const ctx = gsap.context((self) => setupRef.current(self), scope.current);
     return () => ctx.revert();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 }
 

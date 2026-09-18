@@ -22,11 +22,15 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close everything on navigation.
-  useEffect(() => {
+  // Close everything on navigation. Adjusting state during render on a
+  // changed value is React's documented pattern for this and avoids the
+  // cascading render an effect would cause.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
     setMobileOpen(false);
     setOpenMenu(null);
-  }, [pathname]);
+  }
 
   // Lock scroll behind the mobile sheet.
   useEffect(() => {

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/components/motion/usePrefersReducedMotion";
 import { TechLabel } from "./TechLabel";
 import { cx } from "@/lib/utils";
 
@@ -50,15 +51,7 @@ export function MediaPanel({
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [failed, setFailed] = useState(false);
-  const [reduced, setReduced] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const onChange = () => setReduced(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
+  const reduced = usePrefersReducedMotion();
 
   // Autoplay can be refused (low-power mode, data saver). Fall back to the
   // poster rather than leaving a dead first frame on screen.

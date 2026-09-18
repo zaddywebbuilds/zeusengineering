@@ -23,9 +23,13 @@ const chapters = [
     kicker: "The proving ground",
     title: "Bitcoin proved\nthe infrastructure.",
     body: "Machines at full load, continuously, in a tropical climate. Power density, heat rejection, efficiency and uptime stop being architecture diagrams and become the daily operating reality.",
-    image: "/images/concept/data-hall.webp",
+    image: "/images/zeus-hero-poster.webp",
     alt: "Concept visualisation of a data hall aisle lined with racked mining hardware",
     concept: true,
+    video: {
+      desktop: "/video/zeus-hero-desktop.mp4",
+      mobile: "/video/zeus-hero-mobile.mp4",
+    },
   },
   {
     id: "ai",
@@ -132,6 +136,7 @@ export function BitcoinToAi() {
                 className="reveal"
                 image={chapter.image}
                 alt={chapter.alt}
+                video={chapter.video}
                 label={chapter.kicker}
                 note={chapter.concept ? "Concept visualisation" : undefined}
                 aspect="video"

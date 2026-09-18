@@ -1,0 +1,157 @@
+import type { Metadata } from "next";
+import { PageHeader } from "@/components/layout/PageHeader";
+import { Section, RuleList } from "@/components/ui/Section";
+import { MetricRow } from "@/components/ui/MetricRow";
+import { MediaPanel } from "@/components/ui/MediaPanel";
+import { TechLabel } from "@/components/ui/TechLabel";
+import { Button } from "@/components/ui/Button";
+import { site } from "@/data/company";
+import { currentOperations, thermalApproach } from "@/data/metrics";
+import { pageMeta, breadcrumbJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = pageMeta({
+  title: `${site.name} — Project 001`,
+  description:
+    "ZEUS Engineering's operating site in the Vung Tau / Ba Ria region, Vietnam: a reported 100 kW facility on 300 m² with 20 kW peak solar and 1+ PH peak hash power.",
+  path: `/projects/${site.slug}`,
+});
+
+const sections = [
+  {
+    t: "Overview",
+    b: "ZEUS reports operating a 100 kW facility on a 300 m² site in the Vung Tau / Ba Ria region of southern Vietnam, running Bitcoin mining hardware and hosting client-owned equipment.",
+  },
+  {
+    t: "Location",
+    b: "Southern Vietnam, in the Vung Tau / Ba Ria region. The area is central to the expansion plan: the larger industrial site ZEUS intends to acquire is targeted in the same region.",
+  },
+  {
+    t: "The challenge",
+    b: "High-density compute at full load, continuously, in a tropical climate — where ambient conditions remove thermal headroom and power cost is the operating margin rather than an overhead line.",
+  },
+  {
+    t: "Power",
+    b: "A 100 kW facility supplied from the grid and supplemented by on-site solar generation, with power management sitting between the supplies and the racks.",
+  },
+  {
+    t: "Solar",
+    b: "20 kW peak solar as reported by ZEUS. The expansion plan targets up to 500 kW at the larger site, with an estimated saving of up to 10% on overall power expenses.",
+  },
+  {
+    t: "Compute",
+    b: "More than 1 PH of peak hash power across company-owned ASIC hardware and hosted client machines.",
+  },
+  {
+    t: "Operations",
+    b: "Maintenance is handled on site using ZEUS's own tooling, test and repair equipment. Hosted clients are offered monitoring of equipment status and performance.",
+  },
+];
+
+export default function ProjectPage() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Projects", path: "/projects" },
+              { name: site.name, path: `/projects/${site.slug}` },
+            ]),
+          ),
+        }}
+      />
+
+      <PageHeader
+        label={site.projectId}
+        title={site.name}
+        lede={`${site.province}, ${site.country}. The site where the engineering is proven — finite power, continuous load, and a climate that punishes anything under-specified.`}
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "Projects", href: "/projects" },
+        ]}
+        status={{ value: "zeus-reported", label: "Operating" }}
+        media={{
+          image: "/images/concept/campus-aerial.webp",
+          alt: "Concept visualisation of a ZEUS site: containerised units, a solar array and a compute hall beside the coast",
+          label: site.projectId,
+          note: "Concept visualisation",
+        }}
+      />
+
+      <Section index="01" label="Reported figures" title={"The record."}>
+        <MetricRow facts={currentOperations} />
+      </Section>
+
+      <Section
+        index="02"
+        label="Technical summary"
+        title={"How it\nis built."}
+        tone="carbon"
+      >
+        <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-2">
+          {sections.map((s, i) => (
+            <div key={s.t} className="reveal">
+              <div className="flex items-center gap-4">
+                <span className="tech-label text-steel-dim">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span aria-hidden className="h-px w-10 bg-amber/60" />
+              </div>
+              <h2 className="display mt-5 text-[1.625rem] leading-none">
+                {s.t}
+              </h2>
+              <p className="mt-4 max-w-[52ch] leading-relaxed text-steel">
+                {s.b}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section index="03" label="Thermal" title={"Managing\nthe heat."}>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <RuleList items={[...thermalApproach]} />
+            <p className="mt-8 max-w-[54ch] text-sm leading-relaxed text-steel-dim">
+              ZEUS&rsquo;s published description of its approach. No rated
+              operating temperature, humidity limit, PUE figure or uptime
+              guarantee is claimed for this site.
+            </p>
+          </div>
+
+          <MediaPanel
+            className="reveal"
+            image="/images/concept/cooling-plant.webp"
+            alt="Concept visualisation of external cooling plant and containerised units"
+            video={{ desktop: "/video/zeus-plant.mp4" }}
+            label="Cooling plant"
+            note="Concept visualisation"
+            aspect="video"
+          />
+        </div>
+      </Section>
+
+      {/* Provenance — stated plainly rather than hidden in a footer */}
+      <Section tone="carbon">
+        <div className="max-w-[64ch] border-l-2 border-amber/50 pl-6">
+          <TechLabel className="mb-4">On the imagery</TechLabel>
+          <p className="text-sm leading-relaxed text-steel">
+            The visualisations on this page are cinematic concept renders
+            commissioned for the brand. They are not photographs of the
+            operating site, and they depict a facility considerably larger than
+            the 300 m² ZEUS reports. Site photography will replace them.
+          </p>
+        </div>
+
+        <div className="reveal mt-12 flex flex-wrap items-center gap-4">
+          <Button href="/investors">Investor relations</Button>
+          <Button href="/technology" variant="secondary">
+            The technology
+          </Button>
+        </div>
+      </Section>
+    </>
+  );
+}
