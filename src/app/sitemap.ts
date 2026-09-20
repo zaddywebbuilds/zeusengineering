@@ -10,7 +10,13 @@ export const dynamic = "force-static";
  * and forgotten in the sitemap.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = new Set<string>(["/", "/contact", "/legal/privacy"]);
+  const paths = new Set<string>([
+    "/",
+    "/contact",
+    "/legal/privacy",
+    "/sources",
+    "/vi",
+  ]);
 
   for (const item of primaryNav) {
     paths.add(item.href);
@@ -20,7 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   return [...paths].map((path) => ({
-    url: `${SITE_URL}${path === "/" ? "" : path}`,
+    // `trailingSlash: true` means the canonical URL ends in a slash. The
+    // sitemap has to agree with it, or every entry is a redirect.
+    url: `${SITE_URL}${path === "/" ? "/" : `${path}/`}`,
     lastModified: now,
     changeFrequency: path === "/" ? "monthly" : "yearly",
     priority: path === "/" ? 1 : path.split("/").length === 2 ? 0.8 : 0.6,

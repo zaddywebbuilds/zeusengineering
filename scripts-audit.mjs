@@ -6,9 +6,18 @@ import { join } from "node:path";
 const DATA = "src/data";
 const claims = readFileSync("CLAIMS.md", "utf8");
 
+/**
+ * Translation dictionaries hold no figures by design: every number on /vi is
+ * imported from the data layer, never retyped. Scanning them only produces
+ * false positives, e.g. the Vietnamese column header `amount: "Số tiền"`.
+ * That invariant is documented at the top of src/data/vi.ts.
+ */
+const NOT_FIGURE_SOURCES = new Set(["vi.ts"]);
+
 const figures = new Set();
 for (const f of readdirSync(DATA)) {
   if (!f.endsWith(".ts")) continue;
+  if (NOT_FIGURE_SOURCES.has(f)) continue;
   const src = readFileSync(join(DATA, f), "utf8");
   for (const m of src.matchAll(/value:\s*"([^"]+)"/g)) figures.add(m[1]);
   for (const m of src.matchAll(/amount:\s*"([^"]+)"/g)) figures.add(m[1]);

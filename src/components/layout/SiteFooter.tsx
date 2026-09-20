@@ -104,6 +104,14 @@ export function SiteFooter() {
             >
               Privacy
             </Link>
+            <Link
+              href="/vi"
+              lang="vi"
+              hrefLang="vi"
+              className="transition-colors duration-200 hover:text-ink"
+            >
+              Tiếng Việt
+            </Link>
             <span>
               © {new Date().getFullYear()} {company.legalName}
             </span>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { company } from "@/data/company";
+import type { FaqItem } from "@/data/faq";
 
 /**
  * Canonical production origin.
@@ -16,6 +17,8 @@ interface PageMetaArgs {
   description: string;
   path: string;
   image?: string;
+  /** hreflang alternates, e.g. { vi: "/vi" }. Paths are made absolute. */
+  languages?: Record<string, string>;
 }
 
 /** Build per-page metadata with canonical, OpenGraph and Twitter cards. */
@@ -24,6 +27,7 @@ export function pageMeta({
   description,
   path,
   image = DEFAULT_OG,
+  languages,
 }: PageMetaArgs): Metadata {
   const url = `${SITE_URL}${path}`;
   const fullTitle = `${title} | ${company.name}`;
@@ -31,7 +35,14 @@ export function pageMeta({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(languages && {
+        languages: Object.fromEntries(
+          Object.entries(languages).map(([k, v]) => [k, `${SITE_URL}${v}`]),
+        ),
+      }),
+    },
     openGraph: {
       title: fullTitle,
       description,
@@ -69,6 +80,29 @@ export function organizationJsonLd() {
     },
     sameAs: [company.linkedin],
     description: `${company.name} is ${company.descriptor}.`,
+  };
+}
+
+/**
+ * FAQPage JSON-LD.
+ *
+ * The rendered answer includes the caveat where one exists, so the markup and
+ * the visible text stay identical. They have to: structured data that says
+ * something the page does not is both a guidelines violation and, on a site
+ * whose whole argument is traceability, a self-inflicted wound.
+ */
+export function faqJsonLd(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.caveat ? `${item.answer} ${item.caveat}` : item.answer,
+      },
+    })),
   };
 }
 

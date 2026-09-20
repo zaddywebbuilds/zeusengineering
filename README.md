@@ -138,14 +138,70 @@ un-animated state is the correct, readable state.
 
 ## Routes
 
-28 routes: home · solutions (+5) · technology (+4) · projects (+1) ·
-investors (the-ask, economics, roadmap, why-vietnam) · company (+2) · insights ·
-contact · legal/privacy · 404 · sitemap.xml · robots.txt
+31 routes: home · solutions (+5) · technology (+4) · projects (+1) ·
+investors (the-ask, economics, roadmap, why-vietnam, brief) · company (+2) ·
+insights · sources · vi · vision · contact · legal/privacy · 404 ·
+sitemap.xml · robots.txt
 
 `sitemap.ts` is generated from `navigation.ts`, so a route added to the menu
 cannot be forgotten in the sitemap. `robots.ts` is generated rather than static ,
 a previous project on this account shipped a static `robots.txt` that silently
 blocked every crawler.
+
+## The four pieces most likely to be misunderstood
+
+### `/sources`, the public claim ledger
+
+`CLAIMS.md` is the working audit. `src/data/sources.ts` is the same discipline
+rendered as a public page. **Both must be kept in step by hand.**
+`npm run audit:claims` only enforces that figures in `src/data/` appear in
+`CLAIMS.md`; it does not know about `sources.ts`.
+
+The page also publishes what was **deliberately left out**, which is the part
+that actually earns trust. Do not quietly delete an entry from `notPublished`
+to make the site look better.
+
+The confidential deck is named on that page and is still **never linked,
+embedded, mirrored or reproduced**.
+
+### `/investors/economics`, the node model
+
+`NodeModel.tsx` splits its eight inputs in two and never lets them blur:
+
+- **Four ZEUS sliders** whose `min`/`max` ARE the published ranges. A visitor
+  cannot drag one outside what ZEUS actually stated.
+- **Four inputs with no ZEUS source** (PUE, tariff, utilisation, GPU price).
+  Their defaults are placeholders, labelled as such on the control and again
+  in the output footer.
+
+The only arithmetic done on ZEUS's behalf is the annual solar yield, which is
+interpolated between ZEUS's own two published endpoints and says so. If you
+add an input, it must declare a provenance. See `CLAIMS.md`.
+
+### `/investors/brief`, the printable one-pager
+
+Rendered from `ssmdc.ts`, `metrics.ts` and `roadmap.ts`, the same data every
+other page uses, so it **cannot** disagree with the pages it summarises. A
+separately maintained deck is how the kW/kWp drift happened. Do not introduce
+a PDF library: that would recreate the second rendering path this removes.
+
+Print rules live at the bottom of `globals.css`. They are scoped to
+`body > header` and `body > footer` on purpose, because an unscoped `header`
+selector also hides the brief's own title block.
+
+### `/vi`, the Vietnamese overview
+
+A complete standalone overview, **not** a translation of all 26 English
+routes. All translatable copy is in `src/data/vi.ts` so ZEUS can review it in
+one pass. **Figures are never retyped there**, they are imported from the same
+data layer, which is the only way the two languages cannot drift.
+
+Two exceptions are documented at the top of that file: `hosting.included` and
+`investors.items` mirror English lists and must be updated alongside them.
+
+Vietnamese stacks a mark above and a dot below the same letter. The
+`[lang="vi"]` rules in `globals.css` widen the masked-heading window so those
+lower marks are not clipped; English headings keep their original rhythm.
 
 ## Integrations still needed
 
@@ -231,3 +287,6 @@ as drawings, at full contrast, not decorated.
   clips the glyphs the mask is meant to reveal.
 - New figure? Add it to `src/data/` with a status. Never inline it in JSX.
 - No claim about ZEUS goes on this site without a source in `AUDIT.md`.
+- A new figure needs a row in `CLAIMS.md` **and**, if it appears on a page, a
+  row in `src/data/sources.ts`. The audit script only checks the first.
+- New user-facing copy on `/vi` goes in `src/data/vi.ts`, never inline.

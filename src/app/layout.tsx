@@ -9,14 +9,16 @@ import { asset } from "@/lib/asset";
 import "./globals.css";
 
 const barlow = Barlow_Condensed({
-  subsets: ["latin"],
+  // "vietnamese" preloads the Vietnamese unicode-range file for /vi. Without
+  // it the glyphs still resolve, but only after a second late fetch.
+  subsets: ["latin", "vietnamese"],
   weight: ["600", "700"],
   variable: "--font-barlow-condensed",
   display: "swap",
 });
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   variable: "--font-inter",
   display: "swap",
 });

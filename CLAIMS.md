@@ -151,3 +151,58 @@ PARTNERS". Aspirational, not relationships. These must never appear on the site.
 
 Also removed as unsourced (see `AUDIT.md §1`): 99.9% uptime, 35 °C / 85%
 operating conditions, "localised liquid cooling".
+
+---
+
+## Published as a page
+
+This audit is no longer repo-only. `/sources` renders the same ledger from
+`src/data/sources.ts`, including the source documents, the kW/kWp open
+question, and the **deliberately not published** list.
+
+Anything added to `src/data/sources.ts` must also exist here, and vice versa.
+The two files are kept in step by hand; `npm run audit:claims` only enforces
+that figures in `src/data/` appear in this file.
+
+**The confidential deck is still never linked.** `/sources` names [D2], states
+its date, and marks it "Confidential, never published here". It does not link,
+embed, mirror or reproduce any page of it.
+
+## The node model, `/investors/economics`
+
+An interactive model. It introduces **one derived quantity** and **four inputs
+with no ZEUS source**. Both are disclosed on the control and in the output.
+
+**Derived, and the only arithmetic performed on ZEUS's behalf:**
+
+| Quantity | How | Why it is defensible |
+|---|---|---|
+| Annual solar yield at a given kWp | Linear interpolation between ZEUS's own two published endpoints, 80 kWp → 130 MWh and 120 kWp → 190 MWh [D2] p7 | It reproduces both published endpoints exactly and invents no third figure. Labelled as interpolated in the output. |
+
+**No ZEUS source. Placeholder defaults, marked as the visitor's own:**
+
+| Input | Default | Note |
+|---|---|---|
+| Facility PUE | 1.2 | ZEUS publishes no PUE. `CLAIMS.md` bars a PUE claim, and this is not one: it is an input the reader sets. |
+| Grid tariff | $0.08/kWh | No Vietnamese tariff figure is asserted anywhere on the site. |
+| GPU utilisation sold | 70% | ZEUS publishes no utilisation figure. |
+| Price per GPU hour | $2.00 | ZEUS publishes no price. |
+
+The four ZEUS sliders are **bounded by the published ranges** and cannot be
+dragged outside them, so the model cannot be used to manufacture a ZEUS claim.
+
+The output panel states, in words, that the result is the visitor's model and
+not a ZEUS projection; that the solar coverage figure is an optimistic bound
+because it assumes total self-consumption and ZEUS has published no load
+profile; and that only energy is netted off, so nothing shown is a profit
+figure. **No revenue, return or profitability figure is attributed to ZEUS
+anywhere in it.**
+
+## The investor brief, `/investors/brief`
+
+A printable one-pager rendered from `ssmdc.ts`, `metrics.ts` and `roadmap.ts`,
+the same data the rest of the site uses. It introduces **no new figures**.
+
+It exists because a separately maintained deck is how the kW/kWp drift
+happened in the first place. A brief generated from the site's own data cannot
+disagree with the pages it summarises.

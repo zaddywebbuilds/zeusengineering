@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { currentOperations, thermalApproach } from "@/data/metrics";
 import { faq } from "@/data/faq";
 import { FaqList } from "@/components/ui/FaqList";
-import { pageMeta } from "@/lib/seo";
+import { faqJsonLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Bitcoin Infrastructure",
@@ -15,9 +15,21 @@ export const metadata: Metadata = pageMeta({
   path: "/solutions/bitcoin-infrastructure",
 });
 
+/** The rendered subset and the structured data must be the same array. */
+const faqItems = faq.filter(
+  (f) => f.topic === "economics" || f.topic === "hardware",
+);
+
 export default function BitcoinInfrastructurePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        // Static, author-controlled JSON-LD. No user input reaches this.
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd(faqItems)),
+        }}
+      />
       <PageHeader
         index="03"
         label="Solutions"
@@ -95,7 +107,7 @@ export default function BitcoinInfrastructurePage() {
         title={"The awkward\nquestions."}
         lede="ZEUS's own published answers on the economics and the hardware."
       >
-        <FaqList items={faq.filter((f) => f.topic === "economics" || f.topic === "hardware")} />
+        <FaqList items={faqItems} />
 
         <div className="reveal mt-10 flex flex-wrap items-center gap-4">
           <Button href="/solutions/hosted-mining">Hosted mining</Button>
