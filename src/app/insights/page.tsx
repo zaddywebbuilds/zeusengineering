@@ -5,7 +5,7 @@ import { FaqList } from "@/components/ui/FaqList";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { Button } from "@/components/ui/Button";
 import { faq } from "@/data/faq";
-import { pageMeta } from "@/lib/seo";
+import { faqJsonLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Insights",
@@ -15,20 +15,6 @@ export const metadata: Metadata = pageMeta({
 });
 
 /** Article JSON-LD is intentionally absent: there are no articles yet. */
-function faqJsonLd() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.caveat ? `${item.answer} ${item.caveat}` : item.answer,
-      },
-    })),
-  };
-}
 
 const topics = [
   { id: "economics", label: "Economics" },
@@ -43,7 +29,7 @@ export default function InsightsPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faq)) }}
       />
 
       <PageHeader

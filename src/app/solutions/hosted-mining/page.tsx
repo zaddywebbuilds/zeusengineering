@@ -12,7 +12,7 @@ import {
   hostingDisclosure,
 } from "@/data/hosting";
 import { faq } from "@/data/faq";
-import { pageMeta } from "@/lib/seo";
+import { faqJsonLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Hosted Mining",
@@ -21,9 +21,21 @@ export const metadata: Metadata = pageMeta({
   path: "/solutions/hosted-mining",
 });
 
+/** The rendered subset and the structured data must be the same array. */
+const faqItems = faq.filter(
+  (f) => f.topic === "economics" || f.topic === "hardware",
+);
+
 export default function HostedMiningPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        // Static, author-controlled JSON-LD. No user input reaches this.
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd(faqItems)),
+        }}
+      />
       <PageHeader
         index="04"
         label="Solutions"
@@ -102,11 +114,7 @@ export default function HostedMiningPage() {
       </Section>
 
       <Section index="07" label="Common questions" title={"Before you\ncommit."}>
-        <FaqList
-          items={faq.filter(
-            (f) => f.topic === "economics" || f.topic === "hardware",
-          )}
-        />
+        <FaqList items={faqItems} />
 
         {/* Risk disclosure, required wherever hosting economics are discussed */}
         <div className="reveal mt-10 border-l-2 border-ochre/50 bg-linen p-7 lg:p-8">

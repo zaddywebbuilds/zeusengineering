@@ -16,6 +16,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Modular infrastructure for Bitcoin, AI and high-density computing, engineered in Vietnam. Power, cooling, compute and remote control.",
   path: "/",
+  languages: { "en-GB": "/", vi: "/vi", "x-default": "/" },
 });
 
 /**

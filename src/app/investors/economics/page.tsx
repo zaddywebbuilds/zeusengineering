@@ -14,6 +14,7 @@ import {
 } from "@/data/ssmdc";
 import { Figure } from "@/components/diagrams/Figure";
 import { EnergyDayProfile } from "@/components/diagrams/EnergyDayProfile";
+import { NodeModel } from "@/components/investors/NodeModel";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -42,7 +43,17 @@ export default function EconomicsPage() {
         <MetricRow facts={nodeEconomics} />
       </Section>
 
-      <Section tone="linen">
+      {/* The model. Deliberately before the argument, not after it. */}
+      <Section
+        label="Model it yourself"
+        title={"Move the numbers."}
+        tone="linen"
+        lede="ZEUS publishes a specification, not a return. Rather than present one flattering scenario, this puts the published ranges and the missing inputs side by side and lets you find the break point yourself. The four ZEUS sliders cannot leave the ranges the company actually stated. The other four have no ZEUS source and are yours to set."
+      >
+        <NodeModel />
+      </Section>
+
+      <Section>
         <Figure
           label="A day at one node"
           caption="Illustrative of how the published figures relate, not a measured output profile. The curve is a generic clear-day solar shape; the capacity, storage and load figures are ZEUS's."

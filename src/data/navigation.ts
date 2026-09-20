@@ -70,6 +70,7 @@ export const primaryNav: NavItem[] = [
       { label: "Roadmap", href: "/investors/roadmap" },
       { label: "Node economics", href: "/investors/economics" },
       { label: "Why Vietnam", href: "/investors/why-vietnam" },
+      { label: "Investor brief", href: "/investors/brief", blurb: "One page, printable." },
     ],
   },
   {
@@ -80,6 +81,7 @@ export const primaryNav: NavItem[] = [
       { label: "Vision", href: "/vision", blurb: "Where this goes." },
       { label: "Leadership", href: "/company/leadership" },
       { label: "Careers", href: "/company/careers" },
+      { label: "Sources", href: "/sources", blurb: "Every figure, audited." },
     ],
   },
   { label: "Insights", href: "/insights" },
