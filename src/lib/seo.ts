@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { company } from "@/data/company";
 import type { FaqItem } from "@/data/faq";
+import { locales, localeMeta, localePath, type Locale } from "@/i18n/config";
 
 /**
  * Canonical production origin.
@@ -13,43 +14,49 @@ export const SITE_URL =
 const DEFAULT_OG = "/images/concept/campus-aerial.webp";
 
 interface PageMetaArgs {
+  lang: Locale;
   title: string;
   description: string;
+  /** Unprefixed route, e.g. "/investors". The locale prefix is added here. */
   path: string;
   image?: string;
-  /** hreflang alternates, e.g. { vi: "/vi" }. Paths are made absolute. */
-  languages?: Record<string, string>;
 }
 
-/** Build per-page metadata with canonical, OpenGraph and Twitter cards. */
+/**
+ * Per-page metadata: canonical, hreflang alternates, OpenGraph and Twitter.
+ *
+ * The hreflang set is generated from `locales` rather than written out, so
+ * adding a third language cannot leave half the site pointing at two.
+ */
 export function pageMeta({
+  lang,
   title,
   description,
   path,
   image = DEFAULT_OG,
-  languages,
 }: PageMetaArgs): Metadata {
-  const url = `${SITE_URL}${path}`;
+  const url = `${SITE_URL}${localePath(lang, path)}`;
   const fullTitle = `${title} | ${company.name}`;
+
+  const languages: Record<string, string> = {};
+  for (const l of locales) {
+    languages[localeMeta[l].hrefLang] = `${SITE_URL}${localePath(l, path)}`;
+  }
+  // x-default points at the detector, which is the only URL that serves
+  // every visitor the right language rather than one fixed choice.
+  languages["x-default"] = `${SITE_URL}${path === "/" ? "/" : path}`;
 
   return {
     title,
     description,
-    alternates: {
-      canonical: url,
-      ...(languages && {
-        languages: Object.fromEntries(
-          Object.entries(languages).map(([k, v]) => [k, `${SITE_URL}${v}`]),
-        ),
-      }),
-    },
+    alternates: { canonical: url, languages },
     openGraph: {
       title: fullTitle,
       description,
       url,
       siteName: company.name,
       type: "website",
-      locale: "en_GB",
+      locale: localeMeta[lang].ogLocale,
       images: [
         { url: `${SITE_URL}${image}`, width: 1920, height: 1080, alt: fullTitle },
       ],
@@ -64,13 +71,13 @@ export function pageMeta({
 }
 
 /** Organization JSON-LD. Only fields we can source are included. */
-export function organizationJsonLd() {
+export function organizationJsonLd(lang: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: company.legalName,
     alternateName: company.name,
-    url: SITE_URL,
+    url: `${SITE_URL}${localePath(lang, "/")}`,
     email: company.email,
     foundingDate: String(company.founded),
     address: {
@@ -80,6 +87,22 @@ export function organizationJsonLd() {
     },
     sameAs: [company.linkedin],
     description: `${company.name} is ${company.descriptor}.`,
+  };
+}
+
+export function breadcrumbJsonLd(
+  lang: Locale,
+  trail: { name: string; path: string }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((t, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: t.name,
+      item: `${SITE_URL}${localePath(lang, t.path)}`,
+    })),
   };
 }
 
@@ -102,19 +125,6 @@ export function faqJsonLd(items: FaqItem[]) {
         "@type": "Answer",
         text: item.caveat ? `${item.answer} ${item.caveat}` : item.answer,
       },
-    })),
-  };
-}
-
-export function breadcrumbJsonLd(trail: { name: string; path: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: trail.map((t, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: t.name,
-      item: `${SITE_URL}${t.path}`,
     })),
   };
 }

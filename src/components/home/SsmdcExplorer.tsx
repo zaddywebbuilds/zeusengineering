@@ -7,6 +7,8 @@ import { TechLabel } from "@/components/ui/TechLabel";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { cx } from "@/lib/utils";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * Signature interaction #3 — the SSMDC layer explorer.
@@ -54,7 +56,8 @@ const layers = [
   },
 ] as const;
 
-export function SsmdcExplorer() {
+export function SsmdcExplorer({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   const [active, setActive] = useState(0);
   const layer = layers[active];
 

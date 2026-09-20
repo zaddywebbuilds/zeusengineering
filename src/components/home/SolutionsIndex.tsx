@@ -1,37 +1,36 @@
 import { Img } from "@/components/ui/Img";
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/LocaleLink";
 import { solutions } from "@/data/solutions";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { ConceptNotice } from "@/components/ui/ConceptNotice";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * Editorial panels rather than a grid of floating cards. Each row is a full
  * link target with a fine rule above it — the list reads as an index, which is
  * what it is.
  */
-export function SolutionsIndex() {
+export function SolutionsIndex({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   return (
     <section
       className="border-t border-[var(--rule)] bg-canvas"
       aria-labelledby="solutions-heading"
     >
       <div className="shell py-12 lg:py-16">
-        <TechLabel index="06" className="reveal mb-7">
-          Solutions
-        </TechLabel>
+        <TechLabel index="06" className="reveal mb-7">{t("Solutions")}</TechLabel>
         <MaskedHeading
           text={"What ZEUS\nbuilds."}
           className="h-section max-w-[12ch]"
         />
-        <h2 id="solutions-heading" className="sr-only">
-          Solutions
-        </h2>
+        <h2 id="solutions-heading" className="sr-only">{t("Solutions")}</h2>
       </div>
 
       <div className="border-t border-[var(--rule)]">
         {solutions.map((solution) => (
-          <Link
+          <LocaleLink lang={lang}
             key={solution.id}
             href={solution.href}
             className="group block border-b border-[var(--rule)] transition-colors duration-300 hover:bg-linen"
@@ -74,7 +73,7 @@ export function SolutionsIndex() {
                 →
               </span>
             </div>
-          </Link>
+          </LocaleLink>
         ))}
       </div>
     </section>

@@ -6,6 +6,8 @@ import { contactPaths, type ContactIntent } from "@/data/navigation";
 import { enquiryForms, type Field } from "@/data/enquiry";
 import { company } from "@/data/company";
 import { cx } from "@/lib/utils";
+import { getDictionary } from "@/i18n/dictionary";
+import type { Locale } from "@/i18n/config";
 
 /**
  * The Build / Host / Invest funnels.
@@ -24,7 +26,8 @@ type Status = "idle" | "submitting" | "sent" | "error";
 
 const validIntents = contactPaths.map((p) => p.id) as readonly string[];
 
-export function ContactForm() {
+export function ContactForm({ lang }: { lang: Locale }) {
+  const d = getDictionary(lang);
   // Read on the client: a server-side searchParams prop would make the route
   // dynamic, and this site is exported as static HTML.
   const params = useSearchParams();
@@ -147,7 +150,7 @@ export function ContactForm() {
                   )}
                 />
                 <span className="display text-[1.25rem] leading-none">
-                  {path.label}
+                  {d.nav.contactPaths[path.id].label}
                 </span>
               </span>
             </button>

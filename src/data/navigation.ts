@@ -1,112 +1,99 @@
+/**
+ * Site structure.
+ *
+ * This file owns the SHAPE of the navigation: what links exist, where they
+ * point, and how they nest. It deliberately owns no prose. Labels and blurbs
+ * live in `src/i18n/dictionaries/*`, keyed by the stable `id` on each entry,
+ * so a route can never be translated in one language and forgotten in another.
+ *
+ * `sitemap.ts` is generated from this file, so a route added to the menu
+ * cannot be forgotten in the sitemap.
+ */
+
 export interface NavChild {
-  label: string;
+  /** Stable key into `dictionary.nav.items`. Never shown to a visitor. */
+  id: string;
   href: string;
-  blurb?: string;
 }
 
 export interface NavItem {
-  label: string;
+  id: string;
   href: string;
   children?: NavChild[];
 }
 
 export const primaryNav: NavItem[] = [
   {
-    label: "Solutions",
+    id: "solutions",
     href: "/solutions",
     children: [
-      {
-        label: "Modular Data Centers",
-        href: "/solutions/modular-data-centers",
-        blurb: "Compute, containerised.",
-      },
-      {
-        label: "AI Infrastructure",
-        href: "/solutions/ai-infrastructure",
-        blurb: "Infrastructure for intelligence.",
-      },
-      {
-        label: "Bitcoin Infrastructure",
-        href: "/solutions/bitcoin-infrastructure",
-        blurb: "Built through continuous compute.",
-      },
-      {
-        label: "Hosted Mining",
-        href: "/solutions/hosted-mining",
-        blurb: "Your hardware. Our infrastructure.",
-      },
-      {
-        label: "Energy Integration",
-        href: "/solutions/energy-integration",
-        blurb: "Compute starts with power.",
-      },
+      { id: "modularDataCenters", href: "/solutions/modular-data-centers" },
+      { id: "aiInfrastructure", href: "/solutions/ai-infrastructure" },
+      { id: "bitcoinInfrastructure", href: "/solutions/bitcoin-infrastructure" },
+      { id: "hostedMining", href: "/solutions/hosted-mining" },
+      { id: "energyIntegration", href: "/solutions/energy-integration" },
     ],
   },
   {
-    label: "Technology",
+    id: "technology",
     href: "/technology",
     children: [
-      { label: "Overview", href: "/technology", blurb: "Four pillars, one system." },
-      { label: "Power Architecture", href: "/technology/power", blurb: "Grid and solar into compute." },
-      { label: "Cooling & Thermal", href: "/technology/cooling", blurb: "Heat is the constraint." },
-      { label: "Compute", href: "/technology/compute", blurb: "Density, uptime, efficiency." },
-      { label: "Monitoring & Automation", href: "/technology/monitoring", blurb: "Remote operation." },
+      { id: "technologyOverview", href: "/technology" },
+      { id: "power", href: "/technology/power" },
+      { id: "cooling", href: "/technology/cooling" },
+      { id: "compute", href: "/technology/compute" },
+      { id: "monitoring", href: "/technology/monitoring" },
     ],
   },
   {
-    label: "Projects",
+    id: "projects",
     href: "/projects",
     children: [
-      { label: "All Projects", href: "/projects" },
-      { label: "Vung Tau / Ba Ria", href: "/projects/vung-tau", blurb: "Project 001." },
+      { id: "allProjects", href: "/projects" },
+      { id: "vungTau", href: "/projects/vung-tau" },
     ],
   },
   {
-    label: "Investors",
+    id: "investors",
     href: "/investors",
     children: [
-      { label: "Overview", href: "/investors" },
-      { label: "The ask", href: "/investors/the-ask", blurb: "$2.69M target." },
-      { label: "Roadmap", href: "/investors/roadmap" },
-      { label: "Node economics", href: "/investors/economics" },
-      { label: "Why Vietnam", href: "/investors/why-vietnam" },
-      { label: "Investor brief", href: "/investors/brief", blurb: "One page, printable." },
+      { id: "investorsOverview", href: "/investors" },
+      { id: "theAsk", href: "/investors/the-ask" },
+      { id: "roadmap", href: "/investors/roadmap" },
+      { id: "economics", href: "/investors/economics" },
+      { id: "whyVietnam", href: "/investors/why-vietnam" },
+      { id: "brief", href: "/investors/brief" },
     ],
   },
   {
-    label: "Company",
+    id: "company",
     href: "/company",
     children: [
-      { label: "About", href: "/company" },
-      { label: "Vision", href: "/vision", blurb: "Where this goes." },
-      { label: "Leadership", href: "/company/leadership" },
-      { label: "Careers", href: "/company/careers" },
-      { label: "Sources", href: "/sources", blurb: "Every figure, audited." },
+      { id: "about", href: "/company" },
+      { id: "vision", href: "/vision" },
+      { id: "leadership", href: "/company/leadership" },
+      { id: "careers", href: "/company/careers" },
+      { id: "sources", href: "/sources" },
     ],
   },
-  { label: "Insights", href: "/insights" },
+  { id: "insights", href: "/insights" },
 ];
 
 /** The three intent-specific conversion paths used in the footer and CTAs. */
 export const contactPaths = [
-  {
-    id: "build",
-    label: "Build with Zeus",
-    href: "/contact?intent=build",
-    blurb: "Infrastructure and engineering enquiries.",
-  },
-  {
-    id: "host",
-    label: "Host with Zeus",
-    href: "/contact?intent=host",
-    blurb: "Hosted mining enquiries.",
-  },
-  {
-    id: "invest",
-    label: "Invest in Zeus",
-    href: "/contact?intent=invest",
-    blurb: "Investor enquiries.",
-  },
+  { id: "build", href: "/contact?intent=build" },
+  { id: "host", href: "/contact?intent=host" },
+  { id: "invest", href: "/contact?intent=invest" },
 ] as const;
 
 export type ContactIntent = (typeof contactPaths)[number]["id"];
+
+/** Every route that exists, for the sitemap and for link auditing. */
+export function allRoutes(): string[] {
+  const paths = new Set<string>(["/", "/contact", "/legal/privacy", "/sources"]);
+  for (const item of primaryNav) {
+    paths.add(item.href);
+    for (const child of item.children ?? []) paths.add(child.href);
+  }
+  return [...paths];
+}

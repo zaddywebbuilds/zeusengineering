@@ -1,9 +1,10 @@
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/LocaleLink";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { MediaPanel } from "@/components/ui/MediaPanel";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import type { FactStatus } from "@/data/facts";
+import type { Locale } from "@/i18n/config";
 
 export interface Crumb {
   label: string;
@@ -11,6 +12,7 @@ export interface Crumb {
 }
 
 interface Props {
+  lang: Locale;
   index?: string;
   label: string;
   /** Split on "\n" so the line breaks are an editorial decision. */
@@ -33,6 +35,7 @@ interface Props {
  * image sits beside the type as a framed panel — never behind it.
  */
 export function PageHeader({
+  lang,
   index,
   label,
   title,
@@ -69,12 +72,13 @@ export function PageHeader({
                         /
                       </span>
                     )}
-                    <Link
+                    <LocaleLink
+                      lang={lang}
                       href={crumb.href}
                       className="tech-label transition-colors duration-200 hover:text-ink"
                     >
                       {crumb.label}
-                    </Link>
+                    </LocaleLink>
                   </li>
                 ))}
               </ol>

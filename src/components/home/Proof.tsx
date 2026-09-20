@@ -4,6 +4,8 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { MediaPanel } from "@/components/ui/MediaPanel";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * The proof section — the only place on the homepage where operating figures
@@ -14,7 +16,8 @@ import { MediaPanel } from "@/components/ui/MediaPanel";
  * on heat describes methods, not rated conditions, and inventing a figure to
  * fill the space is exactly what this site is built to avoid.
  */
-export function Proof() {
+export function Proof({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   return (
     <section
       className="border-t border-[var(--rule)] bg-canvas"
@@ -22,9 +25,7 @@ export function Proof() {
     >
       <div className="shell py-12 lg:py-16">
         <div className="flex flex-wrap items-center gap-4">
-          <TechLabel index="03" className="reveal">
-            Operations
-          </TechLabel>
+          <TechLabel index="03" className="reveal">{t("Operations")}</TechLabel>
           <StatusBadge status="zeus-reported" className="reveal" />
         </div>
 
@@ -32,9 +33,7 @@ export function Proof() {
           text={"Built through\noperation."}
           className="h-section mt-7 max-w-[14ch]"
         />
-        <h2 id="proof-heading" className="sr-only">
-          Operations
-        </h2>
+        <h2 id="proof-heading" className="sr-only">{t("Operations")}</h2>
 
         <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
           Engineering experience developed running high-density compute
@@ -49,9 +48,7 @@ export function Proof() {
       <div className="border-t border-[var(--rule)]">
         <div className="shell grid grid-cols-1 gap-10 py-12 lg:grid-cols-2 lg:gap-12 lg:py-16">
           <div>
-            <TechLabel index="04" className="reveal mb-7">
-              Thermal management
-            </TechLabel>
+            <TechLabel index="04" className="reveal mb-7">{t("Thermal management")}</TechLabel>
             <MaskedHeading
               text={"Heat is the\nreal constraint."}
               className="h-sub max-w-[14ch]"
@@ -110,9 +107,9 @@ export function Proof() {
           <MediaPanel
             className="reveal"
             image="/images/concept/cooling-plant.webp"
-            alt="Concept visualisation of external cooling plant and containerised units at a coastal site"
+            alt={t("Concept visualisation of external cooling plant and containerised units at a coastal site")}
             video={{ desktop: "/video/zeus-plant.mp4" }}
-            label="Cooling plant"
+            label={t("Cooling plant")}
             note="Concept visualisation"
             aspect="video"
           />

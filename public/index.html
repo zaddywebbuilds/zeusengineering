@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZEUS Engineering</title>
+    <!--
+      This document exists only to send a visitor to their own language.
+
+      It is hand-written and deliberately outside the Next.js app: the whole
+      point is that it runs before any bundle is fetched, on a static host with
+      no server to negotiate Accept-Language. It must stay dependency free.
+
+      Crawlers are handled by the hreflang pair and the <noscript> links below,
+      so a bot that does not run script still reaches both real pages. It is
+      marked noindex because it has no content of its own; the indexable pages
+      are /en/ and /vi/.
+    -->
+    <meta name="robots" content="noindex, follow" />
+    <link rel="alternate" hreflang="en" href="./en/" />
+    <link rel="alternate" hreflang="vi" href="./vi/" />
+    <link rel="alternate" hreflang="x-default" href="./en/" />
+    <style>
+      html {
+        background: #f3efe8;
+        color: #2b2722;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+      }
+      .wrap {
+        margin: 18vh auto 0;
+        max-width: 26rem;
+        padding: 0 1.5rem;
+      }
+      p {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+      }
+      a {
+        color: #8a5a28;
+      }
+    </style>
+    <script>
+      (function () {
+        // At the site root, pathname IS the base path. Deriving it here keeps
+        // this file working both at a domain root and under a project path.
+        var BASE = location.pathname.replace(/\/+$/, "");
+        var KEY = "zeus.locale";
+
+        function pick() {
+          try {
+            var q = new URLSearchParams(location.search).get("lang");
+            if (q === "vi" || q === "en") return q;
+          } catch (e) {}
+
+          try {
+            var saved = localStorage.getItem(KEY);
+            if (saved === "vi" || saved === "en") return saved;
+          } catch (e) {}
+
+          try {
+            var langs =
+              navigator.languages && navigator.languages.length
+                ? navigator.languages
+                : [navigator.language || ""];
+            for (var i = 0; i < langs.length; i++) {
+              var tag = String(langs[i]).toLowerCase();
+              if (tag === "vi" || tag.indexOf("vi-") === 0) return "vi";
+              if (tag === "en" || tag.indexOf("en-") === 0) return "en";
+            }
+          } catch (e) {}
+
+          return "en";
+        }
+
+        // replace(), not assign(), so Back does not bounce off this page.
+        location.replace(BASE + "/" + pick() + "/" + (location.hash || ""));
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <noscript>
+        <p>
+          <a href="./en/">Continue in English</a>
+        </p>
+        <p lang="vi">
+          <a href="./vi/">Tiếp tục bằng tiếng Việt</a>
+        </p>
+      </noscript>
+    </div>
+  </body>
+</html>

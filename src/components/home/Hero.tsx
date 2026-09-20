@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/Button";
 import { MediaPanel } from "@/components/ui/MediaPanel";
 import { TechLabel } from "@/components/ui/TechLabel";
+import { MaskedHeading } from "@/components/ui/SectionHeading";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * The hero.
@@ -16,11 +19,12 @@ import { TechLabel } from "@/components/ui/TechLabel";
  * the operating facility — stated on the caption rail, quietly, rather than
  * as a banner.
  */
-export function Hero() {
+export function Hero({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   return (
     <section
       className="tech-grid relative overflow-hidden pt-[112px] lg:pt-[128px]"
-      aria-label="ZEUS Engineering introduction"
+      aria-label={t("ZEUS Engineering introduction")}
     >
       {/* A single ochre hairline: energy entering the page. */}
       <span
@@ -30,34 +34,23 @@ export function Hero() {
 
       <div className="shell-wide grid grid-cols-1 items-center gap-12 pb-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:gap-12 lg:pb-16">
         <div>
-          <TechLabel className="reveal mb-7">
-            ZEUS Engineering / Vietnam
-          </TechLabel>
+          <TechLabel className="reveal mb-7">{t("ZEUS Engineering / Vietnam")}</TechLabel>
 
-          <h1 className="display h-hero max-w-[15ch]">
-            <span className="mask-line">
-              <span>Engineering the</span>
-            </span>
-            <span className="mask-line">
-              <span style={{ transitionDelay: "90ms" }}>infrastructure</span>
-            </span>
-            <span className="mask-line">
-              <span style={{ transitionDelay: "180ms" }}>behind compute.</span>
-            </span>
-          </h1>
+          <MaskedHeading
+            as="h1"
+            text={t("Engineering the\ninfrastructure\nbehind compute.")}
+            className="h-hero max-w-[15ch]"
+          />
 
           <p className="reveal mt-9 max-w-[46ch] text-lg leading-relaxed text-slate">
-            Modular infrastructure for Bitcoin, AI and high-density computing,
-            engineered in Vietnam.
+            {t(
+              "Modular infrastructure for Bitcoin, AI and high-density computing, engineered in Vietnam.",
+            )}
           </p>
 
           <div className="reveal mt-10 flex flex-wrap items-center gap-4">
-            <Button href="/technology" arrow="diagonal">
-              Explore infrastructure
-            </Button>
-            <Button href="/investors" variant="secondary">
-              Investor relations
-            </Button>
+            <Button lang={lang} href="/technology" arrow="diagonal">{t("Explore infrastructure")}</Button>
+            <Button lang={lang} href="/investors" variant="secondary">{t("Investor relations")}</Button>
           </div>
 
           <div className="reveal mt-11 flex items-center gap-4">
@@ -65,15 +58,15 @@ export function Hero() {
               aria-hidden
               className="block h-10 w-px bg-[linear-gradient(to_bottom,var(--color-ochre),transparent)]"
             />
-            <TechLabel>Scroll to explore</TechLabel>
+            <TechLabel>{t("Scroll to explore")}</TechLabel>
           </div>
         </div>
 
         <MediaPanel
           className="reveal"
           image="/images/concept/zeus-plant-portrait.webp"
-          alt="ZEUS Engineering switchgear cabinets on a compute site at dusk, carrying the ZEUS Engineering wordmark and the line Powering the next generation of compute"
-          label="Power plant"
+          alt={t("ZEUS Engineering switchgear cabinets on a compute site at dusk, carrying the ZEUS Engineering wordmark and the line Powering the next generation of compute")}
+          label={t("Power plant")}
           note="Concept visualisation"
           aspect="portrait"
           priority

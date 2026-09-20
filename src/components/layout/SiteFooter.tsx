@@ -3,40 +3,44 @@ import Link from "next/link";
 import { company } from "@/data/company";
 import { contactPaths, primaryNav } from "@/data/navigation";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
+import { getDictionary } from "@/i18n/dictionary";
+import { localePath, type Locale } from "@/i18n/config";
 
-export function SiteFooter() {
+export function SiteFooter({ lang }: { lang: Locale }) {
+  const d = getDictionary(lang);
+
   return (
     <footer className="border-t border-[var(--rule)] bg-canvas">
       {/* Closing statement + the three conversion paths */}
       <section className="shell py-12 lg:py-16">
-        <MaskedHeading
-          text={"Let's build\nwhat computes next."}
-          className="h-section max-w-[16ch]"
-        />
+        <MaskedHeading text={d.footer.heading} className="h-section max-w-[16ch]" />
 
         <div className="mt-11 grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-3">
-          {contactPaths.map((path) => (
-            <Link
-              key={path.id}
-              href={path.href}
-              className="group flex flex-col justify-between gap-10 bg-canvas p-8 transition-colors duration-200 hover:bg-linen lg:p-10"
-            >
-              <div>
-                <h3 className="display text-[1.75rem] leading-none">
-                  {path.label}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-slate">
-                  {path.blurb}
-                </p>
-              </div>
-              <span
-                aria-hidden
-                className="text-xl transition-transform duration-200 group-hover:translate-x-1"
+          {contactPaths.map((path) => {
+            const c = d.nav.contactPaths[path.id];
+            return (
+              <Link
+                key={path.id}
+                href={localePath(lang, path.href)}
+                className="group flex flex-col justify-between gap-10 bg-canvas p-8 transition-colors duration-200 hover:bg-linen lg:p-10"
               >
-                →
-              </span>
-            </Link>
-          ))}
+                <div>
+                  <h3 className="display text-[1.75rem] leading-none">
+                    {c.label}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-slate">
+                    {c.blurb}
+                  </p>
+                </div>
+                <span
+                  aria-hidden
+                  className="text-xl transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
@@ -44,17 +48,17 @@ export function SiteFooter() {
       <div className="border-t border-[var(--rule)]">
         <div className="shell grid grid-cols-2 gap-x-8 gap-y-12 py-11 md:grid-cols-3 lg:grid-cols-6">
           {primaryNav.map((item) => (
-            <nav key={item.label} aria-label={item.label}>
-              <p className="tech-label mb-5">{item.label}</p>
+            <nav key={item.id} aria-label={d.nav.items[item.id].label}>
+              <p className="tech-label mb-5">{d.nav.items[item.id].label}</p>
               <ul className="space-y-3">
-                {(item.children ?? [{ label: item.label, href: item.href }]).map(
+                {(item.children ?? [{ id: item.id, href: item.href }]).map(
                   (child) => (
-                    <li key={child.href}>
+                    <li key={child.id}>
                       <Link
-                        href={child.href}
+                        href={localePath(lang, child.href)}
                         className="text-sm text-slate transition-colors duration-200 hover:text-ink"
                       >
-                        {child.label}
+                        {d.nav.items[child.id].label}
                       </Link>
                     </li>
                   ),
@@ -79,7 +83,7 @@ export function SiteFooter() {
             <p className="text-xs leading-relaxed text-slate-dim">
               {company.legalName}, {company.country}
               <br />
-              MST: {company.taxId}
+              {d.footer.registration}: {company.taxId}
             </p>
           </div>
 
@@ -99,18 +103,10 @@ export function SiteFooter() {
               LinkedIn
             </a>
             <Link
-              href="/legal/privacy"
+              href={localePath(lang, "/legal/privacy")}
               className="transition-colors duration-200 hover:text-ink"
             >
-              Privacy
-            </Link>
-            <Link
-              href="/vi"
-              lang="vi"
-              hrefLang="vi"
-              className="transition-colors duration-200 hover:text-ink"
-            >
-              Tiếng Việt
+              {d.footer.privacy}
             </Link>
             <span>
               © {new Date().getFullYear()} {company.legalName}

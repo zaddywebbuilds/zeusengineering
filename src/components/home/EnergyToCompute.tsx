@@ -1,31 +1,30 @@
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/LocaleLink";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
 import { company } from "@/data/company";
 import { MediaPanel } from "@/components/ui/MediaPanel";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * The turn from cinema into interface. Deliberately spare: one statement, one
  * paragraph, and the three-word spine of the whole narrative.
  */
-export function EnergyToCompute() {
+export function EnergyToCompute({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   return (
     <section
       className="tech-grid relative border-t border-[var(--rule)] bg-canvas"
       aria-labelledby="narrative-heading"
     >
       <div className="shell py-12 lg:py-16">
-        <TechLabel index="01" className="reveal mb-7">
-          Positioning
-        </TechLabel>
+        <TechLabel index="01" className="reveal mb-7">{t("Positioning")}</TechLabel>
 
         <MaskedHeading
           text={"From energy\nto compute."}
           className="h-section max-w-[12ch]"
         />
-        <h2 id="narrative-heading" className="sr-only">
-          From energy to compute
-        </h2>
+        <h2 id="narrative-heading" className="sr-only">{t("From energy to compute")}</h2>
 
         <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <p className="reveal text-xl leading-relaxed text-ink lg:text-2xl">
@@ -60,9 +59,9 @@ export function EnergyToCompute() {
         <div className="reveal mt-11 grid grid-cols-1 items-end gap-8 lg:grid-cols-[minmax(0,720px)_minmax(0,1fr)] lg:gap-12">
           <MediaPanel
             image="/images/zeus-plant-aerial-poster.webp"
-            alt="Aerial view of a compute site: a solar array, containerised units, external cooling plant and a hall carrying the ZEUS Engineering wordmark"
+            alt={t("Aerial view of a compute site: a solar array, containerised units, external cooling plant and a hall carrying the ZEUS Engineering wordmark")}
             video={{ desktop: "/video/zeus-plant-aerial.mp4" }}
-            label="Solar, containers, compute"
+            label={t("Solar, containers, compute")}
             note="Concept visualisation"
             aspect="ultrawide"
             maxWidth="720px"
@@ -77,18 +76,16 @@ export function EnergyToCompute() {
         </div>
 
         <div className="reveal mt-10">
-          <Link
+          <LocaleLink lang={lang}
             href="/vision"
             className="group inline-flex items-center gap-3 text-sm text-ink transition-colors duration-200 hover:text-ochre"
-          >
-            Read the full vision
-            <span
+          >{t("Read the full vision")}<span
               aria-hidden
               className="transition-transform duration-200 group-hover:translate-x-1"
             >
               →
             </span>
-          </Link>
+          </LocaleLink>
         </div>
 
         {/* The spine */}

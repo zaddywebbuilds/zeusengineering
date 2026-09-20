@@ -1,36 +1,39 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
-import { primaryNav } from "@/data/navigation";
+import { allRoutes } from "@/data/navigation";
+import { locales, localeMeta, localePath } from "@/i18n/config";
 
-// Required by `output: "export"` — these are emitted at build time.
+// Required by `output: "export"` — emitted at build time.
 export const dynamic = "force-static";
 
 /**
- * Built from the navigation data so a new route cannot be added to the menu
- * and forgotten in the sitemap.
+ * Every route, in every locale, each entry carrying the full alternates set.
+ *
+ * Built from `navigation.ts` so a route added to the menu cannot be forgotten
+ * here. `trailingSlash: true` means the canonical URL ends in a slash, so the
+ * sitemap has to agree with it or every entry is a redirect.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = new Set<string>([
-    "/",
-    "/contact",
-    "/legal/privacy",
-    "/sources",
-    "/vi",
-  ]);
+  const now = new Date();
+  const entries: MetadataRoute.Sitemap = [];
 
-  for (const item of primaryNav) {
-    paths.add(item.href);
-    for (const child of item.children ?? []) paths.add(child.href);
+  const abs = (lang: (typeof locales)[number], path: string) =>
+    `${SITE_URL}${localePath(lang, path)}${path === "/" ? "" : "/"}`;
+
+  for (const path of allRoutes()) {
+    const languages: Record<string, string> = {};
+    for (const l of locales) languages[localeMeta[l].hrefLang] = abs(l, path);
+
+    for (const lang of locales) {
+      entries.push({
+        url: abs(lang, path),
+        lastModified: now,
+        changeFrequency: path === "/" ? "monthly" : "yearly",
+        priority: path === "/" ? 1 : path.split("/").length === 2 ? 0.8 : 0.6,
+        alternates: { languages },
+      });
+    }
   }
 
-  const now = new Date();
-
-  return [...paths].map((path) => ({
-    // `trailingSlash: true` means the canonical URL ends in a slash. The
-    // sitemap has to agree with it, or every entry is a redirect.
-    url: `${SITE_URL}${path === "/" ? "/" : `${path}/`}`,
-    lastModified: now,
-    changeFrequency: path === "/" ? "monthly" : "yearly",
-    priority: path === "/" ? 1 : path.split("/").length === 2 ? 0.8 : 0.6,
-  }));
+  return entries;
 }

@@ -7,13 +7,20 @@ import { useEffect, useRef, useState } from "react";
 import { primaryNav } from "@/data/navigation";
 import { company } from "@/data/company";
 import { cx } from "@/lib/utils";
+import { getDictionary } from "@/i18n/dictionary";
+import { localePath, stripLocale, type Locale } from "@/i18n/config";
+import { LocaleSwitch } from "@/components/i18n/LocaleSwitch";
 
-export function SiteHeader() {
+export function SiteHeader({ lang }: { lang: Locale }) {
+  const d = getDictionary(lang);
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const closeTimer = useRef<number | undefined>(undefined);
+
+  /** Route within the current locale, so active state ignores the prefix. */
+  const route = stripLocale(pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -68,9 +75,9 @@ export function SiteHeader() {
     >
       <div className="shell-wide flex h-[72px] items-center justify-between gap-6">
         <Link
-          href="/"
+          href={localePath(lang, "/")}
           className="flex shrink-0 items-center"
-          aria-label={`${company.name}, home`}
+          aria-label={`${company.name}, ${d.common.home}`}
         >
           <Img
             src="/images/brand/zeus-wordmark-ink.webp"
@@ -90,70 +97,70 @@ export function SiteHeader() {
         >
           <ul className="flex items-center gap-1">
             {primaryNav.map((item) => {
+              const label = d.nav.items[item.id].label;
               const active =
-                pathname === item.href || pathname.startsWith(`${item.href}/`);
+                route === item.href || route.startsWith(`${item.href}/`);
               return (
                 <li
-                  key={item.label}
+                  key={item.id}
                   onMouseEnter={() => {
                     cancelClose();
-                    setOpenMenu(item.children ? item.label : null);
+                    setOpenMenu(item.children ? item.id : null);
                   }}
                 >
                   <Link
-                    href={item.href}
+                    href={localePath(lang, item.href)}
                     aria-expanded={
-                      item.children ? openMenu === item.label : undefined
+                      item.children ? openMenu === item.id : undefined
                     }
-                    onFocus={() =>
-                      setOpenMenu(item.children ? item.label : null)
-                    }
+                    onFocus={() => setOpenMenu(item.children ? item.id : null)}
                     className={cx(
                       "relative block px-4 py-2 text-sm transition-colors duration-200",
-                      active
-                        ? "text-ink"
-                        : "text-slate hover:text-ink",
+                      active ? "text-ink" : "text-slate hover:text-ink",
                     )}
                   >
-                    {item.label}
+                    {label}
                     <span
                       aria-hidden
                       className={cx(
                         "absolute inset-x-4 bottom-0 h-px origin-left bg-ochre transition-transform duration-300",
-                        active || openMenu === item.label
+                        active || openMenu === item.id
                           ? "scale-x-100"
                           : "scale-x-0",
                       )}
                     />
                   </Link>
 
-                  {item.children && openMenu === item.label && (
+                  {item.children && openMenu === item.id && (
                     <div
                       className="absolute inset-x-0 top-full border-y border-[var(--rule)] bg-[rgba(243,239,232,0.97)] backdrop-blur-md"
                       onMouseEnter={cancelClose}
                       onMouseLeave={scheduleClose}
                     >
                       <div className="shell-wide grid grid-cols-2 gap-px bg-[var(--rule)] py-px xl:grid-cols-5">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="group bg-canvas px-6 py-7 transition-colors duration-200 hover:bg-linen"
-                          >
-                            <span className="block text-sm text-ink">
-                              {child.label}
-                            </span>
-                            {child.blurb && (
-                              <span className="mt-2 block text-xs leading-relaxed text-slate-dim">
-                                {child.blurb}
+                        {item.children.map((child) => {
+                          const c = d.nav.items[child.id];
+                          return (
+                            <Link
+                              key={child.id}
+                              href={localePath(lang, child.href)}
+                              className="group bg-canvas px-6 py-7 transition-colors duration-200 hover:bg-linen"
+                            >
+                              <span className="block text-sm text-ink">
+                                {c.label}
                               </span>
-                            )}
-                            <span
-                              aria-hidden
-                              className="mt-4 block h-px w-6 origin-left bg-ochre transition-transform duration-300 group-hover:scale-x-[2.5]"
-                            />
-                          </Link>
-                        ))}
+                              {"blurb" in c && c.blurb && (
+                                <span className="mt-2 block text-xs leading-relaxed text-slate-dim">
+                                  {c.blurb}
+                                </span>
+                              )}
+                              <span
+                                aria-hidden
+                                className="mt-4 block h-px w-6 origin-left bg-ochre transition-transform duration-300 group-hover:scale-x-[2.5]"
+                              />
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
@@ -164,11 +171,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <LocaleSwitch lang={lang} route={route} className="hidden sm:flex" />
+
           <Link
-            href="/contact"
+            href={localePath(lang, "/contact")}
             className="hidden rounded-[3px] border border-[var(--rule-strong)] px-5 py-2.5 text-sm transition-colors duration-200 hover:border-ink hover:bg-ink/[0.04] sm:block"
           >
-            Contact
+            {d.common.contact}
           </Link>
 
           <button
@@ -179,7 +188,7 @@ export function SiteHeader() {
             className="flex h-11 w-11 items-center justify-center lg:hidden"
           >
             <span className="sr-only">
-              {mobileOpen ? "Close menu" : "Open menu"}
+              {mobileOpen ? d.nav.close : d.nav.openMenu}
             </span>
             <span aria-hidden className="relative block h-3 w-6">
               <span
@@ -208,22 +217,22 @@ export function SiteHeader() {
         <nav aria-label="Primary mobile" className="shell py-6">
           <ul className="divide-y divide-[var(--rule)]">
             {primaryNav.map((item) => (
-              <li key={item.label} className="py-5">
+              <li key={item.id} className="py-5">
                 <Link
-                  href={item.href}
+                  href={localePath(lang, item.href)}
                   className="display block text-[1.75rem] leading-none"
                 >
-                  {item.label}
+                  {d.nav.items[item.id].label}
                 </Link>
                 {item.children && (
                   <ul className="mt-4 space-y-3">
                     {item.children.map((child) => (
-                      <li key={child.href}>
+                      <li key={child.id}>
                         <Link
-                          href={child.href}
+                          href={localePath(lang, child.href)}
                           className="block py-1 text-sm text-slate"
                         >
-                          {child.label}
+                          {d.nav.items[child.id].label}
                         </Link>
                       </li>
                     ))}
@@ -232,12 +241,15 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
+
           <Link
-            href="/contact"
+            href={localePath(lang, "/contact")}
             className="mt-8 block rounded-[3px] bg-ink px-6 py-4 text-center text-sm font-medium text-canvas"
           >
-            Contact
+            {d.common.contact}
           </Link>
+
+          <LocaleSwitch lang={lang} route={route} className="mt-6 w-full justify-center" />
         </nav>
       </div>
     </header>

@@ -5,6 +5,8 @@ import { TechLabel } from "@/components/ui/TechLabel";
 import { MediaPanel } from "@/components/ui/MediaPanel";
 import { cx } from "@/lib/utils";
 import { useGsapContext, gsap } from "@/components/motion/useGsap";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * Signature interaction #2 — the three-chapter narrative.
@@ -54,7 +56,8 @@ const chapters = [
   },
 ];
 
-export function BitcoinToAi() {
+export function BitcoinToAi({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   const root = useRef<HTMLDivElement>(null);
 
   useGsapContext(root, () => {
@@ -86,12 +89,8 @@ export function BitcoinToAi() {
       aria-labelledby="journey-heading"
     >
       <div className="shell pt-12 lg:pt-16">
-        <TechLabel index="05" className="reveal mb-7">
-          Where this goes
-        </TechLabel>
-        <h2 id="journey-heading" className="sr-only">
-          From Bitcoin infrastructure to AI and modular compute
-        </h2>
+        <TechLabel index="05" className="reveal mb-7">{t("Where this goes")}</TechLabel>
+        <h2 id="journey-heading" className="sr-only">{t("From Bitcoin infrastructure to AI and modular compute")}</h2>
       </div>
 
       {chapters.map((chapter, i) => (

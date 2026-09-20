@@ -1,10 +1,12 @@
-import Link from "next/link";
+import { LocaleLink } from "@/components/i18n/LocaleLink";
 import { site } from "@/data/company";
 import { currentOperations } from "@/data/metrics";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { MediaPanel } from "@/components/ui/MediaPanel";
 import { MaskedHeading } from "@/components/ui/SectionHeading";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * Project 001 — the operating site.
@@ -13,7 +15,8 @@ import { MaskedHeading } from "@/components/ui/SectionHeading";
  * canvas at full contrast, and the visualisation is framed and labelled as
  * a concept rather than passing for site photography.
  */
-export function ProjectPanel() {
+export function ProjectPanel({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   return (
     <section
       className="border-t border-[var(--rule)] bg-canvas"
@@ -23,7 +26,7 @@ export function ProjectPanel() {
         <div>
           <div className="flex flex-wrap items-center gap-4">
             <TechLabel className="reveal">{site.projectId}</TechLabel>
-            <StatusBadge status="zeus-reported" label="Operating" className="reveal" />
+            <StatusBadge status="zeus-reported" label={t("Operating")} className="reveal" />
           </div>
 
           <MaskedHeading
@@ -60,24 +63,22 @@ export function ProjectPanel() {
             ))}
           </dl>
 
-          <Link
+          <LocaleLink lang={lang}
             href={`/projects/${site.slug}`}
             className="group mt-10 inline-flex items-center gap-3 text-sm text-ink transition-colors duration-200 hover:text-ochre"
-          >
-            Explore project
-            <span
+          >{t("Explore project")}<span
               aria-hidden
               className="transition-transform duration-200 group-hover:translate-x-1"
             >
               →
             </span>
-          </Link>
+          </LocaleLink>
         </div>
 
         <MediaPanel
           className="reveal"
           image="/images/concept/campus-aerial.webp"
-          alt="Concept visualisation of a ZEUS site: containerised units, a solar array and a compute hall beside the coast"
+          alt={t("Concept visualisation of a ZEUS site: containerised units, a solar array and a compute hall beside the coast")}
           label={site.projectId}
           note="Concept visualisation"
           aspect="portrait"

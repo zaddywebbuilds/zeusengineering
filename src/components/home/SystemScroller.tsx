@@ -6,6 +6,8 @@ import { SystemDiagram } from "@/components/diagrams/SystemDiagram";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { useGsapContext, ScrollTrigger } from "@/components/motion/useGsap";
 import { cx } from "@/lib/utils";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * Signature interaction #1 — the sticky system section.
@@ -15,7 +17,8 @@ import { cx } from "@/lib/utils";
  * sequence with the diagram at its final state: no information is carried by
  * the animation alone.
  */
-export function SystemScroller() {
+export function SystemScroller({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   const root = useRef<HTMLDivElement>(null);
   const [stage, setStage] = useState(0);
 
@@ -47,9 +50,7 @@ export function SystemScroller() {
       aria-labelledby="system-heading"
     >
       <div className="shell py-12 lg:py-16">
-        <TechLabel index="02" className="reveal mb-7">
-          The system
-        </TechLabel>
+        <TechLabel index="02" className="reveal mb-7">{t("The system")}</TechLabel>
         <h2 id="system-heading" className="display h-section max-w-[18ch]">
           <span className="mask-line">
             <span>Power. Cooling.</span>
@@ -131,13 +132,9 @@ export function SystemScroller() {
 
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
             <span className="tech-label flex items-center gap-2">
-              <span className="h-2 w-2 bg-ochre" aria-hidden />
-              Energy
-            </span>
+              <span className="h-2 w-2 bg-ochre" aria-hidden />{t("Energy")}</span>
             <span className="tech-label flex items-center gap-2">
-              <span className="h-2 w-2 bg-sage" aria-hidden />
-              Compute
-            </span>
+              <span className="h-2 w-2 bg-sage" aria-hidden />{t("Compute")}</span>
           </div>
         </div>
       </div>

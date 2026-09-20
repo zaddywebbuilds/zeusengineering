@@ -1,0 +1,192 @@
+import type { Metadata } from "next";
+import { PageHeader } from "@/components/layout/PageHeader";
+import { Section, StepList } from "@/components/ui/Section";
+import { MediaPanel } from "@/components/ui/MediaPanel";
+import { StatusBadge } from "@/components/ui/StatusBadge";
+import { TechLabel } from "@/components/ui/TechLabel";
+import { Button } from "@/components/ui/Button";
+import { ssmdc } from "@/data/products";
+import { Figure } from "@/components/diagrams/Figure";
+import { NodeSitePlan } from "@/components/diagrams/NodeSitePlan";
+import { DeploymentSequence } from "@/components/diagrams/DeploymentSequence";
+import { pageMeta } from "@/lib/seo";
+import { translator } from "@/i18n/t";
+import { toLocale, type LangPageProps } from "@/i18n/page";
+
+export async function generateMetadata({
+  params,
+}: LangPageProps): Promise<Metadata> {
+  const { lang: rawLang } = await params;
+  const lang = toLocale(rawLang);
+  const t = translator(lang);
+
+  return pageMeta({
+    lang,
+    title: t("Modular Data Centers"),
+    description:
+      t("Containerised compute infrastructure deployed in months, not years. The SSMDC: ZEUS's Small Solar Modular Data Centre for Vietnam."),
+    path: "/solutions/modular-data-centers",
+  });
+}
+
+const deployment = [
+  { step: "01", title: "Design", body: "A standardised unit specified against the site's available power and thermal conditions." },
+  { step: "02", title: "Manufacture", body: "Built to a repeatable specification rather than assembled uniquely on site." },
+  { step: "03", title: "Transport", body: "Containerised form factor, moved by conventional freight." },
+  { step: "04", title: "Install", body: "Placed close to the available energy source rather than the other way round." },
+  { step: "05", title: "Connect", body: "Tied into grid supply and any local solar generation." },
+  { step: "06", title: "Operate", body: "Run under automation and remote monitoring." },
+];
+
+export default async function ModularDataCentersPage({ params }: LangPageProps) {
+  const { lang: rawLang } = await params;
+  const lang = toLocale(rawLang);
+  const t = translator(lang);
+
+  return (
+    <>
+      <PageHeader
+        lang={lang}
+        index="01"
+        label={t("Solutions")}
+        title={"Compute.\nContainerised."}
+        lede="Rather than concentrating resources into massive single-site deployments, ZEUS develops standardised systems that can be manufactured, moved and commissioned close to available energy, and then repeated."
+        crumbs={[
+          { label: "Home", href: "/" },
+          { label: "Solutions", href: "/solutions" },
+        ]}
+        media={{
+          image: "/images/concept/campus-aerial.webp",
+          alt: "Concept visualisation of a modular compute campus with containerised units and a solar array",
+          label: "Modular campus",
+          note: "Concept visualisation",
+        }}
+      />
+
+      <Section
+        index="02"
+        label="Why modular"
+        title={"Contain\nsystem risk."}
+        lede="A modular approach reduces deployment risk, minimises the impact of an individual system failure, improves maintainability, and allows infrastructure to be placed closer to available energy sources."
+      >
+        <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { t: "Lower risk", b: "Deployment is incremental rather than all at once." },
+            { t: "Contained failure", b: "One unit failing is not the whole site failing." },
+            { t: "Maintainable", b: "Standard units mean standard parts and procedures." },
+            { t: "Sited by energy", b: "Infrastructure moves to the power, not the reverse." },
+          ].map((item) => (
+            <div key={item.t} className="reveal bg-canvas p-7">
+              <h3 className="display text-[1.375rem] leading-none">{item.t}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-slate">{item.b}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="reveal mt-10 max-w-[64ch] leading-relaxed text-slate">
+          It also lowers the barrier to entry. Standardised units create
+          opportunities for both small and large investors to participate in
+          digital infrastructure without the commitments that come with
+          large-scale development.
+        </p>
+      </Section>
+
+      {/* SSMDC */}
+      <Section tone="linen">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <div className="flex flex-wrap items-center gap-4">
+              <TechLabel index="03" className="reveal">
+                {ssmdc.fullName}
+              </TechLabel>
+              <StatusBadge status="concept" className="reveal" />
+            </div>
+
+            <h2 className="display h-sub mt-7 max-w-[14ch]">
+              <span className="mask-line">
+                <span>Small footprint.</span>
+              </span>
+              <span className="mask-line">
+                <span style={{ transitionDelay: "90ms" }}>Serious compute.</span>
+              </span>
+            </h2>
+
+            <div className="reveal mt-8 space-y-5">
+              {ssmdc.description.map((para) => (
+                <p key={para.slice(0, 24)} className="leading-relaxed text-slate">
+                  {para}
+                </p>
+              ))}
+            </div>
+
+            <dl className="reveal mt-10 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
+              {ssmdc.specs?.map((group) => (
+                <div key={group.group} className="py-6">
+                  <dt className="tech-label">{group.group}</dt>
+                  <dd className="mt-3">
+                    <ul className="space-y-2">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex gap-3 text-sm text-slate">
+                          <span aria-hidden className="mt-2 h-px w-4 shrink-0 bg-ochre/60" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <p className="reveal mt-6 text-sm text-slate-dim">
+              {ssmdc.statusNote}
+            </p>
+          </div>
+
+          <div className="lg:sticky lg:top-[112px] lg:self-start">
+            <MediaPanel
+              className="reveal"
+              image={ssmdc.image}
+              alt={ssmdc.imageAlt}
+              label="ZEUS engineering drawing"
+              aspect="square"
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="linen">
+        <Figure
+          label="400 m² node, plan view"
+          caption="Pad, containers and human figure drawn to scale. ZEUS has not published a site layout, so the arrangement is illustrative; the dimensions are not."
+        >
+          <NodeSitePlan />
+        </Figure>
+      </Section>
+
+      <Section
+        index="04"
+        label="Deployment"
+        title={"Design once.\nDeploy repeatedly."}
+        lede="The sequence a standardised unit follows, from specification through to operation."
+      >
+        <Figure
+          label="Two streams, one convergence"
+          caption="The unit is built off site while the site is prepared, so the two streams do not queue behind one another. No duration is shown for an individual step; ZEUS publishes only the overall comparison."
+          tone="linen"
+          className="mb-10"
+        >
+          <DeploymentSequence />
+        </Figure>
+
+        <StepList steps={deployment} />
+
+        <div className="reveal mt-10 flex flex-wrap items-center gap-4">
+          <Button lang={lang} href="/contact?intent=build">Build with Zeus</Button>
+          <Button lang={lang} href="/technology" variant="secondary">
+            See the technology
+          </Button>
+        </div>
+      </Section>
+    </>
+  );
+}
