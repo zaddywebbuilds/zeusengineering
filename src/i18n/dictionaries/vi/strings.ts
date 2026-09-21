@@ -1066,4 +1066,79 @@ export const viStrings: Record<string, string> = {
   "ZEUS publishes no renewable-energy percentage, linen reduction or environmental-saving figure, and none is stated here.": "ZEUS không công bố tỷ lệ năng lượng tái tạo, mức giảm chi phí hay số liệu tiết kiệm môi trường nào, và không có gì được nêu ở đây.",
   "Power architecture": "Kiến trúc điện",
 
+  // ── EnergyToCompute component ─────────────────────────────────────────────────
+  "Founded in": "Được thành lập vào",
+  "ZEUS Engineering is": "ZEUS Engineering là",
+
+  // ── Expansion component ────────────────────────────────────────────────────────
+  "ZEUS's September 2026 SSMDC deck describes a 100 kWp operational ASIC prototype. Earlier ZEUS material separately describes the Vung Tau operation as a 100 kW facility with 20 kW peak solar. ZEUS has not clarified how the two relate.":
+    "Bộ tài liệu SSMDC tháng 9 năm 2026 của ZEUS mô tả một nguyên mẫu ASIC hoạt động 100 kWp. Tài liệu trước đó của ZEUS mô tả riêng cơ sở Vũng Tàu là cơ sở 100 kW với 20 kW điện mặt trời đỉnh. ZEUS chưa làm rõ mối liên hệ giữa hai mô tả này.",
+
+  // ── NodeModel component ────────────────────────────────────────────────────────
+  "ZEUS range.": "Phạm vi ZEUS.",
+  "Your assumption.": "Giả định của bạn.",
+  "From ZEUS": "Từ ZEUS",
+  "Published design range": "Phạm vi thiết kế đã công bố",
+  "These four sliders cannot be dragged outside the ranges ZEUS published for a 400 m\u00b2 class node. The bounds are the claim.":
+    "Bốn thanh trượt này không thể kéo ra ngoài các phạm vi mà ZEUS đã công bố cho một cụm loại 400 m\u00b2. Giới hạn chính là tuyên bố.",
+  "Solar capacity": "Công suất mặt trời",
+  "ZEUS gives 80 to 120 kWp as the realistic working range.":
+    "ZEUS cho biết 80 đến 120 kWp là phạm vi làm việc thực tế.",
+  "ZEUS gives 50 to 75 kW average, with higher peaks carried by storage.":
+    "ZEUS cho biết trung bình 50 đến 75 kW, với các đỉnh tải cao hơn được pin xử lý.",
+  "DC-DC power saving": "Tiết kiệm điện DC-DC",
+  "ZEUS estimates 8 to 15% facility-level saving, with 10 to 12% as its central case. Its own estimate, not an independently measured result.":
+    "ZEUS ước tính tiết kiệm 8 đến 15% ở cấp độ cơ sở, với 10 đến 12% là trường hợp trung tâm. Đây là ước tính của chính công ty, không phải kết quả đo lường độc lập.",
+  "GPUs per node": "GPU mỗi cụm",
+  "ZEUS specifies 24 to 32 H100 or H200 class GPUs, in three to four 8-GPU servers.":
+    "ZEUS chỉ định 24 đến 32 GPU loại H100 hoặc H200, trong ba đến bốn máy chủ 8 GPU.",
+  Yours: "Của bạn",
+  "No ZEUS source": "Không có nguồn ZEUS",
+  "ZEUS has published no tariff, no utilisation, no price and no PUE. These four defaults are placeholders, not ZEUS figures. Replace them with your own and the model below follows.":
+    "ZEUS chưa công bố biểu giá, mức sử dụng, giá hay PUE nào. Bốn giá trị mặc định này là giá trị giả định, không phải số liệu của ZEUS. Hãy thay thế bằng số liệu của bạn và mô hình bên dưới sẽ phản ánh.",
+  "Facility PUE": "PUE cơ sở",
+  "Total facility energy divided by IT energy. ZEUS publishes no PUE for the SSMDC, so nothing here is a ZEUS claim about efficiency.":
+    "Tổng năng lượng cơ sở chia cho năng lượng IT. ZEUS không công bố PUE cho SSMDC, vì vậy không có gì ở đây là tuyên bố của ZEUS về hiệu suất.",
+  "Grid tariff": "Giá điện lưới",
+  "What imported grid power costs at the site. Set this from your own view of Vietnamese industrial tariffs.":
+    "Chi phí điện lưới nhập khẩu tại cơ sở. Hãy đặt theo quan điểm của bạn về biểu giá công nghiệp Việt Nam.",
+  "GPU utilisation sold": "Tỷ lệ GPU đã bán",
+  "The share of available GPU hours actually sold. This is the input most likely to decide whether the node works.":
+    "Tỷ lệ GPU-giờ có sẵn thực sự được bán. Đây là đầu vào có khả năng quyết định nhất liệu cụm có hiệu quả không.",
+  "Price per GPU hour": "Giá mỗi GPU-giờ",
+  "What you believe a node of this class can charge. ZEUS has published no price, so this number is entirely yours.":
+    "Mức giá bạn cho rằng một cụm loại này có thể tính. ZEUS chưa công bố giá, vì vậy con số này hoàn toàn là của bạn.",
+  "Energy, per node per year": "Năng lượng, mỗi cụm mỗi năm",
+  "Site demand": "Nhu cầu điện cơ sở",
+  "MWh before the DC-DC saving is applied.": "MWh trước khi áp dụng tiết kiệm DC-DC.",
+  "Interpolated between ZEUS's published endpoints, 80 kWp to 130 MWh and 120 kWp to 190 MWh.":
+    "Nội suy giữa hai điểm đầu cuối ZEUS đã công bố: 80 kWp cho 130 MWh và 120 kWp cho 190 MWh.",
+  "Generation as a share of demand, not measured self-consumption. See the note below.":
+    "Phát điện tính theo tỷ lệ nhu cầu, không phải tự tiêu thụ đo được. Xem ghi chú bên dưới.",
+  "MWh imported at your tariff.": "MWh nhập khẩu theo biểu giá của bạn.",
+  "Solar against demand": "Mặt trời so với nhu cầu",
+  "Grid energy cost": "Chi phí điện lưới",
+  "Your revenue model": "Mô hình doanh thu của bạn",
+  "GPU hours sold": "GPU-giờ đã bán",
+  "GPUs at": "GPU ở mức",
+  "% utilisation.": "% mức sử dụng.",
+  "of grid energy per GPU hour sold.": "chi phí điện lưới mỗi GPU-giờ bán được.",
+  "Gross revenue": "Doanh thu gộp",
+  "Energy as share of revenue": "Chi phí điện so với doanh thu",
+  "Revenue after grid energy": "Doanh thu sau chi phí điện lưới",
+  "Before hardware, staff, land, connectivity, insurance, import duty and tax are all excluded. Nothing on this page is investment advice or a forecast of returns. Verify independently before relying on any of it.":
+    "Trước khi tính phần cứng, nhân sự, đất đai, kết nối, bảo hiểm, thuế nhập khẩu và thuế đều bị loại trừ. Không có gì trên trang này là tư vấn đầu tư hay dự báo lợi nhuận. Hãy tự xác minh trước khi dựa vào bất kỳ điều gì.",
+  "Your model, not ZEUS's": "Mô hình của bạn, không phải của ZEUS",
+  "This output is not a ZEUS projection.": "Kết quả này không phải là dự đoán của ZEUS.",
+  "ZEUS has published no revenue, price, utilisation or return figure for the SSMDC. Four of the eight inputs above have no ZEUS source at all, so the result is a consequence of your assumptions, not a forecast the company has made or endorsed.":
+    "ZEUS chưa công bố số liệu doanh thu, giá, mức sử dụng hay lợi nhuận nào cho SSMDC. Bốn trong tám đầu vào ở trên hoàn toàn không có nguồn ZEUS, vì vậy kết quả là hệ quả từ các giả định của bạn, không phải dự báo của công ty.",
+  "Solar coverage is an optimistic bound.": "Tỷ lệ bù đắp từ mặt trời là giới hạn lạc quan.",
+  "The solar figure compares annual generation with annual demand. It assumes every kilowatt-hour generated is used on site. Real self-consumption depends on the generation and load profiles across a day, which ZEUS has not published, so true grid import will be higher than shown.":
+    "Con số mặt trời so sánh phát điện hàng năm với nhu cầu hàng năm. Nó giả định mỗi kilowatt-giờ phát ra đều được sử dụng tại chỗ. Tự tiêu thụ thực tế phụ thuộc vào hồ sơ phát điện và tải trong ngày, mà ZEUS chưa công bố, nên lượng điện lưới nhập thực tế sẽ cao hơn con số hiển thị.",
+  "Only energy is netted off.": "Chỉ có điện được khấu trừ.",
+  "Hardware amortisation, staff, land, connectivity, insurance, import duty and tax are all excluded. Nothing on this page is investment advice or a forecast of returns. Verify independently before relying on any of it.":
+    "Khấu hao phần cứng, nhân sự, đất đai, kết nối, bảo hiểm, thuế nhập khẩu và thuế đều bị loại trừ. Không có gì trên trang này là tư vấn đầu tư hay dự báo lợi nhuận. Hãy tự xác minh trước khi dựa vào bất kỳ điều gì.",
+  "Before hardware, staff, land, network, tax and every other cost. This is not a profit figure.":
+    "Trước khi tính phần cứng, nhân sự, đất đai, mạng lưới, thuế và mọi chi phí khác. Đây không phải là số liệu lợi nhuận.",
+
 };

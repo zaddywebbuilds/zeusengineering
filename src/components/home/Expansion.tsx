@@ -34,9 +34,7 @@ export function Expansion({ lang }: { lang: Locale }) {
         <h2 id="comparison-heading" className="sr-only">{t("Hyperscale compared with SSMDC")}</h2>
 
         <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
-          How ZEUS sees the deployment model: many small nodes rather than one
-          large campus. This is the company&rsquo;s own design thesis, not an
-          independent industry benchmark.
+          {t("How ZEUS sees the deployment model: many small nodes rather than one large campus. This is the company's own design thesis, not an independent industry benchmark.")}
         </p>
 
         <Figure
@@ -73,17 +71,17 @@ export function Expansion({ lang }: { lang: Locale }) {
                     scope="row"
                     className="py-5 pr-6 align-top text-sm font-normal text-ink"
                   >
-                    {row.capability}
+                    {t(row.capability)}
                     {/* Hyperscale value folds under the label on small screens */}
                     <span className="mt-2 block text-sm text-slate-dim sm:hidden">
-                      Hyperscale: {row.hyperscale}
+                      {t("Hyperscale:")} {t(row.hyperscale)}
                     </span>
                   </th>
                   <td className="hidden py-5 pr-6 align-top text-sm text-slate-dim sm:table-cell">
-                    {row.hyperscale}
+                    {t(row.hyperscale)}
                   </td>
                   <td className="py-5 align-top text-sm text-sage">
-                    {row.ssmdc}
+                    {t(row.ssmdc)}
                   </td>
                 </tr>
               ))}
@@ -94,13 +92,12 @@ export function Expansion({ lang }: { lang: Locale }) {
         <div className="reveal mt-8 flex flex-wrap items-center gap-x-4 gap-y-3">
           <StatusBadge status="target" label={t("ZEUS's comparison")} />
           <p className="max-w-[64ch] text-sm text-slate-dim">
-            Only the final row describes something that exists, the 100 kWp
-            prototype. The rest compares an operating model against a design.
+            {t("Only the final row describes something that exists, the 100 kWp prototype. The rest compares an operating model against a design.")}
           </p>
         </div>
 
         <p className="reveal mt-4 max-w-[72ch] text-xs leading-relaxed text-slate-dim">
-          {prototypeUnitNote}
+          {t(prototypeUnitNote)}
         </p>
 
         <div className="reveal mt-12 flex flex-wrap items-center gap-4">

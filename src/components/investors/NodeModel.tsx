@@ -4,6 +4,8 @@ import { useId, useState } from "react";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { TechLabel } from "@/components/ui/TechLabel";
 import { cx } from "@/lib/utils";
+import { translator } from "@/i18n/t";
+import type { Locale } from "@/i18n/config";
 
 /**
  * The node model.
@@ -68,6 +70,7 @@ interface ControlProps {
   note: string;
   onChange: (n: number) => void;
   format?: (n: number) => string;
+  t: (s: string) => string;
 }
 
 function Control({
@@ -81,6 +84,7 @@ function Control({
   note,
   onChange,
   format,
+  t,
 }: ControlProps) {
   const id = useId();
   const noteId = `${id}-note`;
@@ -127,11 +131,11 @@ function Control({
       <p id={noteId} className="mt-3 text-sm leading-relaxed text-slate-dim">
         {provenance === "zeus" ? (
           <span className="mr-2 font-medium uppercase tracking-[0.12em] text-ochre">
-            ZEUS range.
+            {t("ZEUS range.")}
           </span>
         ) : (
           <span className="mr-2 font-medium uppercase tracking-[0.12em] text-slate">
-            Your assumption.
+            {t("Your assumption.")}
           </span>
         )}
         {note}
@@ -169,7 +173,8 @@ function Output({
   );
 }
 
-export function NodeModel() {
+export function NodeModel({ lang }: { lang: Locale }) {
+  const t = translator(lang);
   // ZEUS published ranges, D2 pages 7 and 8.
   const [solarKwp, setSolarKwp] = useState(100);
   const [itLoadKw, setItLoadKw] = useState(60);
@@ -204,123 +209,128 @@ export function NodeModel() {
       <div className="grid grid-cols-1 gap-px bg-[var(--rule)] lg:grid-cols-2">
         <div className="bg-canvas p-7 lg:p-9">
           <div className="flex flex-wrap items-center gap-3">
-            <TechLabel className="text-ink">From ZEUS</TechLabel>
-            <StatusBadge status="target" label="Published design range" />
+            <TechLabel className="text-ink">{t("From ZEUS")}</TechLabel>
+            <StatusBadge status="target" label={t("Published design range")} />
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate">
-            These four sliders cannot be dragged outside the ranges ZEUS
-            published for a 400 m&sup2; class node. The bounds are the claim.
+            {t("These four sliders cannot be dragged outside the ranges ZEUS published for a 400 m² class node. The bounds are the claim.")}
           </p>
 
           <div className="mt-4 divide-y divide-[var(--rule)]">
             <Control
-              label="Solar capacity"
+              label={t("Solar capacity")}
               value={solarKwp}
               min={80}
               max={120}
               step={1}
               unit="kWp"
               provenance="zeus"
-              note="ZEUS gives 80 to 120 kWp as the realistic working range."
+              note={t("ZEUS gives 80 to 120 kWp as the realistic working range.")}
               onChange={setSolarKwp}
+              t={t}
             />
             <Control
-              label="Continuous IT load"
+              label={t("Continuous IT load")}
               value={itLoadKw}
               min={50}
               max={75}
               step={1}
               unit="kW"
               provenance="zeus"
-              note="ZEUS gives 50 to 75 kW average, with higher peaks carried by storage."
+              note={t("ZEUS gives 50 to 75 kW average, with higher peaks carried by storage.")}
               onChange={setItLoadKw}
+              t={t}
             />
             <Control
-              label="DC-DC power saving"
+              label={t("DC-DC power saving")}
               value={dcSaving}
               min={8}
               max={15}
               step={0.5}
               unit="%"
               provenance="zeus"
-              note="ZEUS estimates 8 to 15% facility-level saving, with 10 to 12% as its central case. Its own estimate, not an independently measured result."
+              note={t("ZEUS estimates 8 to 15% facility-level saving, with 10 to 12% as its central case. Its own estimate, not an independently measured result.")}
               onChange={setDcSaving}
               format={(n) => fmt(n, 1)}
+              t={t}
             />
             <Control
-              label="GPUs per node"
+              label={t("GPUs per node")}
               value={gpuCount}
               min={24}
               max={32}
               step={1}
               unit="GPUs"
               provenance="zeus"
-              note="ZEUS specifies 24 to 32 H100 or H200 class GPUs, in three to four 8-GPU servers."
+              note={t("ZEUS specifies 24 to 32 H100 or H200 class GPUs, in three to four 8-GPU servers.")}
               onChange={setGpuCount}
+              t={t}
             />
           </div>
         </div>
 
         <div className="bg-linen p-7 lg:p-9">
           <div className="flex flex-wrap items-center gap-3">
-            <TechLabel className="text-ink">Yours</TechLabel>
+            <TechLabel className="text-ink">{t("Yours")}</TechLabel>
             <span className="inline-flex items-center gap-2 border border-slate/35 px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-slate">
-              No ZEUS source
+              {t("No ZEUS source")}
             </span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate">
-            ZEUS has published no tariff, no utilisation, no price and no PUE.
-            These four defaults are placeholders, not ZEUS figures. Replace them
-            with your own and the model below follows.
+            {t("ZEUS has published no tariff, no utilisation, no price and no PUE. These four defaults are placeholders, not ZEUS figures. Replace them with your own and the model below follows.")}
           </p>
 
           <div className="mt-4 divide-y divide-[var(--rule)]">
             <Control
-              label="Facility PUE"
+              label={t("Facility PUE")}
               value={pue}
               min={1}
               max={1.6}
               step={0.01}
               unit="×"
               provenance="yours"
-              note="Total facility energy divided by IT energy. ZEUS publishes no PUE for the SSMDC, so nothing here is a ZEUS claim about efficiency."
+              note={t("Total facility energy divided by IT energy. ZEUS publishes no PUE for the SSMDC, so nothing here is a ZEUS claim about efficiency.")}
               onChange={setPue}
               format={(n) => fmt(n, 2)}
+              t={t}
             />
             <Control
-              label="Grid tariff"
+              label={t("Grid tariff")}
               value={tariff}
               min={0.03}
               max={0.2}
               step={0.005}
               unit="/ kWh"
               provenance="yours"
-              note="What imported grid power costs at the site. Set this from your own view of Vietnamese industrial tariffs."
+              note={t("What imported grid power costs at the site. Set this from your own view of Vietnamese industrial tariffs.")}
               onChange={setTariff}
               format={(n) => `$${n.toFixed(3)}`}
+              t={t}
             />
             <Control
-              label="GPU utilisation sold"
+              label={t("GPU utilisation sold")}
               value={utilisation}
               min={10}
               max={95}
               step={1}
               unit="%"
               provenance="yours"
-              note="The share of available GPU hours actually sold. This is the input most likely to decide whether the node works."
+              note={t("The share of available GPU hours actually sold. This is the input most likely to decide whether the node works.")}
               onChange={setUtilisation}
+              t={t}
             />
             <Control
-              label="Price per GPU hour"
+              label={t("Price per GPU hour")}
               value={gpuRate}
               min={0.25}
               max={6}
               step={0.05}
               unit="/ GPU-hr"
               provenance="yours"
-              note="What you believe a node of this class can charge. ZEUS has published no price, so this number is entirely yours."
+              note={t("What you believe a node of this class can charge. ZEUS has published no price, so this number is entirely yours.")}
               onChange={setGpuRate}
               format={(n) => `$${n.toFixed(2)}`}
+              t={t}
             />
           </div>
         </div>
@@ -328,51 +338,51 @@ export function NodeModel() {
 
       {/* Energy outputs */}
       <div className="border-t border-[var(--rule)] bg-linen px-7 pt-7 lg:px-9 lg:pt-9">
-        <TechLabel>Energy, per node per year</TechLabel>
+        <TechLabel>{t("Energy, per node per year")}</TechLabel>
       </div>
       <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-4">
         <Output
-          label="Site demand"
+          label={t("Site demand")}
           value={`${fmt(afterDcMwh)} MWh`}
-          sub={`${fmt(facilityEnergyMwh)} MWh before the DC-DC saving is applied.`}
+          sub={`${fmt(facilityEnergyMwh)} ${t("MWh before the DC-DC saving is applied.")}`}
         />
         <Output
-          label="Solar generation"
+          label={t("Solar generation")}
           value={`${fmt(solarMwh)} MWh`}
-          sub="Interpolated between ZEUS's published endpoints, 80 kWp to 130 MWh and 120 kWp to 190 MWh."
+          sub={t("Interpolated between ZEUS's published endpoints, 80 kWp to 130 MWh and 120 kWp to 190 MWh.")}
         />
         <Output
-          label="Solar against demand"
+          label={t("Solar against demand")}
           value={`${fmt(solarShare)}%`}
-          sub="Generation as a share of demand, not measured self-consumption. See the note below."
+          sub={t("Generation as a share of demand, not measured self-consumption. See the note below.")}
         />
         <Output
-          label="Grid energy cost"
+          label={t("Grid energy cost")}
           value={money(gridCost)}
-          sub={`${fmt(gridMwh)} MWh imported at your tariff.`}
+          sub={`${fmt(gridMwh)} ${t("MWh imported at your tariff.")}`}
         />
       </div>
 
       {/* Compute outputs */}
       <div className="border-t border-[var(--rule)] bg-linen px-7 pt-7 lg:px-9 lg:pt-9">
-        <TechLabel>Your revenue model</TechLabel>
+        <TechLabel>{t("Your revenue model")}</TechLabel>
       </div>
       <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-4">
         <Output
-          label="GPU hours sold"
+          label={t("GPU hours sold")}
           value={fmt(gpuHours)}
-          sub={`${gpuCount} GPUs at ${fmt(utilisation)}% utilisation.`}
+          sub={`${gpuCount} ${t("GPUs at")} ${fmt(utilisation)}${t("% utilisation.")}`}
         />
-        <Output label="Gross revenue" value={money(revenue)} emphasis />
+        <Output label={t("Gross revenue")} value={money(revenue)} emphasis />
         <Output
-          label="Energy as share of revenue"
+          label={t("Energy as share of revenue")}
           value={`${fmt(energyShareOfRevenue, 1)}%`}
-          sub={`${`$${energyPerGpuHour.toFixed(3)}`} of grid energy per GPU hour sold.`}
+          sub={`$${energyPerGpuHour.toFixed(3)} ${t("of grid energy per GPU hour sold.")}`}
         />
         <Output
-          label="Revenue after grid energy"
+          label={t("Revenue after grid energy")}
           value={money(afterEnergy)}
-          sub="Before hardware, staff, land, network, tax and every other cost. This is not a profit figure."
+          sub={t("Before hardware, staff, land, network, tax and every other cost. This is not a profit figure.")}
           emphasis
         />
       </div>
@@ -380,36 +390,26 @@ export function NodeModel() {
       {/* The honesty footer. Non-negotiable. */}
       <div className="border-t border-[var(--rule)] bg-canvas p-7 lg:p-9">
         <div className="flex flex-wrap items-center gap-3">
-          <StatusBadge status="projection" label="Your model, not ZEUS's" />
+          <StatusBadge status="projection" label={t("Your model, not ZEUS's")} />
         </div>
         <div className="mt-6 grid grid-cols-1 gap-x-10 gap-y-6 md:grid-cols-3">
           <p className="text-sm leading-relaxed text-slate">
             <strong className="font-medium text-ink">
-              This output is not a ZEUS projection.
+              {t("This output is not a ZEUS projection.")}
             </strong>{" "}
-            ZEUS has published no revenue, price, utilisation or return figure
-            for the SSMDC. Four of the eight inputs above have no ZEUS source at
-            all, so the result is a consequence of your assumptions, not a
-            forecast the company has made or endorsed.
+            {t("ZEUS has published no revenue, price, utilisation or return figure for the SSMDC. Four of the eight inputs above have no ZEUS source at all, so the result is a consequence of your assumptions, not a forecast the company has made or endorsed.")}
           </p>
           <p className="text-sm leading-relaxed text-slate">
             <strong className="font-medium text-ink">
-              Solar coverage is an optimistic bound.
+              {t("Solar coverage is an optimistic bound.")}
             </strong>{" "}
-            The solar figure compares annual generation with annual demand. It
-            assumes every kilowatt-hour generated is used on site. Real
-            self-consumption depends on the generation and load profiles across
-            a day, which ZEUS has not published, so true grid import will be
-            higher than shown.
+            {t("The solar figure compares annual generation with annual demand. It assumes every kilowatt-hour generated is used on site. Real self-consumption depends on the generation and load profiles across a day, which ZEUS has not published, so true grid import will be higher than shown.")}
           </p>
           <p className="text-sm leading-relaxed text-slate">
             <strong className="font-medium text-ink">
-              Only energy is netted off.
+              {t("Only energy is netted off.")}
             </strong>{" "}
-            Hardware amortisation, staff, land, connectivity, insurance, import
-            duty and tax are all excluded. Nothing on this page is investment
-            advice or a forecast of returns. Verify independently before relying
-            on any of it.
+            {t("Hardware amortisation, staff, land, connectivity, insurance, import duty and tax are all excluded. Nothing on this page is investment advice or a forecast of returns. Verify independently before relying on any of it.")}
           </p>
         </div>
       </div>

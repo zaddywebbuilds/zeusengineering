@@ -28,21 +28,15 @@ export function EnergyToCompute({ lang }: { lang: Locale }) {
 
         <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-12">
           <p className="reveal text-xl leading-relaxed text-ink lg:text-2xl">
-            Founded in {company.founded}, ZEUS Engineering is {company.descriptor}.
+            {`${t("Founded in")} ${company.founded}, ${t("ZEUS Engineering is")} ${t(company.descriptor)}.`}
           </p>
 
           <div className="reveal space-y-6 text-slate">
             <p className="leading-relaxed">
-              While much of the industry concentrates resources into ever-larger
-              hyperscale facilities, ZEUS has deliberately taken a different
-              approach: highly efficient, modular, decentralised infrastructure
-              built close to available energy.
+              {t("While much of the industry concentrates resources into ever-larger hyperscale facilities, ZEUS has deliberately taken a different approach: highly efficient, modular, decentralised infrastructure built close to available energy.")}
             </p>
             <p className="leading-relaxed">
-              Standardised modular designs can be deployed in months rather than
-              years. They contain the impact of an individual system failure.
-              And they let both small and large investors participate in digital
-              infrastructure without the barriers of large-scale development.
+              {t("Standardised modular designs can be deployed in months rather than years. They contain the impact of an individual system failure. And they let both small and large investors participate in digital infrastructure without the barriers of large-scale development.")}
             </p>
           </div>
         </div>
@@ -69,9 +63,7 @@ export function EnergyToCompute({ lang }: { lang: Locale }) {
           />
 
           <p className="max-w-[34ch] text-sm leading-relaxed text-slate">
-            Generation, storage and compute on one pad, the shape every SSMDC
-            node takes, sited next to the energy rather than the other way
-            round.
+            {t("Generation, storage and compute on one pad, the shape every SSMDC node takes, sited next to the energy rather than the other way round.")}
           </p>
         </div>
 
@@ -100,10 +92,10 @@ export function EnergyToCompute({ lang }: { lang: Locale }) {
                 0{i + 1}
               </span>
               <p className="display mt-4 text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
-                {item.word}
+                {t(item.word)}
               </p>
               <p className="mt-4 max-w-[26ch] text-sm leading-relaxed text-slate">
-                {item.note}
+                {t(item.note)}
               </p>
             </div>
           ))}

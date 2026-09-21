@@ -66,7 +66,7 @@ export default async function EconomicsPage({ params }: LangPageProps) {
         tone="linen"
         lede="ZEUS publishes a specification, not a return. Rather than present one flattering scenario, this puts the published ranges and the missing inputs side by side and lets you find the break point yourself. The four ZEUS sliders cannot leave the ranges the company actually stated. The other four have no ZEUS source and are yours to set."
       >
-        <NodeModel />
+        <NodeModel lang={lang} />
       </Section>
 
       <Section>
