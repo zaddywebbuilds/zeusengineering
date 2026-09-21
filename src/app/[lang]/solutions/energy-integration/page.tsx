@@ -37,7 +37,7 @@ export default async function EnergyIntegrationPage({ params }: LangPageProps) {
         index="05"
         label={t("Solutions")}
         title={"Compute starts\nwith power."}
-        lede="ZEUS's systems are designed to integrate with existing power infrastructure while leveraging renewable energy, particularly solar, to reduce operating costs and improve energy efficiency."
+        lede={t("ZEUS's systems are designed to integrate with existing power infrastructure while leveraging renewable energy, particularly solar, to reduce operating costs and improve energy efficiency.")}
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Solutions", href: "/solutions" },
@@ -51,65 +51,53 @@ export default async function EnergyIntegrationPage({ params }: LangPageProps) {
 
       <Section
         index="06"
-        label="The flow"
+        label={t("The flow")}
         title={"Grid and solar,\nmanaged as one."}
-        lede="Two supplies, combined and managed before anything reaches compute, and a control layer that feeds back into how power is allocated."
+        lede={t("Two supplies, combined and managed before anything reaches compute, and a control layer that feeds back into how power is allocated.")}
       >
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,28rem)_minmax(0,1fr)] lg:gap-12">
           <div className="border border-[var(--rule)] bg-linen p-6 lg:p-8">
-            <TechLabel className="mb-6">Energy flow</TechLabel>
+            <TechLabel className="mb-6">{t("Energy flow")}</TechLabel>
             <SystemDiagramStatic />
           </div>
 
           <div className="space-y-10">
             <div>
               <h3 className="display text-[1.75rem] leading-none">
-                Grid integration
+                {t("Grid integration")}
               </h3>
               <p className="mt-4 leading-relaxed text-slate">
-                Systems are designed to work with the power infrastructure that
-                already exists rather than replace it, and, in the SSMDC node
-                design, to lean on it as little as possible. On-site generation
-                and storage reduce both energy cost and grid dependency.
+                {t("Systems are designed to work with the power infrastructure that already exists rather than replace it, and, in the SSMDC node design, to lean on it as little as possible. On-site generation and storage reduce both energy cost and grid dependency.")}
               </p>
             </div>
 
             <div>
               <h3 className="display text-[1.75rem] leading-none">
-                Solar supplement
+                {t("Solar supplement")}
               </h3>
               <p className="mt-4 leading-relaxed text-slate">
-                ZEUS reports 20 kW of peak solar at the operating site. The
-                SSMDC node design targets 80–120 kWp with 300–500 kWh of usable
-                battery, enough to carry a 50–75 kW continuous IT load through
-                the night in a strong solar region.
+                {t("ZEUS reports 20 kW of peak solar at the operating site. The SSMDC node design targets 80–120 kWp with 300–500 kWh of usable battery, enough to carry a 50–75 kW continuous IT load through the night in a strong solar region.")}
               </p>
               <div className="mt-5">
-                <StatusBadge status="target" label="Node figures are design targets" />
+                <StatusBadge status="target" label={t("Node figures are design targets")} />
               </div>
             </div>
 
             <div>
               <h3 className="display text-[1.75rem] leading-none">
-                DC end to end
+                {t("DC end to end")}
               </h3>
               <p className="mt-4 leading-relaxed text-slate">
-                Solar generates DC. Batteries store DC. Compute consumes DC. The
-                SSMDC keeps it that way, removing the inverter and the AC-DC
-                stage inside every server, a stated 8–15% ongoing facility
-                saving, with a practical 10–12% central case.
+                {t("Solar generates DC. Batteries store DC. Compute consumes DC. The SSMDC keeps it that way, removing the inverter and the AC-DC stage inside every server, a stated 8–15% ongoing facility saving, with a practical 10–12% central case.")}
               </p>
             </div>
 
             <div>
               <h3 className="display text-[1.75rem] leading-none">
-                Grid load balancing
+                {t("Grid load balancing")}
               </h3>
               <p className="mt-4 leading-relaxed text-slate">
-                The SSMDC concept treats compute as a flexible load: drawing
-                excess power when the grid has it available, and idling when the
-                grid is under peak load. A data centre that can throttle itself
-                is a different proposition to one that cannot.
+                {t("The SSMDC concept treats compute as a flexible load: drawing excess power when the grid has it available, and idling when the grid is under peak load. A data centre that can throttle itself is a different proposition to one that cannot.")}
               </p>
             </div>
           </div>
@@ -118,10 +106,10 @@ export default async function EnergyIntegrationPage({ params }: LangPageProps) {
 
       <Section
         index="07"
-        label="Why it matters"
+        label={t("Why it matters")}
         title={"Power is\nthe margin."}
         tone="linen"
-        lede="In mining, energy cost is not an overhead line, it is the business. The same is increasingly true of AI compute."
+        lede={t("In mining, energy cost is not an overhead line, it is the business. The same is increasingly true of AI compute.")}
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-3">
           {[
@@ -139,21 +127,20 @@ export default async function EnergyIntegrationPage({ params }: LangPageProps) {
             },
           ].map((item) => (
             <div key={item.t} className="reveal bg-linen p-7">
-              <h3 className="display text-[1.375rem] leading-none">{item.t}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate">{item.b}</p>
+              <h3 className="display text-[1.375rem] leading-none">{t(item.t)}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-slate">{t(item.b)}</p>
             </div>
           ))}
         </div>
 
         <p className="reveal mt-8 max-w-[68ch] text-sm leading-relaxed text-slate-dim">
-          ZEUS publishes no renewable-energy percentage, linen reduction or
-          environmental-saving figure, and none is stated here.
+          {t("ZEUS publishes no renewable-energy percentage, linen reduction or environmental-saving figure, and none is stated here.")}
         </p>
 
         <div className="reveal mt-10 flex flex-wrap items-center gap-4">
-          <Button lang={lang} href="/technology/power">Power architecture</Button>
+          <Button lang={lang} href="/technology/power">{t("Power architecture")}</Button>
           <Button lang={lang} href="/investors/why-vietnam" variant="secondary">
-            Why Vietnam
+            {t("Why Vietnam")}
           </Button>
         </div>
       </Section>
