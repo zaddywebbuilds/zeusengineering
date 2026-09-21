@@ -146,13 +146,13 @@ export default async function AiInfrastructurePage({ params }: LangPageProps) {
             <div className="reveal mt-8 space-y-5">
               {ai1.description.map((para) => (
                 <p key={para.slice(0, 24)} className="leading-relaxed text-slate">
-                  {para}
+                  {t(para)}
                 </p>
               ))}
             </div>
 
             <p className="reveal mt-6 text-sm text-slate-dim">
-              {ai1.statusNote}
+              {t(ai1.statusNote)}
             </p>
           </div>
 
@@ -169,12 +169,12 @@ export default async function AiInfrastructurePage({ params }: LangPageProps) {
         <div className="mt-11 grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-3">
           {ai1.specs?.map((group) => (
             <div key={group.group} className="reveal bg-canvas p-7">
-              <h3 className="tech-label text-ink">{group.group}</h3>
+              <h3 className="tech-label text-ink">{t(group.group)}</h3>
               <ul className="mt-5 space-y-2.5">
                 {group.items.map((item) => (
                   <li key={item} className="flex gap-3 text-sm text-slate">
                     <span aria-hidden className="mt-2 h-px w-4 shrink-0 bg-sage/60" />
-                    {item}
+                    {t(item)}
                   </li>
                 ))}
               </ul>
@@ -186,10 +186,10 @@ export default async function AiInfrastructurePage({ params }: LangPageProps) {
           {ai1.features?.map((feature) => (
             <div key={feature.title} className="reveal bg-linen p-7">
               <h3 className="display text-[1.25rem] leading-none">
-                {feature.title}
+                {t(feature.title)}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate">
-                {feature.body}
+                {t(feature.body)}
               </p>
             </div>
           ))}
@@ -212,7 +212,7 @@ export default async function AiInfrastructurePage({ params }: LangPageProps) {
           <div className="reveal mt-6 space-y-4">
             {s3xyAi.description.map((para) => (
               <p key={para.slice(0, 24)} className="leading-relaxed text-slate">
-                {para}
+                {t(para)}
               </p>
             ))}
           </div>

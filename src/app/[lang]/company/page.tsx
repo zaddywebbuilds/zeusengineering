@@ -37,7 +37,7 @@ export default async function CompanyPage({ params }: LangPageProps) {
         lang={lang}
         label="Company"
         title={"We build where\nenergy meets\ncompute."}
-        lede={`Founded in ${company.founded}, ZEUS Engineering is ${company.descriptor}.`}
+        lede={`Founded in ${company.founded}, ZEUS Engineering is ${t(company.descriptor)}.`}
         crumbs={[{ label: "Home", href: "/" }]}
         media={{
           image: "/images/concept/zeus-plant-portrait.webp",
@@ -106,7 +106,7 @@ export default async function CompanyPage({ params }: LangPageProps) {
             problem, and move to the next challenge.
           </p>
           <p className="reveal mt-6 text-lg text-ochre">
-            {company.missionCoda}
+            {t(company.missionCoda)}
           </p>
         </div>
       </Section>
@@ -122,10 +122,10 @@ export default async function CompanyPage({ params }: LangPageProps) {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h2 className="display text-[1.375rem] leading-none">
-                {item.label}
+                {t(item.label)}
               </h2>
               <p className="max-w-[58ch] leading-relaxed text-slate">
-                {item.body}
+                {t(item.body)}
               </p>
             </li>
           ))}
@@ -148,7 +148,7 @@ export default async function CompanyPage({ params }: LangPageProps) {
           {whyZeus.map((item) => (
             <li key={item.slice(0, 24)} className="reveal flex gap-3 text-slate">
               <span aria-hidden className="mt-2.5 h-px w-4 shrink-0 bg-ochre/60" />
-              {item}
+              {t(item)}
             </li>
           ))}
         </ul>

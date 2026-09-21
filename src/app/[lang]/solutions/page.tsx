@@ -59,10 +59,10 @@ export default async function SolutionsPage({ params }: LangPageProps) {
                   {solution.label}
                 </h2>
                 <p className="tech-label mt-4 text-ochre/70">
-                  {solution.tagline}
+                  {t(solution.tagline)}
                 </p>
                 <p className="mt-5 max-w-[48ch] leading-relaxed text-slate">
-                  {solution.summary}
+                  {t(solution.summary)}
                 </p>
               </div>
 

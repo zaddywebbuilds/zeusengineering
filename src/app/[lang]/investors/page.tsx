@@ -105,7 +105,7 @@ export default async function InvestorsPage({ params }: LangPageProps) {
           ].map((item) => (
             <div key={item.s} className="reveal bg-canvas p-7">
               <StatusBadge status={item.s} />
-              <p className="mt-5 text-sm leading-relaxed text-slate">{item.b}</p>
+              <p className="mt-5 text-sm leading-relaxed text-slate">{t(item.b)}</p>
             </div>
           ))}
         </div>
@@ -127,10 +127,10 @@ export default async function InvestorsPage({ params }: LangPageProps) {
                 <span aria-hidden className="h-px w-10 bg-ochre/60" />
               </div>
               <h3 className="display mt-6 text-[1.5rem] leading-none">
-                {problem.title}
+                {t(problem.title)}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-slate">
-                {problem.body}
+                {t(problem.body)}
               </p>
             </div>
           ))}
@@ -178,10 +178,10 @@ export default async function InvestorsPage({ params }: LangPageProps) {
               {whyZeusNow.map((item) => (
                 <div key={item.title} className="reveal">
                   <h3 className="display text-[1.25rem] leading-none">
-                    {item.title}
+                    {t(item.title)}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-slate">
-                    {item.body}
+                    {t(item.body)}
                   </p>
                 </div>
               ))}
@@ -210,10 +210,10 @@ export default async function InvestorsPage({ params }: LangPageProps) {
                 )}
               />
               <h3 className="display mt-6 text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
-                {item.title}
+                {t(item.title)}
               </h3>
               <p className="mt-5 max-w-[44ch] leading-relaxed text-slate">
-                {item.body}
+                {t(item.body)}
               </p>
             </div>
           ))}
@@ -233,10 +233,10 @@ export default async function InvestorsPage({ params }: LangPageProps) {
               </span>
               <span className="flex-1">
                 <span className="display block text-[clamp(1.5rem,2.6vw,2.25rem)] leading-none transition-colors duration-200 group-hover:text-ochre">
-                  {chapter.label}
+                  {t(chapter.label)}
                 </span>
                 <span className="mt-2 block max-w-[54ch] text-sm text-slate">
-                  {chapter.body}
+                  {t(chapter.body)}
                 </span>
               </span>
               <span

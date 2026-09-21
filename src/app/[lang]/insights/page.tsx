@@ -64,15 +64,21 @@ export default async function InsightsPage({ params }: LangPageProps) {
       {topics.map((topic, i) => {
         const items = faq.filter((f) => f.topic === topic.id);
         if (items.length === 0) return null;
+        const translatedItems = items.map((item) => ({
+          ...item,
+          question: t(item.question),
+          answer: t(item.answer),
+          caveat: item.caveat ? t(item.caveat) : undefined,
+        }));
 
         return (
           <Section
             key={topic.id}
             index={String(i + 1).padStart(2, "0")}
-            label={topic.label}
+            label={t(topic.label)}
             tone={i % 2 === 1 ? "linen" : "canvas"}
           >
-            <FaqList items={items} />
+            <FaqList items={translatedItems} />
           </Section>
         );
       })}

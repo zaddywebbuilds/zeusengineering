@@ -84,11 +84,11 @@ export default async function TheAskPage({ params }: LangPageProps) {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h2 className="display text-[1.375rem] leading-none">
-                {row.item}
+                {t(row.item)}
               </h2>
               <p className="numeral text-2xl text-ochre">{row.amount}</p>
               <p className="max-w-[54ch] text-sm leading-relaxed text-slate">
-                {row.purpose}
+                {t(row.purpose)}
               </p>
             </div>
           ))}
@@ -128,8 +128,8 @@ export default async function TheAskPage({ params }: LangPageProps) {
             { t: "Runway", b: "18–24 months of team, R&D, duty and VAT buffer, insurance and contingency." },
           ].map((item) => (
             <div key={item.t} className="reveal bg-linen p-7">
-              <h3 className="display text-[1.375rem] leading-none">{item.t}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate">{item.b}</p>
+              <h3 className="display text-[1.375rem] leading-none">{t(item.t)}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-slate">{t(item.b)}</p>
             </div>
           ))}
         </div>

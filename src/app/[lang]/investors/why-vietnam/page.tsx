@@ -69,16 +69,16 @@ export default async function WhyVietnamPage({ params }: LangPageProps) {
               </div>
 
               <h2 className="display mt-6 text-[clamp(1.5rem,2.4vw,2rem)] leading-none">
-                {point.title}
+                {t(point.title)}
               </h2>
 
               <p className="mt-5 max-w-[46ch] leading-relaxed text-slate">
-                {point.body}
+                {t(point.body)}
               </p>
 
               {point.caveat && (
                 <p className="mt-6 border-l border-ochre/40 pl-4 text-sm leading-relaxed text-slate-dim">
-                  {point.caveat}
+                  {t(point.caveat)}
                 </p>
               )}
             </article>

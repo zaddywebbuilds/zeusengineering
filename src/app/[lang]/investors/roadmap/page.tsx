@@ -96,7 +96,7 @@ export default async function RoadmapPage({ params }: LangPageProps) {
                   weightStyles[item.w as keyof typeof weightStyles].marker,
                 )}
               />
-              <span className="tech-label">{item.t}</span>
+              <span className="tech-label">{t(item.t)}</span>
             </span>
           ))}
         </div>
@@ -137,9 +137,9 @@ export default async function RoadmapPage({ params }: LangPageProps) {
                       status={milestone.status}
                       label={
                         milestone.weight === "ambition"
-                          ? "Ambition"
+                          ? t("Ambition")
                           : milestone.weight === "funded-target"
-                            ? "Target"
+                            ? t("Target")
                             : undefined
                       }
                     />
@@ -166,10 +166,10 @@ export default async function RoadmapPage({ params }: LangPageProps) {
                   )}
 
                   <h2 className="display mt-4 text-[1.625rem] leading-none">
-                    {milestone.title}
+                    {t(milestone.title)}
                   </h2>
                   <p className="mt-4 max-w-[58ch] leading-relaxed text-slate">
-                    {milestone.body}
+                    {t(milestone.body)}
                   </p>
                   {milestone.points && (
                     <ul className="mt-5 space-y-2">
@@ -182,7 +182,7 @@ export default async function RoadmapPage({ params }: LangPageProps) {
                             aria-hidden
                             className="mt-2 h-px w-4 shrink-0 bg-[var(--rule-strong)]"
                           />
-                          {point}
+                          {t(point)}
                         </li>
                       ))}
                     </ul>
@@ -196,7 +196,7 @@ export default async function RoadmapPage({ params }: LangPageProps) {
         <div className="reveal mt-6 border-l-2 border-ochre/50 bg-linen p-7">
           <TechLabel className="mb-4">Status</TechLabel>
           <p className="max-w-[72ch] text-sm leading-relaxed text-slate">
-            {roadmapDisclosure}
+            {t(roadmapDisclosure)}
           </p>
         </div>
 

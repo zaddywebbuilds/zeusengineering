@@ -86,7 +86,7 @@ export default async function TechnologyPage({ params }: LangPageProps) {
                     />
                   </span>
                   <span className="mt-3 block max-w-[52ch] text-sm leading-relaxed text-slate">
-                    {pillar.summary}
+                    {t(pillar.summary)}
                   </span>
                 </span>
                 <span

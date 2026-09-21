@@ -44,7 +44,7 @@ export default async function Page({ params }: LangPageProps) {
         index="04"
         label="Technology"
         title={"Operated\nremotely."}
-        lede={pillar?.summary}
+        lede={pillar ? t(pillar.summary) : undefined}
         crumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -68,10 +68,10 @@ export default async function Page({ params }: LangPageProps) {
                 <span aria-hidden className="h-px w-10 bg-ochre/60" />
               </div>
               <h2 className="display mt-5 text-[1.75rem] leading-none">
-                {block.t}
+                {t(block.t)}
               </h2>
               <p className="mt-4 max-w-[52ch] leading-relaxed text-slate">
-                {block.b}
+                {t(block.b)}
               </p>
             </div>
           ))}

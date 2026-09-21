@@ -114,7 +114,7 @@ export default async function ModularDataCentersPage({ params }: LangPageProps) 
             <div className="reveal mt-8 space-y-5">
               {ssmdc.description.map((para) => (
                 <p key={para.slice(0, 24)} className="leading-relaxed text-slate">
-                  {para}
+                  {t(para)}
                 </p>
               ))}
             </div>
@@ -122,13 +122,13 @@ export default async function ModularDataCentersPage({ params }: LangPageProps) 
             <dl className="reveal mt-10 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
               {ssmdc.specs?.map((group) => (
                 <div key={group.group} className="py-6">
-                  <dt className="tech-label">{group.group}</dt>
+                  <dt className="tech-label">{t(group.group)}</dt>
                   <dd className="mt-3">
                     <ul className="space-y-2">
                       {group.items.map((item) => (
                         <li key={item} className="flex gap-3 text-sm text-slate">
                           <span aria-hidden className="mt-2 h-px w-4 shrink-0 bg-ochre/60" />
-                          {item}
+                          {t(item)}
                         </li>
                       ))}
                     </ul>
@@ -138,7 +138,7 @@ export default async function ModularDataCentersPage({ params }: LangPageProps) 
             </dl>
 
             <p className="reveal mt-6 text-sm text-slate-dim">
-              {ssmdc.statusNote}
+              {t(ssmdc.statusNote)}
             </p>
           </div>
 

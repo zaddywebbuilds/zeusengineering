@@ -85,7 +85,7 @@ export default async function HostedMiningPage({ params }: LangPageProps) {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span aria-hidden className="h-px w-8 bg-ochre/50" />
-                  <span className="text-lg text-ink">{item}</span>
+                  <span className="text-lg text-ink">{t(item)}</span>
                 </li>
               ))}
             </ul>
@@ -126,17 +126,17 @@ export default async function HostedMiningPage({ params }: LangPageProps) {
         title={"From enquiry\nto settlement."}
         tone="linen"
       >
-        <StepList steps={hostingProcess} />
+        <StepList steps={hostingProcess.map((s) => ({ ...s, title: t(s.title), body: t(s.body) }))} />
       </Section>
 
       <Section index="07" label="Common questions" title={"Before you\ncommit."}>
-        <FaqList items={faqItems} />
+        <FaqList items={faqItems.map((item) => ({ ...item, question: t(item.question), answer: t(item.answer), caveat: item.caveat ? t(item.caveat) : undefined }))} />
 
         {/* Risk disclosure, required wherever hosting economics are discussed */}
         <div className="reveal mt-10 border-l-2 border-ochre/50 bg-linen p-7 lg:p-8">
           <TechLabel className="mb-4">Risk disclosure</TechLabel>
           <p className="max-w-[72ch] text-sm leading-relaxed text-slate">
-            {hostingDisclosure}
+            {t(hostingDisclosure)}
           </p>
         </div>
 

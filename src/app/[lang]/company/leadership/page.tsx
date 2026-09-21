@@ -89,10 +89,10 @@ export default async function LeadershipPage({ params }: LangPageProps) {
               <h2 className="display mt-7 text-[clamp(1.75rem,3vw,2.25rem)] leading-none">
                 {person.name}
               </h2>
-              <p className="tech-label mt-3 text-ochre/80">{person.role}</p>
+              <p className="tech-label mt-3 text-ochre/80">{t(person.role)}</p>
 
               <p className="mt-6 max-w-[44ch] leading-relaxed text-slate">
-                {person.bio}
+                {t(person.bio)}
               </p>
 
               {person.linkedin && (
