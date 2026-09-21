@@ -51,18 +51,18 @@ export default async function SourcesPage({ params }: LangPageProps) {
     <>
       <PageHeader
         lang={lang}
-        label="Claim audit"
+        label={t("Claim audit")}
         title={"Every number,\nand where\nit came from."}
-        lede={`This site publishes ${totalClaims} figures about ZEUS Engineering. Each one is listed below with its status and the ZEUS source it was taken from. Nothing appears on this site that cannot appear on this page.`}
+        lede={`${t("This site publishes")} ${totalClaims} ${t("figures about ZEUS Engineering. Each one is listed below with its status and the ZEUS source it was taken from. Nothing appears on this site that cannot appear on this page.")}`}
         crumbs={[{ label: "Home", href: "/" }]}
       />
 
       {/* Why this page exists. The argument, before the evidence. */}
       <Section
         index="01"
-        label="Why this page exists"
+        label={t("Why this page exists")}
         title={"The question\nthis answers."}
-        lede="Infrastructure companies are judged on figures that are almost impossible for an outsider to check. The usual response is to publish them confidently and hope nobody asks. This is the other option."
+        lede={t("Infrastructure companies are judged on figures that are almost impossible for an outsider to check. The usual response is to publish them confidently and hope nobody asks. This is the other option.")}
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-3">
           {[
@@ -80,8 +80,8 @@ export default async function SourcesPage({ params }: LangPageProps) {
             },
           ].map((item) => (
             <div key={item.t} className="reveal bg-canvas p-8">
-              <h3 className="display text-[1.5rem] leading-none">{item.t}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate">{item.b}</p>
+              <h3 className="display text-[1.5rem] leading-none">{t(item.t)}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-slate">{t(item.b)}</p>
             </div>
           ))}
         </div>
@@ -90,17 +90,17 @@ export default async function SourcesPage({ params }: LangPageProps) {
       {/* The status key */}
       <Section
         index="02"
-        label="How to read a status"
+        label={t("How to read a status")}
         title={"Five kinds\nof statement."}
         tone="linen"
-        lede="Every figure on this site carries one of these. The label is always a word, never a colour alone, so the distinction survives greyscale, colour blindness and a screen reader."
+        lede={t("Every figure on this site carries one of these. The label is always a word, never a colour alone, so the distinction survives greyscale, colour blindness and a screen reader.")}
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-3">
           {statusOrder.map((s) => (
             <div key={s} className="reveal bg-linen p-7">
               <StatusBadge status={s} />
               <p className="mt-5 text-sm leading-relaxed text-slate">
-                {STATUS_DISCLOSURE[s]}
+                {t(STATUS_DISCLOSURE[s])}
               </p>
             </div>
           ))}
@@ -110,9 +110,9 @@ export default async function SourcesPage({ params }: LangPageProps) {
       {/* The source documents */}
       <Section
         index="03"
-        label="Sources"
+        label={t("Sources")}
         title={"The documents."}
-        lede="Four ZEUS sources sit behind everything on this site."
+        lede={t("Four ZEUS sources sit behind everything on this site.")}
       >
         <div className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
           {sourceDocuments.map((doc) => (
@@ -122,37 +122,32 @@ export default async function SourcesPage({ params }: LangPageProps) {
             >
               <span className="numeral text-2xl text-ochre">{doc.ref}</span>
               <div>
-                <h3 className="leading-snug text-ink">{doc.title}</h3>
+                <h3 className="leading-snug text-ink">{t(doc.title)}</h3>
                 <p className="tech-label mt-2">{doc.date}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {doc.confidential && (
                     <span className="inline-flex border border-ochre/45 px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-ochre">
-                      Confidential, never published here
+                      {t("Confidential, never published here")}
                     </span>
                   )}
                   {doc.supersededBy && (
                     <span className="inline-flex border border-slate/30 px-2.5 py-1 text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-slate">
-                      Superseded by {doc.supersededBy}
+                      {t("Superseded by")} {doc.supersededBy}
                     </span>
                   )}
                 </div>
               </div>
               <p className="text-sm leading-relaxed text-slate">
-                {doc.provenance}
+                {t(doc.provenance)}
               </p>
             </div>
           ))}
         </div>
 
         <div className="reveal mt-10 max-w-[72ch] border-l-2 border-ochre/50 bg-linen p-7">
-          <TechLabel className="mb-4">On the confidential document</TechLabel>
+          <TechLabel className="mb-4">{t("On the confidential document")}</TechLabel>
           <p className="text-sm leading-relaxed text-slate">
-            One of these sources is marked confidential by ZEUS. Its facts
-            inform the copy on this site, because they are ZEUS&rsquo;s own
-            current position and the alternative is to publish superseded
-            figures. The file itself is never linked, embedded, mirrored or
-            offered for download anywhere here, and no page of it is
-            reproduced.
+            {t("One of these sources is marked confidential by ZEUS. Its facts inform the copy on this site, because they are ZEUS’s own current position and the alternative is to publish superseded figures. The file itself is never linked, embedded, mirrored or offered for download anywhere here, and no page of it is reproduced.")}
           </p>
         </div>
       </Section>
@@ -162,10 +157,10 @@ export default async function SourcesPage({ params }: LangPageProps) {
         <Section
           key={group.id}
           index={String(i + 4).padStart(2, "0")}
-          label="Claim ledger"
-          title={group.title}
+          label={t("Claim ledger")}
+          title={t(group.title)}
           tone={i % 2 === 0 ? "linen" : "canvas"}
-          lede={group.intro}
+          lede={t(group.intro)}
         >
           <div className="divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
             {group.claims.map((claim) => (
@@ -181,12 +176,12 @@ export default async function SourcesPage({ params }: LangPageProps) {
                     <StatusBadge status={claim.status} />
                   </div>
                 </div>
-                <p className="text-sm leading-relaxed text-ink">{claim.what}</p>
+                <p className="text-sm leading-relaxed text-ink">{t(claim.what)}</p>
                 <p className="text-sm leading-relaxed text-slate">
                   <span className="tech-label mr-2 text-ochre">
                     [{claim.ref}]
                   </span>
-                  {claim.citation}
+                  {t(claim.citation)}
                 </p>
               </div>
             ))}
@@ -201,39 +196,39 @@ export default async function SourcesPage({ params }: LangPageProps) {
             index={String(claimGroups.length + 4).padStart(2, "0")}
             className="reveal mb-6"
           >
-            Open questions
+            {t("Open questions")}
           </TechLabel>
           <MaskedHeading
-            text={"Where the sources\ndisagree."}
+            text={t("Where the sources\ndisagree.")}
             as="h2"
             className="h-sub max-w-[18ch]"
           />
           <p className="reveal mt-7 max-w-[56ch] text-lg leading-relaxed text-slate">
-            These are not resolved on this site. They are put to ZEUS.
+            {t("These are not resolved on this site. They are put to ZEUS.")}
           </p>
 
           <div className="mt-11 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
             {openQuestions.map((q) => (
               <div key={q.id} className="reveal py-9">
                 <h3 className="display text-[clamp(1.75rem,3vw,2.5rem)] leading-none">
-                  {q.title}
+                  {t(q.title)}
                 </h3>
                 <div className="mt-7 grid grid-cols-1 gap-8 lg:grid-cols-3">
                   <div>
-                    <TechLabel className="mb-3">The discrepancy</TechLabel>
-                    <p className="text-sm leading-relaxed text-slate">{q.body}</p>
+                    <TechLabel className="mb-3">{t("The discrepancy")}</TechLabel>
+                    <p className="text-sm leading-relaxed text-slate">{t(q.body)}</p>
                   </div>
                   <div>
                     <TechLabel className="mb-3">
-                      How this site handles it
+                      {t("How this site handles it")}
                     </TechLabel>
                     <p className="text-sm leading-relaxed text-slate">
-                      {q.handling}
+                      {t(q.handling)}
                     </p>
                   </div>
                   <div>
-                    <TechLabel className="mb-3">The question for ZEUS</TechLabel>
-                    <p className="text-sm leading-relaxed text-slate">{q.ask}</p>
+                    <TechLabel className="mb-3">{t("The question for ZEUS")}</TechLabel>
+                    <p className="text-sm leading-relaxed text-slate">{t(q.ask)}</p>
                   </div>
                 </div>
               </div>
@@ -245,9 +240,9 @@ export default async function SourcesPage({ params }: LangPageProps) {
       {/* Deliberate omissions */}
       <Section
         index={String(claimGroups.length + 5).padStart(2, "0")}
-        label="Deliberately not published"
+        label={t("Deliberately not published")}
         title={"What was left out."}
-        lede="Anyone can list the figures they used. The test of a claim audit is whether it names the ones that were available, flattering, and left out anyway. These are ZEUS's own claims that do not appear anywhere on this site."
+        lede={t("Anyone can list the figures they used. The test of a claim audit is whether it names the ones that were available, flattering, and left out anyway. These are ZEUS's own claims that do not appear anywhere on this site.")}
       >
         <div className="grid grid-cols-1 gap-px bg-[var(--rule)] md:grid-cols-2">
           {notPublished.map((item, i) => (
@@ -259,10 +254,10 @@ export default async function SourcesPage({ params }: LangPageProps) {
                 <span aria-hidden className="h-px w-10 bg-ochre/60" />
               </div>
               <h3 className="display mt-6 text-[1.5rem] leading-none">
-                {item.title}
+                {t(item.title)}
               </h3>
               <p className="mt-4 text-sm leading-relaxed text-slate">
-                {item.body}
+                {t(item.body)}
               </p>
             </div>
           ))}
@@ -271,15 +266,12 @@ export default async function SourcesPage({ params }: LangPageProps) {
 
       <Section tone="linen">
         <div className="reveal max-w-[72ch]">
-          <TechLabel className="mb-5">If a figure looks wrong</TechLabel>
+          <TechLabel className="mb-5">{t("If a figure looks wrong")}</TechLabel>
           <p className="leading-relaxed text-slate">
-            This page is maintained by hand against ZEUS&rsquo;s own documents,
-            and ZEUS is the authority on its own operations. If a figure here
-            misstates something, or a source has been superseded, say so and it
-            will be corrected or removed.
+            {t("This page is maintained by hand against ZEUS’s own documents, and ZEUS is the authority on its own operations. If a figure here misstates something, or a source has been superseded, say so and it will be corrected or removed.")}
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Button lang={lang} href="/contact?intent=invest">Investor enquiry</Button>
+            <Button lang={lang} href="/contact?intent=invest">{t("Investor enquiry")}</Button>
             <Button lang={lang} href="/investors" variant="secondary">{t("Investor relations")}</Button>
           </div>
         </div>

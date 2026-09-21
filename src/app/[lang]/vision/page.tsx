@@ -139,6 +139,14 @@ export default async function VisionPage({ params }: LangPageProps) {
   const lang = toLocale(rawLang);
   const t = translator(lang);
 
+  const tChapters = chapters.map((c) => ({
+    ...c,
+    kicker: t(c.kicker),
+    title: t(c.title),
+    body: c.body.map((p) => t(p)),
+    statusLabel: c.statusLabel ? t(c.statusLabel) : undefined,
+  }));
+
   return (
     <>
       {/* Opening */}
@@ -148,21 +156,20 @@ export default async function VisionPage({ params }: LangPageProps) {
           className="absolute left-0 top-[72px] h-px w-full bg-[linear-gradient(to_right,var(--color-ochre),transparent_38%)] opacity-40"
         />
         <div className="shell pb-12 lg:pb-16">
-          <TechLabel className="reveal mb-7">Vision</TechLabel>
+          <TechLabel className="reveal mb-7">{t("Vision")}</TechLabel>
           <MaskedHeading
             text={"The data centre\ndoesn't have to be\na building."}
             as="h1"
             className="h-section max-w-[16ch]"
           />
           <p className="reveal mt-8 max-w-[56ch] text-lg leading-relaxed text-slate">
-            Where ZEUS is going, in seven steps. One of them has already
-            happened. The rest are labelled so you can tell the difference.
+            {t("Where ZEUS is going, in seven steps. One of them has already happened. The rest are labelled so you can tell the difference.")}
           </p>
         </div>
       </section>
 
       {/* Chapters */}
-      {chapters.map((chapter, i) => (
+      {tChapters.map((chapter, i) => (
         <section
           key={chapter.index}
           className={cx(
@@ -261,22 +268,20 @@ export default async function VisionPage({ params }: LangPageProps) {
             className="h-section max-w-[14ch]"
           />
           <p className="reveal mt-8 max-w-[54ch] text-lg leading-relaxed text-slate">
-            One site running today, a node design costed to the line, and a
-            raise sized to build the first two of them.
+            {t("One site running today, a node design costed to the line, and a raise sized to build the first two of them.")}
           </p>
 
           <div className="reveal mt-10 flex flex-wrap items-center gap-4">
-            <Button lang={lang} href="/solutions/modular-data-centers">Explore SSMDC</Button>
+            <Button lang={lang} href="/solutions/modular-data-centers">{t("Explore SSMDC")}</Button>
             <Button lang={lang} href="/investors" variant="secondary">{t("Investor relations")}</Button>
           </div>
 
           <p className="reveal mt-12 max-w-[64ch] text-sm leading-relaxed text-slate-dim">
-            Chapters 03, 04, 05 and 07 describe intended development, not
-            existing capability. See the{" "}
+            {t("Chapters 03, 04, 05 and 07 describe intended development, not existing capability. See the")}{" "}
             <LocaleLink lang={lang} href="/investors/roadmap" className="underline underline-offset-4 hover:text-canvas">
-              roadmap
+              {t("roadmap")}
             </LocaleLink>{" "}
-            for what is operating and what is planned.
+            {t("for what is operating and what is planned.")}
           </p>
         </div>
       </section>
